@@ -2,15 +2,19 @@ import UIKit
 
 import Foundation
 
+//variable yang di initialisasi
+
 var name : String = "Faiz Athaya Ramadhan"
 var universitas : String = "Gunadarma"
+
+//variable yang punya data default lalu di isi datanya
 
 var umur : Int = Int()
 umur = 24
 
 print("Hello Nama saya", name.uppercased() ,"dari Universitas", universitas , "umur" , umur)
 
-//Tupel mengelompokkan beberapa nilai menjadi satu nilai gabungan.
+//TUPEL mengelompokkan beberapa nilai menjadi satu nilai gabungan.
 let dataMutia = ("muthia dini atikah", 18, 3.57)
 let (namaM, umurM, ipkM) = dataMutia
 
@@ -21,6 +25,8 @@ let thisIsString = "123"
 let convertToInt = Int(thisIsString)
 
 print(convertToInt)
+
+
 
 var serverResponseCode: Int? = 404
 serverResponseCode = nil
@@ -39,12 +45,10 @@ func cekInt() {
 cekInt()
 
 //array data
-
 var dataList : [String?] = ["bayu","gunawan","malik",nil]
 print(dataList[0])
 
 //switch case
-
 enum Days: String, CaseIterable  {
    case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 
@@ -88,6 +92,7 @@ if let actualNumber = Int(thisIsString) {
     print("ini string \"\(thisIsString)\" bukan data interger")
 }
 
+//STRUCT
 struct Point {
     var x: Int
     var y: Int
@@ -98,3 +103,9 @@ originalPoint.x = 10
 print(originalPoint)
 var updatePoint = originalPoint
 print(updatePoint.x)
+
+
+
+if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secondNumber && secondNumber < 100 {
+    print("\(firstNumber) < \(secondNumber) < 100")
+}
