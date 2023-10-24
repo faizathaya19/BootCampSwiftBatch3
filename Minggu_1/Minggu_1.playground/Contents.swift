@@ -26,8 +26,6 @@ let convertToInt = Int(thisIsString)
 
 print(convertToInt)
 
-
-
 var serverResponseCode: Int? = 404
 serverResponseCode = nil
 print(serverResponseCode)
