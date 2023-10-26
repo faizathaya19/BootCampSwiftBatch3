@@ -16,6 +16,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var archiveicon: UIImageView!
     @IBOutlet weak var othericon: UIImageView!
     
+    @IBAction func FullScreenScrollButoon(_ sender: Any) {
+        let vc = ScrollFullScreenViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func XIBButton(_ sender: Any) {
+        let vc = ScreenXIBViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func StoryboardButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let destinationViewController = storyboard.instantiateViewController(withIdentifier: "StoryboardScreen")
+                self.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +40,7 @@ class ViewController: UIViewController {
 
         let walletImage = UIImage(named: "waleth")
         walleticon.image = walletImage
-        
+
         let archiveImage = UIImage(named: "waleth")
         archiveicon.image = archiveImage
 

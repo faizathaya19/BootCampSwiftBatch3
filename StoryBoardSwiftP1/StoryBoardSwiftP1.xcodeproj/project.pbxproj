@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36117E4C2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E4A2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift */; };
+		36117E4D2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36117E4B2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib */; };
 		361D5DA92AEA28230036F728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DA82AEA28230036F728 /* AppDelegate.swift */; };
 		361D5DAB2AEA28230036F728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DAA2AEA28230036F728 /* SceneDelegate.swift */; };
 		361D5DAD2AEA28230036F728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DAC2AEA28230036F728 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36117E4A2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollFullScreenViewController.swift; sourceTree = "<group>"; };
+		36117E4B2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollFullScreenViewController.xib; sourceTree = "<group>"; };
 		361D5DA52AEA28230036F728 /* StoryBoardSwiftP1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardSwiftP1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		361D5DA82AEA28230036F728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		361D5DAA2AEA28230036F728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36117E452AEA7C110092FCE6 /* ScreenTryListViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ScreenTryListViewController;
+			sourceTree = "<group>";
+		};
+		36117E472AEA7E030092FCE6 /* FullScreenScrollVIewController */ = {
+			isa = PBXGroup;
+			children = (
+				36117E4A2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift */,
+				36117E4B2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib */,
+			);
+			path = FullScreenScrollVIewController;
+			sourceTree = "<group>";
+		};
+		36117E482AEA7E360092FCE6 /* HalfScreenScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HalfScreenScrollViewController;
+			sourceTree = "<group>";
+		};
+		36117E492AEA7E4B0092FCE6 /* TryListViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TryListViewController;
+			sourceTree = "<group>";
+		};
 		361D5D9C2AEA28230036F728 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +195,10 @@
 		361D5DDB2AEA452F0036F728 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36117E492AEA7E4B0092FCE6 /* TryListViewController */,
+				36117E482AEA7E360092FCE6 /* HalfScreenScrollViewController */,
+				36117E472AEA7E030092FCE6 /* FullScreenScrollVIewController */,
+				36117E452AEA7C110092FCE6 /* ScreenTryListViewController */,
 				361D5DF42AEA5E0F0036F728 /* ScreenXIBViewController */,
 				361D5DDF2AEA45CF0036F728 /* MainViewController */,
 			);
@@ -310,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				361D5DB52AEA28240036F728 /* LaunchScreen.storyboard in Resources */,
+				36117E4D2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib in Resources */,
 				361D5DB22AEA28240036F728 /* Assets.xcassets in Resources */,
 				361D5DF82AEA5E200036F728 /* ScreenXIBViewController.xib in Resources */,
 				361D5DB02AEA28230036F728 /* Main.storyboard in Resources */,
@@ -337,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36117E4C2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift in Sources */,
 				361D5DAD2AEA28230036F728 /* ViewController.swift in Sources */,
 				361D5DA92AEA28230036F728 /* AppDelegate.swift in Sources */,
 				361D5DF72AEA5E200036F728 /* ScreenXIBViewController.swift in Sources */,

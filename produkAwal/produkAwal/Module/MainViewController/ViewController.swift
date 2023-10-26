@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func xibbut(_ sender: Any) {
-        
         let vc = ThViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
