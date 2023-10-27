@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iM-0F-scg">
-                                <rect key="frame" x="132" y="60" width="42" height="21"/>
+                                <rect key="frame" x="132" y="60" width="153" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                             <constraint firstItem="7oB-qp-A49" firstAttribute="leading" secondItem="8iM-0F-scg" secondAttribute="leading" id="Ie9-Au-xI9"/>
                             <constraint firstItem="qXW-UL-RgE" firstAttribute="top" secondItem="CuM-Qu-1gb" secondAttribute="top" id="cW7-fI-BTV"/>
                             <constraint firstItem="8iM-0F-scg" firstAttribute="top" secondItem="7oB-qp-A49" secondAttribute="bottom" constant="21" id="d9X-yB-wjp"/>
+                            <constraint firstAttribute="trailing" secondItem="8iM-0F-scg" secondAttribute="trailing" constant="16" id="hLg-5s-Toh"/>
                             <constraint firstItem="7oB-qp-A49" firstAttribute="leading" secondItem="qXW-UL-RgE" secondAttribute="trailing" constant="22" id="lBI-rI-Met"/>
                             <constraint firstItem="7oB-qp-A49" firstAttribute="top" secondItem="CuM-Qu-1gb" secondAttribute="top" constant="18" id="pH5-o5-ZM6"/>
                             <constraint firstAttribute="bottom" secondItem="qXW-UL-RgE" secondAttribute="bottom" id="r45-WK-mG0"/>
@@ -62,6 +63,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="subtitleLabel" destination="8iM-0F-scg" id="Eh2-mi-QbN"/>
                 <outlet property="titleLabel" destination="7oB-qp-A49" id="Shd-bI-LaS"/>
             </connections>
             <point key="canvasLocation" x="37.404580152671755" y="46.478873239436624"/>

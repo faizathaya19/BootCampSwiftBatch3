@@ -1,19 +1,14 @@
 //
-//  ScrollFullScreenViewController.swift
+//  ListWithStructModelViewController.swift
 //  StoryBoardSwiftP1
 //
-//  Created by Phincon on 26/10/23.
+//  Created by Phincon on 27/10/23.
 //
 
 import UIKit
 
-class ScrollFullScreenViewController: UIViewController {
-    
-    @IBAction func HalfScrollButton(_ sender: Any) {
-        let vc = HalfScreenScrollViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
+class ListWithStructModelViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -28,6 +28,9 @@
                                     <rect key="frame" x="170" y="30" width="185" height="35"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="CekforHalfScrollView"/>
+                                    <connections>
+                                        <action selector="HalfScrollButton:" destination="-1" eventType="touchUpInside" id="jrO-Sx-kNC"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0y9-rg-Vtn">
                                     <rect key="frame" x="19" y="92" width="354" height="166"/>
@@ -62,7 +65,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" systemColor="systemRedColor"/>
                             <constraints>
                                 <constraint firstItem="RPq-bc-bca" firstAttribute="leading" secondItem="IRb-nM-jzs" secondAttribute="leading" constant="170" id="CNF-To-jFW"/>
                                 <constraint firstAttribute="bottom" secondItem="RPq-bc-bca" secondAttribute="bottom" constant="1435" id="Ilq-Ol-qLv"/>
@@ -81,7 +84,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemCyanColor"/>
             <constraints>
                 <constraint firstItem="fsq-u9-wpp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6Np-pt-zf0"/>
                 <constraint firstItem="IRb-nM-jzs" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="MrI-aE-coY"/>
@@ -95,8 +98,11 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

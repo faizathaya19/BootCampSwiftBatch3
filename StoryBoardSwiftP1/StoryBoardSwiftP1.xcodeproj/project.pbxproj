@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		36117E4C2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E4A2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift */; };
 		36117E4D2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36117E4B2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib */; };
+		36117E522AEB486E0092FCE6 /* HalfScreenScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E502AEB486E0092FCE6 /* HalfScreenScrollViewController.swift */; };
+		36117E532AEB486E0092FCE6 /* HalfScreenScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36117E512AEB486E0092FCE6 /* HalfScreenScrollViewController.xib */; };
+		36117E562AEB4E860092FCE6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E552AEB4E860092FCE6 /* Model.swift */; };
+		36117E592AEB4F040092FCE6 /* ListWithStructModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E572AEB4F040092FCE6 /* ListWithStructModelViewController.swift */; };
+		36117E5A2AEB4F040092FCE6 /* ListWithStructModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36117E582AEB4F040092FCE6 /* ListWithStructModelViewController.xib */; };
+		36117E6B2AEB513E0092FCE6 /* ContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E692AEB513E0092FCE6 /* ContentViewCell.swift */; };
+		36117E6C2AEB513E0092FCE6 /* ContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36117E6A2AEB513E0092FCE6 /* ContentViewCell.xib */; };
+		36117E752AEB971E0092FCE6 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36117E732AEB971E0092FCE6 /* CollectionViewController.swift */; };
+		36117E762AEB971E0092FCE6 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36117E742AEB971E0092FCE6 /* CollectionViewController.xib */; };
 		361D5DA92AEA28230036F728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DA82AEA28230036F728 /* AppDelegate.swift */; };
 		361D5DAB2AEA28230036F728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DAA2AEA28230036F728 /* SceneDelegate.swift */; };
 		361D5DAD2AEA28230036F728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DAC2AEA28230036F728 /* ViewController.swift */; };
@@ -20,6 +29,8 @@
 		361D5DCC2AEA28240036F728 /* StoryBoardSwiftP1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DCB2AEA28240036F728 /* StoryBoardSwiftP1UITestsLaunchTests.swift */; };
 		361D5DF72AEA5E200036F728 /* ScreenXIBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DF52AEA5E200036F728 /* ScreenXIBViewController.swift */; };
 		361D5DF82AEA5E200036F728 /* ScreenXIBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */; };
+		36CF7F922AEB9BBF000BD9CD /* DayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */; };
+		36CF7F932AEB9BBF000BD9CD /* DayCollectionViewLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +53,15 @@
 /* Begin PBXFileReference section */
 		36117E4A2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollFullScreenViewController.swift; sourceTree = "<group>"; };
 		36117E4B2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollFullScreenViewController.xib; sourceTree = "<group>"; };
+		36117E502AEB486E0092FCE6 /* HalfScreenScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScreenScrollViewController.swift; sourceTree = "<group>"; };
+		36117E512AEB486E0092FCE6 /* HalfScreenScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HalfScreenScrollViewController.xib; sourceTree = "<group>"; };
+		36117E552AEB4E860092FCE6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		36117E572AEB4F040092FCE6 /* ListWithStructModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWithStructModelViewController.swift; sourceTree = "<group>"; };
+		36117E582AEB4F040092FCE6 /* ListWithStructModelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListWithStructModelViewController.xib; sourceTree = "<group>"; };
+		36117E692AEB513E0092FCE6 /* ContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCell.swift; sourceTree = "<group>"; };
+		36117E6A2AEB513E0092FCE6 /* ContentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentViewCell.xib; sourceTree = "<group>"; };
+		36117E732AEB971E0092FCE6 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		36117E742AEB971E0092FCE6 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		361D5DA52AEA28230036F728 /* StoryBoardSwiftP1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardSwiftP1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		361D5DA82AEA28230036F728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		361D5DAA2AEA28230036F728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +77,8 @@
 		361D5DCB2AEA28240036F728 /* StoryBoardSwiftP1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSwiftP1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		361D5DF52AEA5E200036F728 /* ScreenXIBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenXIBViewController.swift; sourceTree = "<group>"; };
 		361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenXIBViewController.xib; sourceTree = "<group>"; };
+		36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewLayout.swift; sourceTree = "<group>"; };
+		36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewLayout.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +125,8 @@
 		36117E482AEA7E360092FCE6 /* HalfScreenScrollViewController */ = {
 			isa = PBXGroup;
 			children = (
+				36117E502AEB486E0092FCE6 /* HalfScreenScrollViewController.swift */,
+				36117E512AEB486E0092FCE6 /* HalfScreenScrollViewController.xib */,
 			);
 			path = HalfScreenScrollViewController;
 			sourceTree = "<group>";
@@ -112,6 +136,35 @@
 			children = (
 			);
 			path = TryListViewController;
+			sourceTree = "<group>";
+		};
+		36117E542AEB4E540092FCE6 /* ListDataWithStruct */ = {
+			isa = PBXGroup;
+			children = (
+				36117E5B2AEB4FFE0092FCE6 /* ViewContentList */,
+				36117E572AEB4F040092FCE6 /* ListWithStructModelViewController.swift */,
+				36117E582AEB4F040092FCE6 /* ListWithStructModelViewController.xib */,
+			);
+			path = ListDataWithStruct;
+			sourceTree = "<group>";
+		};
+		36117E5B2AEB4FFE0092FCE6 /* ViewContentList */ = {
+			isa = PBXGroup;
+			children = (
+				36117E692AEB513E0092FCE6 /* ContentViewCell.swift */,
+				36117E6A2AEB513E0092FCE6 /* ContentViewCell.xib */,
+			);
+			path = ViewContentList;
+			sourceTree = "<group>";
+		};
+		36117E722AEB96970092FCE6 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7F8F2AEB9B89000BD9CD /* DayCollectionViewLayout */,
+				36117E732AEB971E0092FCE6 /* CollectionViewController.swift */,
+				36117E742AEB971E0092FCE6 /* CollectionViewController.xib */,
+			);
+			path = UICollectionView;
 			sourceTree = "<group>";
 		};
 		361D5D9C2AEA28230036F728 = {
@@ -143,6 +196,7 @@
 				361D5DDB2AEA452F0036F728 /* Module */,
 				361D5DAE2AEA28230036F728 /* Main.storyboard */,
 				361D5DB62AEA28240036F728 /* Info.plist */,
+				36117E552AEB4E860092FCE6 /* Model.swift */,
 			);
 			path = StoryBoardSwiftP1;
 			sourceTree = "<group>";
@@ -195,6 +249,8 @@
 		361D5DDB2AEA452F0036F728 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36117E722AEB96970092FCE6 /* UICollectionView */,
+				36117E542AEB4E540092FCE6 /* ListDataWithStruct */,
 				36117E492AEA7E4B0092FCE6 /* TryListViewController */,
 				36117E482AEA7E360092FCE6 /* HalfScreenScrollViewController */,
 				36117E472AEA7E030092FCE6 /* FullScreenScrollVIewController */,
@@ -241,6 +297,15 @@
 				361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */,
 			);
 			path = ScreenXIBViewController;
+			sourceTree = "<group>";
+		};
+		36CF7F8F2AEB9B89000BD9CD /* DayCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */,
+				36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */,
+			);
+			path = DayCollectionViewLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,8 +414,13 @@
 			files = (
 				361D5DB52AEA28240036F728 /* LaunchScreen.storyboard in Resources */,
 				36117E4D2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib in Resources */,
+				36CF7F932AEB9BBF000BD9CD /* DayCollectionViewLayout.xib in Resources */,
+				36117E6C2AEB513E0092FCE6 /* ContentViewCell.xib in Resources */,
 				361D5DB22AEA28240036F728 /* Assets.xcassets in Resources */,
 				361D5DF82AEA5E200036F728 /* ScreenXIBViewController.xib in Resources */,
+				36117E5A2AEB4F040092FCE6 /* ListWithStructModelViewController.xib in Resources */,
+				36117E762AEB971E0092FCE6 /* CollectionViewController.xib in Resources */,
+				36117E532AEB486E0092FCE6 /* HalfScreenScrollViewController.xib in Resources */,
 				361D5DB02AEA28230036F728 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,11 +446,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36117E562AEB4E860092FCE6 /* Model.swift in Sources */,
+				36117E522AEB486E0092FCE6 /* HalfScreenScrollViewController.swift in Sources */,
+				36CF7F922AEB9BBF000BD9CD /* DayCollectionViewLayout.swift in Sources */,
+				36117E6B2AEB513E0092FCE6 /* ContentViewCell.swift in Sources */,
 				36117E4C2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift in Sources */,
+				36117E752AEB971E0092FCE6 /* CollectionViewController.swift in Sources */,
 				361D5DAD2AEA28230036F728 /* ViewController.swift in Sources */,
 				361D5DA92AEA28230036F728 /* AppDelegate.swift in Sources */,
 				361D5DF72AEA5E200036F728 /* ScreenXIBViewController.swift in Sources */,
 				361D5DAB2AEA28230036F728 /* SceneDelegate.swift in Sources */,
+				36117E592AEB4F040092FCE6 /* ListWithStructModelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var archiveicon: UIImageView!
     @IBOutlet weak var othericon: UIImageView!
     
+    @IBOutlet weak var Username: UILabel!
+    var username = String()
+    
+    
+    @IBAction func CollectionButton(_ sender: Any) {
+        
+        let vc = CollectionViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func FullScreenScrollButoon(_ sender: Any) {
         let vc = ScrollFullScreenViewController()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -70,6 +80,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     
     func makeCircularImage(image: UIImage) -> UIImage {
         let imageView = UIImageView(image: image)
