@@ -33,7 +33,7 @@ Day 5
 - reusable component (costumview)
 - table view
 - collection view
-- localazier string (untuk ubah language otomatis)
+- localazy string (untuk ubah language otomatis)
 
 Additional Resources
 Swift Documentation: Official guide to the Swift programming language.
