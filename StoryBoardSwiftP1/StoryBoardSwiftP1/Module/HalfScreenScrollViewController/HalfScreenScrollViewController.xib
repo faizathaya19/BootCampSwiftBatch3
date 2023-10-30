@@ -32,7 +32,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ4-Xv-QOI">
                                     <rect key="frame" x="20" y="8" width="336" height="381"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <mutableString key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mutableString>
+                                    <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -64,7 +64,6 @@
                 <constraint firstItem="8cG-bI-0Sq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="47" id="74n-7j-ETF"/>
                 <constraint firstItem="ltr-l5-svj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bck-0Q-ofi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8cG-bI-0Sq" secondAttribute="bottom" constant="505" id="COv-ki-KlU"/>
-                <constraint firstItem="jiK-FM-mTJ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.17371" id="CR3-Yo-Uze"/>
                 <constraint firstItem="ltr-l5-svj" firstAttribute="top" secondItem="8cG-bI-0Sq" secondAttribute="bottom" constant="8" symbolic="YES" id="UaL-bA-22L"/>
                 <constraint firstItem="8cG-bI-0Sq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bvJ-tq-1ij"/>
                 <constraint firstAttribute="bottom" secondItem="ltr-l5-svj" secondAttribute="bottom" id="hY8-d4-Mpk"/>

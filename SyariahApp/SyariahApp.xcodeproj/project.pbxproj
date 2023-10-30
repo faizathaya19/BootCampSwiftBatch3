@@ -1,0 +1,697 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3635F1012AEFA1AD009CD067 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3635F0FF2AEFA1AD009CD067 /* HomeViewController.swift */; };
+		3635F1022AEFA1AD009CD067 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3635F1002AEFA1AD009CD067 /* HomeViewController.xib */; };
+		36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */; };
+		36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */; };
+		36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FC32AEF8C51000BD9CD /* ViewController.swift */; };
+		36CF7FC72AEF8C51000BD9CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7FC52AEF8C51000BD9CD /* Main.storyboard */; };
+		36CF7FC92AEF8C52000BD9CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7FC82AEF8C52000BD9CD /* Assets.xcassets */; };
+		36CF7FCC2AEF8C52000BD9CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7FCA2AEF8C52000BD9CD /* LaunchScreen.storyboard */; };
+		36CF7FD72AEF8C53000BD9CD /* SyariahAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FD62AEF8C53000BD9CD /* SyariahAppTests.swift */; };
+		36CF7FE12AEF8C53000BD9CD /* SyariahAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FE02AEF8C53000BD9CD /* SyariahAppUITests.swift */; };
+		36CF7FE32AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FE22AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift */; };
+		36CF7FF72AEF9215000BD9CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FF62AEF9215000BD9CD /* Constants.swift */; };
+		36CF7FFA2AEF93AB000BD9CD /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FF92AEF93AB000BD9CD /* MainTabBar.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36CF7FD32AEF8C53000BD9CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36CF7FB42AEF8C51000BD9CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36CF7FBB2AEF8C51000BD9CD;
+			remoteInfo = SyariahApp;
+		};
+		36CF7FDD2AEF8C53000BD9CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36CF7FB42AEF8C51000BD9CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36CF7FBB2AEF8C51000BD9CD;
+			remoteInfo = SyariahApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3635F0FF2AEFA1AD009CD067 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3635F1002AEFA1AD009CD067 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		36CF7FBC2AEF8C51000BD9CD /* SyariahApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyariahApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		36CF7FC32AEF8C51000BD9CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36CF7FC62AEF8C51000BD9CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36CF7FC82AEF8C52000BD9CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36CF7FCB2AEF8C52000BD9CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36CF7FCD2AEF8C53000BD9CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36CF7FD22AEF8C53000BD9CD /* SyariahAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyariahAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CF7FD62AEF8C53000BD9CD /* SyariahAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyariahAppTests.swift; sourceTree = "<group>"; };
+		36CF7FDC2AEF8C53000BD9CD /* SyariahAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyariahAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CF7FE02AEF8C53000BD9CD /* SyariahAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyariahAppUITests.swift; sourceTree = "<group>"; };
+		36CF7FE22AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyariahAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		36CF7FF62AEF9215000BD9CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36CF7FF92AEF93AB000BD9CD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36CF7FB92AEF8C51000BD9CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CF7FCF2AEF8C53000BD9CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CF7FD92AEF8C53000BD9CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36CF7FB32AEF8C51000BD9CD = {
+			isa = PBXGroup;
+			children = (
+				36CF7FBE2AEF8C51000BD9CD /* SyariahApp */,
+				36CF7FD52AEF8C53000BD9CD /* SyariahAppTests */,
+				36CF7FDF2AEF8C53000BD9CD /* SyariahAppUITests */,
+				36CF7FBD2AEF8C51000BD9CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36CF7FBD2AEF8C51000BD9CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FBC2AEF8C51000BD9CD /* SyariahApp.app */,
+				36CF7FD22AEF8C53000BD9CD /* SyariahAppTests.xctest */,
+				36CF7FDC2AEF8C53000BD9CD /* SyariahAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36CF7FBE2AEF8C51000BD9CD /* SyariahApp */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FEF2AEF8C82000BD9CD /* App */,
+				36CF7FF12AEF8C97000BD9CD /* Resource */,
+				36CF7FF02AEF8C8F000BD9CD /* Common */,
+				36CF7FF22AEF8D6D000BD9CD /* Module */,
+				36CF7FC52AEF8C51000BD9CD /* Main.storyboard */,
+				36CF7FCD2AEF8C53000BD9CD /* Info.plist */,
+			);
+			path = SyariahApp;
+			sourceTree = "<group>";
+		};
+		36CF7FD52AEF8C53000BD9CD /* SyariahAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FD62AEF8C53000BD9CD /* SyariahAppTests.swift */,
+			);
+			path = SyariahAppTests;
+			sourceTree = "<group>";
+		};
+		36CF7FDF2AEF8C53000BD9CD /* SyariahAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FE02AEF8C53000BD9CD /* SyariahAppUITests.swift */,
+				36CF7FE22AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift */,
+			);
+			path = SyariahAppUITests;
+			sourceTree = "<group>";
+		};
+		36CF7FEF2AEF8C82000BD9CD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */,
+				36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		36CF7FF02AEF8C8F000BD9CD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FF52AEF8DB9000BD9CD /* Extension */,
+				36CF7FF42AEF8D98000BD9CD /* Network */,
+				36CF7FF32AEF8D90000BD9CD /* Component */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		36CF7FF12AEF8C97000BD9CD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FC82AEF8C52000BD9CD /* Assets.xcassets */,
+				36CF7FCA2AEF8C52000BD9CD /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		36CF7FF22AEF8D6D000BD9CD /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FFC2AEF94CF000BD9CD /* HomeViewController */,
+				36CF7FFB2AEF94B9000BD9CD /* ViewController */,
+				36CF7FF82AEF9392000BD9CD /* MainTabBar */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		36CF7FF32AEF8D90000BD9CD /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FF62AEF9215000BD9CD /* Constants.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		36CF7FF42AEF8D98000BD9CD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		36CF7FF52AEF8DB9000BD9CD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		36CF7FF82AEF9392000BD9CD /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FF92AEF93AB000BD9CD /* MainTabBar.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		36CF7FFB2AEF94B9000BD9CD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FC32AEF8C51000BD9CD /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		36CF7FFC2AEF94CF000BD9CD /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3635F0FF2AEFA1AD009CD067 /* HomeViewController.swift */,
+				3635F1002AEFA1AD009CD067 /* HomeViewController.xib */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36CF7FBB2AEF8C51000BD9CD /* SyariahApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36CF7FE62AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahApp" */;
+			buildPhases = (
+				36CF7FB82AEF8C51000BD9CD /* Sources */,
+				36CF7FB92AEF8C51000BD9CD /* Frameworks */,
+				36CF7FBA2AEF8C51000BD9CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyariahApp;
+			productName = SyariahApp;
+			productReference = 36CF7FBC2AEF8C51000BD9CD /* SyariahApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36CF7FD12AEF8C53000BD9CD /* SyariahAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36CF7FE92AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahAppTests" */;
+			buildPhases = (
+				36CF7FCE2AEF8C53000BD9CD /* Sources */,
+				36CF7FCF2AEF8C53000BD9CD /* Frameworks */,
+				36CF7FD02AEF8C53000BD9CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36CF7FD42AEF8C53000BD9CD /* PBXTargetDependency */,
+			);
+			name = SyariahAppTests;
+			productName = SyariahAppTests;
+			productReference = 36CF7FD22AEF8C53000BD9CD /* SyariahAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		36CF7FDB2AEF8C53000BD9CD /* SyariahAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36CF7FEC2AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahAppUITests" */;
+			buildPhases = (
+				36CF7FD82AEF8C53000BD9CD /* Sources */,
+				36CF7FD92AEF8C53000BD9CD /* Frameworks */,
+				36CF7FDA2AEF8C53000BD9CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36CF7FDE2AEF8C53000BD9CD /* PBXTargetDependency */,
+			);
+			name = SyariahAppUITests;
+			productName = SyariahAppUITests;
+			productReference = 36CF7FDC2AEF8C53000BD9CD /* SyariahAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36CF7FB42AEF8C51000BD9CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					36CF7FBB2AEF8C51000BD9CD = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					36CF7FD12AEF8C53000BD9CD = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 36CF7FBB2AEF8C51000BD9CD;
+					};
+					36CF7FDB2AEF8C53000BD9CD = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 36CF7FBB2AEF8C51000BD9CD;
+					};
+				};
+			};
+			buildConfigurationList = 36CF7FB72AEF8C51000BD9CD /* Build configuration list for PBXProject "SyariahApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36CF7FB32AEF8C51000BD9CD;
+			productRefGroup = 36CF7FBD2AEF8C51000BD9CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36CF7FBB2AEF8C51000BD9CD /* SyariahApp */,
+				36CF7FD12AEF8C53000BD9CD /* SyariahAppTests */,
+				36CF7FDB2AEF8C53000BD9CD /* SyariahAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36CF7FBA2AEF8C51000BD9CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CF7FCC2AEF8C52000BD9CD /* LaunchScreen.storyboard in Resources */,
+				36CF7FC92AEF8C52000BD9CD /* Assets.xcassets in Resources */,
+				36CF7FC72AEF8C51000BD9CD /* Main.storyboard in Resources */,
+				3635F1022AEFA1AD009CD067 /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CF7FD02AEF8C53000BD9CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CF7FDA2AEF8C53000BD9CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36CF7FB82AEF8C51000BD9CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */,
+				36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */,
+				36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */,
+				36CF7FFA2AEF93AB000BD9CD /* MainTabBar.swift in Sources */,
+				36CF7FF72AEF9215000BD9CD /* Constants.swift in Sources */,
+				3635F1012AEFA1AD009CD067 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CF7FCE2AEF8C53000BD9CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CF7FD72AEF8C53000BD9CD /* SyariahAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36CF7FD82AEF8C53000BD9CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CF7FE32AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift in Sources */,
+				36CF7FE12AEF8C53000BD9CD /* SyariahAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36CF7FD42AEF8C53000BD9CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36CF7FBB2AEF8C51000BD9CD /* SyariahApp */;
+			targetProxy = 36CF7FD32AEF8C53000BD9CD /* PBXContainerItemProxy */;
+		};
+		36CF7FDE2AEF8C53000BD9CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36CF7FBB2AEF8C51000BD9CD /* SyariahApp */;
+			targetProxy = 36CF7FDD2AEF8C53000BD9CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		36CF7FC52AEF8C51000BD9CD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36CF7FC62AEF8C51000BD9CD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36CF7FCA2AEF8C52000BD9CD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36CF7FCB2AEF8C52000BD9CD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36CF7FE42AEF8C53000BD9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		36CF7FE52AEF8C53000BD9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36CF7FE72AEF8C53000BD9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SyariahApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Phincon.SyariahApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36CF7FE82AEF8C53000BD9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SyariahApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Phincon.SyariahApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36CF7FEA2AEF8C53000BD9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Phincon.SyariahAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SyariahApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SyariahApp";
+			};
+			name = Debug;
+		};
+		36CF7FEB2AEF8C53000BD9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Phincon.SyariahAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SyariahApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SyariahApp";
+			};
+			name = Release;
+		};
+		36CF7FED2AEF8C53000BD9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Phincon.SyariahAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SyariahApp;
+			};
+			name = Debug;
+		};
+		36CF7FEE2AEF8C53000BD9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Phincon.SyariahAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SyariahApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36CF7FB72AEF8C51000BD9CD /* Build configuration list for PBXProject "SyariahApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36CF7FE42AEF8C53000BD9CD /* Debug */,
+				36CF7FE52AEF8C53000BD9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36CF7FE62AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36CF7FE72AEF8C53000BD9CD /* Debug */,
+				36CF7FE82AEF8C53000BD9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36CF7FE92AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36CF7FEA2AEF8C53000BD9CD /* Debug */,
+				36CF7FEB2AEF8C53000BD9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36CF7FEC2AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36CF7FED2AEF8C53000BD9CD /* Debug */,
+				36CF7FEE2AEF8C53000BD9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36CF7FB42AEF8C51000BD9CD /* Project object */;
+}

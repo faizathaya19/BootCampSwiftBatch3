@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     var username = String()
     
     
+    @IBAction func TableInCollectionButton(_ sender: Any) {
+        let vc = CollectionViewInTableViewViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func CollectionButton(_ sender: Any) {
         
         let vc = CollectionViewController()

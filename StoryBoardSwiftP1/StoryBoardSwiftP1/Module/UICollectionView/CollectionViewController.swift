@@ -25,10 +25,7 @@ class CollectionViewController: UIViewController {
         DayCollectionViewDetail.dataSource = self
         DayCollectionViewDetail.collectionViewLayout = createCollectionViewLayout()
 
-        
-        
-        self.DayCollectionViewDetail.register(UINib(nibName: "DayCollectionViewLayout", bundle: nil), forCellReuseIdentifier: "cell")
-
+        DayCollectionViewDetail.register(UINib(nibName: "DayCollectionViewLayout", bundle: nil), forCellWithReuseIdentifier: "cell")
     }
 }
 
@@ -46,14 +43,10 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
 
         switch Section(rawValue: indexPath.section) {
         case .first:
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCollectionViewLayout", for: indexPath) as? DayCollectionViewLayout {
-                cell.backgroundColor = .red
-                
-                let title = titles[indexPath.section]
-                cell.title.text = title
-                return cell
-            }
-            return UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            cell.backgroundColor = .red
+            return cell
+            
         case .second:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
             cell.backgroundColor = .blue

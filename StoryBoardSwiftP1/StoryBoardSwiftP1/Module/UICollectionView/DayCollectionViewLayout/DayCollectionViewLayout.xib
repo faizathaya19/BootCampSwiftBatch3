@@ -53,8 +53,8 @@
             </constraints>
             <size key="customSize" width="332" height="176"/>
             <connections>
-                <outlet property="second" destination="4Sd-Z0-VtU" id="zDG-s6-AmT"/>
-                <outlet property="title" destination="dNy-LG-Ycv" id="uaz-up-ehS"/>
+                <outlet property="second" destination="dNy-LG-Ycv" id="mNA-4z-sBg"/>
+                <outlet property="title" destination="4Sd-Z0-VtU" id="zTr-3V-pUX"/>
             </connections>
             <point key="canvasLocation" x="197.70992366412213" y="65.492957746478879"/>
         </collectionViewCell>

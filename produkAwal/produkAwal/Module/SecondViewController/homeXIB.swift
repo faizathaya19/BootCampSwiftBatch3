@@ -48,6 +48,7 @@ extension homeXIB: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableviewuser.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell {
             // Access the user property of the UserData
             let userData = data[indexPath.section]
+            
             cell.titleLabel.text = userData.user
             
             // Access the nested array properties within pelajaran

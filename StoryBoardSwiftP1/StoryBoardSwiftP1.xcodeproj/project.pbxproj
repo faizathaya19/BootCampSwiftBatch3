@@ -31,6 +31,14 @@
 		361D5DF82AEA5E200036F728 /* ScreenXIBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */; };
 		36CF7F922AEB9BBF000BD9CD /* DayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */; };
 		36CF7F932AEB9BBF000BD9CD /* DayCollectionViewLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */; };
+		36CF7F972AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7F952AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift */; };
+		36CF7F982AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7F962AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.xib */; };
+		36CF7FA62AEF5144000BD9CD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FA42AEF5144000BD9CD /* TableViewCell.swift */; };
+		36CF7FA72AEF5144000BD9CD /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7FA52AEF5144000BD9CD /* TableViewCell.xib */; };
+		36CF7FAB2AEF5327000BD9CD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FA92AEF5327000BD9CD /* CollectionViewCell.swift */; };
+		36CF7FAC2AEF5327000BD9CD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7FAA2AEF5327000BD9CD /* CollectionViewCell.xib */; };
+		36CF7FAF2AEF811C000BD9CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FAE2AEF811C000BD9CD /* Constants.swift */; };
+		36CF7FB22AEF81A4000BD9CD /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FB12AEF81A4000BD9CD /* MainTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +87,14 @@
 		361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenXIBViewController.xib; sourceTree = "<group>"; };
 		36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewLayout.swift; sourceTree = "<group>"; };
 		36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewLayout.xib; sourceTree = "<group>"; };
+		36CF7F952AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewInTableViewViewController.swift; sourceTree = "<group>"; };
+		36CF7F962AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewInTableViewViewController.xib; sourceTree = "<group>"; };
+		36CF7FA42AEF5144000BD9CD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		36CF7FA52AEF5144000BD9CD /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		36CF7FA92AEF5327000BD9CD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		36CF7FAA2AEF5327000BD9CD /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		36CF7FAE2AEF811C000BD9CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36CF7FB12AEF81A4000BD9CD /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +208,7 @@
 			children = (
 				361D5DD82AEA44FF0036F728 /* App */,
 				361D5DD92AEA45150036F728 /* Common */,
-				361D5DDE2AEA45A40036F728 /* Component */,
+				361D5DDA2AEA45220036F728 /* Resource */,
 				361D5DDB2AEA452F0036F728 /* Module */,
 				361D5DAE2AEA28230036F728 /* Main.storyboard */,
 				361D5DB62AEA28240036F728 /* Info.plist */,
@@ -230,7 +246,7 @@
 		361D5DD92AEA45150036F728 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				361D5DDA2AEA45220036F728 /* Resource */,
+				361D5DDE2AEA45A40036F728 /* Component */,
 				361D5DDD2AEA459A0036F728 /* Network */,
 				361D5DDC2AEA457D0036F728 /* Extension */,
 			);
@@ -249,6 +265,9 @@
 		361D5DDB2AEA452F0036F728 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36CF7FB02AEF8189000BD9CD /* MainTabBar */,
+				36CF7FAD2AEF7EB5000BD9CD /* ReusableCostumView */,
+				36CF7F942AEF3B61000BD9CD /* CollectionViewInTableView */,
 				36117E722AEB96970092FCE6 /* UICollectionView */,
 				36117E542AEB4E540092FCE6 /* ListDataWithStruct */,
 				36117E492AEA7E4B0092FCE6 /* TryListViewController */,
@@ -278,6 +297,7 @@
 		361D5DDE2AEA45A40036F728 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				36CF7FAE2AEF811C000BD9CD /* Constants.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -306,6 +326,50 @@
 				36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */,
 			);
 			path = DayCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		36CF7F942AEF3B61000BD9CD /* CollectionViewInTableView */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FA32AEF5129000BD9CD /* TableViewCell */,
+				36CF7F952AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift */,
+				36CF7F962AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.xib */,
+			);
+			path = CollectionViewInTableView;
+			sourceTree = "<group>";
+		};
+		36CF7FA32AEF5129000BD9CD /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FA82AEF5306000BD9CD /* CollectionViewCell */,
+				36CF7FA42AEF5144000BD9CD /* TableViewCell.swift */,
+				36CF7FA52AEF5144000BD9CD /* TableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		36CF7FA82AEF5306000BD9CD /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FA92AEF5327000BD9CD /* CollectionViewCell.swift */,
+				36CF7FAA2AEF5327000BD9CD /* CollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		36CF7FAD2AEF7EB5000BD9CD /* ReusableCostumView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReusableCostumView;
+			sourceTree = "<group>";
+		};
+		36CF7FB02AEF8189000BD9CD /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				36CF7FB12AEF81A4000BD9CD /* MainTabBarViewController.swift */,
+			);
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,14 +477,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				361D5DB52AEA28240036F728 /* LaunchScreen.storyboard in Resources */,
+				36CF7FA72AEF5144000BD9CD /* TableViewCell.xib in Resources */,
 				36117E4D2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib in Resources */,
 				36CF7F932AEB9BBF000BD9CD /* DayCollectionViewLayout.xib in Resources */,
 				36117E6C2AEB513E0092FCE6 /* ContentViewCell.xib in Resources */,
+				36CF7FAC2AEF5327000BD9CD /* CollectionViewCell.xib in Resources */,
 				361D5DB22AEA28240036F728 /* Assets.xcassets in Resources */,
 				361D5DF82AEA5E200036F728 /* ScreenXIBViewController.xib in Resources */,
 				36117E5A2AEB4F040092FCE6 /* ListWithStructModelViewController.xib in Resources */,
 				36117E762AEB971E0092FCE6 /* CollectionViewController.xib in Resources */,
 				36117E532AEB486E0092FCE6 /* HalfScreenScrollViewController.xib in Resources */,
+				36CF7F982AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.xib in Resources */,
 				361D5DB02AEA28230036F728 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +513,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CF7FA62AEF5144000BD9CD /* TableViewCell.swift in Sources */,
 				36117E562AEB4E860092FCE6 /* Model.swift in Sources */,
+				36CF7FAF2AEF811C000BD9CD /* Constants.swift in Sources */,
 				36117E522AEB486E0092FCE6 /* HalfScreenScrollViewController.swift in Sources */,
 				36CF7F922AEB9BBF000BD9CD /* DayCollectionViewLayout.swift in Sources */,
 				36117E6B2AEB513E0092FCE6 /* ContentViewCell.swift in Sources */,
@@ -454,6 +523,9 @@
 				36117E752AEB971E0092FCE6 /* CollectionViewController.swift in Sources */,
 				361D5DAD2AEA28230036F728 /* ViewController.swift in Sources */,
 				361D5DA92AEA28230036F728 /* AppDelegate.swift in Sources */,
+				36CF7FB22AEF81A4000BD9CD /* MainTabBarViewController.swift in Sources */,
+				36CF7F972AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift in Sources */,
+				36CF7FAB2AEF5327000BD9CD /* CollectionViewCell.swift in Sources */,
 				361D5DF72AEA5E200036F728 /* ScreenXIBViewController.swift in Sources */,
 				361D5DAB2AEA28230036F728 /* SceneDelegate.swift in Sources */,
 				36117E592AEB4F040092FCE6 /* ListWithStructModelViewController.swift in Sources */,
@@ -637,7 +709,6 @@
 				INFOPLIST_FILE = StoryBoardSwiftP1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -664,7 +735,6 @@
 				INFOPLIST_FILE = StoryBoardSwiftP1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

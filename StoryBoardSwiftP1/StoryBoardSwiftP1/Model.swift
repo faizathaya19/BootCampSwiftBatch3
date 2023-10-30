@@ -25,4 +25,9 @@ struct DataSiswa {
     var jenisKelaminSiswa: JenisKelamin
 }
 
+struct MovieData{
+    let sectionType: String
+    let Movies: [String]
+}
+
 
