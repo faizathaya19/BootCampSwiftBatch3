@@ -10,20 +10,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="291" id="KGk-i7-Jjw" customClass="PaymentListTableViewCell" customModule="SyariahApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="653" height="291"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="KGk-i7-Jjw" customClass="PaymentListTableViewCell" customModule="SyariahApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="653" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="653" height="291"/>
+                <rect key="frame" x="0.0" y="0.0" width="653" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9y1-dH-gz5">
-                        <rect key="frame" x="36" y="87" width="170" height="170"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="170" id="MvM-CV-uMX"/>
-                            <constraint firstAttribute="width" constant="170" id="zol-lK-4eu"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Pemaran" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk3-cp-7HM">
+                        <rect key="frame" x="36" y="17" width="111" height="21"/>
+                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
+                        <color key="textColor" systemColor="systemPurpleColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9y1-dH-gz5">
+                        <rect key="frame" x="27" y="43" width="599" height="124"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FXc-Pr-Aww">
                             <size key="itemSize" width="170" height="170"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,32 +32,25 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Pembayaran" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk3-cp-7HM">
-                        <rect key="frame" x="36" y="25" width="216" height="31.333333333333329"/>
-                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="24"/>
-                        <color key="textColor" systemColor="systemPurpleColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="rk3-cp-7HM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="36" id="4rK-Sq-DhJ"/>
-                    <constraint firstItem="9y1-dH-gz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="36" id="9MU-5A-nYN"/>
-                    <constraint firstAttribute="bottom" secondItem="9y1-dH-gz5" secondAttribute="bottom" constant="34" id="D0D-kx-JRP"/>
-                    <constraint firstAttribute="trailing" secondItem="9y1-dH-gz5" secondAttribute="trailing" constant="447" id="pRf-pM-v05"/>
-                    <constraint firstItem="rk3-cp-7HM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="vG1-BQ-d5a"/>
+                    <constraint firstItem="rk3-cp-7HM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="Tf6-k7-BMv"/>
+                    <constraint firstAttribute="bottom" secondItem="9y1-dH-gz5" secondAttribute="bottom" constant="33" id="Wjf-gH-0H3"/>
+                    <constraint firstItem="9y1-dH-gz5" firstAttribute="top" secondItem="rk3-cp-7HM" secondAttribute="bottom" constant="5" id="Yig-oD-QRj"/>
+                    <constraint firstItem="rk3-cp-7HM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="36" id="bjB-sd-SS9"/>
+                    <constraint firstItem="9y1-dH-gz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="27" id="quF-Wh-JDY"/>
+                    <constraint firstAttribute="trailing" secondItem="9y1-dH-gz5" secondAttribute="trailing" constant="27" id="wjt-Sr-vfT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="paymentCollectionView" destination="9y1-dH-gz5" id="L5y-GR-T57"/>
+                <outlet property="paymentTitleView" destination="rk3-cp-7HM" id="7dl-WO-oNC"/>
             </connections>
-            <point key="canvasLocation" x="80.152671755725194" y="29.929577464788736"/>
+            <point key="canvasLocation" x="80.152671755725194" y="29.577464788732396"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

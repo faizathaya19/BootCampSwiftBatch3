@@ -11,7 +11,7 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     
     let homeVC = UINavigationController(rootViewController: HomeViewController())
-    let transactionVC = UINavigationController(rootViewController: HomeViewController())
+    let transactionVC = UINavigationController(rootViewController: LoginViewController())
     let notificationVC = UINavigationController(rootViewController: HomeViewController())
     let profileVC = UINavigationController(rootViewController: HomeViewController())
     

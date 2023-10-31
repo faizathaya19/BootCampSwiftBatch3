@@ -14,3 +14,4 @@ enum tabBarIcon{
     static let inboxIcon = UIImage(systemName: "square.and.arrow.up")
     static let profileIcon = UIImage(systemName: "opticaldiscdrive.fill")
 }
+

@@ -4,53 +4,82 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="gTV-IL-0wX" customClass="PaymentListCollectionViewCell" customModule="SyariahApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="75" height="85"/>
+            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="75" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s8R-ii-hb2">
-                        <rect key="frame" x="12" y="4" width="51" height="74.333333333333329"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3J-hZ-VLE">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wRV-JS-U9w">
-                                <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgk-UE-kHh">
-                                <rect key="frame" x="0.0" y="54.000000000000007" width="51" height="20.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cun-qY-UhM" customClass="FormView" customModule="SyariahApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgk-UE-kHh">
+                                        <rect key="frame" x="8" y="56" width="64" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_qris" translatesAutoresizingMaskIntoConstraints="NO" id="wRV-JS-U9w">
+                                        <rect key="frame" x="20" y="20" width="40" height="46"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstItem="wRV-JS-U9w" firstAttribute="top" secondItem="Cun-qY-UhM" secondAttribute="top" constant="20" id="5KC-gO-RYI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vgk-UE-kHh" secondAttribute="trailing" constant="8" id="WzY-kH-ZhX"/>
+                                    <constraint firstItem="Vgk-UE-kHh" firstAttribute="leading" secondItem="Cun-qY-UhM" secondAttribute="leading" constant="8" id="XCw-SQ-C2H"/>
+                                    <constraint firstAttribute="trailing" secondItem="wRV-JS-U9w" secondAttribute="trailing" constant="20" id="Y8K-i5-hO4"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vgk-UE-kHh" secondAttribute="bottom" constant="16" id="ehl-3o-2rh"/>
+                                    <constraint firstItem="wRV-JS-U9w" firstAttribute="leading" secondItem="Cun-qY-UhM" secondAttribute="leading" constant="20" id="qbE-nC-f2q"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wRV-JS-U9w" firstAttribute="top" secondItem="s8R-ii-hb2" secondAttribute="top" id="fZ3-Wd-mDF"/>
-                            <constraint firstItem="wRV-JS-U9w" firstAttribute="leading" secondItem="s8R-ii-hb2" secondAttribute="leading" id="jn4-dZ-e0o"/>
-                            <constraint firstItem="Vgk-UE-kHh" firstAttribute="top" secondItem="wRV-JS-U9w" secondAttribute="bottom" constant="4" id="pFA-Yw-5sJ"/>
-                            <constraint firstAttribute="trailing" secondItem="wRV-JS-U9w" secondAttribute="trailing" id="tBr-TM-vjk"/>
+                            <constraint firstItem="Cun-qY-UhM" firstAttribute="top" secondItem="u3J-hZ-VLE" secondAttribute="top" id="8IO-nh-46x"/>
+                            <constraint firstItem="Cun-qY-UhM" firstAttribute="leading" secondItem="u3J-hZ-VLE" secondAttribute="leading" id="ZPE-8F-KCN"/>
+                            <constraint firstAttribute="trailing" secondItem="Cun-qY-UhM" secondAttribute="trailing" id="fIB-ZT-vdn"/>
+                            <constraint firstAttribute="bottom" secondItem="Cun-qY-UhM" secondAttribute="bottom" id="iHg-Wk-9R4"/>
                         </constraints>
-                    </stackView>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="s8R-ii-hb2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="P90-mL-eEd"/>
-                <constraint firstAttribute="bottom" secondItem="s8R-ii-hb2" secondAttribute="bottom" constant="6.6666666666666714" id="jhL-th-tnz"/>
-                <constraint firstItem="s8R-ii-hb2" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="pV1-fY-Q1w"/>
-                <constraint firstItem="s8R-ii-hb2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="v1o-DF-XXz"/>
+                <constraint firstItem="u3J-hZ-VLE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="125-6x-H2v"/>
+                <constraint firstAttribute="bottom" secondItem="u3J-hZ-VLE" secondAttribute="bottom" id="LWB-Wc-OlU"/>
+                <constraint firstItem="u3J-hZ-VLE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TeA-qS-Vua"/>
+                <constraint firstAttribute="trailing" secondItem="u3J-hZ-VLE" secondAttribute="trailing" id="b83-4O-hce"/>
             </constraints>
             <size key="customSize" width="87" height="94"/>
             <connections>
                 <outlet property="paymentImageCollectionCell" destination="wRV-JS-U9w" id="VCS-fh-rFr"/>
                 <outlet property="paymentTitleCollectionCell" destination="Vgk-UE-kHh" id="bup-mK-3UP"/>
+                <outlet property="viewLayout" destination="Cun-qY-UhM" id="w0l-VT-AI1"/>
             </connections>
-            <point key="canvasLocation" x="75.572519083969468" y="35.563380281690144"/>
+            <point key="canvasLocation" x="74.809160305343511" y="35.211267605633807"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="ic_qris" width="46" height="46"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

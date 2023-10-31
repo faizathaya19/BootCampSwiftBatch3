@@ -10,7 +10,17 @@ import UIKit
 
 
 
-struct paymentList{
+struct PaymentList {
     let id: Int
-    let listData: [String]
+    let listData: PaymentListData
+}
+
+struct PaymentListData {
+    let title: String
+    let image: String
+}
+
+struct Item {
+    var name: String
+    var imageName: String
 }
