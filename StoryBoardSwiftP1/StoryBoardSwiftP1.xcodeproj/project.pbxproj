@@ -39,6 +39,10 @@
 		36CF7FAC2AEF5327000BD9CD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7FAA2AEF5327000BD9CD /* CollectionViewCell.xib */; };
 		36CF7FAF2AEF811C000BD9CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FAE2AEF811C000BD9CD /* Constants.swift */; };
 		36CF7FB22AEF81A4000BD9CD /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FB12AEF81A4000BD9CD /* MainTabBarViewController.swift */; };
+		36FCC1222AF1FA240046BB50 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1202AF1FA240046BB50 /* ImagePickerViewController.swift */; };
+		36FCC1232AF1FA240046BB50 /* ImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1212AF1FA240046BB50 /* ImagePickerViewController.xib */; };
+		36FCC1272AF1FFD90046BB50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1252AF1FFD90046BB50 /* HomeViewController.swift */; };
+		36FCC1282AF1FFD90046BB50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1262AF1FFD90046BB50 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		36CF7FAA2AEF5327000BD9CD /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		36CF7FAE2AEF811C000BD9CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36CF7FB12AEF81A4000BD9CD /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		36FCC1202AF1FA240046BB50 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		36FCC1212AF1FA240046BB50 /* ImagePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerViewController.xib; sourceTree = "<group>"; };
+		36FCC1252AF1FFD90046BB50 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		36FCC1262AF1FFD90046BB50 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +273,7 @@
 		361D5DDB2AEA452F0036F728 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36FCC11F2AF1F9F80046BB50 /* ImagePickerControllerView */,
 				36CF7FB02AEF8189000BD9CD /* MainTabBar */,
 				36CF7FAD2AEF7EB5000BD9CD /* ReusableCostumView */,
 				36CF7F942AEF3B61000BD9CD /* CollectionViewInTableView */,
@@ -273,6 +282,7 @@
 				36117E492AEA7E4B0092FCE6 /* TryListViewController */,
 				36117E482AEA7E360092FCE6 /* HalfScreenScrollViewController */,
 				36117E472AEA7E030092FCE6 /* FullScreenScrollVIewController */,
+				36FCC1242AF1FFB90046BB50 /* HOME */,
 				36117E452AEA7C110092FCE6 /* ScreenTryListViewController */,
 				361D5DF42AEA5E0F0036F728 /* ScreenXIBViewController */,
 				361D5DDF2AEA45CF0036F728 /* MainViewController */,
@@ -370,6 +380,24 @@
 				36CF7FB12AEF81A4000BD9CD /* MainTabBarViewController.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		36FCC11F2AF1F9F80046BB50 /* ImagePickerControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1202AF1FA240046BB50 /* ImagePickerViewController.swift */,
+				36FCC1212AF1FA240046BB50 /* ImagePickerViewController.xib */,
+			);
+			path = ImagePickerControllerView;
+			sourceTree = "<group>";
+		};
+		36FCC1242AF1FFB90046BB50 /* HOME */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1252AF1FFD90046BB50 /* HomeViewController.swift */,
+				36FCC1262AF1FFD90046BB50 /* HomeViewController.xib */,
+			);
+			path = HOME;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +506,7 @@
 			files = (
 				361D5DB52AEA28240036F728 /* LaunchScreen.storyboard in Resources */,
 				36CF7FA72AEF5144000BD9CD /* TableViewCell.xib in Resources */,
+				36FCC1282AF1FFD90046BB50 /* HomeViewController.xib in Resources */,
 				36117E4D2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.xib in Resources */,
 				36CF7F932AEB9BBF000BD9CD /* DayCollectionViewLayout.xib in Resources */,
 				36117E6C2AEB513E0092FCE6 /* ContentViewCell.xib in Resources */,
@@ -488,6 +517,7 @@
 				36117E762AEB971E0092FCE6 /* CollectionViewController.xib in Resources */,
 				36117E532AEB486E0092FCE6 /* HalfScreenScrollViewController.xib in Resources */,
 				36CF7F982AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.xib in Resources */,
+				36FCC1232AF1FA240046BB50 /* ImagePickerViewController.xib in Resources */,
 				361D5DB02AEA28230036F728 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,7 +546,9 @@
 				36CF7FA62AEF5144000BD9CD /* TableViewCell.swift in Sources */,
 				36117E562AEB4E860092FCE6 /* Model.swift in Sources */,
 				36CF7FAF2AEF811C000BD9CD /* Constants.swift in Sources */,
+				36FCC1222AF1FA240046BB50 /* ImagePickerViewController.swift in Sources */,
 				36117E522AEB486E0092FCE6 /* HalfScreenScrollViewController.swift in Sources */,
+				36FCC1272AF1FFD90046BB50 /* HomeViewController.swift in Sources */,
 				36CF7F922AEB9BBF000BD9CD /* DayCollectionViewLayout.swift in Sources */,
 				36117E6B2AEB513E0092FCE6 /* ContentViewCell.swift in Sources */,
 				36117E4C2AEA7E9C0092FCE6 /* ScrollFullScreenViewController.swift in Sources */,

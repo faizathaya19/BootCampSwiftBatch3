@@ -30,6 +30,22 @@
 		36CF7FE32AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FE22AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift */; };
 		36CF7FF72AEF9215000BD9CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FF62AEF9215000BD9CD /* Constants.swift */; };
 		36CF7FFA2AEF93AB000BD9CD /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FF92AEF93AB000BD9CD /* MainTabBar.swift */; };
+		36FCC1172AF1D9520046BB50 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1152AF1D9520046BB50 /* PrivacyPolicyViewController.swift */; };
+		36FCC1182AF1D9520046BB50 /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1162AF1D9520046BB50 /* PrivacyPolicyViewController.xib */; };
+		36FCC11C2AF1E6BB0046BB50 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC11A2AF1E6BB0046BB50 /* RegisterViewController.swift */; };
+		36FCC11D2AF1E6BB0046BB50 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC11B2AF1E6BB0046BB50 /* RegisterViewController.xib */; };
+		36FCC1352AF231420046BB50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1332AF231420046BB50 /* ProfileViewController.swift */; };
+		36FCC1362AF231420046BB50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1342AF231420046BB50 /* ProfileViewController.xib */; };
+		36FCC13E2AF2432D0046BB50 /* TelcoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC13C2AF2432D0046BB50 /* TelcoViewController.swift */; };
+		36FCC13F2AF2432D0046BB50 /* TelcoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC13D2AF2432D0046BB50 /* TelcoViewController.xib */; };
+		36FCC1422AF2433A0046BB50 /* PLNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1402AF2433A0046BB50 /* PLNViewController.swift */; };
+		36FCC1432AF2433A0046BB50 /* PLNViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1412AF2433A0046BB50 /* PLNViewController.xib */; };
+		36FCC1462AF243470046BB50 /* PDAMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1442AF243470046BB50 /* PDAMViewController.swift */; };
+		36FCC1472AF243470046BB50 /* PDAMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1452AF243470046BB50 /* PDAMViewController.xib */; };
+		36FCC14A2AF243540046BB50 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1482AF243540046BB50 /* SchoolViewController.swift */; };
+		36FCC14B2AF243540046BB50 /* SchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1492AF243540046BB50 /* SchoolViewController.xib */; };
+		36FCC1532AF25B320046BB50 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1512AF25B320046BB50 /* PromotionCollectionViewCell.swift */; };
+		36FCC1542AF25B320046BB50 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1522AF25B320046BB50 /* PromotionCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +93,22 @@
 		36CF7FE22AEF8C53000BD9CD /* SyariahAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyariahAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		36CF7FF62AEF9215000BD9CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36CF7FF92AEF93AB000BD9CD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		36FCC1152AF1D9520046BB50 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		36FCC1162AF1D9520046BB50 /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
+		36FCC11A2AF1E6BB0046BB50 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		36FCC11B2AF1E6BB0046BB50 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		36FCC1332AF231420046BB50 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		36FCC1342AF231420046BB50 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		36FCC13C2AF2432D0046BB50 /* TelcoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelcoViewController.swift; sourceTree = "<group>"; };
+		36FCC13D2AF2432D0046BB50 /* TelcoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TelcoViewController.xib; sourceTree = "<group>"; };
+		36FCC1402AF2433A0046BB50 /* PLNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLNViewController.swift; sourceTree = "<group>"; };
+		36FCC1412AF2433A0046BB50 /* PLNViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PLNViewController.xib; sourceTree = "<group>"; };
+		36FCC1442AF243470046BB50 /* PDAMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAMViewController.swift; sourceTree = "<group>"; };
+		36FCC1452AF243470046BB50 /* PDAMViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDAMViewController.xib; sourceTree = "<group>"; };
+		36FCC1482AF243540046BB50 /* SchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
+		36FCC1492AF243540046BB50 /* SchoolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolViewController.xib; sourceTree = "<group>"; };
+		36FCC1512AF25B320046BB50 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
+		36FCC1522AF25B320046BB50 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +139,7 @@
 		365BD5092AEFBBEE002B214F /* PaymentListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				36FCC14C2AF2592D0046BB50 /* PromotionCollectionViewCell */,
 				365BD50E2AEFC1A4002B214F /* PaymentListCollectionViewCell */,
 				365BD50A2AEFBDA7002B214F /* PaymentListTableViewCell.swift */,
 				365BD50B2AEFBDA7002B214F /* PaymentListTableViewCell.xib */,
@@ -135,8 +168,7 @@
 		36CD638A2AF0E82600C751A7 /* ReusableLayout */ = {
 			isa = PBXGroup;
 			children = (
-				36CD638C2AF0E87100C751A7 /* ReusableTextField.xib */,
-				3639E3FE2AF0EA0100B48981 /* ReusableTextField.swift */,
+				36FCC12A2AF2217B0046BB50 /* ReusableTextField */,
 			);
 			path = ReusableLayout;
 			sourceTree = "<group>";
@@ -222,6 +254,13 @@
 		36CF7FF22AEF8D6D000BD9CD /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36FCC13A2AF2430A0046BB50 /* SchoolViewController */,
+				36FCC1392AF243010046BB50 /* PDAMViewController */,
+				36FCC1382AF242EC0046BB50 /* PLNViewController */,
+				36FCC1372AF242D50046BB50 /* TelcoViewController */,
+				36FCC1322AF2311D0046BB50 /* ProfileViewController */,
+				36FCC1192AF1E6800046BB50 /* RegisterViewController */,
+				36FCC1142AF1D90E0046BB50 /* PrivacyPolicyViewController */,
 				36CD638A2AF0E82600C751A7 /* ReusableLayout */,
 				36CD63852AF0D5AC00C751A7 /* LoginViewController */,
 				36CF7FFC2AEF94CF000BD9CD /* HomeViewController */,
@@ -279,6 +318,87 @@
 				3635F1002AEFA1AD009CD067 /* HomeViewController.xib */,
 			);
 			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		36FCC1142AF1D90E0046BB50 /* PrivacyPolicyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1152AF1D9520046BB50 /* PrivacyPolicyViewController.swift */,
+				36FCC1162AF1D9520046BB50 /* PrivacyPolicyViewController.xib */,
+			);
+			path = PrivacyPolicyViewController;
+			sourceTree = "<group>";
+		};
+		36FCC1192AF1E6800046BB50 /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC11A2AF1E6BB0046BB50 /* RegisterViewController.swift */,
+				36FCC11B2AF1E6BB0046BB50 /* RegisterViewController.xib */,
+			);
+			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
+		36FCC12A2AF2217B0046BB50 /* ReusableTextField */ = {
+			isa = PBXGroup;
+			children = (
+				3639E3FE2AF0EA0100B48981 /* ReusableTextField.swift */,
+				36CD638C2AF0E87100C751A7 /* ReusableTextField.xib */,
+			);
+			path = ReusableTextField;
+			sourceTree = "<group>";
+		};
+		36FCC1322AF2311D0046BB50 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1332AF231420046BB50 /* ProfileViewController.swift */,
+				36FCC1342AF231420046BB50 /* ProfileViewController.xib */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		36FCC1372AF242D50046BB50 /* TelcoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC13C2AF2432D0046BB50 /* TelcoViewController.swift */,
+				36FCC13D2AF2432D0046BB50 /* TelcoViewController.xib */,
+			);
+			path = TelcoViewController;
+			sourceTree = "<group>";
+		};
+		36FCC1382AF242EC0046BB50 /* PLNViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1402AF2433A0046BB50 /* PLNViewController.swift */,
+				36FCC1412AF2433A0046BB50 /* PLNViewController.xib */,
+			);
+			path = PLNViewController;
+			sourceTree = "<group>";
+		};
+		36FCC1392AF243010046BB50 /* PDAMViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1442AF243470046BB50 /* PDAMViewController.swift */,
+				36FCC1452AF243470046BB50 /* PDAMViewController.xib */,
+			);
+			path = PDAMViewController;
+			sourceTree = "<group>";
+		};
+		36FCC13A2AF2430A0046BB50 /* SchoolViewController */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1482AF243540046BB50 /* SchoolViewController.swift */,
+				36FCC1492AF243540046BB50 /* SchoolViewController.xib */,
+			);
+			path = SchoolViewController;
+			sourceTree = "<group>";
+		};
+		36FCC14C2AF2592D0046BB50 /* PromotionCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				36FCC1512AF25B320046BB50 /* PromotionCollectionViewCell.swift */,
+				36FCC1522AF25B320046BB50 /* PromotionCollectionViewCell.xib */,
+			);
+			path = PromotionCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,13 +506,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CF7FCC2AEF8C52000BD9CD /* LaunchScreen.storyboard in Resources */,
+				36FCC11D2AF1E6BB0046BB50 /* RegisterViewController.xib in Resources */,
+				36FCC13F2AF2432D0046BB50 /* TelcoViewController.xib in Resources */,
 				365BD5142AEFC1FF002B214F /* PaymentListCollectionViewCell.xib in Resources */,
+				36FCC14B2AF243540046BB50 /* SchoolViewController.xib in Resources */,
 				36CD638D2AF0E87100C751A7 /* ReusableTextField.xib in Resources */,
 				365BD50D2AEFBDA7002B214F /* PaymentListTableViewCell.xib in Resources */,
+				36FCC1472AF243470046BB50 /* PDAMViewController.xib in Resources */,
+				36FCC1362AF231420046BB50 /* ProfileViewController.xib in Resources */,
 				36CF7FC92AEF8C52000BD9CD /* Assets.xcassets in Resources */,
 				36CF7FC72AEF8C51000BD9CD /* Main.storyboard in Resources */,
 				36CD63892AF0D5DB00C751A7 /* LoginViewController.xib in Resources */,
 				3635F1022AEFA1AD009CD067 /* HomeViewController.xib in Resources */,
+				36FCC1432AF2433A0046BB50 /* PLNViewController.xib in Resources */,
+				36FCC1542AF25B320046BB50 /* PromotionCollectionViewCell.xib in Resources */,
+				36FCC1182AF1D9520046BB50 /* PrivacyPolicyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,16 +547,24 @@
 			files = (
 				3639E4012AF0ED8E00B48981 /* FormView.swift in Sources */,
 				36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */,
+				36FCC1462AF243470046BB50 /* PDAMViewController.swift in Sources */,
 				3639E3FF2AF0EA0100B48981 /* ReusableTextField.swift in Sources */,
+				36FCC14A2AF243540046BB50 /* SchoolViewController.swift in Sources */,
 				36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */,
+				36FCC1172AF1D9520046BB50 /* PrivacyPolicyViewController.swift in Sources */,
 				36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */,
 				36CF7FFA2AEF93AB000BD9CD /* MainTabBar.swift in Sources */,
 				365BD50C2AEFBDA7002B214F /* PaymentListTableViewCell.swift in Sources */,
 				36CF7FF72AEF9215000BD9CD /* Constants.swift in Sources */,
+				36FCC11C2AF1E6BB0046BB50 /* RegisterViewController.swift in Sources */,
+				36FCC13E2AF2432D0046BB50 /* TelcoViewController.swift in Sources */,
 				3635F1012AEFA1AD009CD067 /* HomeViewController.swift in Sources */,
 				365BD5162AEFC727002B214F /* Models.swift in Sources */,
+				36FCC1352AF231420046BB50 /* ProfileViewController.swift in Sources */,
 				36CD63882AF0D5DB00C751A7 /* LoginViewController.swift in Sources */,
 				365BD5132AEFC1FF002B214F /* PaymentListCollectionViewCell.swift in Sources */,
+				36FCC1532AF25B320046BB50 /* PromotionCollectionViewCell.swift in Sources */,
+				36FCC1422AF2433A0046BB50 /* PLNViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

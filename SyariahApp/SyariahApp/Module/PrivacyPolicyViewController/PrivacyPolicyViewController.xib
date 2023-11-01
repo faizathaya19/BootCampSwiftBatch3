@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrivacyPolicyViewController" customModule="SyariahApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-Su-BHV">
+                    <rect key="frame" x="0.0" y="109" width="393" height="743"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36k-UK-1Vr" customClass="FormView" customModule="SyariahApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="7000"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txS-st-UFf">
+                                    <rect key="frame" x="8" y="25" width="377" height="1948"/>
+                                    <attributedString key="attributedText">
+                                        <fragment>
+                                            <mutableString key="content">Ketentuan Umum dan Syarat-Syarat Layanan Syariah
+
+Ketentuan umum dan syarat-syarat Layanan  Syariah ini ("Ketentuan dan Syarat") berlaku dan mengikat bagi Pelanggan (sebagaimana didefinisikan dibawah ini) serta PT SPI (sebagaimana didefinisikan dibawah ini)
+
+1. DEFINISI
+
+1.1 “Outlet  Syariah” atau "Outlet" adalah Outlet milik PT SPI yang dapat melayani penggunaan Layanan Syariah (sebagaimana didefinisikan dibawah ini) ketika melakukan Transaksi (sebagaimana didefinisikan dibawah ini) di outlet/gerai/toko berdasarkan prinsip Syariah sesuai Fatwa DSN MUI No 116/DSN-MUI/IX/2017 tentang uang elektronik syariah.
+
+1.2 "Akun Pelanggan" adalah akun Uang Elektronik (sebagaimana didefinisikan dibawah ini) milik Pelanggan yang terdapat pada Sistem Syariah (sebagaimana didefinisikan dibawah ini) yang mempresentasikan besaran dana atas nama Pelanggan tersebut yang tersimpan dan tercatat di Sistem Syariah dalam sebuah Nomor Akun (sebagaimana didefinisikan dibawah ini).
+
+1.3 "Aplikasi" adalah sebuah antarmuka/ saluran komunikasi (channel) antara Pelanggan dengan Sistem atas terjadinya suatu Transaksi baik yang dikembangkan dan dikelola oleh PT SPI maupun pihak lain yang bekerjasama dengannya.
+
+1.4 "ATM Bank" adalah perangkat anjungan tunai mandiri dan/ atau automatic teller machines yang dioperasikan oleh pihak perbankan yang telah bekerjasama dengan PT SPI.
+
+1.5 "Batas Dana" adalah jumlah maksimal dana yang ditetapkan PT SPI berdasarkan hukum yang berlaku untuk ditampung dalam setiap Akun Pelanggan, termasuk setiap perubahannya dari waktu ke waktu.
+
+1.6 "CDD" atau "Customer Due Dilligence" adalah proses identifikasi dan verifikasi calon pelanggan oleh PT SPI sesuai dengan kebijakannya berdasarkan hukum yang berlaku.
+
+1.7 "Force Majeure" adalah kejadian kejadian di luar kekuasaan PT SPI yang mengakibatkan terhenti atau tertundanya pelaksanaan kewajiban PT SPI berdasarkan Ketentuan dan Syarat ini, termasuk namun tidak terbatas pada: gangguan petir, gempa bumi, angin topan, kebakaran, perang, ledakan, banjir, tsunami, sabotase, huru hara atau kebijakan pemerintah/ regulator atau tindakan pihak ketiga yang berada di luar kekuasaan PT SPI.
+
+1.8 "Merchant" adalah badan usaha atau perorangan yang melakukan aktivitas perdagangan barang dan/ atau jasa yang telah bekerjasama dengan PT SPI untuk Layanan Syariah.
+
+1.9 "Nomor Akun" adalah nomor rekening virtual milik Pelanggan dan/ atau Merchant dan/ atau Outlet yang merepresentasikan jumlah Uang Elektronik yang tercatat di Sistem Syariah.
+
+1.10 "KasPro" atau "Layanan KasPro" adalah layanan mobile e-money dimana identitas akun pelanggan dibuat di sistem berdasarkan pada nomor handphone yang dimiliki oleh pelanggan. Seluruh pelanggan yang menggunakan smartphone bisa memiliki akun KASPRO. Proses registrasi menjadi pelanggan dapat dilakukan via Mobile apps atau melalui outlet dan layanan yang diberikan oleh adalah dalam bentuk belanja/pembayaran di merchant, bill payment dan sebagainya.
+
+1.11 "Pelanggan" adalah Pelanggan Reguler dan/ atau Pelanggan Premium yang sudah mendaftarkan diri untuk menggunakan Layanan Syariah.
+
+1.12 "Pelanggan Reguler" adalah pelanggan Layanan Syariah yang mendaftar tanpa melalui proses CDD dan memiliki pembatasan manfaat sebagaimana diatur dalam Ketentuan dan Syarat ini.
+
+1.13 "Pelanggan Premium" adalah pelanggan Layanan Syariah yang telah melalui proses CDD dan memiliki kelebihan manfaat sebagaimana diatur dalam Ketentuan dan Syarat ini.
+
+1.14 "Pembayaran Belanja" adalah pembayaran atas pembelanjaan barang dan/ atau jasa yang dilakukan oleh Pelanggan di Merchant yang telah bekerja sama dengan PT SPI.
+
+1.15 "Pembayaran Tagihan" adalah pembayaran tagihan pascabayar dengan pihak yang bekerjasama dengan PT SPI, termasuk namun tidak terbatas pada pembayaran tagihan PLN, Telkom, TV Berbayar dan pembayaran tagihan lainnya dimana jumlah layanan pembayaran dapat berubah sewaktu-waktu.
+
+1.16 "Penarikan Saldo (cash out)" adalah proses penarikan saldo akun Syariah Pelanggan Premium yang dilakukan melalui sarana yang diatur dalam Pasal 3.7 Ketentuan dan Syarat ini.
+
+1.17 "Pengisian Saldo (cash in)" adalah proses pengisian saldo akun Syariah oleh Pelanggan yang dilakukan sebagaimana diatur dalam Pasal 3.6 Ketentuan dan Syarat ini.
+
+1.18 "PIN" adalah nomor sandi pribadi yang dibuat oleh Pelanggan untuk tujuan keamanan Akun Pelanggan.
+
+1.19 "Sistem Syariah" adalah sistem yang mengatur seluruh Transaksi dimana setiap pihak yang terlibat dalam Transaksi memiliki sebuah akun virtual yang mempresentasikan jumlah dana yang dimiliki pihak tersebut dalam sebuah Nomor Akun.
+
+1.20 "Transaksi" adalah transaksi Pembayaran Belanja, Pembayaran Tagihan, Pengisian Saldo dan/ atau Penarikan Saldo menggunakan fasilitas Layanan KasPro, di Merchant dan/ atau Outlet.
+
+1.21 "Uang Elektronik" adalah alat pembayaran elektronik yang diterbitkan oleh PT SPI sesuai dengan izin dari Bank Indonesia berdasarkan peraturan perundang-undangan yang berlaku.
+
+1.22 "PT SPI" adalah PT. Solusi Pasti Indonesia selaku penerbit Uang Elektronik.
+
+1.23 “Syariah” adalah layanan Uang Elektronik yang diterbitkan oleh PT Solusi Pasti Indonesia yang memungkinkan Pelanggan melakukan Transaksi menggunakan Sistem Syariah yag berdasarkan prinsip Syariah.
+
+1.24 “Uang Elektronik Syariah” adalah alat pembayaran elektronik yang diterbitkan oleh PT SPI sesuai dengan izin dari Bank Indonesia berdasarkan peraturan perundang-undangan yang berlaku dan fatwa DSN No. 116/DSN-MUI/IX/2017.
+
+1.25 “Akad Wadi'ah” adalah akad penitipan uang dari pemegang uang elektronik kepada penerbit dengan ketentuan pemegang uang elektronik dapat mengambil/menarik/menggunakan kapan saja sesuai kesepakatan.
+
+1.26 “Akad Qardh” adalah akad pinjaman dari pemegang uang elektronik kepada penerbit dengan ketentuan bahwa penerbit wajib mengembalikan uang yang diterimanya kepada pemegang kapan saja sesuai dengan kesepakatan.
+
+1.27 “Akad Rjarah” adalah akad pemindahan hak guna (manfaat) atas suatu barang atau jasa dalam waktu tertentu dengan pembayaran atau upah.
+
+1.28 “Akad Ju'alah” adalah akad untuk memberikan imbalan (reward/'iwadh//ju'f tertentu atas pencapaian hasil (natijah) Yang ditentukan dari suatu pekerjaan.
+
+1.29 “Akad Wakalah bi al-ujrah” adalah akad wakalah dengan imbalan (ujrah).
+
+1.30 Akad yang digunakan antara pelanggan dan penerbit dalam Syariah adalah akad wadi’ah yaitu titipan sejumlah nominal uang elektronik yang dapat digunakan oleh pemegang Syariah kapan saja.
+
+1.31 Akad yang akan digunakan antara penerbit dan pihak merchant dan lainnya adalah akad ijarah, akad ju’alah dan wakalah bil-ujrah, akad disesuaikan dengan kebutuhan
+
+1.32 Dalam penyelenggaraan uang elektronik, penerbit akan mengenakan biaya layanan fasilitas uang elektronik seperti transaksi pembayaran belanja,pembayaran tagihan, pengisian saldo dan penarikannya dan lainnya kepada pemegang Syariah untuk mendukung proses kelancaran penyelenggaraan uang elektronik dengan akad wakalah bil-ujrah
+
+Tabel Layanan</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="11" name="AndaleMono"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_privacy_p" translatesAutoresizingMaskIntoConstraints="NO" id="xCh-R1-iIs">
+                                    <rect key="frame" x="8" y="1981" width="377" height="130"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIi-r7-m2k">
+                                    <rect key="frame" x="8" y="2119" width="377" height="1089.333333333333"/>
+                                    <attributedString key="attributedText">
+                                        <fragment>
+                                            <mutableString key="content">2. SYARAT
+
+2.1 Pelanggan melakukan pendaftaran di Aplikasi dengan memasukkan informasi / data yang diminta sebagai kredensial yang menjadi referensi bagi PT SPI dalam pembuatan Nomor Akun. PT SPI akan mengirimkan kode verifikasi kepada Pelanggan melalui media komunikasi Short Message Service ("SMS") atau media lain yang didaftarkan oleh Pelanggan.
+
+2.2 Setelah itu Pelanggan wajib memasukkan kode verifikasi dan apabila verifikasi berhasil maka Pelanggan wajib mendaftarkan PIN pada Aplikasi untuk tujuan keamanan Akun Pelanggan.
+
+2.3 Dengan melakukan proses registrasi sebagaimana diatur dalam pasal 2.1 dan 2.2 diatas, maka Pelanggan otomatis akan tercatat di Sistem Syariah sebagai Pelanggan Reguler.
+
+2.4 Pelanggan sewaktu-waktu dapat meningkatkan status kepelangganannya menjadi Pelanggan Premium dengan melalui proses CDD.
+
+2.5 Pelanggan harus selalu menjaga kerahasiaan PIN dan tidak boleh memberitahukannya kepada pihak lain dalam keadaan atau dengan cara apapun. Segala akibat yang timbul karena kelalaian, ketidak hati-hatian, atau atas penggunaan atau penyalahgunaan PIN oleh Pelanggan atau pihak ketiga dengan atau tanpa izin dari Pelanggan yang bersangkutan, adalah merupakan beban dan tanggung jawab sepenuhnya dari Pelanggan.
+
+2.6 Penjelasan lebih lanjut mengenai fungsi registrasi, PIN dan aktivasi serta pelaksanaan CDD diatur di dalam pedoman Layanan Syariah yang merupakan satu kesatuan dengan Ketentuan dan Syarat ini.
+
+3. PENGGUNAAN LAYANAN SYARIAH
+
+3.1 Layanan Syariah hanya boleh digunakan oleh pelanggannya dan tidak dapat dipindah tangankan oleh pelanggan kepada pihak lain tanpa persetujuan PT SPI. Segala akibat atau kerugian yang timbul karena kesalahan,kelalaian, ketidak hati-hatian Pelanggan sendiri dalam menggunakan layanan ini adalah merupakan beban dan tanggung jawab Pelanggan sepenuhnya
+
+3.2 Layanan Syariah tidak dapat digunakan untuk transaksi Pembayaran Belanja di merchant apabila:
+(a). Dana dalam Akun Pelanggan tidak mencukupi.
+(b). Akun Pelanggan terblokir atas permintaan pihak berwenang atau terindikasi digunakan untuk kegiatan yang merugikan PT SPI dan/ atau orang lain.
+
+3.3 Dalam hal Pelanggan melanggar sebagian atau seluruh Ketentuan dan Syarat ini, maka PT SPI berhak untuk:
+(a). Menolak setiap Transaksi yang dilakukan Pelanggan.
+(b). Menutup dan/atau mengakhiri dan/ atau memblokir Layanan Syariah untuk Pelanggan bersangkutan.
+
+3.4 PT SPI, dengan tetap memperhatikan ketentuan perundang undangan yang berlaku, berhak menetapkan serta merubah Batas Dana sewaktu-waktu melalui pemberitahuan tertulis (melalui sms maupun notifikasi tertulis lainnya) kepada Pelanggan.
+
+3.5 Pelanggan tidak mendapatkan bunga atas penempatan dananya di Akun Pelanggan.
+
+3.6 Pelanggan dapat melakukan Pengisian Saldo (cash in) dari Akun Pelanggan melalui fasilitas dan cara sebagai berikut:
+(a). Melalui ATM Bank, Pilih menu "Transfer Ke Bank Lain" lalu masukkan kode bank "3929" dan Nomor Akun sebagai nomor rekening tujuan.
+(b). Melalui Agen Syariah lalu lakukan permintaan setor tunai (cash in) Syariah dengan memberikan informasi Nomor Akun dan sejumlah uang yang akan disetor.
+(c). Fasilitas lainnya yang akan diberitahukan oleh PT SPI dari waktu ke waktu.
+
+3.7 Pelanggan Premium dapat melakukan Penarikan Saldo (cash out) dari Akun Pelanggan melalui fasilitas dan cara sebagai berikut:
+(a). Mentransfer saldo yang tersedia di Akun Syariah Pelanggan ke nomor rekening bank.
+(b). Fasilitas lainnya yang akan diberitahukan oleh PT SPI dari waktu ke waktu.
+
+3.8 Apabila Layanan Syariah:
+(a). Telah berakhir atau ditutup sebagaimana diatur pada Ketentuan dan Syarat ini dan masih terdapat sisa dana di Akun Pelanggan, atau
+(b). Tidak ada Transaksi apapun dalam Akun Pelanggan selama 6 (enam) bulan berturut-turut, maka PT SPI berhak memotong dana dalam Akun Pelanggan dengan biaya administrasi sebesar Rp. 5000 (lima ribu rupiah) per bulan tanpa memerlukan pemberitahuan terlebih dahulu.</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="11" name="AndaleMono"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="xCh-R1-iIs" firstAttribute="top" secondItem="txS-st-UFf" secondAttribute="bottom" constant="8" id="1mL-Is-zlX"/>
+                                <constraint firstItem="txS-st-UFf" firstAttribute="leading" secondItem="36k-UK-1Vr" secondAttribute="leading" constant="8" id="3Yd-uV-rvc"/>
+                                <constraint firstItem="AIi-r7-m2k" firstAttribute="top" secondItem="xCh-R1-iIs" secondAttribute="bottom" constant="8" id="7IB-Fq-CKm"/>
+                                <constraint firstAttribute="trailing" secondItem="txS-st-UFf" secondAttribute="trailing" constant="8" id="8p9-an-9Ph"/>
+                                <constraint firstItem="xCh-R1-iIs" firstAttribute="leading" secondItem="36k-UK-1Vr" secondAttribute="leading" constant="8" id="ELd-yg-M1F"/>
+                                <constraint firstItem="AIi-r7-m2k" firstAttribute="leading" secondItem="36k-UK-1Vr" secondAttribute="leading" constant="8" id="FnX-JR-HCU"/>
+                                <constraint firstAttribute="trailing" secondItem="xCh-R1-iIs" secondAttribute="trailing" constant="8" id="HdV-Th-XRG"/>
+                                <constraint firstAttribute="height" constant="7000" id="Klc-q5-3gw"/>
+                                <constraint firstAttribute="trailing" secondItem="AIi-r7-m2k" secondAttribute="trailing" constant="8" id="RnR-8b-G2K"/>
+                                <constraint firstItem="txS-st-UFf" firstAttribute="top" secondItem="36k-UK-1Vr" secondAttribute="top" constant="25" id="f6Y-ax-9K6"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="36k-UK-1Vr" firstAttribute="top" secondItem="aZu-Su-BHV" secondAttribute="top" id="7pv-PY-KZu"/>
+                        <constraint firstAttribute="trailing" secondItem="36k-UK-1Vr" secondAttribute="trailing" id="8tG-l6-oUi"/>
+                        <constraint firstAttribute="bottom" secondItem="36k-UK-1Vr" secondAttribute="bottom" id="GcI-9s-QSl"/>
+                        <constraint firstItem="36k-UK-1Vr" firstAttribute="leading" secondItem="aZu-Su-BHV" secondAttribute="leading" id="NfJ-Cp-QFr"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9S6-CA-hkB">
+                    <rect key="frame" x="0.0" y="59" width="393" height="51"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-BL-e9a">
+                            <rect key="frame" x="7" y="7" width="41" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="Mt3-ag-r9q"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usG-Zi-dO7">
+                            <rect key="frame" x="52" y="12" width="180" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Kebijakan Privacy">
+                                    <attributes>
+                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="21" name="Helvetica-Bold"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <constraints>
+                <constraint firstItem="aZu-Su-BHV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KM0-FE-WcX"/>
+                <constraint firstItem="aZu-Su-BHV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="V0r-tV-QHs"/>
+                <constraint firstItem="aZu-Su-BHV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="WrR-Ih-xKc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9S6-CA-hkB" secondAttribute="bottom" constant="708" id="eBl-or-25Y"/>
+                <constraint firstItem="36k-UK-1Vr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="isQ-qo-MHw"/>
+                <constraint firstItem="9S6-CA-hkB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nY1-ZN-tEk"/>
+                <constraint firstItem="9S6-CA-hkB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sbr-nn-hqD"/>
+                <constraint firstItem="9S6-CA-hkB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uW6-Ui-f0Q"/>
+                <constraint firstAttribute="bottom" secondItem="aZu-Su-BHV" secondAttribute="bottom" id="xmc-wg-1Tf"/>
+            </constraints>
+            <point key="canvasLocation" x="-196.18320610687022" y="2.8169014084507045"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="ic_privacy_p" width="327" height="130"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

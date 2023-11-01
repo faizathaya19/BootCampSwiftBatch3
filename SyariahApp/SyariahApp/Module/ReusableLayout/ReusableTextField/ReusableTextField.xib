@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReusableTextField" customModule="SyariahApp" customModuleProvider="target">
+            <connections>
+                <outlet property="titleTextField" destination="zG8-bF-eyF" id="u9X-ew-Jt1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8J-S8-vba">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqM-SR-q0H">
+                            <rect key="frame" x="28" y="33" width="337" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="C4R-oz-qr6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG8-bF-eyF">
+                            <rect key="frame" x="28.000000000000004" y="9" width="43.333333333333343" height="21"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Label">
+                                    <attributes>
+                                        <font key="NSFont" size="17" name="TrebuchetMS-Bold"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BjN-2b-i2T">
+                            <rect key="frame" x="28" y="67" width="337" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="labelColor"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="zG8-bF-eyF" firstAttribute="top" secondItem="t8J-S8-vba" secondAttribute="top" constant="9" id="Ev9-bX-z7l"/>
+                        <constraint firstItem="oqM-SR-q0H" firstAttribute="leading" secondItem="t8J-S8-vba" secondAttribute="leading" constant="28" id="LyW-Bp-ji3"/>
+                        <constraint firstItem="oqM-SR-q0H" firstAttribute="top" secondItem="zG8-bF-eyF" secondAttribute="bottom" constant="3" id="WE4-jU-EIz"/>
+                        <constraint firstAttribute="trailing" secondItem="oqM-SR-q0H" secondAttribute="trailing" constant="28" id="m9d-FX-d6D"/>
+                        <constraint firstItem="zG8-bF-eyF" firstAttribute="leading" secondItem="t8J-S8-vba" secondAttribute="leading" constant="28" id="mhS-Nj-5eu"/>
+                        <constraint firstAttribute="bottom" secondItem="oqM-SR-q0H" secondAttribute="bottom" constant="13" id="vD6-Ya-Uwy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="t8J-S8-vba" secondAttribute="bottom" id="05H-dR-WAE"/>
+                <constraint firstItem="t8J-S8-vba" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0Np-ib-lu8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="t8J-S8-vba" secondAttribute="trailing" id="acN-Vs-LHh"/>
+                <constraint firstItem="t8J-S8-vba" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xff-dP-gaF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="20.610687022900763" y="292.25352112676057"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

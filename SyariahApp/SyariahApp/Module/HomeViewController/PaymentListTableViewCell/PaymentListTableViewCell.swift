@@ -18,6 +18,8 @@ class PaymentListTableViewCell: BaseTableCell {
         }
     }
 
+    var didSelectItem: ((Item) -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -32,9 +34,12 @@ class PaymentListTableViewCell: BaseTableCell {
     private func setupCollectionView() {
         paymentCollectionView.delegate = self
         paymentCollectionView.dataSource = self
-        paymentCollectionView.register(UINib(nibName: "PaymentListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        paymentCollectionView.isUserInteractionEnabled = true
+        
+        paymentCollectionView.register(UINib(nibName: "PaymentListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "paymentCell")
+        
+        paymentCollectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "promotionCell")
 
-        // Use a grid layout for the collection view
         if let flowLayout = paymentCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
             flowLayout.minimumLineSpacing = 6
@@ -50,11 +55,37 @@ extension PaymentListTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PaymentListCollectionViewCell
+        let cell: UICollectionViewCell
 
-        cell.paymentTitleCollectionCell.text = data[indexPath.item].name
-        cell.paymentImageCollectionCell.image = UIImage(named: data[indexPath.item].imageName)
+        let section = TableSection.allCases[collectionView.tag]
+
+        switch section {
+        case .payments:
+            let paymentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "paymentCell", for: indexPath) as! PaymentListCollectionViewCell
+            configurePaymentCell(paymentCell, at: indexPath)
+            cell = paymentCell
+        case .promotions:
+            let promotionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "promotionCell", for: indexPath) as! PromotionCollectionViewCell
+            configurePromotionCell(promotionCell, at: indexPath)
+            cell = promotionCell
+        }
 
         return cell
+    }
+
+    private func configurePaymentCell(_ cell: PaymentListCollectionViewCell, at indexPath: IndexPath) {
+        cell.paymentTitleCollectionCell.text = data[indexPath.item].name
+        cell.paymentImageCollectionCell.image = UIImage(named: data[indexPath.item].imageName)
+    }
+
+    private func configurePromotionCell(_ cell: PromotionCollectionViewCell, at indexPath: IndexPath) {
+        let dataForSection = TableSection.promotions.data
+        cell.promotionTitleCollectionCell.text = dataForSection[indexPath.item].name
+        cell.promotionImageCollectionCell.image = UIImage(named: dataForSection[indexPath.item].imageName)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = data[indexPath.item]
+        didSelectItem?(selectedItem)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class MainTabBarViewController: UITabBarController {
     
-    let homeVC = UINavigationController(rootViewController: ScrollFullScreenViewController())
+    let homeVC = UINavigationController(rootViewController: HomeViewController())
     let transactionVC = UINavigationController(rootViewController: ListWithStructModelViewController())
     let notificationVC = UINavigationController(rootViewController: CollectionViewController())
     let profileVC = UINavigationController(rootViewController: CollectionViewInTableViewViewController())
