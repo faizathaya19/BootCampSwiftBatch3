@@ -4,40 +4,58 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="promotionCell" id="gTV-IL-0wX" customClass="PromotionCollectionViewCell" customModule="SyariahApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="220"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="220"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4130786594" translatesAutoresizingMaskIntoConstraints="NO" id="TFA-kK-eCS">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyA-BD-59B">
-                        <rect key="frame" x="22" y="35" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCO-Jb-9d5">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="220"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4130786594" translatesAutoresizingMaskIntoConstraints="NO" id="TFA-kK-eCS">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="220"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="TFA-kK-eCS" firstAttribute="top" secondItem="PCO-Jb-9d5" secondAttribute="top" id="0Bk-0a-rs3"/>
+                            <constraint firstAttribute="trailing" secondItem="TFA-kK-eCS" secondAttribute="trailing" id="1kc-aj-af4"/>
+                            <constraint firstAttribute="bottom" secondItem="TFA-kK-eCS" secondAttribute="bottom" id="Qhn-4f-pJ6"/>
+                            <constraint firstItem="TFA-kK-eCS" firstAttribute="leading" secondItem="PCO-Jb-9d5" secondAttribute="leading" id="jev-vx-ndo"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="PCO-Jb-9d5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LST-Uy-wxk"/>
+                <constraint firstAttribute="trailing" secondItem="PCO-Jb-9d5" secondAttribute="trailing" id="PTh-uy-FKG"/>
+                <constraint firstItem="PCO-Jb-9d5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QrK-95-yUV"/>
+                <constraint firstAttribute="trailing" secondItem="PCO-Jb-9d5" secondAttribute="trailing" id="SI8-52-AGA"/>
+                <constraint firstAttribute="bottom" secondItem="PCO-Jb-9d5" secondAttribute="bottom" id="fr1-XH-mzY"/>
+                <constraint firstItem="PCO-Jb-9d5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="k5f-ZB-4e1"/>
+                <constraint firstAttribute="bottom" secondItem="PCO-Jb-9d5" secondAttribute="bottom" id="nS2-hO-Sas"/>
+                <constraint firstItem="PCO-Jb-9d5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zoL-bA-qcb"/>
+            </constraints>
+            <size key="customSize" width="200" height="200"/>
             <connections>
                 <outlet property="promotionImageCollectionCell" destination="TFA-kK-eCS" id="s39-4B-kwb"/>
-                <outlet property="promotionTitleCollectionCell" destination="gyA-BD-59B" id="86e-zf-UNy"/>
             </connections>
-            <point key="canvasLocation" x="22.900763358778626" y="19.718309859154932"/>
+            <point key="canvasLocation" x="78" y="30"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="4130786594" width="750" height="500"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

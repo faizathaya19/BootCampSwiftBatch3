@@ -15,7 +15,7 @@ protocol Sectionable {
 }
 
 // Enum to define sections
-enum TableSection: CaseIterable, Sectionable {
+enum TableSection: Int, CaseIterable, Sectionable {
     case payments
     case promotions
 
@@ -39,10 +39,10 @@ enum TableSection: CaseIterable, Sectionable {
             ]
         case .promotions:
             return [
-                Item(name: "Promo 1", imageName: "1"),
-                Item(name: "Promo 2", imageName: "2"),
-                Item(name: "Diskon 1", imageName: "3"),
-                Item(name: "Diskon 2", imageName: "4")
+                Item(name: "Promo 1", imageName: "bg_login"),
+                Item(name: "Promo 2", imageName: "bg_login"),
+                Item(name: "Diskon 1", imageName: "bg_login"),
+                Item(name: "Diskon 2", imageName: "bg_login")
             ]
         }
     }
@@ -57,15 +57,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         homeTableView.delegate = self
         homeTableView.dataSource = self
-        homeTableView.register(UINib(nibName: "PaymentListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
-        
+        homeTableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
     }
-
 }
 
-extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
-    
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return TableSection.allCases.count
     }
@@ -75,19 +72,13 @@ extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PaymentListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListTableViewCell
 
-        if TableSection.allCases[indexPath.section] == .payments {
-            cell.configure(title: TableSection.payments.title, data: TableSection.payments.data)
+        let section = TableSection(rawValue: indexPath.section)
 
-            // Set the didSelectItem closure
-            cell.didSelectItem = { selectedItem in
-                self.navigateToViewController(for: selectedItem)
-            }
-        }
-        
-        if TableSection.allCases[indexPath.section] == .promotions {
-            cell.configure(title: TableSection.promotions.title, data: TableSection.promotions.data)
+        if let section = section {
+            cell.cellType = (section == .payments) ? .payment : .promotion
+            cell.configure(title: section.title, data: section.data)
 
             // Set the didSelectItem closure
             cell.didSelectItem = { selectedItem in
@@ -101,19 +92,19 @@ extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        // Check which section and row is selected
-        let section = TableSection.allCases[indexPath.section]
-        let selectedItem = section.data[indexPath.row]
+        let section = TableSection(rawValue: indexPath.section)
+        let selectedItem = section?.data[indexPath.row]
 
-        // Navigate to the corresponding view controller
-        navigateToViewController(for: selectedItem)
+        if let selectedItem = selectedItem {
+            navigateToViewController(for: selectedItem)
+        }
     }
 
     // MARK: - Navigation
     func navigateToViewController(for item: Item) {
         guard let paymentType = PaymentType(rawValue: item.name) else { return }
         let viewController: UIViewController
-        
+
         switch paymentType {
         case .telco:
             viewController = TelcoViewController()

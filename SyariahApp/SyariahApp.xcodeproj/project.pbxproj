@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05CAA4C9A1CAB21DD16B7215 /* Pods_SyariahApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FED45D7013FCC226557A3E /* Pods_SyariahApp.framework */; };
 		3635F1012AEFA1AD009CD067 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3635F0FF2AEFA1AD009CD067 /* HomeViewController.swift */; };
 		3635F1022AEFA1AD009CD067 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3635F1002AEFA1AD009CD067 /* HomeViewController.xib */; };
 		3639E3FF2AF0EA0100B48981 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E3FE2AF0EA0100B48981 /* ReusableTextField.swift */; };
 		3639E4012AF0ED8E00B48981 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E4002AF0ED8E00B48981 /* FormView.swift */; };
-		365BD50C2AEFBDA7002B214F /* PaymentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD50A2AEFBDA7002B214F /* PaymentListTableViewCell.swift */; };
-		365BD50D2AEFBDA7002B214F /* PaymentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BD50B2AEFBDA7002B214F /* PaymentListTableViewCell.xib */; };
+		365BD50C2AEFBDA7002B214F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD50A2AEFBDA7002B214F /* ListTableViewCell.swift */; };
+		365BD50D2AEFBDA7002B214F /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BD50B2AEFBDA7002B214F /* ListTableViewCell.xib */; };
 		365BD5132AEFC1FF002B214F /* PaymentListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD5112AEFC1FF002B214F /* PaymentListCollectionViewCell.swift */; };
 		365BD5142AEFC1FF002B214F /* PaymentListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BD5122AEFC1FF002B214F /* PaymentListCollectionViewCell.xib */; };
 		365BD5162AEFC727002B214F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD5152AEFC727002B214F /* Models.swift */; };
 		36CD63882AF0D5DB00C751A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD63862AF0D5DB00C751A7 /* LoginViewController.swift */; };
 		36CD63892AF0D5DB00C751A7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CD63872AF0D5DB00C751A7 /* LoginViewController.xib */; };
 		36CD638D2AF0E87100C751A7 /* ReusableTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CD638C2AF0E87100C751A7 /* ReusableTextField.xib */; };
+		36CE99522AF35B8900426820 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE99502AF35B8900426820 /* AnimationViewController.swift */; };
+		36CE99532AF35B8900426820 /* AnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CE99512AF35B8900426820 /* AnimationViewController.xib */; };
+		36CE99552AF3750400426820 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CE99542AF3750400426820 /* GoogleService-Info.plist */; };
 		36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */; };
 		36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */; };
 		36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FC32AEF8C51000BD9CD /* ViewController.swift */; };
@@ -46,6 +50,9 @@
 		36FCC14B2AF243540046BB50 /* SchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1492AF243540046BB50 /* SchoolViewController.xib */; };
 		36FCC1532AF25B320046BB50 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC1512AF25B320046BB50 /* PromotionCollectionViewCell.swift */; };
 		36FCC1542AF25B320046BB50 /* PromotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCC1522AF25B320046BB50 /* PromotionCollectionViewCell.xib */; };
+		36FCC1572AF32A250046BB50 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 36FCC1562AF32A250046BB50 /* Alamofire */; };
+		7C4C490ABD473AA8D77BE9F6 /* Pods_SyariahAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF3A146A2A19A79389D8642 /* Pods_SyariahAppTests.framework */; };
+		AAEF7E9965C189C7200260A7 /* Pods_SyariahApp_SyariahAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39DD98EBD43C6409D58AF46 /* Pods_SyariahApp_SyariahAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,14 +77,17 @@
 		3635F1002AEFA1AD009CD067 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		3639E3FE2AF0EA0100B48981 /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
 		3639E4002AF0ED8E00B48981 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
-		365BD50A2AEFBDA7002B214F /* PaymentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListTableViewCell.swift; sourceTree = "<group>"; };
-		365BD50B2AEFBDA7002B214F /* PaymentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentListTableViewCell.xib; sourceTree = "<group>"; };
+		365BD50A2AEFBDA7002B214F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		365BD50B2AEFBDA7002B214F /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		365BD5112AEFC1FF002B214F /* PaymentListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListCollectionViewCell.swift; sourceTree = "<group>"; };
 		365BD5122AEFC1FF002B214F /* PaymentListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentListCollectionViewCell.xib; sourceTree = "<group>"; };
 		365BD5152AEFC727002B214F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		36CD63862AF0D5DB00C751A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36CD63872AF0D5DB00C751A7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		36CD638C2AF0E87100C751A7 /* ReusableTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReusableTextField.xib; sourceTree = "<group>"; };
+		36CE99502AF35B8900426820 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		36CE99512AF35B8900426820 /* AnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationViewController.xib; sourceTree = "<group>"; };
+		36CE99542AF3750400426820 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36CF7FBC2AEF8C51000BD9CD /* SyariahApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyariahApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +119,15 @@
 		36FCC1492AF243540046BB50 /* SchoolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolViewController.xib; sourceTree = "<group>"; };
 		36FCC1512AF25B320046BB50 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		36FCC1522AF25B320046BB50 /* PromotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionCollectionViewCell.xib; sourceTree = "<group>"; };
+		8189F13C61BF4C06C1BD8B7D /* Pods-SyariahApp-SyariahAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyariahApp-SyariahAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SyariahApp-SyariahAppUITests/Pods-SyariahApp-SyariahAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		903C66D6B67CA708D25EE606 /* Pods-SyariahApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyariahApp.debug.xcconfig"; path = "Target Support Files/Pods-SyariahApp/Pods-SyariahApp.debug.xcconfig"; sourceTree = "<group>"; };
+		92D116F51E5465B2DCA8C2CF /* Pods-SyariahApp-SyariahAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyariahApp-SyariahAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SyariahApp-SyariahAppUITests/Pods-SyariahApp-SyariahAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5460CA9546F3B30B0050382 /* Pods-SyariahAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyariahAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SyariahAppTests/Pods-SyariahAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D39DD98EBD43C6409D58AF46 /* Pods_SyariahApp_SyariahAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyariahApp_SyariahAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FED45D7013FCC226557A3E /* Pods_SyariahApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyariahApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD6E9E1F387A4B3AF0733B92 /* Pods-SyariahAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyariahAppTests.release.xcconfig"; path = "Target Support Files/Pods-SyariahAppTests/Pods-SyariahAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		EE2119119BE11B025A02A9C9 /* Pods-SyariahApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyariahApp.release.xcconfig"; path = "Target Support Files/Pods-SyariahApp/Pods-SyariahApp.release.xcconfig"; sourceTree = "<group>"; };
+		EFF3A146A2A19A79389D8642 /* Pods_SyariahAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyariahAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FCC1572AF32A250046BB50 /* Alamofire in Frameworks */,
+				05CAA4C9A1CAB21DD16B7215 /* Pods_SyariahApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C4C490ABD473AA8D77BE9F6 /* Pods_SyariahAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,19 +152,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEF7E9965C189C7200260A7 /* Pods_SyariahApp_SyariahAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26D07AED02608B8F32C1A827 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				903C66D6B67CA708D25EE606 /* Pods-SyariahApp.debug.xcconfig */,
+				EE2119119BE11B025A02A9C9 /* Pods-SyariahApp.release.xcconfig */,
+				92D116F51E5465B2DCA8C2CF /* Pods-SyariahApp-SyariahAppUITests.debug.xcconfig */,
+				8189F13C61BF4C06C1BD8B7D /* Pods-SyariahApp-SyariahAppUITests.release.xcconfig */,
+				A5460CA9546F3B30B0050382 /* Pods-SyariahAppTests.debug.xcconfig */,
+				DD6E9E1F387A4B3AF0733B92 /* Pods-SyariahAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		365BD5092AEFBBEE002B214F /* PaymentListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				36FCC14C2AF2592D0046BB50 /* PromotionCollectionViewCell */,
 				365BD50E2AEFC1A4002B214F /* PaymentListCollectionViewCell */,
-				365BD50A2AEFBDA7002B214F /* PaymentListTableViewCell.swift */,
-				365BD50B2AEFBDA7002B214F /* PaymentListTableViewCell.xib */,
+				365BD50A2AEFBDA7002B214F /* ListTableViewCell.swift */,
+				365BD50B2AEFBDA7002B214F /* ListTableViewCell.xib */,
 			);
 			path = PaymentListTableViewCell;
 			sourceTree = "<group>";
@@ -173,6 +209,15 @@
 			path = ReusableLayout;
 			sourceTree = "<group>";
 		};
+		36CE994B2AF35B4E00426820 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				36CE99502AF35B8900426820 /* AnimationViewController.swift */,
+				36CE99512AF35B8900426820 /* AnimationViewController.xib */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		36CF7FB32AEF8C51000BD9CD = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +225,8 @@
 				36CF7FD52AEF8C53000BD9CD /* SyariahAppTests */,
 				36CF7FDF2AEF8C53000BD9CD /* SyariahAppUITests */,
 				36CF7FBD2AEF8C51000BD9CD /* Products */,
+				26D07AED02608B8F32C1A827 /* Pods */,
+				9F4B977848DBD1A3BC1D8833 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +243,7 @@
 		36CF7FBE2AEF8C51000BD9CD /* SyariahApp */ = {
 			isa = PBXGroup;
 			children = (
+				36CE99542AF3750400426820 /* GoogleService-Info.plist */,
 				36CF7FEF2AEF8C82000BD9CD /* App */,
 				36CF7FF12AEF8C97000BD9CD /* Resource */,
 				36CF7FF02AEF8C8F000BD9CD /* Common */,
@@ -254,6 +302,8 @@
 		36CF7FF22AEF8D6D000BD9CD /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36CE994B2AF35B4E00426820 /* Animation */,
+				36CD638A2AF0E82600C751A7 /* ReusableLayout */,
 				36FCC13A2AF2430A0046BB50 /* SchoolViewController */,
 				36FCC1392AF243010046BB50 /* PDAMViewController */,
 				36FCC1382AF242EC0046BB50 /* PLNViewController */,
@@ -261,7 +311,6 @@
 				36FCC1322AF2311D0046BB50 /* ProfileViewController */,
 				36FCC1192AF1E6800046BB50 /* RegisterViewController */,
 				36FCC1142AF1D90E0046BB50 /* PrivacyPolicyViewController */,
-				36CD638A2AF0E82600C751A7 /* ReusableLayout */,
 				36CD63852AF0D5AC00C751A7 /* LoginViewController */,
 				36CF7FFC2AEF94CF000BD9CD /* HomeViewController */,
 				36CF7FFB2AEF94B9000BD9CD /* ViewController */,
@@ -401,6 +450,16 @@
 			path = PromotionCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		9F4B977848DBD1A3BC1D8833 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6FED45D7013FCC226557A3E /* Pods_SyariahApp.framework */,
+				D39DD98EBD43C6409D58AF46 /* Pods_SyariahApp_SyariahAppUITests.framework */,
+				EFF3A146A2A19A79389D8642 /* Pods_SyariahAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,15 +467,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36CF7FE62AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahApp" */;
 			buildPhases = (
+				4054C15EE4459E60C208FE3F /* [CP] Check Pods Manifest.lock */,
 				36CF7FB82AEF8C51000BD9CD /* Sources */,
 				36CF7FB92AEF8C51000BD9CD /* Frameworks */,
 				36CF7FBA2AEF8C51000BD9CD /* Resources */,
+				FCCEF38A08543DBA4CAEC8C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SyariahApp;
+			packageProductDependencies = (
+				36FCC1562AF32A250046BB50 /* Alamofire */,
+			);
 			productName = SyariahApp;
 			productReference = 36CF7FBC2AEF8C51000BD9CD /* SyariahApp.app */;
 			productType = "com.apple.product-type.application";
@@ -425,6 +489,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36CF7FE92AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahAppTests" */;
 			buildPhases = (
+				F66124C6DF621BB8B7E55A8D /* [CP] Check Pods Manifest.lock */,
 				36CF7FCE2AEF8C53000BD9CD /* Sources */,
 				36CF7FCF2AEF8C53000BD9CD /* Frameworks */,
 				36CF7FD02AEF8C53000BD9CD /* Resources */,
@@ -443,9 +508,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36CF7FEC2AEF8C53000BD9CD /* Build configuration list for PBXNativeTarget "SyariahAppUITests" */;
 			buildPhases = (
+				513EBCE342231A00F2B42A04 /* [CP] Check Pods Manifest.lock */,
 				36CF7FD82AEF8C53000BD9CD /* Sources */,
 				36CF7FD92AEF8C53000BD9CD /* Frameworks */,
 				36CF7FDA2AEF8C53000BD9CD /* Resources */,
+				5B9A9832EBA71400E5A7D5B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,6 +556,9 @@
 				Base,
 			);
 			mainGroup = 36CF7FB32AEF8C51000BD9CD;
+			packageReferences = (
+				36FCC1552AF32A250046BB50 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 36CF7FBD2AEF8C51000BD9CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -508,13 +578,15 @@
 				36CF7FCC2AEF8C52000BD9CD /* LaunchScreen.storyboard in Resources */,
 				36FCC11D2AF1E6BB0046BB50 /* RegisterViewController.xib in Resources */,
 				36FCC13F2AF2432D0046BB50 /* TelcoViewController.xib in Resources */,
+				36CE99532AF35B8900426820 /* AnimationViewController.xib in Resources */,
 				365BD5142AEFC1FF002B214F /* PaymentListCollectionViewCell.xib in Resources */,
 				36FCC14B2AF243540046BB50 /* SchoolViewController.xib in Resources */,
 				36CD638D2AF0E87100C751A7 /* ReusableTextField.xib in Resources */,
-				365BD50D2AEFBDA7002B214F /* PaymentListTableViewCell.xib in Resources */,
+				365BD50D2AEFBDA7002B214F /* ListTableViewCell.xib in Resources */,
 				36FCC1472AF243470046BB50 /* PDAMViewController.xib in Resources */,
 				36FCC1362AF231420046BB50 /* ProfileViewController.xib in Resources */,
 				36CF7FC92AEF8C52000BD9CD /* Assets.xcassets in Resources */,
+				36CE99552AF3750400426820 /* GoogleService-Info.plist in Resources */,
 				36CF7FC72AEF8C51000BD9CD /* Main.storyboard in Resources */,
 				36CD63892AF0D5DB00C751A7 /* LoginViewController.xib in Resources */,
 				3635F1022AEFA1AD009CD067 /* HomeViewController.xib in Resources */,
@@ -540,6 +612,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4054C15EE4459E60C208FE3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SyariahApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		513EBCE342231A00F2B42A04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SyariahApp-SyariahAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B9A9832EBA71400E5A7D5B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SyariahApp-SyariahAppUITests/Pods-SyariahApp-SyariahAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SyariahApp-SyariahAppUITests/Pods-SyariahApp-SyariahAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SyariahApp-SyariahAppUITests/Pods-SyariahApp-SyariahAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F66124C6DF621BB8B7E55A8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SyariahAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCCEF38A08543DBA4CAEC8C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SyariahApp/Pods-SyariahApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SyariahApp/Pods-SyariahApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SyariahApp/Pods-SyariahApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		36CF7FB82AEF8C51000BD9CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -554,7 +729,8 @@
 				36FCC1172AF1D9520046BB50 /* PrivacyPolicyViewController.swift in Sources */,
 				36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */,
 				36CF7FFA2AEF93AB000BD9CD /* MainTabBar.swift in Sources */,
-				365BD50C2AEFBDA7002B214F /* PaymentListTableViewCell.swift in Sources */,
+				36CE99522AF35B8900426820 /* AnimationViewController.swift in Sources */,
+				365BD50C2AEFBDA7002B214F /* ListTableViewCell.swift in Sources */,
 				36CF7FF72AEF9215000BD9CD /* Constants.swift in Sources */,
 				36FCC11C2AF1E6BB0046BB50 /* RegisterViewController.swift in Sources */,
 				36FCC13E2AF2432D0046BB50 /* TelcoViewController.swift in Sources */,
@@ -736,6 +912,7 @@
 		};
 		36CF7FE72AEF8C53000BD9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 903C66D6B67CA708D25EE606 /* Pods-SyariahApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -743,6 +920,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SyariahApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Syariah;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "This app uses image";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to take pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -763,6 +944,7 @@
 		};
 		36CF7FE82AEF8C53000BD9CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE2119119BE11B025A02A9C9 /* Pods-SyariahApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -770,6 +952,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SyariahApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Syariah;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "This app uses image";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to take pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -790,6 +976,7 @@
 		};
 		36CF7FEA2AEF8C53000BD9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5460CA9546F3B30B0050382 /* Pods-SyariahAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -809,6 +996,7 @@
 		};
 		36CF7FEB2AEF8C53000BD9CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD6E9E1F387A4B3AF0733B92 /* Pods-SyariahAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -828,6 +1016,7 @@
 		};
 		36CF7FED2AEF8C53000BD9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92D116F51E5465B2DCA8C2CF /* Pods-SyariahApp-SyariahAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -845,6 +1034,7 @@
 		};
 		36CF7FEE2AEF8C53000BD9CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8189F13C61BF4C06C1BD8B7D /* Pods-SyariahApp-SyariahAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -900,6 +1090,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36FCC1552AF32A250046BB50 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36FCC1562AF32A250046BB50 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36FCC1552AF32A250046BB50 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36CF7FB42AEF8C51000BD9CD /* Project object */;
 }

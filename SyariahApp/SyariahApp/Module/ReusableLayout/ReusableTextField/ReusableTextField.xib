@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReusableTextField" customModule="SyariahApp" customModuleProvider="target">
             <connections>
+                <outlet property="formTextfield" destination="oqM-SR-q0H" id="2OO-lR-DMM"/>
                 <outlet property="titleTextField" destination="zG8-bF-eyF" id="u9X-ew-Jt1"/>
             </connections>
         </placeholder>

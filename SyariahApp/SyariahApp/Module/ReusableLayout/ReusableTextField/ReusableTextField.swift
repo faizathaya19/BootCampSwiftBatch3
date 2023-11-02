@@ -1,13 +1,12 @@
-
-import Foundation
-
 import UIKit
 
 class ReusableTextField: UIView {
     
-    @IBOutlet weak var titleTextField: UILabel!
-  
-    let nibName = "ReusableTextField"
+    @IBOutlet private weak var titleTextField: UILabel!
+    
+    @IBOutlet weak var formTextfield: UITextField!
+    
+    private let nibName = "ReusableTextField"
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,18 +18,18 @@ class ReusableTextField: UIView {
         commonInit()
     }
     
-    func commonInit() {
+    private func commonInit() {
         guard let view = loadViewFromNib() else { return }
-        view.frame = self.bounds
-        self.addSubview(view)
+        view.frame = bounds
+        addSubview(view)
     }
     
-    func loadViewFromNib() -> UIView? {
+    private func loadViewFromNib() -> UIView? {
         let nib = UINib(nibName: nibName, bundle: nil)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
-    func setup(title:String) {
+    func setup(title: String) {
         titleTextField.text = title
     }
 }

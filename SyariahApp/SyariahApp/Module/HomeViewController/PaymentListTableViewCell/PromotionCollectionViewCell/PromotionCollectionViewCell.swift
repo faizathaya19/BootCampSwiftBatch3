@@ -9,7 +9,6 @@ import UIKit
 
 class PromotionCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var promotionTitleCollectionCell: UILabel!
     @IBOutlet weak var promotionImageCollectionCell: UIImageView!
 
     override func awakeFromNib() {

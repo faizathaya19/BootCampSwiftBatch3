@@ -15,3 +15,7 @@ enum tabBarIcon{
     static let profileIcon = UIImage(systemName: "opticaldiscdrive.fill")
 }
 
+struct Constants {
+    static let defaultImage = "defaultImage"
+}
+

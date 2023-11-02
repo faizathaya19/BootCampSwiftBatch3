@@ -69,8 +69,8 @@
             </constraints>
             <size key="customSize" width="87" height="94"/>
             <connections>
-                <outlet property="paymentImageCollectionCell" destination="wRV-JS-U9w" id="VCS-fh-rFr"/>
-                <outlet property="paymentTitleCollectionCell" destination="Vgk-UE-kHh" id="bup-mK-3UP"/>
+                <outlet property="paymentImageCollectionCell" destination="wRV-JS-U9w" id="XQi-Lg-d9s"/>
+                <outlet property="paymentTitleCollectionCell" destination="Vgk-UE-kHh" id="Et9-oE-di7"/>
                 <outlet property="viewLayout" destination="Cun-qY-UhM" id="w0l-VT-AI1"/>
             </connections>
             <point key="canvasLocation" x="74.809160305343511" y="35.211267605633807"/>

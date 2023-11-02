@@ -9,8 +9,6 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    @IBOutlet weak var fullNameField: ReusableTextField!
-    
     @IBAction func privacyPolicyButton(_ sender: Any) {
         
         let vc = PrivacyPolicyViewController()
@@ -23,6 +21,8 @@ class RegisterViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
         
     }
+    
+    @IBOutlet weak var fullNameField: ReusableTextField!
     
     @IBOutlet weak var cityField: ReusableTextField!
     
