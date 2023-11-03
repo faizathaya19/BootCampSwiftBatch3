@@ -23,6 +23,8 @@
 		36CE99522AF35B8900426820 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE99502AF35B8900426820 /* AnimationViewController.swift */; };
 		36CE99532AF35B8900426820 /* AnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CE99512AF35B8900426820 /* AnimationViewController.xib */; };
 		36CE99552AF3750400426820 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36CE99542AF3750400426820 /* GoogleService-Info.plist */; };
+		36CE99592AF489D400426820 /* TopCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CE99572AF489D300426820 /* TopCardCollectionViewCell.swift */; };
+		36CE995A2AF489D400426820 /* TopCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CE99582AF489D300426820 /* TopCardCollectionViewCell.xib */; };
 		36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */; };
 		36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */; };
 		36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7FC32AEF8C51000BD9CD /* ViewController.swift */; };
@@ -88,6 +90,8 @@
 		36CE99502AF35B8900426820 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		36CE99512AF35B8900426820 /* AnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationViewController.xib; sourceTree = "<group>"; };
 		36CE99542AF3750400426820 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36CE99572AF489D300426820 /* TopCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		36CE99582AF489D300426820 /* TopCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		36CF7FBC2AEF8C51000BD9CD /* SyariahApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyariahApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CF7FBF2AEF8C51000BD9CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CF7FC12AEF8C51000BD9CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		365BD5092AEFBBEE002B214F /* PaymentListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				36CE99562AF489A600426820 /* TopCardCollectionViewCell */,
 				36FCC14C2AF2592D0046BB50 /* PromotionCollectionViewCell */,
 				365BD50E2AEFC1A4002B214F /* PaymentListCollectionViewCell */,
 				365BD50A2AEFBDA7002B214F /* ListTableViewCell.swift */,
@@ -216,6 +221,15 @@
 				36CE99512AF35B8900426820 /* AnimationViewController.xib */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		36CE99562AF489A600426820 /* TopCardCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				36CE99572AF489D300426820 /* TopCardCollectionViewCell.swift */,
+				36CE99582AF489D300426820 /* TopCardCollectionViewCell.xib */,
+			);
+			path = TopCardCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		36CF7FB32AEF8C51000BD9CD = {
@@ -580,6 +594,7 @@
 				36FCC13F2AF2432D0046BB50 /* TelcoViewController.xib in Resources */,
 				36CE99532AF35B8900426820 /* AnimationViewController.xib in Resources */,
 				365BD5142AEFC1FF002B214F /* PaymentListCollectionViewCell.xib in Resources */,
+				36CE995A2AF489D400426820 /* TopCardCollectionViewCell.xib in Resources */,
 				36FCC14B2AF243540046BB50 /* SchoolViewController.xib in Resources */,
 				36CD638D2AF0E87100C751A7 /* ReusableTextField.xib in Resources */,
 				365BD50D2AEFBDA7002B214F /* ListTableViewCell.xib in Resources */,
@@ -724,6 +739,7 @@
 				36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */,
 				36FCC1462AF243470046BB50 /* PDAMViewController.swift in Sources */,
 				3639E3FF2AF0EA0100B48981 /* ReusableTextField.swift in Sources */,
+				36CE99592AF489D400426820 /* TopCardCollectionViewCell.swift in Sources */,
 				36FCC14A2AF243540046BB50 /* SchoolViewController.swift in Sources */,
 				36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */,
 				36FCC1172AF1D9520046BB50 /* PrivacyPolicyViewController.swift in Sources */,

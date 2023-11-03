@@ -24,7 +24,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9y1-dH-gz5">
-                        <rect key="frame" x="27" y="43" width="599" height="91"/>
+                        <rect key="frame" x="27" y="43" width="599" height="137"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FXc-Pr-Aww">
                             <size key="itemSize" width="170" height="170"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -33,10 +34,9 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemMintColor"/>
                 <constraints>
                     <constraint firstItem="rk3-cp-7HM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="Tf6-k7-BMv"/>
-                    <constraint firstAttribute="bottom" secondItem="9y1-dH-gz5" secondAttribute="bottom" constant="66" id="Wjf-gH-0H3"/>
+                    <constraint firstAttribute="bottom" secondItem="9y1-dH-gz5" secondAttribute="bottom" constant="20" id="Wjf-gH-0H3"/>
                     <constraint firstItem="9y1-dH-gz5" firstAttribute="top" secondItem="rk3-cp-7HM" secondAttribute="bottom" constant="5" id="Yig-oD-QRj"/>
                     <constraint firstItem="rk3-cp-7HM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="36" id="bjB-sd-SS9"/>
                     <constraint firstItem="9y1-dH-gz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="27" id="quF-Wh-JDY"/>
@@ -44,6 +44,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionView" destination="9y1-dH-gz5" id="FGG-6t-c5i"/>
                 <outlet property="titleView" destination="rk3-cp-7HM" id="PYs-86-S4S"/>
@@ -52,9 +53,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

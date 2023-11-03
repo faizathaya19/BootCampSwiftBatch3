@@ -9,6 +9,7 @@ class BaseTableCell: UITableViewCell {
 
 // Enum to represent the cell type
 enum CellType {
+    case topCard
     case payment
     case promotion
 }
@@ -25,7 +26,7 @@ class ListTableViewCell: BaseTableCell {
     }
 
     var didSelectItem: ((Item) -> Void)?
-    var cellType: CellType = .payment // Default to payment cell
+    var cellType: CellType = .topCard // Default to payment cell
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,23 +40,14 @@ class ListTableViewCell: BaseTableCell {
 
     private func configureCell(_ cell: UICollectionViewCell, at indexPath: IndexPath) {
         switch cellType {
+        case .topCard:
+            guard cell is TopCardCollectionViewCell else { return }
         case .payment:
             guard let paymentCell = cell as? PaymentListCollectionViewCell else { return }
             configurePaymentCell(paymentCell, at: indexPath)
         case .promotion:
             guard let promotionCell = cell as? PromotionCollectionViewCell else { return }
             configurePromotionCell(promotionCell, at: indexPath)
-        }
-    }
-
-    private func getItemSize(for cellType: CellType) -> CGSize {
-        switch cellType {
-        case .payment:
-            return CGSize(width: 80, height: 90)
-        case .promotion:
-            // Return different size for promotion cells
-            // Modify this as per your requirement
-            return CGSize(width: 300, height: 150)
         }
     }
 
@@ -69,23 +61,25 @@ class ListTableViewCell: BaseTableCell {
     }
 
     private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isUserInteractionEnabled = true
-
-        collectionView.register(UINib(nibName: "PaymentListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "paymentCell")
-        collectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "promotionCell")
-
+        
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
             flowLayout.minimumLineSpacing = 6
             flowLayout.minimumInteritemSpacing = 10
-            flowLayout.itemSize = getItemSize(for: cellType)
         }
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isUserInteractionEnabled = true
+        
+        collectionView.register(UINib(nibName: "TopCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "topCardCell")
+        collectionView.register(UINib(nibName: "PaymentListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "paymentCell")
+        collectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "promotionCell")
+       
     }
 }
 
-extension ListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
@@ -94,15 +88,12 @@ extension ListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         let cell: UICollectionViewCell
 
         switch cellType {
+        case .topCard:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topCardCell", for: indexPath)
         case .payment:
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "paymentCell", for: indexPath)
         case .promotion:
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "promotionCell", for: indexPath)
-        }
-
-        // Update the item size dynamically
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.itemSize = getItemSize(for: cellType)
         }
 
         configureCell(cell, at: indexPath)
@@ -112,5 +103,16 @@ extension ListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = data[indexPath.item]
         didSelectItem?(selectedItem)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch cellType {
+        case .topCard:
+            return CGSize(width: 340 , height: 180)
+        case .payment:
+            return CGSize(width: 80, height: 90)
+        case .promotion:
+            return CGSize(width: 300, height: 170)
+        }
     }
 }

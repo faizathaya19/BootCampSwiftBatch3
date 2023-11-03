@@ -3,7 +3,7 @@ import UIKit
 
 class PaymentListCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var viewLayout: FormView!
+    @IBOutlet weak var viewLayout: UIView!
     @IBOutlet weak var paymentTitleCollectionCell: UILabel!
     @IBOutlet weak var paymentImageCollectionCell: UIImageView!
 
