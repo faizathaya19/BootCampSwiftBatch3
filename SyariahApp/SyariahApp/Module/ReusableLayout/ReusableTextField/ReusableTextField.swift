@@ -3,7 +3,6 @@ import UIKit
 class ReusableTextField: UIView {
     
     @IBOutlet private weak var titleTextField: UILabel!
-    
     @IBOutlet weak var formTextfield: UITextField!
     
     private let nibName = "ReusableTextField"
@@ -31,5 +30,6 @@ class ReusableTextField: UIView {
     
     func setup(title: String) {
         titleTextField.text = title
+        formTextfield.accessibilityLabel = title
     }
 }

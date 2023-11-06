@@ -1,6 +1,5 @@
 import UIKit
 
-// Define the payment types
 enum PaymentType: String {
     case telco = "Telco"
     case pln = "PLN"
@@ -8,13 +7,11 @@ enum PaymentType: String {
     case sekolah = "Sekolah"
 }
 
-// Define protocol to get data and title
 protocol Sectionable {
     var title: String { get }
     var data: [Item] { get }
 }
 
-// Enum to define sections
 enum TableSection: Int, CaseIterable, Sectionable {
     case topCard
     case payments
@@ -22,12 +19,12 @@ enum TableSection: Int, CaseIterable, Sectionable {
 
     var title: String {
         switch self {
-        case .topCard:
-                    return ""
-        case .payments:
-            return "List Pembayaran"
-        case .promotions:
-            return "Promo dan Diskon"
+            case .topCard:
+                        return ""
+            case .payments:
+                return "List Pembayaran"
+            case .promotions:
+                return "Promo dan Diskon"
         }
     }
 
@@ -60,12 +57,34 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+    }
+}
+
+// MARK: - Private Methods
+private extension HomeViewController {
+    func setupTableView() {
         homeTableView.delegate = self
         homeTableView.dataSource = self
         homeTableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
     }
+
+    func navigateToViewController(for item: Item) {
+        guard let paymentType = PaymentType(rawValue: item.name) else { return }
+        let viewController: UIViewController
+
+        switch paymentType {
+        case .telco: viewController = TelcoViewController()
+        case .pln: viewController = PLNViewController()
+        case .pdam: viewController = PDAMViewController()
+        case .sekolah: viewController = SchoolViewController()
+        }
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,69 +94,38 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
-  
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListTableViewCell
 
-            let section = TableSection(rawValue: indexPath.section)
+        guard let section = TableSection(rawValue: indexPath.section) else { return cell }
 
-            if let section = section {
-                cell.cellType = (section == .payments) ? .payment : ((section == .promotions) ? .promotion : .topCard)
-                cell.configure(title: section.title, data: section.data)
+        cell.cellType = (section == .payments) ? .payment : ((section == .promotions) ? .promotion : .topCard)
+        cell.configure(title: section.title, data: section.data)
 
-                // Set the didSelectItem closure
-                cell.didSelectItem = { selectedItem in
-                    self.navigateToViewController(for: selectedItem)
-                }
-            }
-
-            return cell
+        cell.didSelectItem = { selectedItem in
+            self.navigateToViewController(for: selectedItem)
         }
+
+        return cell
+    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let section = TableSection(rawValue: indexPath.section)
-        let selectedItem = section?.data[indexPath.row]
+        guard let section = TableSection(rawValue: indexPath.section) else { return }
+        let selectedItem = section.data[indexPath.row]
 
-        if let selectedItem = selectedItem {
-            navigateToViewController(for: selectedItem)
-        }
+        navigateToViewController(for: selectedItem)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let section = TableSection(rawValue: indexPath.section)
+        guard let section = TableSection(rawValue: indexPath.section) else { return UITableView.automaticDimension }
 
         switch section {
-        case .topCard:
-            return 230.0
-        case .payments:
-            return 170.0 // Set the desired height for payment section
-        case .promotions:
-            return 230.0 // Set the desired height for promotion section
-        case .none:
-            return UITableView.automaticDimension
+        case .topCard: return 230.0
+        case .payments: return 170.0
+        case .promotions: return 230.0
         }
-    }
-
-    // MARK: - Navigation
-    func navigateToViewController(for item: Item) {
-        guard let paymentType = PaymentType(rawValue: item.name) else { return }
-        let viewController: UIViewController
-
-        switch paymentType {
-        case .telco:
-            viewController = TelcoViewController()
-        case .pln:
-            viewController = PLNViewController()
-        case .pdam:
-            viewController = PDAMViewController()
-        case .sekolah:
-            viewController = SchoolViewController()
-        }
-
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
-

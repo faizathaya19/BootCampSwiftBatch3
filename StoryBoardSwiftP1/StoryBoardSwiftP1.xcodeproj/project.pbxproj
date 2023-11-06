@@ -29,6 +29,7 @@
 		361D5DCC2AEA28240036F728 /* StoryBoardSwiftP1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DCB2AEA28240036F728 /* StoryBoardSwiftP1UITestsLaunchTests.swift */; };
 		361D5DF72AEA5E200036F728 /* ScreenXIBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D5DF52AEA5E200036F728 /* ScreenXIBViewController.swift */; };
 		361D5DF82AEA5E200036F728 /* ScreenXIBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */; };
+		368156292AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 368156272AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodeld */; };
 		36CF7F922AEB9BBF000BD9CD /* DayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */; };
 		36CF7F932AEB9BBF000BD9CD /* DayCollectionViewLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */; };
 		36CF7F972AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF7F952AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift */; };
@@ -89,6 +90,7 @@
 		361D5DCB2AEA28240036F728 /* StoryBoardSwiftP1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSwiftP1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		361D5DF52AEA5E200036F728 /* ScreenXIBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenXIBViewController.swift; sourceTree = "<group>"; };
 		361D5DF62AEA5E200036F728 /* ScreenXIBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenXIBViewController.xib; sourceTree = "<group>"; };
+		368156282AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoryBoardCoreData.xcdatamodel; sourceTree = "<group>"; };
 		36CF7F902AEB9BBF000BD9CD /* DayCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewLayout.swift; sourceTree = "<group>"; };
 		36CF7F912AEB9BBF000BD9CD /* DayCollectionViewLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewLayout.xib; sourceTree = "<group>"; };
 		36CF7F952AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewInTableViewViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				361D5DAE2AEA28230036F728 /* Main.storyboard */,
 				361D5DB62AEA28240036F728 /* Info.plist */,
 				36117E552AEB4E860092FCE6 /* Model.swift */,
+				368156272AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodeld */,
 			);
 			path = StoryBoardSwiftP1;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				36117E752AEB971E0092FCE6 /* CollectionViewController.swift in Sources */,
 				361D5DAD2AEA28230036F728 /* ViewController.swift in Sources */,
 				361D5DA92AEA28230036F728 /* AppDelegate.swift in Sources */,
+				368156292AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodeld in Sources */,
 				36CF7FB22AEF81A4000BD9CD /* MainTabBarViewController.swift in Sources */,
 				36CF7F972AEF3BA6000BD9CD /* CollectionViewInTableViewViewController.swift in Sources */,
 				36CF7FAB2AEF5327000BD9CD /* CollectionViewCell.swift in Sources */,
@@ -894,6 +898,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		368156272AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				368156282AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodel */,
+			);
+			currentVersion = 368156282AF8A1FB00C865E9 /* StoryBoardCoreData.xcdatamodel */;
+			path = StoryBoardCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 361D5D9D2AEA28230036F728 /* Project object */;
 }

@@ -7,7 +7,6 @@ class BaseTableCell: UITableViewCell {
     }
 }
 
-// Enum to represent the cell type
 enum CellType {
     case topCard
     case payment
@@ -15,7 +14,7 @@ enum CellType {
 }
 
 class ListTableViewCell: BaseTableCell {
-    
+
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -31,6 +30,12 @@ class ListTableViewCell: BaseTableCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.7
+        self.layer.shadowOffset = CGSize(width: 4, height: 4) // Adjusted offset for bottom right
+        self.layer.shadowRadius = 6   
     }
 
     func configure(title: String, data: [Item]) {
@@ -61,7 +66,6 @@ class ListTableViewCell: BaseTableCell {
     }
 
     private func setupCollectionView() {
-        
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
             flowLayout.minimumLineSpacing = 6
@@ -71,11 +75,10 @@ class ListTableViewCell: BaseTableCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isUserInteractionEnabled = true
-        
+
         collectionView.register(UINib(nibName: "TopCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "topCardCell")
         collectionView.register(UINib(nibName: "PaymentListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "paymentCell")
         collectionView.register(UINib(nibName: "PromotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "promotionCell")
-       
     }
 }
 
@@ -108,7 +111,7 @@ extension ListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch cellType {
         case .topCard:
-            return CGSize(width: 340 , height: 180)
+            return CGSize(width: 340, height: 180)
         case .payment:
             return CGSize(width: 80, height: 90)
         case .promotion:

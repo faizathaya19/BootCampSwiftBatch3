@@ -11,8 +11,8 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     
     let homeVC = UINavigationController(rootViewController: HomeViewController())
-    let transactionVC = UINavigationController(rootViewController: HomeViewController())
-    let notificationVC = UINavigationController(rootViewController: AnimationViewController())
+    let transactionVC = UINavigationController(rootViewController: TransactionViewController())
+    let notificationVC = UINavigationController(rootViewController: NotificationViewController())
     let profileVC = UINavigationController(rootViewController: ProfileViewController())
     
     override func viewDidLoad() {

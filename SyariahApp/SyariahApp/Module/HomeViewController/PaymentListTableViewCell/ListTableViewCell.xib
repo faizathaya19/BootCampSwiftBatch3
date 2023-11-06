@@ -21,7 +21,7 @@
                         <rect key="frame" x="36" y="17" width="111" height="21"/>
                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
                         <color key="textColor" systemColor="systemPurpleColor"/>
-                        <nil key="highlightedColor"/>
+                        <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9y1-dH-gz5">
                         <rect key="frame" x="27" y="43" width="599" height="137"/>

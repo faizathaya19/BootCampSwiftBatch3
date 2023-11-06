@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-
+//HOME
 
 struct PaymentList {
     let id: Int
@@ -24,3 +24,11 @@ struct Item {
     var name: String
     var imageName: String
 }
+
+// DialogDetails.swift
+struct DialogDetails {
+    var title: String
+    var message: String
+    var isSuccess: Bool
+}
+

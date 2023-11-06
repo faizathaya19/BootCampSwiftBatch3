@@ -46,15 +46,18 @@
                                 <rect key="frame" x="32" y="97.666666666666686" width="276" height="84.333333333333314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3F7-a8-fBx">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="84.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="57.333333333333336" height="84.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAi-sg-t6R">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="57.333333333333336" height="60"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="ic_qris" title=""/>
+                                                <connections>
+                                                    <action selector="qrisButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nzQ-w4-0r6"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRIS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOq-Mc-Buz">
-                                                <rect key="frame" x="0.0" y="63.999999999999993" width="70" height="20.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="63.999999999999993" width="57.333333333333336" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -62,15 +65,15 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yDC-zr-YTM">
-                                        <rect key="frame" x="103" y="0.0" width="70" height="84.333333333333329"/>
+                                        <rect key="frame" x="90.333333333333314" y="0.0" width="82.666666666666686" height="84.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRg-EO-YT0">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="60"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="ic_qris" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ic_send_money" title=""/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRIS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-ss-XGB">
-                                                <rect key="frame" x="0.0" y="63.999999999999993" width="70" height="20.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kirim Dana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-ss-XGB">
+                                                <rect key="frame" x="0.0" y="63.999999999999993" width="82.666666666666671" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -83,9 +86,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETT-cW-jMl">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="60"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="ic_qris" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ic_topup" title=""/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRIS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJd-cx-qR5">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJd-cx-qR5">
                                                 <rect key="frame" x="0.0" y="63.999999999999993" width="70" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -94,6 +97,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="yDC-zr-YTM" firstAttribute="leading" secondItem="dwe-Ab-hp9" secondAttribute="leading" constant="90.333333333333314" id="05f-hQ-VLe"/>
+                                </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9P-AL-Ng3">
                                 <rect key="frame" x="18" y="71" width="304" height="2"/>
@@ -141,6 +147,8 @@
     </objects>
     <resources>
         <image name="ic_qris" width="46" height="46"/>
+        <image name="ic_send_money" width="46" height="46"/>
+        <image name="ic_topup" width="46" height="46"/>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

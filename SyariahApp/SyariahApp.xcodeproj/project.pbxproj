@@ -17,6 +17,13 @@
 		365BD5132AEFC1FF002B214F /* PaymentListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD5112AEFC1FF002B214F /* PaymentListCollectionViewCell.swift */; };
 		365BD5142AEFC1FF002B214F /* PaymentListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BD5122AEFC1FF002B214F /* PaymentListCollectionViewCell.xib */; };
 		365BD5162AEFC727002B214F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BD5152AEFC727002B214F /* Models.swift */; };
+		368155992AF4DE9400C865E9 /* ReusableDialogShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368155972AF4DE9400C865E9 /* ReusableDialogShowViewController.swift */; };
+		3681559A2AF4DE9400C865E9 /* ReusableDialogShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368155982AF4DE9400C865E9 /* ReusableDialogShowViewController.xib */; };
+		3681559F2AF50CE600C865E9 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3681559D2AF50CE600C865E9 /* NotificationViewController.swift */; };
+		368155A02AF50CE600C865E9 /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3681559E2AF50CE600C865E9 /* NotificationViewController.xib */; };
+		368155A32AF50CF300C865E9 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368155A12AF50CF300C865E9 /* TransactionViewController.swift */; };
+		368155A42AF50CF300C865E9 /* TransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368155A22AF50CF300C865E9 /* TransactionViewController.xib */; };
+		368155A62AF8772500C865E9 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368155A52AF8772500C865E9 /* UserDefaultsManager.swift */; };
 		36CD63882AF0D5DB00C751A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD63862AF0D5DB00C751A7 /* LoginViewController.swift */; };
 		36CD63892AF0D5DB00C751A7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CD63872AF0D5DB00C751A7 /* LoginViewController.xib */; };
 		36CD638D2AF0E87100C751A7 /* ReusableTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CD638C2AF0E87100C751A7 /* ReusableTextField.xib */; };
@@ -84,6 +91,13 @@
 		365BD5112AEFC1FF002B214F /* PaymentListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListCollectionViewCell.swift; sourceTree = "<group>"; };
 		365BD5122AEFC1FF002B214F /* PaymentListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentListCollectionViewCell.xib; sourceTree = "<group>"; };
 		365BD5152AEFC727002B214F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		368155972AF4DE9400C865E9 /* ReusableDialogShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableDialogShowViewController.swift; sourceTree = "<group>"; };
+		368155982AF4DE9400C865E9 /* ReusableDialogShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReusableDialogShowViewController.xib; sourceTree = "<group>"; };
+		3681559D2AF50CE600C865E9 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		3681559E2AF50CE600C865E9 /* NotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
+		368155A12AF50CF300C865E9 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		368155A22AF50CF300C865E9 /* TransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionViewController.xib; sourceTree = "<group>"; };
+		368155A52AF8772500C865E9 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		36CD63862AF0D5DB00C751A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36CD63872AF0D5DB00C751A7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		36CD638C2AF0E87100C751A7 /* ReusableTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReusableTextField.xib; sourceTree = "<group>"; };
@@ -197,6 +211,33 @@
 			path = PaymentListCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		368155962AF4DDE400C865E9 /* ReusableDialogShow */ = {
+			isa = PBXGroup;
+			children = (
+				368155972AF4DE9400C865E9 /* ReusableDialogShowViewController.swift */,
+				368155982AF4DE9400C865E9 /* ReusableDialogShowViewController.xib */,
+			);
+			path = ReusableDialogShow;
+			sourceTree = "<group>";
+		};
+		3681559B2AF50C9800C865E9 /* NotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3681559D2AF50CE600C865E9 /* NotificationViewController.swift */,
+				3681559E2AF50CE600C865E9 /* NotificationViewController.xib */,
+			);
+			path = NotificationViewController;
+			sourceTree = "<group>";
+		};
+		3681559C2AF50CAD00C865E9 /* TransactionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				368155A12AF50CF300C865E9 /* TransactionViewController.swift */,
+				368155A22AF50CF300C865E9 /* TransactionViewController.xib */,
+			);
+			path = TransactionViewController;
+			sourceTree = "<group>";
+		};
 		36CD63852AF0D5AC00C751A7 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +250,7 @@
 		36CD638A2AF0E82600C751A7 /* ReusableLayout */ = {
 			isa = PBXGroup;
 			children = (
+				368155962AF4DDE400C865E9 /* ReusableDialogShow */,
 				36FCC12A2AF2217B0046BB50 /* ReusableTextField */,
 			);
 			path = ReusableLayout;
@@ -316,6 +358,8 @@
 		36CF7FF22AEF8D6D000BD9CD /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				3681559C2AF50CAD00C865E9 /* TransactionViewController */,
+				3681559B2AF50C9800C865E9 /* NotificationViewController */,
 				36CE994B2AF35B4E00426820 /* Animation */,
 				36CD638A2AF0E82600C751A7 /* ReusableLayout */,
 				36FCC13A2AF2430A0046BB50 /* SchoolViewController */,
@@ -339,6 +383,7 @@
 				36CF7FF62AEF9215000BD9CD /* Constants.swift */,
 				365BD5152AEFC727002B214F /* Models.swift */,
 				3639E4002AF0ED8E00B48981 /* FormView.swift */,
+				368155A52AF8772500C865E9 /* UserDefaultsManager.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -589,11 +634,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3681559A2AF4DE9400C865E9 /* ReusableDialogShowViewController.xib in Resources */,
 				36CF7FCC2AEF8C52000BD9CD /* LaunchScreen.storyboard in Resources */,
 				36FCC11D2AF1E6BB0046BB50 /* RegisterViewController.xib in Resources */,
+				368155A42AF50CF300C865E9 /* TransactionViewController.xib in Resources */,
 				36FCC13F2AF2432D0046BB50 /* TelcoViewController.xib in Resources */,
 				36CE99532AF35B8900426820 /* AnimationViewController.xib in Resources */,
 				365BD5142AEFC1FF002B214F /* PaymentListCollectionViewCell.xib in Resources */,
+				368155A02AF50CE600C865E9 /* NotificationViewController.xib in Resources */,
 				36CE995A2AF489D400426820 /* TopCardCollectionViewCell.xib in Resources */,
 				36FCC14B2AF243540046BB50 /* SchoolViewController.xib in Resources */,
 				36CD638D2AF0E87100C751A7 /* ReusableTextField.xib in Resources */,
@@ -737,6 +785,7 @@
 			files = (
 				3639E4012AF0ED8E00B48981 /* FormView.swift in Sources */,
 				36CF7FC42AEF8C51000BD9CD /* ViewController.swift in Sources */,
+				3681559F2AF50CE600C865E9 /* NotificationViewController.swift in Sources */,
 				36FCC1462AF243470046BB50 /* PDAMViewController.swift in Sources */,
 				3639E3FF2AF0EA0100B48981 /* ReusableTextField.swift in Sources */,
 				36CE99592AF489D400426820 /* TopCardCollectionViewCell.swift in Sources */,
@@ -744,15 +793,18 @@
 				36CF7FC02AEF8C51000BD9CD /* AppDelegate.swift in Sources */,
 				36FCC1172AF1D9520046BB50 /* PrivacyPolicyViewController.swift in Sources */,
 				36CF7FC22AEF8C51000BD9CD /* SceneDelegate.swift in Sources */,
+				368155992AF4DE9400C865E9 /* ReusableDialogShowViewController.swift in Sources */,
 				36CF7FFA2AEF93AB000BD9CD /* MainTabBar.swift in Sources */,
 				36CE99522AF35B8900426820 /* AnimationViewController.swift in Sources */,
 				365BD50C2AEFBDA7002B214F /* ListTableViewCell.swift in Sources */,
 				36CF7FF72AEF9215000BD9CD /* Constants.swift in Sources */,
 				36FCC11C2AF1E6BB0046BB50 /* RegisterViewController.swift in Sources */,
+				368155A62AF8772500C865E9 /* UserDefaultsManager.swift in Sources */,
 				36FCC13E2AF2432D0046BB50 /* TelcoViewController.swift in Sources */,
 				3635F1012AEFA1AD009CD067 /* HomeViewController.swift in Sources */,
 				365BD5162AEFC727002B214F /* Models.swift in Sources */,
 				36FCC1352AF231420046BB50 /* ProfileViewController.swift in Sources */,
+				368155A32AF50CF300C865E9 /* TransactionViewController.swift in Sources */,
 				36CD63882AF0D5DB00C751A7 /* LoginViewController.swift in Sources */,
 				365BD5132AEFC1FF002B214F /* PaymentListCollectionViewCell.swift in Sources */,
 				36FCC1532AF25B320046BB50 /* PromotionCollectionViewCell.swift in Sources */,

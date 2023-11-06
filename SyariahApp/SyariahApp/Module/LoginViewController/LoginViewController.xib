@@ -11,8 +11,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="SyariahApp" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="ELG-np-drM" id="FRr-gy-FLK"/>
+                <outlet property="imageTopLogin" destination="9sq-cB-gq3" id="hfB-VV-be5"/>
                 <outlet property="passwordField" destination="mKl-Dy-c6v" id="Tzx-uq-zFz"/>
+                <outlet property="titleTopLogin" destination="LQw-jd-3ai" id="qdN-s1-tA2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewLogin" destination="O9x-OQ-tid" id="Ftg-Fo-8UY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
