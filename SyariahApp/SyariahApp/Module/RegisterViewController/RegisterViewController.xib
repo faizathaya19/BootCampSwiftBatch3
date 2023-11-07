@@ -10,9 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="SyariahApp" customModuleProvider="target">
             <connections>
-                <outlet property="cityField" destination="nBp-Le-5kU" id="pxC-d2-1Sp"/>
                 <outlet property="emailField" destination="q2Y-m6-NVF" id="xX3-2N-cZP"/>
-                <outlet property="fullNameField" destination="wOh-Qs-cYA" id="ncL-Eu-D4o"/>
+                <outlet property="firstNameField" destination="wOh-Qs-cYA" id="FOH-bZ-h53"/>
+                <outlet property="lastNameField" destination="nBp-Le-5kU" id="DKg-G5-WQg"/>
                 <outlet property="passwordField" destination="C5w-4X-3BN" id="p5b-uT-oce"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,25 +23,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k22-ii-SxC">
-                    <rect key="frame" x="33" y="113" width="106" height="37"/>
+                    <rect key="frame" x="33" y="54" width="106" height="37"/>
                     <fontDescription key="fontDescription" type="system" pointSize="31"/>
                     <color key="textColor" systemColor="systemPurpleColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello There !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhl-3H-7IH">
-                    <rect key="frame" x="33" y="169" width="111" height="24"/>
+                    <rect key="frame" x="33" y="110" width="111" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To You." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxK-mc-cWs">
-                    <rect key="frame" x="33" y="193" width="150.33333333333334" height="24"/>
+                    <rect key="frame" x="33" y="134" width="150.33333333333334" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOh-Qs-cYA" customClass="ReusableTextField" customModule="SyariahApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="247" width="393" height="80"/>
+                    <rect key="frame" x="0.0" y="188" width="393" height="139"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBp-Le-5kU" customClass="ReusableTextField" customModule="SyariahApp" customModuleProvider="target">
@@ -79,14 +79,17 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Giu-E0-mTZ">
-                    <rect key="frame" x="28" y="683.33333333333337" width="337" height="35"/>
+                    <rect key="frame" x="28" y="683.33333333333337" width="337" height="69"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="SIGN UP">
                         <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="signUp:" destination="-1" eventType="touchUpInside" id="Bdl-0s-tMs"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="cYP-CY-lHn">
-                    <rect key="frame" x="82" y="747.33333333333337" width="229" height="32.666666666666629"/>
+                    <rect key="frame" x="82" y="781.33333333333337" width="229" height="32.666666666666629"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="I have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDk-LJ-VCT">
                             <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="32.666666666666664"/>
@@ -109,7 +112,7 @@
                                 <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
                             </buttonConfiguration>
                             <connections>
-                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="raO-lg-3RR"/>
+                                <action selector="signIn:" destination="-1" eventType="touchUpInside" id="Nyp-WQ-hfc"/>
                             </connections>
                         </button>
                     </subviews>

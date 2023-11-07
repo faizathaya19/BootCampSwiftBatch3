@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReusableTextField" customModule="SyariahApp" customModuleProvider="target">
             <connections>
                 <outlet property="formTextfield" destination="oqM-SR-q0H" id="2OO-lR-DMM"/>
+                <outlet property="labelMessage" destination="d6Q-Xg-3Sg" id="jX6-N8-8dt"/>
                 <outlet property="titleTextField" destination="zG8-bF-eyF" id="u9X-ew-Jt1"/>
             </connections>
         </placeholder>
@@ -46,6 +47,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="labelColor"/>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6Q-Xg-3Sg">
+                            <rect key="frame" x="28" y="71" width="143" height="7"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

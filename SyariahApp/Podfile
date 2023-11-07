@@ -10,7 +10,8 @@ target 'SyariahApp' do
 pod "Firebase/Core"
 pod "Firebase/Auth"
 pod "Firebase/Firestore"
-pod "
+pod "RxSwift"
+pod "RxCocoa"
 
   target 'SyariahAppTests' do
     inherit! :search_paths
