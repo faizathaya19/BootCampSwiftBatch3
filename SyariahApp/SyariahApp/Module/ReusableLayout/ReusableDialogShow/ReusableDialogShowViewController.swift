@@ -1,7 +1,7 @@
 import UIKit
 
 public struct DialogData {
-    public var title: String?
+    public var title: String? 
     public var message: String?
 }
 

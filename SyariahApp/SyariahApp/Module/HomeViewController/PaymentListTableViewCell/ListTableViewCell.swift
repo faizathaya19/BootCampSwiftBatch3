@@ -25,17 +25,20 @@ class ListTableViewCell: BaseTableCell {
     }
 
     var didSelectItem: ((Item) -> Void)?
-    var cellType: CellType = .topCard // Default to payment cell
+    
+    var cellType: CellType = .topCard
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        
+    }
+    
+    func configView() {
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.7
-        self.layer.shadowOffset = CGSize(width: 4, height: 4) // Adjusted offset for bottom right
-        self.layer.shadowRadius = 6   
+        self.layer.shadowOffset = CGSize(width: 4, height: 4)
+        self.layer.shadowRadius = 6
     }
 
     func configure(title: String, data: [Item]) {
@@ -71,6 +74,8 @@ class ListTableViewCell: BaseTableCell {
             flowLayout.minimumLineSpacing = 6
             flowLayout.minimumInteritemSpacing = 10
         }
+        
+        configView()
 
         collectionView.delegate = self
         collectionView.dataSource = self

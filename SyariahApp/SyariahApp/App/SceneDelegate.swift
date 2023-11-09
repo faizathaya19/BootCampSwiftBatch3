@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = UINavigationController(rootViewController: LoginViewController())
         self.window = window
         window.makeKeyAndVisible()
-        UINavigationBar.appearance().isHidden = true
+        
+        UINavigationBar.appearance().isHidden = false
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

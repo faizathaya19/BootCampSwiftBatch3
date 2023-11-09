@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
     }
 
     private func configureNavigationBar() {
-        hidesBottomBarWhenPushed = false
+        hidesBottomBarWhenPushed = true
         navigationController?.isNavigationBarHidden = true
     }
 

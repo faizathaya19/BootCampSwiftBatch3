@@ -19,7 +19,6 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         configureUITabBarItems()
         setViewControllers()
-        
         tabBar.backgroundColor = UIColor.white
     }
     

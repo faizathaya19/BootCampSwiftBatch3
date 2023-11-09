@@ -17,6 +17,7 @@ class RegisterViewController: UIViewController {
 
     @IBAction func signUp(_ sender: Any) {
         validateAndSignUp()
+        
     }
 
     @IBOutlet weak var firstNameField: ReusableTextField!
@@ -29,7 +30,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
-        hideAllErrorMessages() // Initially hide all error messages
+        hideAllErrorMessages()
     }
 
     private func setupTextFields() {
@@ -126,7 +127,7 @@ class RegisterViewController: UIViewController {
 
         if isSignUpValid {
             // Perform sign-up logic
-            navigateToHome()
+            navigateToLogin()
         }
     }
 
@@ -153,9 +154,10 @@ class RegisterViewController: UIViewController {
         return emailPredicate.evaluate(with: email)
     }
 
-    private func navigateToHome() {
-        // Perform navigation to HomeController on successful sign-up
-        let homeController = HomeViewController() // Replace with your HomeController instantiation logic
-        self.navigationController?.pushViewController(homeController, animated: true)
+    private func navigateToLogin() {
+        let loginController = LoginViewController()
+        navigationController?.pushViewController(loginController, animated: true)
+
     }
+
 }

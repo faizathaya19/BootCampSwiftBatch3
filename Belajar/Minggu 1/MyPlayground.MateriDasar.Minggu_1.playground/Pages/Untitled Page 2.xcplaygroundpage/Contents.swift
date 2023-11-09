@@ -1,7 +1,21 @@
-//: [Previous](@previous)
+import UIKit
+import PlaygroundSupport
 
-import Foundation
+class ViewCon : UIViewController {
+    let myView : UIView = {
+        let view = UIView(frame: CGRect(x: 10, y:100, width: 400, height: 500))
+        view.backgroundColor = .blue
+        return view
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .black
+    }
+    
+    override func loadView() {
+        
+    }
+}
 
-var greeting = "Hello, playground"
-
-//: [Next](@next)
+PlaygroundPage.current.liveView = ViewCon()

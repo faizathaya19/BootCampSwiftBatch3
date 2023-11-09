@@ -238,6 +238,34 @@
 			path = TransactionViewController;
 			sourceTree = "<group>";
 		};
+		369AAEDF2AFB2AE800DEEECC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		369AAEE02AFB2AF500DEEECC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		369AAEE12AFB2B0800DEEECC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		369AAF7E2AFB6C0F00DEEECC /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		36CD63852AF0D5AC00C751A7 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +327,9 @@
 		36CF7FBE2AEF8C51000BD9CD /* SyariahApp */ = {
 			isa = PBXGroup;
 			children = (
+				369AAEE12AFB2B0800DEEECC /* ViewModel */,
+				369AAEE02AFB2AF500DEEECC /* Model */,
+				369AAEDF2AFB2AE800DEEECC /* View */,
 				36CE99542AF3750400426820 /* GoogleService-Info.plist */,
 				36CF7FEF2AEF8C82000BD9CD /* App */,
 				36CF7FF12AEF8C97000BD9CD /* Resource */,
@@ -339,6 +370,7 @@
 		36CF7FF02AEF8C8F000BD9CD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				369AAF7E2AFB6C0F00DEEECC /* New Group */,
 				36CF7FF52AEF8DB9000BD9CD /* Extension */,
 				36CF7FF42AEF8D98000BD9CD /* Network */,
 				36CF7FF32AEF8D90000BD9CD /* Component */,
