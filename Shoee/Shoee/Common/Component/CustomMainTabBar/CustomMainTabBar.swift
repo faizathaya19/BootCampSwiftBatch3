@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 import Foundation
 
 class CustomMainTabBar : UITabBarController {
@@ -33,6 +34,7 @@ class CustomMainTabBar : UITabBarController {
         super.loadView()
         self.tabBar.addSubview(btnMiddle)
         setupCustomTabBar()
+      
     }
     
     @objc func btnMiddleTapped() {

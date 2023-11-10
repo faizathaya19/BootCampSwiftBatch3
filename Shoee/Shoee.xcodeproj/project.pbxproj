@@ -29,8 +29,6 @@
 		365110342AFBA3EE00A5D6F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365110322AFBA3EE00A5D6F4 /* HomeViewController.swift */; };
 		365110352AFBA3EE00A5D6F4 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365110332AFBA3EE00A5D6F4 /* HomeViewController.xib */; };
 		3651103A2AFC64EF00A5D6F4 /* CustomMainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365110392AFC64EF00A5D6F4 /* CustomMainTabBar.swift */; };
-		365110412AFC9A1F00A5D6F4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651103F2AFC9A1F00A5D6F4 /* ChatViewController.swift */; };
-		365110422AFC9A1F00A5D6F4 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365110402AFC9A1F00A5D6F4 /* ChatViewController.xib */; };
 		365110462AFC9B8300A5D6F4 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365110442AFC9B8300A5D6F4 /* FavoriteViewController.swift */; };
 		365110472AFC9B8300A5D6F4 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365110452AFC9B8300A5D6F4 /* FavoriteViewController.xib */; };
 		3651104A2AFC9BA900A5D6F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365110482AFC9BA900A5D6F4 /* ProfileViewController.swift */; };
@@ -43,6 +41,14 @@
 		36A33E082AFCDA2300A951E7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E072AFCDA2300A951E7 /* WebService.swift */; };
 		36A33E0C2AFCEBBE00A951E7 /* SetupHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E0A2AFCEBBE00A951E7 /* SetupHomeTableViewCell.swift */; };
 		36A33E0D2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33E0B2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib */; };
+		36A33E1D2AFDD1DB00A951E7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E1B2AFDD1DB00A951E7 /* ChatViewController.swift */; };
+		36A33E1E2AFDD1DB00A951E7 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33E1C2AFDD1DB00A951E7 /* ChatViewController.xib */; };
+		36A33E212AFDE79900A951E7 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E1F2AFDE79900A951E7 /* HeaderCollectionViewCell.swift */; };
+		36A33E222AFDE79900A951E7 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33E202AFDE79900A951E7 /* HeaderCollectionViewCell.xib */; };
+		36A33E262AFE040B00A951E7 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E242AFE040B00A951E7 /* CategoryListCollectionViewCell.swift */; };
+		36A33E272AFE040B00A951E7 /* CategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33E252AFE040B00A951E7 /* CategoryListCollectionViewCell.xib */; };
+		36A33E2B2AFE2DAA00A951E7 /* HeaderTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E292AFE2DAA00A951E7 /* HeaderTableTableViewCell.swift */; };
+		36A33E2C2AFE2DAA00A951E7 /* HeaderTableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33E2A2AFE2DAA00A951E7 /* HeaderTableTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,8 +76,6 @@
 		365110322AFBA3EE00A5D6F4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		365110332AFBA3EE00A5D6F4 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		365110392AFC64EF00A5D6F4 /* CustomMainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainTabBar.swift; sourceTree = "<group>"; };
-		3651103F2AFC9A1F00A5D6F4 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		365110402AFC9A1F00A5D6F4 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		365110442AFC9B8300A5D6F4 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		365110452AFC9B8300A5D6F4 /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		365110482AFC9BA900A5D6F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 		36A33E072AFCDA2300A951E7 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		36A33E0A2AFCEBBE00A951E7 /* SetupHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupHomeTableViewCell.swift; sourceTree = "<group>"; };
 		36A33E0B2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupHomeTableViewCell.xib; sourceTree = "<group>"; };
+		36A33E1B2AFDD1DB00A951E7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		36A33E1C2AFDD1DB00A951E7 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		36A33E1F2AFDE79900A951E7 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		36A33E202AFDE79900A951E7 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		36A33E242AFE040B00A951E7 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		36A33E252AFE040B00A951E7 /* CategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
+		36A33E292AFE2DAA00A951E7 /* HeaderTableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableTableViewCell.swift; sourceTree = "<group>"; };
+		36A33E2A2AFE2DAA00A951E7 /* HeaderTableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +259,7 @@
 		365110312AFBA3D800A5D6F4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				36A33E282AFE2D7100A951E7 /* HeaderTable */,
 				36A33E092AFCEAF500A951E7 /* SetupHome */,
 				365110322AFBA3EE00A5D6F4 /* HomeViewController.swift */,
 				365110332AFBA3EE00A5D6F4 /* HomeViewController.xib */,
@@ -265,8 +278,8 @@
 		3651103B2AFC99C800A5D6F4 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				3651103F2AFC9A1F00A5D6F4 /* ChatViewController.swift */,
-				365110402AFC9A1F00A5D6F4 /* ChatViewController.xib */,
+				36A33E1B2AFDD1DB00A951E7 /* ChatViewController.swift */,
+				36A33E1C2AFDD1DB00A951E7 /* ChatViewController.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -319,6 +332,7 @@
 		36A33E092AFCEAF500A951E7 /* SetupHome */ = {
 			isa = PBXGroup;
 			children = (
+				36A33E232AFE03F100A951E7 /* CategoryList */,
 				36A33E0E2AFCED0000A951E7 /* Header */,
 				36A33E0A2AFCEBBE00A951E7 /* SetupHomeTableViewCell.swift */,
 				36A33E0B2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib */,
@@ -329,8 +343,28 @@
 		36A33E0E2AFCED0000A951E7 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				36A33E1F2AFDE79900A951E7 /* HeaderCollectionViewCell.swift */,
+				36A33E202AFDE79900A951E7 /* HeaderCollectionViewCell.xib */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		36A33E232AFE03F100A951E7 /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				36A33E242AFE040B00A951E7 /* CategoryListCollectionViewCell.swift */,
+				36A33E252AFE040B00A951E7 /* CategoryListCollectionViewCell.xib */,
+			);
+			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		36A33E282AFE2D7100A951E7 /* HeaderTable */ = {
+			isa = PBXGroup;
+			children = (
+				36A33E292AFE2DAA00A951E7 /* HeaderTableTableViewCell.swift */,
+				36A33E2A2AFE2DAA00A951E7 /* HeaderTableTableViewCell.xib */,
+			);
+			path = HeaderTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,8 +427,9 @@
 			files = (
 				3651102A2AFB801100A5D6F4 /* Poppins-ExtraLight.ttf in Resources */,
 				365110182AFB7BEB00A5D6F4 /* CustomTextField.xib in Resources */,
+				36A33E1E2AFDD1DB00A951E7 /* ChatViewController.xib in Resources */,
 				3651104F2AFC9BD200A5D6F4 /* CartViewController.xib in Resources */,
-				365110422AFC9A1F00A5D6F4 /* ChatViewController.xib in Resources */,
+				36A33E272AFE040B00A951E7 /* CategoryListCollectionViewCell.xib in Resources */,
 				365110352AFBA3EE00A5D6F4 /* HomeViewController.xib in Resources */,
 				365110262AFB801100A5D6F4 /* Poppins-Light.ttf in Resources */,
 				365110272AFB801100A5D6F4 /* Poppins-Bold.ttf in Resources */,
@@ -402,6 +437,8 @@
 				36A33DDB2AFCBC0300A951E7 /* EditProfileViewController.xib in Resources */,
 				3651101F2AFB7F9D00A5D6F4 /* LoginViewController.xib in Resources */,
 				365110472AFC9B8300A5D6F4 /* FavoriteViewController.xib in Resources */,
+				36A33E2C2AFE2DAA00A951E7 /* HeaderTableTableViewCell.xib in Resources */,
+				36A33E222AFDE79900A951E7 /* HeaderCollectionViewCell.xib in Resources */,
 				36510FF82AFB7AA000A5D6F4 /* LaunchScreen.storyboard in Resources */,
 				3651104B2AFC9BA900A5D6F4 /* ProfileViewController.xib in Resources */,
 				36A33E0D2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib in Resources */,
@@ -419,11 +456,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A33E262AFE040B00A951E7 /* CategoryListCollectionViewCell.swift in Sources */,
 				3651101E2AFB7F9D00A5D6F4 /* LoginViewController.swift in Sources */,
 				36510FED2AFB7A9E00A5D6F4 /* ViewController.swift in Sources */,
 				3651104E2AFC9BD200A5D6F4 /* CartViewController.swift in Sources */,
 				36A33E0C2AFCEBBE00A951E7 /* SetupHomeTableViewCell.swift in Sources */,
-				365110412AFC9A1F00A5D6F4 /* ChatViewController.swift in Sources */,
 				36A33E082AFCDA2300A951E7 /* WebService.swift in Sources */,
 				36510FE92AFB7A9E00A5D6F4 /* AppDelegate.swift in Sources */,
 				36A33DDE2AFCCCCD00A951E7 /* LoginViewModel.swift in Sources */,
@@ -431,11 +468,14 @@
 				36510FF32AFB7A9E00A5D6F4 /* Shoee.xcdatamodeld in Sources */,
 				365110342AFBA3EE00A5D6F4 /* HomeViewController.swift in Sources */,
 				36A33DDA2AFCBC0300A951E7 /* EditProfileViewController.swift in Sources */,
+				36A33E2B2AFE2DAA00A951E7 /* HeaderTableTableViewCell.swift in Sources */,
 				36510FEB2AFB7A9E00A5D6F4 /* SceneDelegate.swift in Sources */,
 				3651101A2AFB7F1500A5D6F4 /* ViewExt.swift in Sources */,
 				365110162AFB7BD200A5D6F4 /* CustomTextField.swift in Sources */,
 				3651104A2AFC9BA900A5D6F4 /* ProfileViewController.swift in Sources */,
+				36A33E212AFDE79900A951E7 /* HeaderCollectionViewCell.swift in Sources */,
 				365110462AFC9B8300A5D6F4 /* FavoriteViewController.swift in Sources */,
+				36A33E1D2AFDD1DB00A951E7 /* ChatViewController.swift in Sources */,
 				3651103A2AFC64EF00A5D6F4 /* CustomMainTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

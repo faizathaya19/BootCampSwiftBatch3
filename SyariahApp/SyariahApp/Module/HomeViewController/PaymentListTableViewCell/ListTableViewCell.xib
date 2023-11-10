@@ -43,7 +43,7 @@
                     <constraint firstAttribute="trailing" secondItem="9y1-dH-gz5" secondAttribute="trailing" constant="27" id="wjt-Sr-vfT"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="HYZ-zQ-0Tt"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionView" destination="9y1-dH-gz5" id="FGG-6t-c5i"/>
