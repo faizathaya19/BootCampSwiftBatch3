@@ -4,13 +4,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Shoee" customModuleProvider="target">
             <connections>
-                <outlet property="customView" destination="6Sc-FS-A2I" id="kCX-Tl-7La"/>
                 <outlet property="homeSetupLayout" destination="DPA-II-vqS" id="AgO-kb-l25"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,12 +18,12 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-II-vqS" propertyAccessControl="none">
-                    <rect key="frame" x="0.0" y="58" width="393" height="149"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-II-vqS" propertyAccessControl="none">
+                    <rect key="frame" x="0.0" y="58" width="393" height="794"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="149" id="HYe-qN-Pik"/>
+                        <constraint firstAttribute="height" constant="794" id="HYe-qN-Pik"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="Js0-up-xjv"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="Svk-bl-lWk"/>
@@ -34,21 +32,13 @@
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sc-FS-A2I">
-                    <rect key="frame" x="0.0" y="207" width="393" height="645"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor"/>
-                </view>
             </subviews>
             <color key="backgroundColor" name="BG1"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="DPA-II-vqS" secondAttribute="trailing" id="Dzd-UH-bbh"/>
-                <constraint firstAttribute="bottom" secondItem="6Sc-FS-A2I" secondAttribute="bottom" id="GhA-ph-xPP"/>
-                <constraint firstAttribute="trailing" secondItem="6Sc-FS-A2I" secondAttribute="trailing" id="QrR-6a-TYm"/>
-                <constraint firstItem="6Sc-FS-A2I" firstAttribute="top" secondItem="DPA-II-vqS" secondAttribute="bottom" id="d2g-JL-Pfk"/>
                 <constraint firstItem="DPA-II-vqS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="58" id="mKg-Am-MpY"/>
                 <constraint firstItem="DPA-II-vqS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rFd-bb-Sck"/>
-                <constraint firstItem="6Sc-FS-A2I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uRv-aD-dvQ"/>
             </constraints>
             <point key="canvasLocation" x="52.671755725190835" y="20.422535211267608"/>
         </view>
@@ -57,8 +47,5 @@
         <namedColor name="BG1">
             <color red="0.12156862745098039" green="0.11372549019607843" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

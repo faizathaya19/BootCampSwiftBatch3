@@ -17,15 +17,13 @@ class BaseTableCell: UITableViewCell {
 }
 
 class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    weak var delegate: SetupHomeCellDelegate?
-    
+
     @IBOutlet weak var homeCollectionView: UICollectionView!
-    
+
     var categoryList: [Category] = []
-    
-    var selectedCategoryIndex: Int? = 0
-    
+
+    var selectedCategoryIndex: Int? = nil
+
     var homeSetupTable: HomeSetupTable = .header {
         didSet {
             switch homeSetupTable {
@@ -39,7 +37,7 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
                     Category(id: 1, name: "Sport")
                 ]
                 if let index = categoryList.firstIndex(where: { $0.id == 6 }) {
-                    selectedCategoryIndex = index
+                    selectedCategoryIndex = categoryList[index].id
                 }
             default:
                 break
@@ -47,28 +45,32 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
             homeCollectionView.reloadData()
         }
     }
-    
+
+    weak var delegate: SetupHomeCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
-        
+
         homeCollectionView.register(UINib(nibName: "HeaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "headerCell")
         homeCollectionView.register(UINib(nibName: "CategoryListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryListCell")
-        
+        homeCollectionView.register(UINib(nibName: "FavoriteCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "favoriteCardCollectionViewCell")
+        homeCollectionView.register(UINib(nibName: "ItemCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemCardCollectionViewCell")
+
         if let flowLayout = homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = (homeSetupTable == .categoryList) ? .vertical : .horizontal
         }
-        
+
         homeCollectionView.reloadData()
     }
-    
+
     private func configureCategoryListCell(_ cell: CategoryListCollectionViewCell, at indexPath: IndexPath) {
         let category = categoryList[indexPath.item]
         cell.categoryTitle.text = category.name
-        
-        if selectedCategoryIndex == indexPath.item {
+
+        if selectedCategoryIndex == category.id {
             cell.viewContainer.backgroundColor = UIColor(named: "Primary")
             cell.viewContainer.layer.borderWidth = 0
             cell.viewContainer.layer.borderColor = UIColor.clear.cgColor
@@ -82,9 +84,9 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
             cell.categoryTitle.font = UIFont.systemFont(ofSize: cell.categoryTitle.font.pointSize, weight: .regular)
         }
     }
-    
+
     // MARK: - UICollectionViewDataSource
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch homeSetupTable {
         case .categoryList:
@@ -93,10 +95,10 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
             return 1
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell
-        
+
         switch homeSetupTable {
         case .header:
             cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "headerCell", for: indexPath)
@@ -105,32 +107,47 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
             if let categoryCell = cell as? CategoryListCollectionViewCell {
                 configureCategoryListCell(categoryCell, at: indexPath)
             }
+        case .favoriteCard:
+            cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCardCollectionViewCell", for: indexPath)
+        case .itemCard:
+            cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "itemCardCollectionViewCell", for: indexPath)
         }
         
+
         return cell
     }
-    
+
     // MARK: - UICollectionViewDelegateFlowLayout
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch homeSetupTable {
         case .header:
             return CGSize(width: 393, height: 92)
         case .categoryList:
             return CGSize(width: 91, height: 41)
+        case .favoriteCard:
+            return CGSize(width: 393, height: 300)
+        case .itemCard:
+            return CGSize(width: 393, height: 300)
+            
         }
     }
-    
+
     // MARK: - UICollectionViewDelegate
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCategoryIndex = indexPath.item
-        collectionView.reloadData()
-        if let delegate = delegate {
-            delegate.didSelectCategory(categoryList[indexPath.item])
+        if indexPath.item < categoryList.count {
+            selectedCategoryIndex = categoryList[indexPath.item].id
+
+            // Notify the delegate about the selected category
+            delegate?.didSelectCategory(categoryList[indexPath.item])
+            
+            collectionView.reloadData()
+        } else {
+            print("Invalid index selected")
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch homeSetupTable {
         case .categoryList:
