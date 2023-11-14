@@ -16,11 +16,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: LoginViewController())
-        self.window = window
-        window.backgroundColor = UIColor(named: "BG1")
-        window.makeKeyAndVisible()
-        UINavigationBar.appearance().isHidden = true
+        
+        if TokenService.shared.checkForLogin(){
+            window.rootViewController = UINavigationController(rootViewController: CustomMainTabBar())
+        }else{
+            window.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
+        
+                self.window = window
+                window.backgroundColor = UIColor(named: "BG1")
+                window.makeKeyAndVisible()
+                UINavigationBar.appearance().isHidden = true
+//
+//        let window = UIWindow(windowScene: windowScene)
+//        window.rootViewController = UINavigationController(rootViewController: LoginViewController())
+//        self.window = window
+//        window.backgroundColor = UIColor(named: "BG1")
+//        window.makeKeyAndVisible()
+//        UINavigationBar.appearance().isHidden = true
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

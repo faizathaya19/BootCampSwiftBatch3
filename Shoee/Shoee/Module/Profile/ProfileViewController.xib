@@ -65,6 +65,9 @@
                                 <imageReference key="image" image="rectangle.portrait.and.arrow.right.fill" catalog="system" symbolScale="large"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="btnLogout:" destination="-1" eventType="touchUpInside" id="6R6-Sz-Hsm"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" name="BG1"/>

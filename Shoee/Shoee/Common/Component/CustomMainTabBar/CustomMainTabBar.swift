@@ -129,6 +129,12 @@ class CustomMainTabBar : UITabBarController {
     }
 }
 
+extension CustomMainTabBar{
+    static func shareInstance() -> CustomMainTabBar{
+        return CustomMainTabBar.shareInstance()
+    }
+}
+
 
 
 
