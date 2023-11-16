@@ -28,6 +28,11 @@ class CustomMainTabBar : UITabBarController {
         btnMiddle.frame = CGRect(x: Int(self.tabBar.bounds.width)/2 - 30, y: -20, width: 60, height: 60)
         
         btnMiddle.addTarget(self, action: #selector(btnMiddleTapped), for: .touchUpInside)
+        
+    
+    
+            
+        
     }
     
     override func loadView() {
@@ -38,7 +43,7 @@ class CustomMainTabBar : UITabBarController {
     }
     
     @objc func btnMiddleTapped() {
-        let vc = CartViewController()
+        let vc = DetailProductViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -75,6 +80,16 @@ class CustomMainTabBar : UITabBarController {
         self.tabBar.itemSpacing = 70
         self.tabBar.tintColor = UIColor(named: "Primary")
         self.tabBar.unselectedItemTintColor = UIColor.white
+        self.tabBar.barTintColor = UIColor.clear
+        self.tabBar.backgroundColor = UIColor.clear
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithTransparentBackground()
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = appearance
+         }
+
     }
     
     

@@ -56,8 +56,6 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
 
         homeCollectionView.register(UINib(nibName: "HeaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "headerCell")
         homeCollectionView.register(UINib(nibName: "CategoryListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryListCell")
-        homeCollectionView.register(UINib(nibName: "FavoriteCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "favoriteCardCollectionViewCell")
-        homeCollectionView.register(UINib(nibName: "ItemCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemCardCollectionViewCell")
 
         if let flowLayout = homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = (homeSetupTable == .categoryList) ? .vertical : .horizontal
@@ -107,12 +105,10 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
             if let categoryCell = cell as? CategoryListCollectionViewCell {
                 configureCategoryListCell(categoryCell, at: indexPath)
             }
-        case .favoriteCard:
-            cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCardCollectionViewCell", for: indexPath)
-        case .itemCard:
-            cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "itemCardCollectionViewCell", for: indexPath)
+        default:
+            // Handle other cases if needed
+            cell = UICollectionViewCell()
         }
-        
 
         return cell
     }
@@ -125,11 +121,9 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
             return CGSize(width: 393, height: 92)
         case .categoryList:
             return CGSize(width: 91, height: 41)
-        case .favoriteCard:
-            return CGSize(width: 393, height: 300)
-        case .itemCard:
-            return CGSize(width: 393, height: 300)
-            
+        default:
+            // Adjust size for other cases if needed
+            return CGSize(width: 100, height: 100)
         }
     }
 
@@ -138,11 +132,11 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item < categoryList.count {
             selectedCategoryIndex = categoryList[indexPath.item].id
-
-            // Notify the delegate about the selected category
-            delegate?.didSelectCategory(categoryList[indexPath.item])
-            
+            print("Selected category index: \(selectedCategoryIndex ?? -1)")
             collectionView.reloadData()
+
+            // Notify the delegate (HomeViewController) about the selected category
+            delegate?.didSelectCategory(categoryList[indexPath.item])
         } else {
             print("Invalid index selected")
         }
