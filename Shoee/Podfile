@@ -6,6 +6,7 @@ target 'Shoee' do
   use_frameworks!
 
 pod 'Alamofire'
+pod 'SkeletonView'
 
   # Pods for Shoee
 

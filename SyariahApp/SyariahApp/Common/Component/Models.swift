@@ -32,3 +32,5 @@ struct DialogDetails {
     var isSuccess: Bool
 }
 
+
+

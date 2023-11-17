@@ -60,6 +60,7 @@ class DetailProductViewController: UIViewController {
     
     @objc func timerAction() {
         let desiredScrollPosition = (currentIndex < imageDetailPro.count - 1) ? currentIndex + 1 : 0
+        print(desiredScrollPosition)
         detailImageCollectionView.scrollToItem(at: IndexPath(item: desiredScrollPosition, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteViewController" customModule="Shoee" customModuleProvider="target">
             <connections>
+                <outlet property="categoryText" destination="CGs-PA-WWd" id="mz0-7L-9ye"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,41 +18,19 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coG-5x-5dU">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmC-Ho-Ssa">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1200" id="flt-iv-uNQ"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="gmC-Ho-Ssa" secondAttribute="bottom" id="FKa-hU-Vc8"/>
-                        <constraint firstItem="gmC-Ho-Ssa" firstAttribute="top" secondItem="coG-5x-5dU" secondAttribute="top" id="PUh-5z-eDJ"/>
-                        <constraint firstItem="gmC-Ho-Ssa" firstAttribute="leading" secondItem="coG-5x-5dU" secondAttribute="leading" id="Y63-S2-y97"/>
-                        <constraint firstAttribute="trailing" secondItem="gmC-Ho-Ssa" secondAttribute="trailing" id="zyC-Yd-IdH"/>
-                    </constraints>
-                </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGs-PA-WWd">
+                    <rect key="frame" x="16" y="251" width="352" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemTealColor"/>
-            <constraints>
-                <constraint firstItem="gmC-Ho-Ssa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="9G2-pb-3L6"/>
-                <constraint firstAttribute="trailing" secondItem="coG-5x-5dU" secondAttribute="trailing" id="XvZ-Ct-Tka"/>
-                <constraint firstItem="gmC-Ho-Ssa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.40845" id="cYu-5x-vxw"/>
-                <constraint firstItem="coG-5x-5dU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="e84-3T-OM3"/>
-                <constraint firstAttribute="bottom" secondItem="coG-5x-5dU" secondAttribute="bottom" id="eWR-OB-4Tl"/>
-                <constraint firstItem="coG-5x-5dU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qji-kf-0UN"/>
-            </constraints>
             <point key="canvasLocation" x="52.671755725190835" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
