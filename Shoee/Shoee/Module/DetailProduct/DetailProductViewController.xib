@@ -21,6 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailProductViewController" customModule="Shoee" customModuleProvider="target">
             <connections>
+                <outlet property="categoryName" destination="RoR-iR-3Aw" id="eEC-i4-rRN"/>
                 <outlet property="containerDetail" destination="RHh-Lr-bfi" id="sON-87-TBd"/>
                 <outlet property="containerViewPrice" destination="crp-OS-7rV" id="rIv-Nh-V3h"/>
                 <outlet property="detailImageCollectionView" destination="FyH-G6-EM8" id="SJL-0o-0Jo"/>

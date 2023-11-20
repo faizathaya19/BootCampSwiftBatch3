@@ -72,8 +72,10 @@ Ground</string>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="imageData" destination="NvC-vT-T1t" id="6xq-SA-2uc"/>
-                <outlet property="titleLabel" destination="hcV-Ff-MmT" id="aq1-fA-FkX"/>
+                <outlet property="categoryLabel" destination="hcV-Ff-MmT" id="X6m-lk-IGN"/>
+                <outlet property="imageData" destination="NvC-vT-T1t" id="Tb5-9t-jeX"/>
+                <outlet property="nameProduct" destination="VdD-Hu-HgB" id="ZxW-pS-vvb"/>
+                <outlet property="priceProduct" destination="ThX-tS-JuM" id="0pl-JG-a66"/>
             </connections>
             <point key="canvasLocation" x="55.725190839694655" y="20.422535211267608"/>
         </tableViewCell>

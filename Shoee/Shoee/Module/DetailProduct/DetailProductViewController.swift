@@ -12,6 +12,22 @@ class DetailProductViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    var productID: Int = 0
+    var product: ProductModel?
+    
+    // Add any other properties and methods as needed
+    
+    init(productID: Int) {
+        super.init(nibName: nil, bundle: nil)
+        self.productID = productID
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @IBOutlet weak var categoryName: UILabel!
+    
     @IBOutlet weak var containerViewPrice: UIView!
     @IBOutlet weak var detailImageCollectionView: UICollectionView!
     @IBOutlet weak var containerDetail: UIView!
@@ -21,14 +37,7 @@ class DetailProductViewController: UIViewController {
     var currentIndex = 0
     var timer: Timer?
     
-    let imageDetailPro: [UIImage?] = [
-        UIImage(named: "ex_shoes"),
-        UIImage(named: "ex_shoes"),
-        UIImage(named: "ex_shoes"),
-        UIImage(named: "ex_shoes"),
-        UIImage(named: "ex_shoes"),
-        UIImage(named: "ex_shoes"),
-    ]
+    var imageDetailPro: [URL] = [] // Updated
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +45,25 @@ class DetailProductViewController: UIViewController {
         setupCollectionView(type: .familiarShoes, collectionView: familiarShoesCollectionView)
         startTimer()
         containerViewPrice.layer.cornerRadius = 10
+        // Set the category name
+        categoryName.text = product?.category.name
+        
+        // Assuming product is not nil
+        if let galleries = product?.galleries, galleries.count >= 6 {
+                   imageDetailPro = Array(galleries[3...5].compactMap { URL(string: $0.url) })
+               }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setupCollectionView(type: CollectionViewType, collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.hidesBottomBarWhenPushed = true
+        self.navigationController?.isNavigationBarHidden = true
         
         switch type {
         case .detailImage:
@@ -50,7 +73,6 @@ class DetailProductViewController: UIViewController {
             
         case .familiarShoes:
             collectionView.register(UINib(nibName: "FimiliarShoesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "fimiliarShoesCollectionViewCell")
-                    
         }
     }
     
@@ -74,12 +96,13 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         switch collectionView {
         case detailImageCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailProductCollectionViewCell", for: indexPath) as! DetailProductCollectionViewCell
-            cell.image = imageDetailPro[indexPath.item]
+            pagerViewImage.numberOfPages = imageDetailPro.count
+            cell.imageURL = imageDetailPro[indexPath.item]
             return cell
             
         case familiarShoesCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fimiliarShoesCollectionViewCell", for: indexPath) as! FimiliarShoesCollectionViewCell
-            cell.image = imageDetailPro[indexPath.item]
+            cell.imageURL = imageDetailPro[indexPath.item]
             return cell
             
         default:
@@ -104,8 +127,5 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
             currentIndex = Int(scrollView.contentOffset.x / detailImageCollectionView.frame.size.width)
             pagerViewImage.currentPage = currentIndex
         }
-        // Handle scrolling for other collection views if needed
     }
-    
-    // Add more collection view delegate and data source methods if needed
 }

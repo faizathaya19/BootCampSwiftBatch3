@@ -31,7 +31,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJn-2x-USX">
                         <rect key="frame" x="0.0" y="0.0" width="215" height="275"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ex_shoes" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-MS-Dmi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-MS-Dmi">
                                 <rect key="frame" x="0.0" y="36" width="215" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="9TO-vG-n51"/>
@@ -85,14 +85,16 @@
             </constraints>
             <size key="customSize" width="249" height="302"/>
             <connections>
-                <outlet property="PopularImage" destination="kSm-MS-Dmi" id="VcV-uw-bjH"/>
                 <outlet property="containerView" destination="jJn-2x-USX" id="2Eg-Oe-eOE"/>
+                <outlet property="popularImage" destination="kSm-MS-Dmi" id="uSj-9T-Y9W"/>
+                <outlet property="priceText" destination="Zqb-fc-7kW" id="QJf-WK-gdg"/>
+                <outlet property="productName" destination="Icc-Za-syw" id="0wS-25-j6J"/>
+                <outlet property="titleCategoryProduct" destination="0uB-Fc-XEP" id="xU7-xZ-4rp"/>
             </connections>
             <point key="canvasLocation" x="232.82442748091603" y="108.09859154929578"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ex_shoes" width="1500" height="1400"/>
         <namedColor name="BG1">
             <color red="0.12156862745098039" green="0.11372549019607843" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

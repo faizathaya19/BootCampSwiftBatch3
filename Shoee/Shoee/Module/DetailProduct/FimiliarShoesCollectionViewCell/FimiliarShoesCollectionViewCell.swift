@@ -1,26 +1,48 @@
-//
-//  FimiliarShoesCollectionViewCell.swift
-//  Shoee
-//
-//  Created by Phincon on 16/11/23.
-//
-
 import UIKit
+import SkeletonView
+import Kingfisher
 
 class FimiliarShoesCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.layer.cornerRadius = 15
-
+        imageView.showAnimatedGradientSkeleton()
     }
     
-    var image: UIImage? {
+    var imageURL: URL? {
         didSet {
-            imageView.image = image
+            loadImage()
         }
     }
-
+    
+    private func loadImage() {
+        guard let imageURL = imageURL else {
+            // Handle the case where imageURL is nil
+            imageView.hideSkeleton()
+            imageView.image = nil
+            return
+        }
+        
+        let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(
+            with: imageURL,
+            placeholder: nil,
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ]) { result in
+                switch result {
+                case .success(_):
+                    self.imageView.hideSkeleton()
+                case .failure(_):
+                    self.imageView.hideSkeleton()
+                }
+        }
+    }
 }

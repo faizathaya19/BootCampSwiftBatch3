@@ -1,13 +1,6 @@
 import UIKit
-
-protocol SetupHomeCellDelegate: AnyObject {
-    func didSelectCategory(_ category: Category)
-}
-
-struct Category {
-    let id: Int
-    let name: String
-}
+import Kingfisher
+import SkeletonView
 
 class BaseTableCell: UITableViewCell {
     override func awakeFromNib() {
@@ -16,29 +9,23 @@ class BaseTableCell: UITableViewCell {
     }
 }
 
-class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol SetupHomeCellDelegate: AnyObject {
+    func didSelectCategory(_ category: CategoryModel)
+}
+
+class SetupHomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var homeCollectionView: UICollectionView!
 
-    var categoryList: [Category] = []
-
+    var categoryList: [CategoryModel] = []
     var selectedCategoryIndex: Int? = nil
+    var hasAutoSelectedCategory: Bool = false
 
     var homeSetupTable: HomeSetupTable = .header {
         didSet {
             switch homeSetupTable {
             case .categoryList:
-                categoryList = [
-                    Category(id: 6, name: "All Shoes"),
-                    Category(id: 5, name: "Running"),
-                    Category(id: 4, name: "Training"),
-                    Category(id: 3, name: "Basketball"),
-                    Category(id: 2, name: "Hiking"),
-                    Category(id: 1, name: "Sport")
-                ]
-                if let index = categoryList.firstIndex(where: { $0.id == 6 }) {
-                    selectedCategoryIndex = categoryList[index].id
-                }
+                autoSelectCategory()
             default:
                 break
             }
@@ -50,7 +37,12 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupCollectionView()
+        fetchCategories()
+    }
+    
 
+    private func setupCollectionView() {
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
 
@@ -62,6 +54,35 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
         }
 
         homeCollectionView.reloadData()
+    }
+    
+    func fetchCategories() {
+            showAnimatedGradientSkeleton()
+            CategoryService.shared.getCategories { [weak self] result in
+                guard let self = self else { return }
+        
+                switch result {
+                case .success(let categories):
+                    self.categoryList = categories
+                    DispatchQueue.main.async {
+                        if !self.hasAutoSelectedCategory, let index = self.categoryList.firstIndex(where: { $0.id == 6 }) {
+                            self.selectedCategoryIndex = self.categoryList[index].id
+                            self.delegate?.didSelectCategory(self.categoryList[index])
+                            self.hasAutoSelectedCategory = true
+                        }
+                        self.hideSkeleton()
+                    }
+                case .failure(let error):
+                    print("Error fetching categories: \(error.localizedDescription)")
+                    self.hideSkeleton()
+                }
+            }
+        }
+
+    private func autoSelectCategory() {
+        if let index = categoryList.firstIndex(where: { $0.id == 6 }) {
+            selectedCategoryIndex = categoryList[index].id
+        }
     }
 
     private func configureCategoryListCell(_ cell: CategoryListCollectionViewCell, at indexPath: IndexPath) {
@@ -83,7 +104,9 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
         }
     }
 
-    // MARK: - UICollectionViewDataSource
+}
+
+extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch homeSetupTable {
@@ -95,25 +118,17 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell
-
         switch homeSetupTable {
         case .header:
-            cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "headerCell", for: indexPath)
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "headerCell", for: indexPath)
         case .categoryList:
-            cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "categoryListCell", for: indexPath)
-            if let categoryCell = cell as? CategoryListCollectionViewCell {
-                configureCategoryListCell(categoryCell, at: indexPath)
-            }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryListCell", for: indexPath) as! CategoryListCollectionViewCell
+            configureCategoryListCell(cell, at: indexPath)
+            return cell
         default:
-            // Handle other cases if needed
-            cell = UICollectionViewCell()
+            return UICollectionViewCell()
         }
-
-        return cell
     }
-
-    // MARK: - UICollectionViewDelegateFlowLayout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch homeSetupTable {
@@ -122,32 +137,38 @@ class SetupHomeTableViewCell: BaseTableCell, UICollectionViewDelegate, UICollect
         case .categoryList:
             return CGSize(width: 91, height: 41)
         default:
-            // Adjust size for other cases if needed
             return CGSize(width: 100, height: 100)
         }
     }
 
-    // MARK: - UICollectionViewDelegate
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item < categoryList.count {
-            selectedCategoryIndex = categoryList[indexPath.item].id
-            print("Selected category index: \(selectedCategoryIndex ?? -1)")
-            collectionView.reloadData()
-
-            // Notify the delegate (HomeViewController) about the selected category
-            delegate?.didSelectCategory(categoryList[indexPath.item])
-        } else {
+        guard indexPath.item < categoryList.count else {
             print("Invalid index selected")
+            return
         }
+
+        selectedCategoryIndex = categoryList[indexPath.item].id
+        collectionView.reloadData()
+
+        delegate?.didSelectCategory(categoryList[indexPath.item])
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch homeSetupTable {
         case .categoryList:
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         default:
             return UIEdgeInsets.zero
         }
+    }
+}
+
+extension SetupHomeTableViewCell {
+    func showAnimatedGradientSkeleton() {
+        homeCollectionView.showAnimatedGradientSkeleton()
+    }
+
+    func hideSkeleton() {
+        homeCollectionView.hideSkeleton()
     }
 }

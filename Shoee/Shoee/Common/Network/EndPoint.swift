@@ -6,6 +6,8 @@ enum EndPoint {
     case login(LoginParam)
     case logout(vc: UIViewController)
     case categories
+    case products(id: Int?, limit: Int?, name: String?, description: String?, priceFrom: Int?, priceTo: Int?, tags: String?, categories: Int?)
+
 
     func path() -> String {
         switch self {
@@ -17,6 +19,8 @@ enum EndPoint {
             return "/logout"
         case .categories:
             return "/categories"
+        case .products:
+            return "/products"
         }
     }
 
@@ -24,7 +28,7 @@ enum EndPoint {
         switch self {
         case .register, .login, .logout:
             return .post
-        case .categories:
+        case .categories, .products:
             return .get
         }
     }
@@ -35,6 +39,19 @@ enum EndPoint {
             return try? params.asDictionary()
         case .login(let params):
             return try? params.asDictionary()
+        case .products(let id, let limit, let name, let description, let priceFrom, let priceTo, let tags, let categories):
+                    var params: [String: Any] = [:]
+
+                    if let id = id { params["id"] = id }
+                    if let limit = limit { params["limit"] = limit }
+                    if let name = name { params["name"] = name }
+                    if let description = description { params["description"] = description }
+                    if let priceFrom = priceFrom { params["price_from"] = priceFrom }
+                    if let priceTo = priceTo { params["price_to"] = priceTo }
+                    if let tags = tags { params["tags"] = tags }
+                    if let categories = categories { params["categories"] = categories }
+
+                    return params
         default:
             return nil
         }
@@ -54,7 +71,7 @@ enum EndPoint {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .register, .login, .categories:
+        case .register, .login, .categories, .products:
             return URLEncoding.queryString
         default: return JSONEncoding.default
         }

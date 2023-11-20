@@ -43,7 +43,7 @@ class CustomMainTabBar : UITabBarController {
     }
     
     @objc func btnMiddleTapped() {
-        let vc = DetailProductViewController()
+        let vc = CartViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -1,4 +1,5 @@
 import UIKit
+import SkeletonView
 
 protocol Sectionable {
 	var title: String? { get }
@@ -19,25 +20,46 @@ enum HomeSetupTable: Int, CaseIterable, Sectionable {
 	}
 }
 
-
 class HomeViewController: UIViewController {
 
 	@IBOutlet weak var homeSetupLayout: UITableView!
-	
-	var newArrivalData: [String] = ["ex_shoes", "ex_shoes", "ex_shoes","ex_shoes", "ex_shoes", "ex_shoes","ex_shoes", "ex_shoes", "ex_shoes"]
 
-	var selectedCategory: Category?
+	var newArrivalData: [ProductModel] = [] {
+		didSet {
+			homeSetupLayout.reloadData()
+		}
+	}
+
+	var selectedCategory: CategoryModel?
 	var setupHomeTableViewCell: SetupHomeTableViewCell?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupTableView()
+		fetchProducts()
 
 		// Automatically select a default category and update the view
-		if let defaultCategory = getCategoryById(6) { // Choose the default category ID
+		if let defaultCategory = getCategoryById(6) {
 			selectedCategory = defaultCategory
 			setupHomeTableViewCell?.selectedCategoryIndex = selectedCategory?.id
 			homeSetupLayout.reloadData()
+		}
+	}
+
+	private func fetchProducts() {
+		homeSetupLayout.showAnimatedGradientSkeleton()
+		ProductsService.shared.getProducts { [weak self] result in
+			guard let self = self else { return }
+
+			switch result {
+			case .success(let products):
+				print("Received popular products from API: \(products)")
+				self.newArrivalData = products
+				self.homeSetupLayout.hideSkeleton()
+			case .failure(let error):
+				print("Failed to fetch popular products: \(error.localizedDescription)")
+				self.homeSetupLayout.hideSkeleton()
+			}
 		}
 	}
 
@@ -53,19 +75,12 @@ class HomeViewController: UIViewController {
 		if let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "homesetupcellidentifier") as? SetupHomeTableViewCell {
 			cell.delegate = self
 			cell.homeSetupTable = .categoryList
-			cell.categoryList = [
-				Category(id: 6, name: "All Shoes"),
-				Category(id: 5, name: "Running"),
-				Category(id: 4, name: "Training"),
-				Category(id: 3, name: "Basketball"),
-				Category(id: 2, name: "Hiking"),
-				Category(id: 1, name: "Sport")
-			]
+			cell.fetchCategories()
 			setupHomeTableViewCell = cell
 		}
 	}
 
-	private func getCategoryById(_ categoryId: Int) -> Category? {
+	private func getCategoryById(_ categoryId: Int) -> CategoryModel? {
 		return setupHomeTableViewCell?.categoryList.first { $0.id == categoryId }
 	}
 }
@@ -92,7 +107,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 	}
 
-
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let homeSection = HomeSetupTable(rawValue: indexPath.section) else {
 			return UITableViewCell()
@@ -103,20 +117,36 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "homesetupcellidentifier", for: indexPath) as! SetupHomeTableViewCell
 			cell.delegate = self
 			cell.homeSetupTable = homeSection
-			cell.categoryList = setupHomeTableViewCell?.categoryList ?? []
 			cell.selectedCategoryIndex = selectedCategory?.id
 			return cell
 		case .popularProduct:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "popularProductCellIdentifier", for: indexPath) as! PopularProductTableViewCell
-			cell.configure(withTitle: "\(selectedCategory?.name ?? "")")
+			cell.configure(withTitle: "Popular Products", title2: "New Arrivals")
+			cell.navigationController = self.navigationController
 			return cell
 		case .newArrival:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "newArrivalCellIdentifier", for: indexPath) as! NewArrivalTableViewCell
-			cell.configure(withTitle: "\(selectedCategory?.name ?? "")", andImageName: newArrivalData[indexPath.row])
+			let product = newArrivalData[indexPath.row]
+			if let thirdGallery = product.galleries?.dropFirst(3).first {
+				let thirdGalleryURL = thirdGallery.url
+			cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
+			} else {
+				cell.configure(name: product.name, price: "$\(product.price)", imageURL: "", category: product.category.name)
+				
+			}
 			return cell
+
 		case .forYouProduct:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "forYouProductCellIdentifier", for: indexPath) as! ForYouProductTableViewCell
-			cell.configure(withTitle: "Products for Category \(selectedCategory?.name ?? "")", andImageName: newArrivalData[indexPath.row])
+			
+			let product = newArrivalData[indexPath.row]
+			if let thirdGallery = product.galleries?.dropFirst(3).first {
+				let thirdGalleryURL = thirdGallery.url
+			cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
+			} else {
+				cell.configure(name: product.name, price: "$\(product.price)", imageURL: "", category: product.category.name)
+				
+			}
 			return cell
 		}
 	}
@@ -135,7 +165,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return UITableView.automaticDimension
 		}
 	}
-
+	
+	
 	private func shouldShowSection(_ section: HomeSetupTable) -> Bool {
 		guard let selectedCategory = selectedCategory else {
 			return false
@@ -150,11 +181,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return true
 		}
 	}
-
 }
 
 extension HomeViewController: SetupHomeCellDelegate {
-	func didSelectCategory(_ category: Category) {
+	func didSelectCategory(_ category: CategoryModel) {
 		selectedCategory = category
 		homeSetupLayout.reloadData()
 	}

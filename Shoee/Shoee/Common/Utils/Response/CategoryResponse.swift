@@ -2,10 +2,10 @@ import Foundation
 
 struct ResponseCategoryModel: Codable {
     let meta: Meta
-    let data: DataClass
+    let data: DataCategoryClass
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct DataCategoryClass: Codable {
     let data: [CategoryModel]
 }
