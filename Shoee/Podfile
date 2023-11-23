@@ -9,6 +9,8 @@ pod 'Alamofire'
 pod 'SkeletonView'
 pod 'netfox'
 pod 'Kingfisher'
+pod 'lottie-ios'
+
 
   # Pods for Shoee
 

@@ -1,12 +1,14 @@
 PODS:
   - Alamofire (5.8.1)
   - Kingfisher (7.10.0)
+  - lottie-ios (4.3.3)
   - netfox (1.21.0)
   - SkeletonView (1.30.4)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - lottie-ios
   - netfox
   - SkeletonView
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - lottie-ios
     - netfox
     - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
+  lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: 9bb3955708fcea490e5a3f5dd8399d0d3e84e74f
+PODFILE CHECKSUM: 76b6f77b8a3a310607b76897982816673e9e0587
 
 COCOAPODS: 1.14.2

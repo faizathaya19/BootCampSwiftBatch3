@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 enum CollectionViewType {
     case detailImage
@@ -8,14 +9,31 @@ enum CollectionViewType {
 
 class DetailProductViewController: UIViewController {
     
-    @IBAction func btnBack(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var categoryName: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var productName: UILabel!
+    @IBOutlet private weak var containerViewPrice: UIView!
+    @IBOutlet private weak var detailImageCollectionView: UICollectionView!
+    @IBOutlet private weak var containerDetail: UIView!
+    @IBOutlet private weak var favoriteButtonOutlet: UIButton!
+    @IBOutlet private weak var familiarShoesCollectionView: UICollectionView!
+    @IBOutlet private weak var pagerViewImage: CustomPageControl!
+    
+    // MARK: - Properties
+    
+    private var isFavorite = false
+    private var currentIndex = 0
+    private var timer: Timer?
+    private var imageDetailPro: [URL] = []
+    private var imageFamiliar: [ProductModel] = []
     
     var productID: Int = 0
     var product: ProductModel?
     
-    // Add any other properties and methods as needed
+    // MARK: - Initialization
     
     init(productID: Int) {
         super.init(nibName: nil, bundle: nil)
@@ -26,87 +44,180 @@ class DetailProductViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBOutlet weak var categoryName: UILabel!
-    
-    @IBOutlet weak var containerViewPrice: UIView!
-    @IBOutlet weak var detailImageCollectionView: UICollectionView!
-    @IBOutlet weak var containerDetail: UIView!
-    @IBOutlet weak var familiarShoesCollectionView: UICollectionView!
-    @IBOutlet weak var pagerViewImage: CustomPageControl!
-    
-    var currentIndex = 0
-    var timer: Timer?
-    
-    var imageDetailPro: [URL] = [] // Updated
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+        setupCollectionView()
+        startTimer()
+        fetchProductDetails()
+        updateFavoriteButtonUI()
+    }
+    
+    // MARK: - UI Configuration
+    
+    private func configureUI() {
+        navigationController?.isNavigationBarHidden = true
+        containerViewPrice.layer.cornerRadius = 10
+    }
+    
+    // MARK: - Collection View Setup
+    
+    private func setupCollectionView() {
         setupCollectionView(type: .detailImage, collectionView: detailImageCollectionView)
         setupCollectionView(type: .familiarShoes, collectionView: familiarShoesCollectionView)
-        startTimer()
-        containerViewPrice.layer.cornerRadius = 10
-        // Set the category name
-        categoryName.text = product?.category.name
-        
-        // Assuming product is not nil
-        if let galleries = product?.galleries, galleries.count >= 6 {
-                   imageDetailPro = Array(galleries[3...5].compactMap { URL(string: $0.url) })
-               }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.hidesBottomBarWhenPushed = true
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    func setupCollectionView(type: CollectionViewType, collectionView: UICollectionView) {
+    private func setupCollectionView(type: CollectionViewType, collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.hidesBottomBarWhenPushed = true
-        self.navigationController?.isNavigationBarHidden = true
         
         switch type {
         case .detailImage:
             collectionView.register(UINib(nibName: "DetailProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "detailProductCollectionViewCell")
-            pagerViewImage.numberOfPages = imageDetailPro.count
-            containerDetail.layer.cornerRadius = 30
-            
         case .familiarShoes:
             collectionView.register(UINib(nibName: "FimiliarShoesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "fimiliarShoesCollectionViewCell")
         }
     }
     
-    func startTimer() {
+    // MARK: - Timer
+    
+    private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     
-    @objc func timerAction() {
+    @objc private func timerAction() {
         let desiredScrollPosition = (currentIndex < imageDetailPro.count - 1) ? currentIndex + 1 : 0
         print(desiredScrollPosition)
         detailImageCollectionView.scrollToItem(at: IndexPath(item: desiredScrollPosition, section: 0), at: .centeredHorizontally, animated: true)
     }
+    
+    // MARK: - Fetch Product Details
+    
+    private func fetchProductDetails() {
+        guard let product = product else { return }
+        configureProductDetails(product)
+        fetchFamiliarProducts()
+    }
+    
+    private func configureProductDetails(_ product: ProductModel) {
+        productName.text = product.name
+        categoryName.text = product.category.name
+        priceLabel.text = "$\(product.price)"
+        descriptionLabel.text = product.description.replacingOccurrences(of: "\r\n", with: "")
+        
+        if let galleries = product.galleries, galleries.count >= 6 {
+            imageDetailPro = Array(galleries[3...5].compactMap { URL(string: $0.url) })
+        } else {
+            let defaultImageURL = URL(string: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg")!
+            imageDetailPro = [defaultImageURL]
+        }
+    }
+    
+    
+    // MARK: - Fetch Familiar Products
+    
+    private func fetchFamiliarProducts() {
+        guard let categoryId = product?.categoriesId else { return }
+        
+        ProductsService.shared.getProducts(categories: categoryId) { [weak self] result in
+            switch result {
+            case .success(let products):
+                self?.imageFamiliar = products
+                self?.familiarShoesCollectionView.reloadData()
+                
+                // Setelah memperbarui data di familiarShoesCollectionView, perbarui produk favorit juga
+                self?.updateFavoriteButtonUI()
+            case .failure(let error):
+                print("Error fetching familiar shoes: \(error)")
+            }
+        }
+    }
+    
+    
+    // MARK: - Actions
+    
+    @IBAction private func btnBack(_ sender: Any) {
+        navigationController?.popViewController(animated: false)
+    }
+    
+    @IBAction private func favoriteButton(_ sender: Any) {
+        guard let favoriteButton = sender as? UIButton else { return }
+        
+        if isProductIDInCoreData() {
+            // ProductID exists in CoreData, delete it
+            deleteProductIDFromCoreData()
+        } else {
+            // ProductID doesn't exist in CoreData, save it
+            saveProductIDToCoreData()
+        }
+        
+        // Pemanggilan updateFavoriteButtonUI() ditempatkan di sini
+        updateFavoriteButtonUI()
+    }
+    
+    
+    @IBAction private func btnAddToCart(_ sender: Any) {
+        let actionYes: [String: () -> Void] = ["View My Cart": { [weak self] in
+            let cartViewController = CartViewController()
+            self?.navigationController?.pushViewController(cartViewController, animated: true)
+        }]
+        let actionNo: [String: () -> Void] = ["X": { print("tapped NO") }]
+        let arrayActions = [actionYes, actionNo]
+        
+        showCustomAlertWith(
+            title: "Hurray :)",
+            message: "Item added successfully",
+            image: #imageLiteral(resourceName: "ic_success"),
+            actions: arrayActions
+        )
+    }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+
 extension DetailProductViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageDetailPro.count
+        switch collectionView {
+        case detailImageCollectionView:
+            return imageDetailPro.count
+        case familiarShoesCollectionView:
+            return imageFamiliar.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case detailImageCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailProductCollectionViewCell", for: indexPath) as! DetailProductCollectionViewCell
-            pagerViewImage.numberOfPages = imageDetailPro.count
-            cell.imageURL = imageDetailPro[indexPath.item]
+            configureDetailImageCell(cell, at: indexPath)
             return cell
-            
         case familiarShoesCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fimiliarShoesCollectionViewCell", for: indexPath) as! FimiliarShoesCollectionViewCell
-            cell.imageURL = imageDetailPro[indexPath.item]
+            configureFamiliarShoesCell(cell, at: indexPath)
             return cell
-            
         default:
             return UICollectionViewCell()
+        }
+    }
+    
+    private func configureDetailImageCell(_ cell: DetailProductCollectionViewCell, at indexPath: IndexPath) {
+        pagerViewImage.numberOfPages = imageDetailPro.count
+        print("Image URL:", imageDetailPro[indexPath.item])
+        cell.imageURL = imageDetailPro[indexPath.item]
+    }
+    
+    
+    private func configureFamiliarShoesCell(_ cell: FimiliarShoesCollectionViewCell, at indexPath: IndexPath) {
+        if let gallery = imageFamiliar[indexPath.item].galleries, gallery.count > 2 {
+            cell.imageURL = URL(string: gallery[2].url)
+        } else {
+            let defaultImageURL = URL(string: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg")!
+            cell.imageURL = defaultImageURL
         }
     }
     
@@ -121,11 +232,123 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedProduct = imageFamiliar[indexPath.item]
+        
+        // Check if the detailViewController is already in the navigation stack
+        if let detailViewController = navigationController?.viewControllers.first(where: { $0 is DetailProductViewController }) as? DetailProductViewController {
+            // Update the existing instance with the new product
+            detailViewController.product = selectedProduct
+            detailViewController.productID = selectedProduct.id // Update productID
+            detailViewController.fetchProductDetails() // Refresh the data
+            detailViewController.hidesBottomBarWhenPushed = true
+            navigationController?.popToViewController(detailViewController, animated: false)
+        } else {
+            // If not in the stack, create a new instance and push it
+            let detailViewController = DetailProductViewController(productID: selectedProduct.id)
+            detailViewController.product = selectedProduct
+            detailViewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(detailViewController, animated: false)
+        }
+
+        detailImageCollectionView.reloadData()
+        // Pemanggilan updateFavoriteButtonUI() ditempatkan di sini
+        updateFavoriteButtonUI()
+    }
+
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == detailImageCollectionView {
             pagerViewImage.scrollViewDidScroll(scrollView)
             currentIndex = Int(scrollView.contentOffset.x / detailImageCollectionView.frame.size.width)
             pagerViewImage.currentPage = currentIndex
+        }
+    }
+}
+
+// MARK: - Core Data Operations
+
+extension DetailProductViewController {
+    
+    private func isProductIDInCoreData() -> Bool {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
+        fetchRequest.predicate = NSPredicate(format: "productID == %ld", productID)
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            return !result.isEmpty
+        } catch {
+            print("Error checking if productID exists in CoreData: \(error)")
+            return false
+        }
+    }
+    
+    private func saveProductIDToCoreData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "FavoriteProduct", in: managedContext)!
+        let favoriteProduct = NSManagedObject(entity: entity, insertInto: managedContext)
+        favoriteProduct.setValue(productID, forKeyPath: "productID")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Error saving productID to CoreData: \(error)")
+        }
+    }
+    
+    private func deleteProductIDFromCoreData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
+        fetchRequest.predicate = NSPredicate(format: "productID == %ld", productID)
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for object in result {
+                managedContext.delete(object as! NSManagedObject)
+            }
+            try managedContext.save()
+        } catch {
+            print("Error deleting productID from CoreData: \(error)")
+        }
+    }
+    
+    private func updateFavoriteButtonUI() {
+        if isProductIDInCoreData() {
+            // ProductID exists in CoreData, set button to active state
+            animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemPink)
+            animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 2.0)
+            isFavorite = true
+        } else {
+            // ProductID doesn't exist in CoreData, set button to inactive state
+            animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemGray2)
+            animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 10.0)
+            isFavorite = false
+        }
+    }
+    
+    private func animateBackgroundColorChange(for view: UIView, to color: UIColor) {
+        UIView.animate(withDuration: 0.3) {
+            view.backgroundColor = color
+        }
+    }
+    
+    private func animateCornerRadiusChange(for view: UIView, to radius: CGFloat) {
+        UIView.animate(withDuration: 0.3) {
+            view.layer.cornerRadius = radius
+            view.layer.masksToBounds = true
         }
     }
 }

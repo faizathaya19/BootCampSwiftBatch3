@@ -28,18 +28,13 @@ class CustomMainTabBar : UITabBarController {
         btnMiddle.frame = CGRect(x: Int(self.tabBar.bounds.width)/2 - 30, y: -20, width: 60, height: 60)
         
         btnMiddle.addTarget(self, action: #selector(btnMiddleTapped), for: .touchUpInside)
-        
-    
-    
-            
-        
     }
     
     override func loadView() {
         super.loadView()
         self.tabBar.addSubview(btnMiddle)
         setupCustomTabBar()
-      
+        
     }
     
     @objc func btnMiddleTapped() {
@@ -88,8 +83,8 @@ class CustomMainTabBar : UITabBarController {
             appearance.configureWithTransparentBackground()
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = appearance
-         }
-
+        }
+        
     }
     
     
@@ -144,9 +139,9 @@ class CustomMainTabBar : UITabBarController {
     }
 }
 
-extension CustomMainTabBar{
-    static func shareInstance() -> CustomMainTabBar{
-        return CustomMainTabBar.shareInstance()
+extension CustomMainTabBar {
+    static func shareInstance() -> CustomMainTabBar {
+        return CustomMainTabBar()
     }
 }
 

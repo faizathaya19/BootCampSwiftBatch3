@@ -3,7 +3,7 @@ import Foundation
 struct ProductModel: Codable {
     let id: Int
     let name: String
-    let price: Int
+    let price: Double
     let description: String
     let tags: String?
     let categoriesId: Int

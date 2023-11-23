@@ -20,6 +20,7 @@
             <connections>
                 <outlet property="emailTextFieldCustom" destination="Zga-QT-qAm" id="7hF-Yx-yKs"/>
                 <outlet property="passwordTextFieldCustom" destination="dwy-1i-fUM" id="6LA-y2-2Sr"/>
+                <outlet property="signInButton" destination="JwZ-h7-21q" id="Gnr-gw-DFI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -88,6 +89,9 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BG1"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="96.946564885496173" y="19.718309859154932"/>
         </view>
     </objects>

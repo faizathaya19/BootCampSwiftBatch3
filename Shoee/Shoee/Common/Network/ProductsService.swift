@@ -4,7 +4,7 @@ import Alamofire
 class ProductsService {
 
     static let shared = ProductsService()
-    
+
     var productsList: [ProductModel] = []
 
     private init() {}
@@ -17,6 +17,21 @@ class ProductsService {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+
+    // Method to fetch product details based on product ID
+    func getProductDetails(productID: Int, completion: @escaping (Result<ProductModel, Error>) -> Void) {
+        // Call your API or database to fetch product details based on productID
+        // Replace the following placeholder with your actual implementation
+
+        // Example: Assuming productsList contains all products, find the one with the matching ID
+        if let product = productsList.first(where: { $0.id == productID }) {
+            completion(.success(product))
+        } else {
+            // Replace this with your actual error handling
+            let error = NSError(domain: "YourAppDomain", code: 404, userInfo: [NSLocalizedDescriptionKey: "Product not found"])
+            completion(.failure(error))
         }
     }
 }

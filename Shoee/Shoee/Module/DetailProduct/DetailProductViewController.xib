@@ -24,9 +24,13 @@
                 <outlet property="categoryName" destination="RoR-iR-3Aw" id="eEC-i4-rRN"/>
                 <outlet property="containerDetail" destination="RHh-Lr-bfi" id="sON-87-TBd"/>
                 <outlet property="containerViewPrice" destination="crp-OS-7rV" id="rIv-Nh-V3h"/>
+                <outlet property="descriptionLabel" destination="aiJ-pD-Lh7" id="VGD-oM-JJ7"/>
                 <outlet property="detailImageCollectionView" destination="FyH-G6-EM8" id="SJL-0o-0Jo"/>
                 <outlet property="familiarShoesCollectionView" destination="l0m-5u-IKz" id="bUp-wi-EFQ"/>
+                <outlet property="favoriteButtonOutlet" destination="zTd-ld-18c" id="UYL-Kj-5Gt"/>
                 <outlet property="pagerViewImage" destination="CjG-1p-Gn8" id="MwR-H2-cnZ"/>
+                <outlet property="priceLabel" destination="vDN-Cx-1h3" id="k7I-7t-IGh"/>
+                <outlet property="productName" destination="tgw-BC-vrD" id="qHX-El-sbm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -85,7 +89,7 @@
                             <color key="textColor" name="SecondaryText"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GORE-TEX Upper Mesh and synthetic uppers will encase each foot in durable comfort. Continental Rubber Outs" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-pD-Lh7">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GORE-TEX Upper Mesh and synthetic uppers will encase each foot in durable comfort. Continental Rubber Outs" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-pD-Lh7">
                             <rect key="frame" x="26" y="188" width="343" height="59"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="12"/>
@@ -114,6 +118,9 @@
                                 <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                                 <color key="baseBackgroundColor" name="Primary"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="btnAddToCart:" destination="-1" eventType="touchUpInside" id="DZW-p1-Q4r"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fimiliar Shoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1c-tT-eyC">
                             <rect key="frame" x="26" y="249" width="107" height="21"/>
@@ -125,14 +132,18 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTd-ld-18c">
                             <rect key="frame" x="299" y="27" width="55" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="gray" image="ic_love" title="">
                                 <backgroundConfiguration key="background" cornerRadius="502"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                <color key="baseForegroundColor" systemColor="tintColor"/>
-                                <color key="baseBackgroundColor" name="SecondaryText"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="favoriteButton:" destination="-1" eventType="touchUpInside" id="K6Z-EF-6rB"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="crp-OS-7rV">
                             <rect key="frame" x="26" y="103" width="343" height="49"/>
@@ -232,8 +243,8 @@
         <namedColor name="SecondaryText">
             <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

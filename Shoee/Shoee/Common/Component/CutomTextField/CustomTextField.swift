@@ -6,45 +6,49 @@ protocol CustomTextFieldDelegate: AnyObject {
 }
 
 class CustomTextField: UIView, UITextFieldDelegate {
+
+    // MARK: - Outlets
     @IBOutlet weak var containerTextField: UIView!
     @IBOutlet weak var titleTextField: UILabel!
     @IBOutlet weak var imageTextField: UIImageView!
     @IBOutlet weak var inputTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var passwordImageButton: UIImageView!
 
-    // Delegate property
+    // MARK: - Properties
     weak var delegate: CustomTextFieldDelegate?
+    var isPasswordField: Bool = false
 
-    // MARK: - Initializer
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupView()
         configureGestures()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configureView()
+        setupView()
         configureGestures()
         containerTextField.layer.cornerRadius = 10.0
         inputTextField.delegate = self
     }
 
-    // MARK: - Functions
-    private func configureView() {
+    // MARK: - Private Functions
+    private func setupView() {
         let view = loadNib()
         view.frame = bounds
         addSubview(view)
     }
 
     private func configureGestures() {
-        let imageTextFieldGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        imageTextField.addGestureRecognizer(imageTextFieldGesture)
+        let inputTextFieldTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        inputTextField.addGestureRecognizer(inputTextFieldTapGesture)
 
-        let inputTextFieldGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        inputTextField.addGestureRecognizer(inputTextFieldGesture)
+        let containerTextFieldTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        containerTextField.addGestureRecognizer(containerTextFieldTapGesture)
 
-        let containerTextFieldGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        containerTextField.addGestureRecognizer(containerTextFieldGesture)
+        let passwordImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(handlePasswordImageTap))
+        passwordImageButton.addGestureRecognizer(passwordImageTapGesture)
     }
 
     @objc private func handleTap() {
@@ -55,22 +59,36 @@ class CustomTextField: UIView, UITextFieldDelegate {
         }
     }
 
+    @objc private func handlePasswordImageTap() {
+        inputTextField.isSecureTextEntry.toggle()
+
+        let imageName = inputTextField.isSecureTextEntry ? "eye.slash.fill" : "eye.fill"
+        passwordImageButton.image = UIImage(systemName: imageName)
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.2) {
             self.containerTextField.backgroundColor = UIColor(named: "BG2")
-            self.imageTextField.tintColor = UIColor(named: "Secondary")
+            self.imageTextField.tintColor = UIColor(named: "secondary")
         }
 
-        // Call delegate method if you have a delegate
         delegate?.customTextFieldDidEndEditing(self)
     }
 
-    func configure(title: String, image: UIImage?, placeholder: String, errorText: String? = nil) {
+    func configure(title: String, image: UIImage?, placeholder: String, errorText: String? = nil, isPasswordField: Bool = false) {
         titleTextField.text = title
         imageTextField.image = image
         inputTextField.placeholder = placeholder
-        errorLabel.text = errorText
-        errorLabel.isHidden = errorText == nil
-        errorLabel.textColor = UIColor(named: "Alert")
+        self.isPasswordField = isPasswordField
+
+        if isPasswordField {
+            passwordImageButton.isHidden = false
+            passwordImageButton.isUserInteractionEnabled = true
+            let imageName = inputTextField.isSecureTextEntry ? "eye.fill" : "eye.slash.fill"
+            passwordImageButton.image = UIImage(systemName: imageName)
+        } else {
+            passwordImageButton.isHidden = true
+            passwordImageButton.isUserInteractionEnabled = false
+        }
     }
 }

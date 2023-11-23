@@ -2,6 +2,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    lazy var popUpLoading = PopUpLoading(on: view)
+    
     @IBAction func btnEditProfile(_ sender: Any) {
         let vc = EditProfileViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -11,26 +13,35 @@ class ProfileViewController: UIViewController {
     
     @IBAction func btnLogout(_ sender: Any) {
         
-        APIManager.shared.makeAPICall(endpoint: .logout(vc: self)) { (result: Result<ResponseLogoutModel, Error>) in
+        popUpLoading.showInFull()
+        
+        APIManager.shared.makeAPICall(endpoint: .logout(vc: self)) {
+            (result: Result<ResponseLogoutModel, Error>) in
             switch result {
             case .success(let responseLogout):
                 print("Logout success: \(responseLogout)")
                 
                 TokenService.shared.removeToken()
+                self.popUpLoading.dismissImmediately()
                 
                 let loginViewController = LoginViewController()
                 let navigationController = UINavigationController(rootViewController: loginViewController)
                 UIApplication.shared.keyWindow?.rootViewController = navigationController
                 
             case .failure(let error):
-                // Handle logout failure, display an error message, etc.
-                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.showCustomAlertWith(
+                    detailResponseOkAction: nil,
+                    title: "Error",
+                    message: error.localizedDescription,
+                    image: #imageLiteral(resourceName: "ic_error"),
+                    actions: nil)
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        popUpLoading.dismissImmediately()
         // Additional setup if needed
     }
 }

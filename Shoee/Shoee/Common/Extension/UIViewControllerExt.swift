@@ -9,11 +9,20 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+      
+    func showCustomAlertWith(detailResponseOkAction: (() ->())? = {}, title: String, message: String, image: UIImage?, actions: [[String: () -> Void]]?) {
+        let alertVC = CustomViewPopUp.init(nibName: "CustomViewPopUp", bundle: nil)
+        alertVC.titleM = title
+        alertVC.message = message
+        alertVC.imageItem = image
+        alertVC.arrayAction = actions
+        alertVC.okButtonAct = detailResponseOkAction
+        //Present
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .overCurrentContext
+        self.present(alertVC, animated: true, completion: nil)
     }
+    
+    
 }
 
