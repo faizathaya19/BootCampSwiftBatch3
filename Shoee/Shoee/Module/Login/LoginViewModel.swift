@@ -36,6 +36,7 @@ class LoginViewModel {
                 self?.delegate?.didLoginSuccessfully()
                 
             case .failure(let error):
+                self?.popUpLoading?.dismissImmediately()
                 self?.delegate?.didFailLogin(with: error)
             }
         }

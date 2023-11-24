@@ -43,7 +43,7 @@
                     <rect key="frame" x="0.0" y="106" width="393" height="228"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="228" id="dCN-0d-c7f"/>
+                        <constraint firstAttribute="height" constant="228" id="Ese-4l-yVv"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ROU-MS-00t">
                         <size key="itemSize" width="128" height="128"/>
@@ -75,31 +75,32 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHh-Lr-bfi">
                     <rect key="frame" x="0.0" y="381" width="393" height="471"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TERREX URBAN LOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgw-BC-vrD">
-                            <rect key="frame" x="26" y="21" width="253" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
-                            <color key="textColor" name="PrimaryText"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hiking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoR-iR-3Aw">
-                            <rect key="frame" x="26" y="63" width="251" height="19"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                            <color key="textColor" name="SecondaryText"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GORE-TEX Upper Mesh and synthetic uppers will encase each foot in durable comfort. Continental Rubber Outs" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-pD-Lh7">
-                            <rect key="frame" x="26" y="188" width="343" height="59"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="12"/>
-                            <color key="textColor" name="SecondaryText"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-5u-IKz">
-                            <rect key="frame" x="0.0" y="274" width="393" height="82"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DmK-os-i3O">
+                            <rect key="frame" x="26" y="28" width="261" height="47"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TERREX URBAN LOW" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgw-BC-vrD">
+                                    <rect key="frame" x="0.0" y="0.0" width="261" height="25.333333333333332"/>
+                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                    <color key="textColor" name="PrimaryText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hiking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoR-iR-3Aw">
+                                    <rect key="frame" x="0.0" y="27.333333333333314" width="261" height="19.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                    <color key="textColor" name="SecondaryText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="RoR-iR-3Aw" firstAttribute="top" secondItem="tgw-BC-vrD" secondAttribute="bottom" constant="2" id="AGG-if-GBm"/>
+                            </constraints>
+                        </stackView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-5u-IKz">
+                            <rect key="frame" x="0.0" y="273" width="393" height="82"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="82" id="m9O-6B-Txp"/>
+                            </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kES-iX-spc">
                                 <size key="itemSize" width="55" height="55"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -107,32 +108,19 @@
                                 <inset key="sectionInset" minX="26" minY="0.0" maxX="26" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIt-bo-Bke">
-                            <rect key="frame" x="126" y="377" width="243" height="56"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Add to Cart">
-                                <backgroundConfiguration key="background" cornerRadius="15"/>
-                                <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
-                                <color key="baseBackgroundColor" name="Primary"/>
-                            </buttonConfiguration>
-                            <connections>
-                                <action selector="btnAddToCart:" destination="-1" eventType="touchUpInside" id="DZW-p1-Q4r"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fimiliar Shoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1c-tT-eyC">
-                            <rect key="frame" x="26" y="249" width="107" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fimiliar Shoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1c-tT-eyC">
+                            <rect key="frame" x="25.999999999999993" y="243.66666666666663" width="106.33333333333331" height="21"/>
                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
                             <color key="textColor" name="PrimaryText"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTd-ld-18c">
-                            <rect key="frame" x="299" y="27" width="55" height="55"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTd-ld-18c">
+                            <rect key="frame" x="299" y="28" width="55" height="55"/>
                             <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="55" id="4Ev-lt-tan"/>
+                                <constraint firstAttribute="height" constant="55" id="uN8-bP-LoX"/>
+                            </constraints>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="gray" image="ic_love" title="">
@@ -145,30 +133,39 @@
                                 <action selector="favoriteButton:" destination="-1" eventType="touchUpInside" id="K6Z-EF-6rB"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="crp-OS-7rV">
-                            <rect key="frame" x="26" y="103" width="343" height="49"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crp-OS-7rV">
+                            <rect key="frame" x="26" y="110" width="343" height="49"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price starts from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZu-WC-iVH">
-                                    <rect key="frame" x="17" y="14" width="123" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price starts from" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZu-WC-iVH">
+                                    <rect key="frame" x="16.999999999999993" y="14" width="122.33333333333331" height="21"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                     <color key="textColor" name="PrimaryText"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$143,98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDN-Cx-1h3">
-                                    <rect key="frame" x="266" y="14" width="55" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$143,98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDN-Cx-1h3">
+                                    <rect key="frame" x="271.66666666666669" y="14" width="54.333333333333314" height="21"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                     <color key="textColor" name="Price"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" name="BG2"/>
+                            <constraints>
+                                <constraint firstItem="yZu-WC-iVH" firstAttribute="leading" secondItem="crp-OS-7rV" secondAttribute="leading" constant="17" id="HNa-BY-PHr"/>
+                                <constraint firstAttribute="bottom" secondItem="vDN-Cx-1h3" secondAttribute="bottom" constant="14" id="Szh-mT-56X"/>
+                                <constraint firstAttribute="height" constant="49" id="X9Q-21-6LU"/>
+                                <constraint firstItem="yZu-WC-iVH" firstAttribute="top" secondItem="crp-OS-7rV" secondAttribute="top" constant="14" id="c6z-0l-VOs"/>
+                                <constraint firstAttribute="trailing" secondItem="vDN-Cx-1h3" secondAttribute="trailing" constant="17" id="hzk-5f-gxW"/>
+                                <constraint firstAttribute="bottom" secondItem="yZu-WC-iVH" secondAttribute="bottom" constant="14" id="i6l-PD-MDd"/>
+                                <constraint firstItem="vDN-Cx-1h3" firstAttribute="top" secondItem="crp-OS-7rV" secondAttribute="top" constant="14" id="zKO-9A-taR"/>
+                            </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPd-tn-kD1">
-                            <rect key="frame" x="38" y="377" width="61" height="56"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPd-tn-kD1">
+                            <rect key="frame" x="24" y="371" width="61" height="61"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="5Rc-t0-Bnb"/>
+                                <constraint firstAttribute="height" constant="61" id="WyM-Sj-bD2"/>
+                            </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="ic_chat" title="">
                                 <backgroundConfiguration key="background" cornerRadius="15">
@@ -176,43 +173,88 @@
                                 </backgroundConfiguration>
                             </buttonConfiguration>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-7Q-bAV">
-                            <rect key="frame" x="26" y="166" width="88" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
-                            <color key="textColor" name="PrimaryText"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XFy-N2-i6B">
+                            <rect key="frame" x="24" y="167" width="345" height="56.666666666666657"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-7Q-bAV">
+                                    <rect key="frame" x="0.0" y="0.0" width="87.333333333333329" height="21"/>
+                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
+                                    <color key="textColor" name="PrimaryText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GORE-TEX Upper Mesh and synthetic uppers will encase each foot in durable comfort. Continental Rubber Outs" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-pD-Lh7">
+                                    <rect key="frame" x="0.0" y="22.999999999999996" width="345" height="33.666666666666657"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="12"/>
+                                    <color key="textColor" name="SecondaryText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIt-bo-Bke">
+                            <rect key="frame" x="112" y="377" width="257" height="56"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="yUk-iJ-Dbp"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Add to Cart">
+                                <backgroundConfiguration key="background" cornerRadius="15"/>
+                                <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                                <color key="baseBackgroundColor" name="Primary"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="btnAddToCart:" destination="-1" eventType="touchUpInside" id="DZW-p1-Q4r"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" name="BG1"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="471" id="tI2-WB-0tJ"/>
+                        <constraint firstItem="zTd-ld-18c" firstAttribute="top" secondItem="RHh-Lr-bfi" secondAttribute="top" constant="28" id="9IP-6I-j2T"/>
+                        <constraint firstItem="XFy-N2-i6B" firstAttribute="top" secondItem="crp-OS-7rV" secondAttribute="bottom" constant="8" id="9Wz-jl-nO6"/>
+                        <constraint firstAttribute="trailing" secondItem="crp-OS-7rV" secondAttribute="trailing" constant="24" id="C4h-BE-ItA"/>
+                        <constraint firstItem="DmK-os-i3O" firstAttribute="top" secondItem="RHh-Lr-bfi" secondAttribute="top" constant="28" id="CYr-gs-dFu"/>
+                        <constraint firstItem="XFy-N2-i6B" firstAttribute="leading" secondItem="RHh-Lr-bfi" secondAttribute="leading" constant="24" id="Fdg-I8-Wku"/>
+                        <constraint firstItem="l0m-5u-IKz" firstAttribute="top" secondItem="y1c-tT-eyC" secondAttribute="bottom" constant="8" id="L07-PO-kR9"/>
+                        <constraint firstItem="wPd-tn-kD1" firstAttribute="leading" secondItem="RHh-Lr-bfi" secondAttribute="leading" constant="24" id="L8q-KY-Hsx"/>
+                        <constraint firstItem="y1c-tT-eyC" firstAttribute="top" secondItem="XFy-N2-i6B" secondAttribute="bottom" constant="20" id="Mek-hK-Yqt"/>
+                        <constraint firstItem="zTd-ld-18c" firstAttribute="leading" secondItem="DmK-os-i3O" secondAttribute="trailing" constant="12" id="NCq-Zc-0CH"/>
+                        <constraint firstAttribute="trailing" secondItem="uIt-bo-Bke" secondAttribute="trailing" constant="24" id="Oxc-yV-BHb"/>
+                        <constraint firstItem="uIt-bo-Bke" firstAttribute="leading" secondItem="wPd-tn-kD1" secondAttribute="trailing" constant="27" id="P3c-uU-LRt"/>
+                        <constraint firstItem="crp-OS-7rV" firstAttribute="top" secondItem="zTd-ld-18c" secondAttribute="bottom" constant="27" id="RVZ-BD-Odp"/>
+                        <constraint firstAttribute="trailing" secondItem="zTd-ld-18c" secondAttribute="trailing" constant="39" id="RsY-68-nw1"/>
+                        <constraint firstItem="y1c-tT-eyC" firstAttribute="leading" secondItem="RHh-Lr-bfi" secondAttribute="leading" constant="26" id="Z1f-mH-TpN"/>
+                        <constraint firstAttribute="bottom" secondItem="uIt-bo-Bke" secondAttribute="bottom" constant="38" id="btl-Sf-KVt"/>
+                        <constraint firstItem="l0m-5u-IKz" firstAttribute="leading" secondItem="RHh-Lr-bfi" secondAttribute="leading" id="eRQ-il-jiQ"/>
+                        <constraint firstAttribute="trailing" secondItem="l0m-5u-IKz" secondAttribute="trailing" id="fb1-vP-iwf"/>
+                        <constraint firstAttribute="trailing" secondItem="XFy-N2-i6B" secondAttribute="trailing" constant="24" id="hrr-Wj-9Jt"/>
+                        <constraint firstItem="DmK-os-i3O" firstAttribute="leading" secondItem="RHh-Lr-bfi" secondAttribute="leading" constant="26" id="jxI-Be-FOs"/>
+                        <constraint firstItem="crp-OS-7rV" firstAttribute="leading" secondItem="RHh-Lr-bfi" secondAttribute="leading" constant="26" id="noV-5e-yzq"/>
+                        <constraint firstAttribute="bottom" secondItem="wPd-tn-kD1" secondAttribute="bottom" constant="39" id="u76-ad-2Og"/>
                     </constraints>
                 </view>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="18" translatesAutoresizingMaskIntoConstraints="NO" id="CjG-1p-Gn8" customClass="CustomPageControl" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="46.666666666666657" y="342" width="300" height="26"/>
+                    <rect key="frame" x="46" y="342" width="301" height="26"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="5lf-c7-OUw"/>
-                    </constraints>
                     <color key="pageIndicatorTintColor" name="SecondaryText"/>
                     <color key="currentPageIndicatorTintColor" name="Primary"/>
                 </pageControl>
             </subviews>
             <color key="backgroundColor" name="BG4"/>
             <constraints>
-                <constraint firstItem="CjG-1p-Gn8" firstAttribute="bottom" secondItem="FyH-G6-EM8" secondAttribute="bottom" constant="34" id="0gK-5a-1rU"/>
-                <constraint firstItem="CjG-1p-Gn8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="I25-lB-wM0"/>
-                <constraint firstAttribute="trailing" secondItem="FyH-G6-EM8" secondAttribute="trailing" id="Nhv-oH-unM"/>
-                <constraint firstAttribute="bottom" secondItem="RHh-Lr-bfi" secondAttribute="bottom" id="Nwp-AQ-PIA"/>
-                <constraint firstItem="FyH-G6-EM8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W7W-i8-U0o"/>
-                <constraint firstItem="h7U-YC-Owd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="XaU-PM-gtM"/>
-                <constraint firstItem="RHh-Lr-bfi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yxn-Od-AK4"/>
-                <constraint firstItem="RHh-Lr-bfi" firstAttribute="top" secondItem="CjG-1p-Gn8" secondAttribute="bottom" constant="13" id="bV9-YB-kwG"/>
-                <constraint firstAttribute="trailing" secondItem="RHh-Lr-bfi" secondAttribute="trailing" id="k2g-QT-tMq"/>
-                <constraint firstItem="h7U-YC-Owd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="r3d-VB-TD5"/>
-                <constraint firstAttribute="trailing" secondItem="h7U-YC-Owd" secondAttribute="trailing" constant="10" id="ssR-xt-Jyb"/>
-                <constraint firstItem="FyH-G6-EM8" firstAttribute="top" secondItem="h7U-YC-Owd" secondAttribute="bottom" id="uUj-9o-fsl"/>
+                <constraint firstItem="RHh-Lr-bfi" firstAttribute="top" secondItem="CjG-1p-Gn8" secondAttribute="bottom" constant="13" id="46v-QU-kBg"/>
+                <constraint firstItem="CjG-1p-Gn8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="46" id="BN4-oW-lqN"/>
+                <constraint firstItem="h7U-YC-Owd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Bwd-Bb-hEj"/>
+                <constraint firstItem="RHh-Lr-bfi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DIs-V1-nx3"/>
+                <constraint firstAttribute="bottom" secondItem="RHh-Lr-bfi" secondAttribute="bottom" id="Mc1-9G-qra"/>
+                <constraint firstAttribute="trailing" secondItem="CjG-1p-Gn8" secondAttribute="trailing" constant="46" id="QpI-Yb-NEj"/>
+                <constraint firstItem="h7U-YC-Owd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="VxV-CT-ZCX"/>
+                <constraint firstItem="FyH-G6-EM8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YfZ-jc-ex0"/>
+                <constraint firstAttribute="trailing" secondItem="FyH-G6-EM8" secondAttribute="trailing" id="dSC-tq-pmJ"/>
+                <constraint firstAttribute="trailing" secondItem="RHh-Lr-bfi" secondAttribute="trailing" id="gnO-R3-W7Y"/>
+                <constraint firstItem="CjG-1p-Gn8" firstAttribute="top" secondItem="FyH-G6-EM8" secondAttribute="bottom" constant="8" id="iea-5F-wHI"/>
+                <constraint firstItem="FyH-G6-EM8" firstAttribute="top" secondItem="h7U-YC-Owd" secondAttribute="bottom" id="piA-AY-jHW"/>
+                <constraint firstAttribute="trailing" secondItem="h7U-YC-Owd" secondAttribute="trailing" constant="10" id="tU9-D6-4PH"/>
             </constraints>
             <point key="canvasLocation" x="35.877862595419849" y="19.718309859154932"/>
         </view>

@@ -32,56 +32,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="215" height="275"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-MS-Dmi">
-                                <rect key="frame" x="0.0" y="36" width="215" height="99"/>
+                                <rect key="frame" x="0.0" y="20" width="215" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="9TO-vG-n51"/>
-                                    <constraint firstAttribute="height" constant="99" id="qWM-uG-SbS"/>
+                                    <constraint firstAttribute="height" constant="130" id="P3r-ID-5XK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="COURT VISION 2.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icc-Za-syw">
-                                <rect key="frame" x="19" y="191.33333333333334" width="177" height="24"/>
-                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
-                                <color key="textColor" name="BG1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$58,67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-fc-7kW">
-                                <rect key="frame" x="19" y="227.33333333333334" width="177" height="18.333333333333343"/>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
-                                <color key="textColor" name="Price"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Hiking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uB-Fc-XEP">
-                                <rect key="frame" x="19" y="165" width="177" height="19"/>
-                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="13"/>
-                                <color key="textColor" name="SecondaryText"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qbA-fl-mHs">
+                                <rect key="frame" x="13" y="158" width="189" height="76.666666666671517"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Hiking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uB-Fc-XEP">
+                                        <rect key="frame" x="0.0" y="0.0" width="189" height="18.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="13"/>
+                                        <color key="textColor" name="SecondaryText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="COURT VISION 2.0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icc-Za-syw">
+                                        <rect key="frame" x="0.0" y="26.333333333333343" width="189" height="24"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                        <color key="textColor" name="BG1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$58,67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-fc-7kW">
+                                        <rect key="frame" x="0.0" y="58.33333333333335" width="189" height="18.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                        <color key="textColor" name="Price"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Zqb-fc-7kW" firstAttribute="top" secondItem="Icc-Za-syw" secondAttribute="bottom" constant="8" id="0nn-Mu-3A1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Icc-Za-syw" secondAttribute="trailing" id="8xh-bk-WLL"/>
+                                    <constraint firstAttribute="trailing" secondItem="0uB-Fc-XEP" secondAttribute="trailing" id="MuV-OV-O2b"/>
+                                    <constraint firstItem="Icc-Za-syw" firstAttribute="top" secondItem="0uB-Fc-XEP" secondAttribute="bottom" constant="8" id="RqP-cS-BER"/>
+                                    <constraint firstItem="Icc-Za-syw" firstAttribute="leading" secondItem="qbA-fl-mHs" secondAttribute="leading" id="Y1m-bG-dhr"/>
+                                    <constraint firstItem="Zqb-fc-7kW" firstAttribute="leading" secondItem="qbA-fl-mHs" secondAttribute="leading" id="Za0-7E-iPN"/>
+                                    <constraint firstItem="0uB-Fc-XEP" firstAttribute="top" secondItem="qbA-fl-mHs" secondAttribute="top" id="uCd-NL-cVP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zqb-fc-7kW" secondAttribute="trailing" id="wdo-4u-ej9"/>
+                                    <constraint firstItem="0uB-Fc-XEP" firstAttribute="leading" secondItem="qbA-fl-mHs" secondAttribute="leading" id="xb9-aK-WcQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zqb-fc-7kW" secondAttribute="bottom" id="yrG-Ds-uND"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="PrimaryText"/>
                         <constraints>
-                            <constraint firstItem="Zqb-fc-7kW" firstAttribute="top" secondItem="Icc-Za-syw" secondAttribute="bottom" constant="12" id="5Uh-Aw-bQR"/>
-                            <constraint firstItem="0uB-Fc-XEP" firstAttribute="leading" secondItem="jJn-2x-USX" secondAttribute="leading" constant="19" id="H15-UW-ONR"/>
-                            <constraint firstAttribute="trailing" secondItem="Icc-Za-syw" secondAttribute="trailing" constant="19" id="Hvh-cf-UvO"/>
-                            <constraint firstAttribute="bottom" secondItem="Zqb-fc-7kW" secondAttribute="bottom" constant="29.329999999999998" id="Ivz-W3-Xh6"/>
-                            <constraint firstItem="kSm-MS-Dmi" firstAttribute="top" secondItem="jJn-2x-USX" secondAttribute="top" constant="36" id="K94-lH-lDh"/>
-                            <constraint firstItem="kSm-MS-Dmi" firstAttribute="leading" secondItem="jJn-2x-USX" secondAttribute="leading" id="PV1-ec-uHg"/>
-                            <constraint firstItem="Zqb-fc-7kW" firstAttribute="leading" secondItem="jJn-2x-USX" secondAttribute="leading" constant="19" id="QYL-y4-yBt"/>
-                            <constraint firstAttribute="trailing" secondItem="kSm-MS-Dmi" secondAttribute="trailing" id="TE6-26-vX6"/>
-                            <constraint firstAttribute="trailing" secondItem="Zqb-fc-7kW" secondAttribute="trailing" constant="19" id="VnZ-te-ucy"/>
-                            <constraint firstAttribute="trailing" secondItem="0uB-Fc-XEP" secondAttribute="trailing" constant="19" id="e7E-zc-k3b"/>
-                            <constraint firstItem="Icc-Za-syw" firstAttribute="leading" secondItem="jJn-2x-USX" secondAttribute="leading" constant="19" id="fJC-KH-E3D"/>
-                            <constraint firstItem="Icc-Za-syw" firstAttribute="top" secondItem="0uB-Fc-XEP" secondAttribute="bottom" constant="8" id="haC-2A-BVb"/>
-                            <constraint firstItem="0uB-Fc-XEP" firstAttribute="top" secondItem="kSm-MS-Dmi" secondAttribute="bottom" constant="30" id="wC5-pi-lLH"/>
+                            <constraint firstItem="qbA-fl-mHs" firstAttribute="top" secondItem="kSm-MS-Dmi" secondAttribute="bottom" constant="8" id="7fz-wC-3Aa"/>
+                            <constraint firstItem="kSm-MS-Dmi" firstAttribute="leading" secondItem="jJn-2x-USX" secondAttribute="leading" id="PJs-Wn-jLB"/>
+                            <constraint firstItem="qbA-fl-mHs" firstAttribute="leading" secondItem="jJn-2x-USX" secondAttribute="leading" constant="13" id="T0t-Vh-0DP"/>
+                            <constraint firstAttribute="trailing" secondItem="qbA-fl-mHs" secondAttribute="trailing" constant="13" id="aba-TV-anb"/>
+                            <constraint firstAttribute="trailing" secondItem="kSm-MS-Dmi" secondAttribute="trailing" id="d3Z-1h-WNJ"/>
+                            <constraint firstItem="kSm-MS-Dmi" firstAttribute="top" secondItem="jJn-2x-USX" secondAttribute="top" constant="20" id="hOk-80-dQc"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="jJn-2x-USX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HvL-yB-2CW"/>
-                <constraint firstAttribute="bottom" secondItem="jJn-2x-USX" secondAttribute="bottom" id="l2q-SX-NWU"/>
-                <constraint firstItem="jJn-2x-USX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uFp-yo-Jj7"/>
-                <constraint firstAttribute="trailing" secondItem="jJn-2x-USX" secondAttribute="trailing" id="yAT-Jl-QHb"/>
+                <constraint firstItem="jJn-2x-USX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2dA-71-ZUp"/>
+                <constraint firstAttribute="bottom" secondItem="jJn-2x-USX" secondAttribute="bottom" id="A2j-7m-TRp"/>
+                <constraint firstItem="jJn-2x-USX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RXG-kX-PSg"/>
+                <constraint firstAttribute="trailing" secondItem="jJn-2x-USX" secondAttribute="trailing" id="z3Y-5Y-z5Y"/>
             </constraints>
             <size key="customSize" width="249" height="302"/>
             <connections>

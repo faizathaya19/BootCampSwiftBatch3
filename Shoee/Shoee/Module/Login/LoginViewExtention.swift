@@ -15,7 +15,7 @@ extension LoginViewController: LoginViewModelDelegate {
             self.showCustomAlertWith(
                 detailResponseOkAction: nil,
                 title: "Error",
-                message: error.localizedDescription,
+                message: "Email atau Password salah",
                 image: #imageLiteral(resourceName: "ic_error"),
                 actions: nil
             )

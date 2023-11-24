@@ -10,6 +10,10 @@ class ProfileViewController: UIViewController {
     }
     
     
+    @IBAction func yourorders(_ sender: Any) {
+        let vc = TestViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func btnLogout(_ sender: Any) {
         

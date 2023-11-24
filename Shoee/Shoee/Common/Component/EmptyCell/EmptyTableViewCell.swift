@@ -4,8 +4,18 @@ class EmptyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageEmpty: UIImageView!
     @IBOutlet weak var messageEmpty: UILabel!
-    @IBOutlet weak var btnAction: UIButton!
     @IBOutlet weak var titleEmpty: UILabel!
+    
+    @IBAction func btnAction(_ sender: Any) {
+        let customMainTabBar = CustomMainTabBar()
+        let navigationController = UINavigationController(rootViewController: customMainTabBar)
+
+        // Access the windowScene from the current scene delegate
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            // Set the root view controller to the navigation controller
+            sceneDelegate.window?.rootViewController = navigationController
+        }
+    }
     
     func configure(withImageNamed imageName: String, message: String, title: String) {
         imageEmpty.image = UIImage(named: imageName)

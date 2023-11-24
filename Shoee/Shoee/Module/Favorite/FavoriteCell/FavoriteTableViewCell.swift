@@ -1,42 +1,57 @@
 import UIKit
-import SkeletonView
 import Kingfisher
+import SkeletonView
 
 protocol FavoriteTableViewCellDelegate: AnyObject {
     func favoriteButtonTapped(for cell: FavoriteTableViewCell)
-    // You can add more methods as needed for interactions with the parent
+    func deleteButtonTapped(for cell: FavoriteTableViewCell)
+    // Add more methods as needed
 }
 
-class FavoriteTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var priceProduct: UILabel!
-    @IBOutlet weak var nameProduct: UILabel!
-    @IBOutlet weak var imageProduct: UIImageView!
+class FavoriteTableViewCell: BaseTableCell {
+    
+    @IBOutlet private weak var viewContainer: UIView!
+    @IBOutlet private weak var priceProduct: UILabel!
+    @IBOutlet private weak var nameProduct: UILabel!
+    @IBOutlet private weak var imageProduct: UIImageView!
+    @IBOutlet private weak var deleteButton: UIButton!
     
     weak var delegate: FavoriteTableViewCellDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageProduct.layer.cornerRadius = 15
-        viewContainer.layer.cornerRadius = 15
-        imageProduct.showAnimatedGradientSkeleton()
-        imageProduct.isUserInteractionEnabled = true
+        configureUI()
     }
-
+    
     var imageURL: URL? {
         didSet {
             loadImage()
         }
     }
-
+    
+    // MARK: - Configuration
+    
+    private func configureUI() {
+        imageProduct.layer.cornerRadius = 15
+        viewContainer.layer.cornerRadius = 15
+        imageProduct.showAnimatedGradientSkeleton()
+        imageProduct.isUserInteractionEnabled = true
+        deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
+        deleteButton.backgroundColor = .systemPink
+        deleteButton.layer.cornerRadius = deleteButton.frame.height / 2.0
+        deleteButton.layer.masksToBounds = true
+    }
+    
+    
+    // MARK: - Image Loading
+    
     private func loadImage() {
         guard let imageURL = imageURL else {
             imageProduct.hideSkeleton()
             imageProduct.image = nil
             return
         }
-
+        
         let processor = DownsamplingImageProcessor(size: imageProduct.bounds.size)
         imageProduct.kf.indicatorType = .activity
         imageProduct.kf.setImage(
@@ -47,24 +62,29 @@ class FavoriteTableViewCell: UITableViewCell {
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
                 .cacheOriginalImage
-            ]) { result in
+            ]) { [weak self] result in
                 switch result {
                 case .success(_):
-                    self.imageProduct.hideSkeleton()
+                    self?.imageProduct.hideSkeleton()
                 case .failure(_):
-                    self.imageProduct.hideSkeleton()
+                    self?.imageProduct.hideSkeleton()
                 }
-        }
+            }
     }
-
-    @IBAction func favoriteButtonPressed(_ sender: Any) {
-        delegate?.favoriteButtonTapped(for: self)
+    
+    // MARK: - Actions
+    
+    @objc private func deleteButtonPressed() {
+        delegate?.deleteButtonTapped(for: self)
     }
-
-    // Configure the cell with product information
-    func configure(name: String, price: String, imageURL: URL) {
+    
+    // MARK: - Public Methods
+    
+    func configure(name: String, price: String, imageURLString: String) {
         nameProduct.text = name
         priceProduct.text = price
-        self.imageURL = imageURL
+        if let imageURL = URL(string: imageURLString) {
+            self.imageURL = imageURL
+        }
     }
 }

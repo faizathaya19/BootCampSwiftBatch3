@@ -23,6 +23,15 @@ extension UIViewController {
         self.present(alertVC, animated: true, completion: nil)
     }
     
+    func showCustomSlideMess(message: String, color: UIColor) {
+        let alertVC = CustomSlideMessageViewController.init(nibName: "CustomSlideMessageViewController", bundle: nil)
+        alertVC.message = message
+        alertVC.color = color
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .overCurrentContext
+        present(alertVC, animated: true, completion: nil)
+    }
+    
     
 }
 

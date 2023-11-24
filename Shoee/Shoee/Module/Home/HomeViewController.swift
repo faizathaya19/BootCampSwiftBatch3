@@ -7,13 +7,6 @@ enum HomeSetupTable: Int, CaseIterable {
 	case popularProduct
 	case newArrival
 	case forYouProduct
-	
-	var title: String? {
-		switch self {
-		case .header, .categoryList, .popularProduct, .newArrival, .forYouProduct:
-			return nil
-		}
-	}
 }
 
 class HomeViewController: UIViewController {
@@ -22,18 +15,15 @@ class HomeViewController: UIViewController {
 	
 	var newArrivalData: [ProductModel] = [] {
 		didSet {
-			homeSetupLayout.reloadData()
-			homeSetupLayout.hideSkeleton()
+			reloadAndHideSkeleton()
 		}
 	}
 	
 	var forYouData: [ProductModel] = [] {
 		didSet {
-			homeSetupLayout.reloadData()
-			homeSetupLayout.hideSkeleton()
+			reloadAndHideSkeleton()
 		}
 	}
-	
 	
 	var selectedCategory: CategoryModel?
 	var setupHomeTableViewCell: SetupHomeTableViewCell?
@@ -41,60 +31,60 @@ class HomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupTableView()
-		
-		// Fetch new arrival products
 		fetchProducts(for: .newArrival)
 		
-		// Automatically select a default category and update the view
 		if let defaultCategory = getCategoryById(6) {
 			selectedCategory = defaultCategory
 			setupHomeTableViewCell?.selectedCategoryIndex = selectedCategory?.id
 			homeSetupLayout.reloadData()
-			
-			// Fetch products for the selected category
 			fetchProducts(for: .forYouProduct)
 		}
 	}
 	
+	private func reloadAndHideSkeleton() {
+		homeSetupLayout.reloadData()
+		homeSetupLayout.hideSkeleton()
+	}
+	
 	private func fetchProducts(for section: HomeSetupTable) {
 		homeSetupLayout.showAnimatedGradientSkeleton()
-
+		
 		switch section {
 		case .newArrival:
-			// Fetch new arrival products
-			ProductsService.shared.getProducts(limit:0) { [weak self] result in
-				guard let self = self else { return }
-
-				switch result {
-				case .success(let products):
-					self.newArrivalData = products
-				case .failure(let error):
-					print("Failed to fetch new arrival products: \(error.localizedDescription)")
-				}
-
-				self.homeSetupLayout.hideSkeleton()
-			}
+			fetchNewArrivalProducts()
 		case .forYouProduct:
-			// Fetch products for the selected category
-			if let categoryId = selectedCategory?.id {
-				ProductsService.shared.getProducts(categories: categoryId) { [weak self] result in
-					guard let self = self else { return }
-
-					switch result {
-					case .success(let products):
-						self.forYouData = products
-					case .failure(let error):
-						print("Failed to fetch products for selected category: \(error.localizedDescription)")
-					}
-
-					self.homeSetupLayout.hideSkeleton()
-				}
-			}
+			fetchProductsForSelectedCategory()
 		default:
 			break
 		}
 	}
-
+	
+	private func fetchNewArrivalProducts() {
+		ProductsService.shared.getProducts(limit: 0) { [weak self] result in
+			guard let self = self else { return }
+			switch result {
+			case .success(let products):
+				self.newArrivalData = products
+			case .failure(let error):
+				print("Failed to fetch new arrival products: \(error.localizedDescription)")
+			}
+			self.reloadAndHideSkeleton()
+		}
+	}
+	
+	private func fetchProductsForSelectedCategory() {
+		guard let categoryId = selectedCategory?.id else { return }
+		ProductsService.shared.getProducts(categories: categoryId) { [weak self] result in
+			guard let self = self else { return }
+			switch result {
+			case .success(let products):
+				self.forYouData = products
+			case .failure(let error):
+				print("Failed to fetch products for selected category: \(error.localizedDescription)")
+			}
+			self.reloadAndHideSkeleton()
+		}
+	}
 	
 	private func setupTableView() {
 		homeSetupLayout.delegate = self
@@ -119,6 +109,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+	
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return HomeSetupTable.allCases.count
 	}
@@ -147,37 +138,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		switch homeSection {
 		case .header, .categoryList:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "homesetupcellidentifier", for: indexPath) as! SetupHomeTableViewCell
-			cell.delegate = self
-			cell.homeSetupTable = homeSection
-			cell.selectedCategoryIndex = selectedCategory?.id
-			return cell
+			return setupHomeTableViewCell(for: homeSection, indexPath: indexPath)
 		case .popularProduct:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "popularProductCellIdentifier", for: indexPath) as! PopularProductTableViewCell
-			cell.configure(withTitle: "Popular Products", title2: "New Arrivals")
-			cell.navigationController = self.navigationController
-			return cell
+			return popularProductCell(for: indexPath)
 		case .newArrival:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "newArrivalCellIdentifier", for: indexPath) as! NewArrivalTableViewCell
-			let product = newArrivalData[indexPath.row]
-			if let thirdGallery = product.galleries?.dropFirst(3).first {
-				let thirdGalleryURL = thirdGallery.url
-				cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
-			} else {
-				cell.configure(name: product.name, price: "$\(product.price)", imageURL: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg", category: product.category.name)
-			}
-			return cell
-			
+			return newArrivalCell(for: indexPath)
 		case .forYouProduct:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "forYouProductCellIdentifier", for: indexPath) as! ForYouProductTableViewCell
-			let product = forYouData[indexPath.row]
-			if let thirdGallery = product.galleries?.dropFirst(3).first {
-				let thirdGalleryURL = thirdGallery.url
-				cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
-			} else {
-				cell.configure(name: product.name, price: "$\(product.price)", imageURL: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg", category: product.category.name)
-			}
-			return cell
+			return forYouProductCell(for: indexPath)
 		}
 	}
 	
@@ -195,20 +162,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			break
 		}
 	}
-
-	
-	private func handleProductSelection(for products: [ProductModel], at indexPath: IndexPath) {
-		guard indexPath.item < products.count else {
-			// Handle the case where the index is out of bounds
-			return
-		}
-
-		let selectedProduct = products[indexPath.item]
-		let detailViewController = DetailProductViewController(productID: selectedProduct.id)
-		detailViewController.product = selectedProduct
-		detailViewController.hidesBottomBarWhenPushed = true
-		navigationController?.pushViewController(detailViewController, animated: false)
-	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		guard let homeSection = HomeSetupTable(rawValue: indexPath.section) else {
@@ -223,6 +176,64 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case .popularProduct, .forYouProduct, .newArrival:
 			return UITableView.automaticDimension
 		}
+	}
+	
+	// MARK: - Private Methods
+	
+	private func setupHomeTableViewCell(for section: HomeSetupTable, indexPath: IndexPath) -> UITableViewCell {
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "homesetupcellidentifier", for: indexPath) as! SetupHomeTableViewCell
+		cell.delegate = self
+		cell.homeSetupTable = section
+		cell.selectedCategoryIndex = selectedCategory?.id
+		return cell
+	}
+
+	private func popularProductCell(for indexPath: IndexPath) -> UITableViewCell {
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "popularProductCellIdentifier", for: indexPath) as! PopularProductTableViewCell
+		cell.configure(withTitle: "Popular Products", title2: "New Arrivals")
+		cell.navigationController = self.navigationController
+		return cell
+	}
+
+	private func newArrivalCell(for indexPath: IndexPath) -> UITableViewCell {
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "newArrivalCellIdentifier", for: indexPath) as! NewArrivalTableViewCell
+		let product = newArrivalData[indexPath.row]
+
+		if let thirdGallery = product.galleries?.dropFirst(3).first {
+			let thirdGalleryURL = thirdGallery.url
+			cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
+		} else {
+			cell.configure(name: product.name, price: "$\(product.price)", imageURL: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg", category: product.category.name)
+		}
+
+		return cell
+	}
+
+	private func forYouProductCell(for indexPath: IndexPath) -> UITableViewCell {
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "forYouProductCellIdentifier", for: indexPath) as! ForYouProductTableViewCell
+		let product = forYouData[indexPath.row]
+
+		if let thirdGallery = product.galleries?.dropFirst(3).first {
+			let thirdGalleryURL = thirdGallery.url
+			cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
+		} else {
+			cell.configure(name: product.name, price: "$\(product.price)", imageURL: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg", category: product.category.name)
+		}
+
+		return cell
+	}
+
+
+	private func handleProductSelection(for products: [ProductModel], at indexPath: IndexPath) {
+		guard indexPath.item < products.count else {
+			return
+		}
+
+		let selectedProduct = products[indexPath.item]
+		let detailViewController = DetailProductViewController(productID: selectedProduct.id)
+		detailViewController.product = selectedProduct
+		detailViewController.hidesBottomBarWhenPushed = true
+		navigationController?.pushViewController(detailViewController, animated: false)
 	}
 	
 	private func shouldShowSection(_ section: HomeSetupTable) -> Bool {
@@ -245,9 +256,6 @@ extension HomeViewController: SetupHomeCellDelegate {
 	func didSelectCategory(_ category: CategoryModel) {
 		selectedCategory = category
 		homeSetupLayout.reloadData()
-		
-		// Fetch products for the selected category when a category is selected
 		fetchProducts(for: .forYouProduct)
 	}
 }
-

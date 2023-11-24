@@ -29,6 +29,8 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "emptyTableViewCell", for: indexPath) as! EmptyTableViewCell
         
         cell.configure(withImageNamed: "ic_headset_nil", message: "You have never done a transaction", title: "Opss no message yet?")
+        // Disable scrolling for emptyTableViewCell
+        tableView.isScrollEnabled = false
         
         return cell
         

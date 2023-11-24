@@ -126,12 +126,12 @@ class DetailProductViewController: UIViewController {
             case .success(let products):
                 self?.imageFamiliar = products
                 self?.familiarShoesCollectionView.reloadData()
-                
-                // Setelah memperbarui data di familiarShoesCollectionView, perbarui produk favorit juga
-                self?.updateFavoriteButtonUI()
             case .failure(let error):
                 print("Error fetching familiar shoes: \(error)")
             }
+            
+            // Move the updateFavoriteButtonUI() call here, after the fetch operation completes
+            self?.updateFavoriteButtonUI()
         }
     }
     
@@ -145,17 +145,23 @@ class DetailProductViewController: UIViewController {
     @IBAction private func favoriteButton(_ sender: Any) {
         guard let favoriteButton = sender as? UIButton else { return }
         
-        if isProductIDInCoreData() {
+        guard let productID = product?.id else {
+            // Handle the case where product is nil or doesn't have a valid ID
+            return
+        }
+        
+        if isProductIDInCoreData(productID: productID) {
             // ProductID exists in CoreData, delete it
-            deleteProductIDFromCoreData()
+            deleteProductIDFromCoreData(productID: productID)
         } else {
             // ProductID doesn't exist in CoreData, save it
-            saveProductIDToCoreData()
+            saveProductIDToCoreData(product: product!)
         }
         
         // Pemanggilan updateFavoriteButtonUI() ditempatkan di sini
         updateFavoriteButtonUI()
     }
+    
     
     
     @IBAction private func btnAddToCart(_ sender: Any) {
@@ -233,29 +239,37 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedProduct = imageFamiliar[indexPath.item]
         
-        // Check if the detailViewController is already in the navigation stack
-        if let detailViewController = navigationController?.viewControllers.first(where: { $0 is DetailProductViewController }) as? DetailProductViewController {
-            // Update the existing instance with the new product
-            detailViewController.product = selectedProduct
-            detailViewController.productID = selectedProduct.id // Update productID
-            detailViewController.fetchProductDetails() // Refresh the data
-            detailViewController.hidesBottomBarWhenPushed = true
-            navigationController?.popToViewController(detailViewController, animated: false)
-        } else {
-            // If not in the stack, create a new instance and push it
-            let detailViewController = DetailProductViewController(productID: selectedProduct.id)
-            detailViewController.product = selectedProduct
-            detailViewController.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(detailViewController, animated: false)
+        
+        switch collectionView {
+        case familiarShoesCollectionView:
+            let selectedProduct = imageFamiliar[indexPath.item]
+            
+            // Check if the detailViewController is already in the navigation stack
+            if let detailViewController = navigationController?.viewControllers.first(where: { $0 is DetailProductViewController }) as? DetailProductViewController {
+                // Update the existing instance with the new product
+                detailViewController.product = selectedProduct
+                detailViewController.fetchProductDetails() // Refresh the data
+                detailViewController.hidesBottomBarWhenPushed = true
+                navigationController?.popToViewController(detailViewController, animated: false)
+            } else {
+                // If not in the stack, create a new instance and push it
+                let detailViewController = DetailProductViewController(productID: selectedProduct.id)
+                detailViewController.product = selectedProduct
+                detailViewController.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(detailViewController, animated: false)
+            }
+        default:
+            break
         }
-
+        
+        
+        
         detailImageCollectionView.reloadData()
         // Pemanggilan updateFavoriteButtonUI() ditempatkan di sini
         updateFavoriteButtonUI()
     }
-
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == detailImageCollectionView {
@@ -270,7 +284,7 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
 
 extension DetailProductViewController {
     
-    private func isProductIDInCoreData() -> Bool {
+    private func isProductIDInCoreData(productID: Int) -> Bool {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return false
         }
@@ -288,24 +302,36 @@ extension DetailProductViewController {
         }
     }
     
-    private func saveProductIDToCoreData() {
+    private func saveProductIDToCoreData(product: ProductModel) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteProduct", in: managedContext)!
+        
         let favoriteProduct = NSManagedObject(entity: entity, insertInto: managedContext)
-        favoriteProduct.setValue(productID, forKeyPath: "productID")
+        favoriteProduct.setValue(product.id, forKeyPath: "productID")
+        favoriteProduct.setValue(product.name, forKeyPath: "name")
+        favoriteProduct.setValue(product.price, forKeyPath: "price")
+        
+        if let galleryModel = product.galleries?.dropFirst(3).first {
+            let imageLink = galleryModel.url
+            favoriteProduct.setValue(imageLink, forKeyPath: "imageLink")
+            
+        }
+        
         
         do {
             try managedContext.save()
+            showCustomSlideMess(message: "Has been added to the Whitelist", color: UIColor(named: "Secondary")!)
         } catch {
-            print("Error saving productID to CoreData: \(error)")
+            print("Error saving product to CoreData: \(error)")
         }
     }
     
-    private func deleteProductIDFromCoreData() {
+    
+    private func deleteProductIDFromCoreData(productID: Int) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -320,13 +346,19 @@ extension DetailProductViewController {
                 managedContext.delete(object as! NSManagedObject)
             }
             try managedContext.save()
+            showCustomSlideMess(message: "Has been removed from the Whitelist", color: UIColor(named: "Alert")!)
         } catch {
             print("Error deleting productID from CoreData: \(error)")
         }
     }
     
     private func updateFavoriteButtonUI() {
-        if isProductIDInCoreData() {
+        guard let productID = product?.id else {
+            // Handle the case where product is nil or doesn't have a valid ID
+            return
+        }
+        
+        if isProductIDInCoreData(productID: productID) {
             // ProductID exists in CoreData, set button to active state
             animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemPink)
             animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 2.0)
@@ -338,6 +370,7 @@ extension DetailProductViewController {
             isFavorite = false
         }
     }
+    
     
     private func animateBackgroundColorChange(for view: UIView, to color: UIColor) {
         UIView.animate(withDuration: 0.3) {
