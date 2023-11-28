@@ -29,6 +29,8 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>test</string>
 	<key>UILaunchScreens</key>
 	<dict>
 		<key>UIDefaultLaunchScreen</key>

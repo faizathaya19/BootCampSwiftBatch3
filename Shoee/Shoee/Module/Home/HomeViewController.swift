@@ -10,29 +10,30 @@ enum HomeSetupTable: Int, CaseIterable {
 }
 
 class HomeViewController: UIViewController {
-	
+
 	@IBOutlet weak var homeSetupLayout: UITableView!
-	
+
 	var newArrivalData: [ProductModel] = [] {
 		didSet {
 			reloadAndHideSkeleton()
 		}
 	}
-	
+
 	var forYouData: [ProductModel] = [] {
 		didSet {
 			reloadAndHideSkeleton()
 		}
 	}
-	
+
 	var selectedCategory: CategoryModel?
 	var setupHomeTableViewCell: SetupHomeTableViewCell?
-	
+	private var refreshPopupTimer: DispatchSourceTimer?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupTableView()
 		fetchProducts(for: .newArrival)
-		
+
 		if let defaultCategory = getCategoryById(6) {
 			selectedCategory = defaultCategory
 			setupHomeTableViewCell?.selectedCategoryIndex = selectedCategory?.id
@@ -41,14 +42,27 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
+	private func refreshData() {
+			// Implement data refresh logic here
+			// You may want to call your fetch methods or perform the necessary actions
+			// to refresh the data displayed on the screen
+			// ...
+
+			// Example: Fetch new arrival products
+			fetchProducts(for: .newArrival)
+
+			// Example: Fetch for-you products
+			fetchProducts(for: .forYouProduct)
+		}
+
 	private func reloadAndHideSkeleton() {
 		homeSetupLayout.reloadData()
 		homeSetupLayout.hideSkeleton()
 	}
-	
+
 	private func fetchProducts(for section: HomeSetupTable) {
 		homeSetupLayout.showAnimatedGradientSkeleton()
-		
+
 		switch section {
 		case .newArrival:
 			fetchNewArrivalProducts()
@@ -59,33 +73,106 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
+	private func setRefreshPopupTimer() {
+		refreshPopupTimer = DispatchSource.makeTimerSource()
+		refreshPopupTimer?.schedule(deadline: .now() + 30.0, repeating: .never)
+		refreshPopupTimer?.setEventHandler { [weak self] in
+			DispatchQueue.main.async {
+				self?.showRefreshPopup()
+			}
+		}
+		refreshPopupTimer?.resume()
+	}
+
+
+		private func cancelRefreshPopupTimer() {
+			refreshPopupTimer?.cancel()
+			refreshPopupTimer = nil
+		}
+	
+	private func showRefreshPopup() {
+			let alertController = UIAlertController(
+				title: "Refresh Required",
+				message: "Data fetching is taking longer than expected. Do you want to refresh?",
+				preferredStyle: .alert
+			)
+
+			alertController.addAction(UIAlertAction(title: "Refresh", style: .default) { [weak self] _ in
+				self?.refreshData()
+			})
+
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+			present(alertController, animated: true)
+		}
+	
+	private func showRefreshErrorPopup() {
+			let alertController = UIAlertController(
+				title: "Error",
+				message: "Failed to refresh data. Please try again.",
+				preferredStyle: .alert
+			)
+
+			alertController.addAction(UIAlertAction(title: "OK", style: .default))
+
+			present(alertController, animated: true)
+		}
+
 	private func fetchNewArrivalProducts() {
+		// Show loading indicator immediately
+		homeSetupLayout.showAnimatedGradientSkeleton()
+
+		// Set a timer for 30 seconds to show the refresh popup
+		setRefreshPopupTimer()
+
 		ProductsService.shared.getProducts(limit: 0) { [weak self] result in
 			guard let self = self else { return }
+
+			// Cancel the refresh popup timer since data is fetched before 30 seconds
+			self.cancelRefreshPopupTimer()
+
 			switch result {
 			case .success(let products):
 				self.newArrivalData = products
 			case .failure(let error):
 				print("Failed to fetch new arrival products: \(error.localizedDescription)")
+
+				// Handle error and show an appropriate message to the user
+				self.showRefreshErrorPopup()
 			}
+
 			self.reloadAndHideSkeleton()
 		}
 	}
-	
+
 	private func fetchProductsForSelectedCategory() {
+		// Show loading indicator immediately
+		homeSetupLayout.showAnimatedGradientSkeleton()
+
+		// Set a timer for 30 seconds to show the refresh popup
+		setRefreshPopupTimer()
+
 		guard let categoryId = selectedCategory?.id else { return }
 		ProductsService.shared.getProducts(categories: categoryId) { [weak self] result in
 			guard let self = self else { return }
+
+			// Cancel the refresh popup timer since data is fetched before 30 seconds
+			self.cancelRefreshPopupTimer()
+
 			switch result {
 			case .success(let products):
 				self.forYouData = products
 			case .failure(let error):
 				print("Failed to fetch products for selected category: \(error.localizedDescription)")
+
+				// Handle error and show an appropriate message to the user
+				self.showRefreshErrorPopup()
 			}
+
 			self.reloadAndHideSkeleton()
 		}
 	}
-	
+
 	private func setupTableView() {
 		homeSetupLayout.delegate = self
 		homeSetupLayout.dataSource = self
@@ -94,7 +181,7 @@ class HomeViewController: UIViewController {
 		homeSetupLayout.register(UINib(nibName: "PopularProductTableViewCell", bundle: nil), forCellReuseIdentifier: "popularProductCellIdentifier")
 		homeSetupLayout.register(UINib(nibName: "NewArrivalTableViewCell", bundle: nil), forCellReuseIdentifier: "newArrivalCellIdentifier")
 		homeSetupLayout.register(UINib(nibName: "ForYouProductTableViewCell", bundle: nil), forCellReuseIdentifier: "forYouProductCellIdentifier")
-		
+
 		if let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "homesetupcellidentifier") as? SetupHomeTableViewCell {
 			cell.delegate = self
 			cell.homeSetupTable = .categoryList
@@ -102,23 +189,23 @@ class HomeViewController: UIViewController {
 			setupHomeTableViewCell = cell
 		}
 	}
-	
+
 	private func getCategoryById(_ categoryId: Int) -> CategoryModel? {
 		return setupHomeTableViewCell?.categoryList.first { $0.id == categoryId }
 	}
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-	
+
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return HomeSetupTable.allCases.count
 	}
-	
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		guard let homeSection = HomeSetupTable(rawValue: section) else {
 			return 0
 		}
-		
+
 		switch homeSection {
 		case .header, .categoryList:
 			return 1
@@ -130,12 +217,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return shouldShowSection(homeSection) ? newArrivalData.count : 0
 		}
 	}
-	
+
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let homeSection = HomeSetupTable(rawValue: indexPath.section) else {
 			return UITableViewCell()
 		}
-		
+
 		switch homeSection {
 		case .header, .categoryList:
 			return setupHomeTableViewCell(for: homeSection, indexPath: indexPath)
@@ -147,12 +234,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return forYouProductCell(for: indexPath)
 		}
 	}
-	
+
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		guard let homeSection = HomeSetupTable(rawValue: indexPath.section) else {
 			return
 		}
-		
+
 		switch homeSection {
 		case .newArrival:
 			handleProductSelection(for: newArrivalData, at: indexPath)
@@ -162,12 +249,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			break
 		}
 	}
-	
+
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		guard let homeSection = HomeSetupTable(rawValue: indexPath.section) else {
 			return UITableView.automaticDimension
 		}
-		
+
 		switch homeSection {
 		case .header:
 			return 80.0
@@ -177,9 +264,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return UITableView.automaticDimension
 		}
 	}
-	
+
 	// MARK: - Private Methods
-	
+
 	private func setupHomeTableViewCell(for section: HomeSetupTable, indexPath: IndexPath) -> UITableViewCell {
 		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "homesetupcellidentifier", for: indexPath) as! SetupHomeTableViewCell
 		cell.delegate = self
@@ -223,7 +310,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		return cell
 	}
 
-
 	private func handleProductSelection(for products: [ProductModel], at indexPath: IndexPath) {
 		guard indexPath.item < products.count else {
 			return
@@ -235,12 +321,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 		detailViewController.hidesBottomBarWhenPushed = true
 		navigationController?.pushViewController(detailViewController, animated: false)
 	}
-	
+
 	private func shouldShowSection(_ section: HomeSetupTable) -> Bool {
 		guard let selectedCategory = selectedCategory else {
 			return false
 		}
-		
+
 		switch section {
 		case .popularProduct, .newArrival:
 			return selectedCategory.id == 6

@@ -1,6 +1,5 @@
 import UIKit
 
-
 protocol LoginViewModelDelegate: AnyObject {
     func didLoginSuccessfully()
     func didFailLogin(with error: Error)
@@ -31,7 +30,7 @@ class LoginViewModel {
                 }
                 
                 let accessToken = responseLoginModel.data.accessToken
-                TokenService.shared.saveToken(accessToken)
+                TokenService.shared.storeToken(with: accessToken)
                 
                 self?.delegate?.didLoginSuccessfully()
                 

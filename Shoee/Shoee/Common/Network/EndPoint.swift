@@ -7,8 +7,8 @@ enum EndPoint {
     case logout(vc: UIViewController)
     case categories
     case products(id: Int?, limit: Int?, name: String?, description: String?, priceFrom: Int?, priceTo: Int?, tags: String?, categories: Int?)
-
-
+    case user
+    
     func path() -> String {
         switch self {
         case .register:
@@ -21,18 +21,21 @@ enum EndPoint {
             return "/categories"
         case .products:
             return "/products"
+        case .user:
+            return "/user"
+            
         }
     }
-
+    
     func method() -> HTTPMethod {
         switch self {
         case .register, .login, .logout:
             return .post
-        case .categories, .products:
+        case .categories, .products, .user:
             return .get
         }
     }
-
+    
     var parameters: [String: Any]? {
         switch self {
         case .register(let params):
@@ -40,29 +43,29 @@ enum EndPoint {
         case .login(let params):
             return try? params.asDictionary()
         case .products(let id, let limit, let name, let description, let priceFrom, let priceTo, let tags, let categories):
-                    var params: [String: Any] = [:]
-
-                    if let id = id { params["id"] = id }
-                    if let limit = limit { params["limit"] = limit }
-                    if let name = name { params["name"] = name }
-                    if let description = description { params["description"] = description }
-                    if let priceFrom = priceFrom { params["price_from"] = priceFrom }
-                    if let priceTo = priceTo { params["price_to"] = priceTo }
-                    if let tags = tags { params["tags"] = tags }
-                    if let categories = categories { params["categories"] = categories }
-
-                    return params
+            var params: [String: Any] = [:]
+            
+            if let id = id { params["id"] = id }
+            if let limit = limit { params["limit"] = limit }
+            if let name = name { params["name"] = name }
+            if let description = description { params["description"] = description }
+            if let priceFrom = priceFrom { params["price_from"] = priceFrom }
+            if let priceTo = priceTo { params["price_to"] = priceTo }
+            if let tags = tags { params["tags"] = tags }
+            if let categories = categories { params["categories"] = categories }
+            
+            return params
         default:
             return nil
         }
     }
-
+    
     var headers: [String: String]? {
         switch self {
         case .register:
             return ["Accept": "application/json"]
-        case .logout:
-            return ["Accept": "application/json", "Authorization": "Bearer \(TokenService.shared.getToken())"]
+        case .logout, .user:
+            return ["Accept": "application/json", "Authorization": "Bearer \(TokenService.shared.retrieveToken())"]
         default:
             return nil
         }
@@ -71,12 +74,12 @@ enum EndPoint {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .register, .login, .categories, .products:
+        case .register, .login, .categories, .products, .user:
             return URLEncoding.queryString
         default: return JSONEncoding.default
         }
     }
-
+    
     func urlString() -> String {
         return BaseConstant.baseUrl + self.path()
     }

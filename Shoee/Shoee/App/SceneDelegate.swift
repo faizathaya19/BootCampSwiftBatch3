@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Shoee
-//
-//  Created by Phincon on 08/11/23.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        if TokenService.shared.checkForLogin(){
+        if (TokenService.shared.getTokenFromKeychain() != nil){
             window.rootViewController = UINavigationController(rootViewController: CustomMainTabBar())
         }else{
             window.rootViewController = UINavigationController(rootViewController: LoginViewController())
@@ -69,4 +62,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

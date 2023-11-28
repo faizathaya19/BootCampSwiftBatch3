@@ -19,6 +19,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Shoee" customModuleProvider="target">
             <connections>
                 <outlet property="cartTableView" destination="wRE-gz-aOV" id="X4n-Y0-HgC"/>
+                <outlet property="checkOutBtn" destination="Ntg-Ej-QCB" id="J6T-YA-JqH"/>
+                <outlet property="subTotal" destination="4Fg-rr-cDy" id="wHs-Ss-9BE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,21 +29,11 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="728" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wRE-gz-aOV">
-                    <rect key="frame" x="0.0" y="125" width="393" height="544"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="544" id="Ex9-OO-c1v"/>
-                    </constraints>
-                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntg-Ej-QCB">
-                    <rect key="frame" x="28" y="775" width="337" height="46"/>
+                    <rect key="frame" x="28" y="765" width="337" height="50"/>
                     <color key="backgroundColor" name="Primary"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="zq9-qS-ARZ"/>
+                        <constraint firstAttribute="height" constant="50" id="zq9-qS-ARZ"/>
                     </constraints>
                     <color key="tintColor" name="Primary"/>
                     <state key="normal" title="Button"/>
@@ -52,33 +44,46 @@
                         <color key="baseForegroundColor" name="PrimaryText"/>
                         <color key="baseBackgroundColor" name="Primary"/>
                     </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                            <real key="value" value="90"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkOutBtnAction:" destination="-1" eventType="touchUpInside" id="hzB-E9-Iwc"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-9b-GlN">
-                    <rect key="frame" x="0.0" y="750" width="393" height="2"/>
+                    <rect key="frame" x="0.0" y="753" width="393" height="2"/>
                     <color key="backgroundColor" name="BG2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="pXK-KE-Fug"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ3-U9-3v3">
-                    <rect key="frame" x="27" y="695" width="339" height="32"/>
+                    <rect key="frame" x="27" y="695" width="339" height="35"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fg-rr-cDy">
-                            <rect key="frame" x="291" y="0.0" width="41" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
-                            <color key="textColor" name="Price"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtotal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QQ-d0-oqx">
-                            <rect key="frame" x="0.0" y="0.0" width="74" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QQ-d0-oqx">
+                            <rect key="frame" x="8" y="4" width="73.666666666666671" height="24"/>
                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
                             <color key="textColor" name="PrimaryText"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fg-rr-cDy">
+                            <rect key="frame" x="290.33333333333331" y="6" width="40.666666666666686" height="21"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
+                            <color key="textColor" name="Price"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="4Fg-rr-cDy" firstAttribute="top" secondItem="JJ3-U9-3v3" secondAttribute="top" constant="6" id="2XN-1M-Hon"/>
+                        <constraint firstItem="2QQ-d0-oqx" firstAttribute="top" secondItem="JJ3-U9-3v3" secondAttribute="top" constant="4" id="7sx-Gk-w5t"/>
+                        <constraint firstItem="2QQ-d0-oqx" firstAttribute="leading" secondItem="JJ3-U9-3v3" secondAttribute="leading" constant="8" id="byI-TF-Z7N"/>
+                        <constraint firstAttribute="trailing" secondItem="4Fg-rr-cDy" secondAttribute="trailing" constant="8" id="vyc-6c-AV9"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bt9-6v-YUd">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="125"/>
@@ -107,6 +112,16 @@
                         <constraint firstAttribute="height" constant="125" id="asE-Pz-rgV"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="728" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wRE-gz-aOV">
+                    <rect key="frame" x="0.0" y="125" width="393" height="544"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="544" id="Ex9-OO-c1v"/>
+                    </constraints>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" name="BG3"/>
             <constraints>
@@ -117,10 +132,10 @@
                 <constraint firstItem="JJ3-U9-3v3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="J5O-9Y-Pky"/>
                 <constraint firstItem="Bt9-6v-YUd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OGh-XW-ASC"/>
                 <constraint firstAttribute="trailing" secondItem="AUP-9b-GlN" secondAttribute="trailing" id="PeC-0f-IgL"/>
+                <constraint firstAttribute="bottom" secondItem="Ntg-Ej-QCB" secondAttribute="bottom" constant="37" id="StQ-tH-FlW"/>
                 <constraint firstItem="Bt9-6v-YUd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UA7-zU-H3C"/>
-                <constraint firstItem="Ntg-Ej-QCB" firstAttribute="top" secondItem="AUP-9b-GlN" secondAttribute="bottom" constant="23" id="YdY-Kv-M1f"/>
+                <constraint firstItem="Ntg-Ej-QCB" firstAttribute="top" secondItem="AUP-9b-GlN" secondAttribute="bottom" constant="10" id="Za7-mf-V8a"/>
                 <constraint firstAttribute="trailing" secondItem="Ntg-Ej-QCB" secondAttribute="trailing" constant="28" id="bKO-8g-5OT"/>
-                <constraint firstAttribute="bottom" secondItem="Ntg-Ej-QCB" secondAttribute="bottom" constant="31" id="dxE-FI-0uU"/>
                 <constraint firstItem="AUP-9b-GlN" firstAttribute="top" secondItem="JJ3-U9-3v3" secondAttribute="bottom" constant="23" id="hWG-Ut-8pg"/>
                 <constraint firstItem="AUP-9b-GlN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="huN-Dg-yGc"/>
                 <constraint firstAttribute="trailing" secondItem="wRE-gz-aOV" secondAttribute="trailing" id="lVy-af-ruO"/>

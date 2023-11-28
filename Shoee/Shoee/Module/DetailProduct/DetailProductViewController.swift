@@ -162,23 +162,88 @@ class DetailProductViewController: UIViewController {
         updateFavoriteButtonUI()
     }
     
-    
-    
     @IBAction private func btnAddToCart(_ sender: Any) {
-        let actionYes: [String: () -> Void] = ["View My Cart": { [weak self] in
-            let cartViewController = CartViewController()
-            self?.navigationController?.pushViewController(cartViewController, animated: true)
-        }]
-        let actionNo: [String: () -> Void] = ["X": { print("tapped NO") }]
-        let arrayActions = [actionYes, actionNo]
+        guard let product = self.product else {
+            // Pastikan ada produk untuk ditambahkan ke keranjang
+            return
+        }
+
+        // Akses managedObjectContext Core Data
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
         
-        showCustomAlertWith(
-            title: "Hurray :)",
-            message: "Item added successfully",
-            image: #imageLiteral(resourceName: "ic_success"),
-            actions: arrayActions
-        )
+        // Buat entity 'Items' baru atau perbarui jika sudah ada
+        let fetchRequest = NSFetchRequest<Items>(entityName: "Items")
+        fetchRequest.predicate = NSPredicate(format: "productID == %ld", product.id)
+        fetchRequest.fetchLimit = 1
+
+        do {
+            let itemsArray = try managedContext.fetch(fetchRequest)
+            if let existingItem = itemsArray.first {
+                // Produk sudah ada, tingkatkan quantity
+                existingItem.quantity += 1
+            } else {
+                // Produk belum ada, buat entity 'Items' baru
+                let itemsEntity = NSEntityDescription.entity(forEntityName: "Items", in: managedContext)!
+                let items = Items(entity: itemsEntity, insertInto: managedContext)
+
+                items.productID = Int16(product.id)
+                items.quantity = 1 // Default quantity is 1
+                items.name = product.name
+                items.price = product.price
+                if let galleryModel = product.galleries?.dropFirst(3).first {
+                    let imageLink = galleryModel.url
+                    items.setValue(imageLink, forKeyPath: "image")
+                }
+            }
+
+            // Ambil atau buat entity 'CheckOut' (jika diperlukan)
+            let checkoutFetchRequest = NSFetchRequest<CheckOut>(entityName: "CheckOut")
+            checkoutFetchRequest.fetchLimit = 1
+
+            let checkouts = try managedContext.fetch(checkoutFetchRequest)
+            if let checkout = checkouts.first {
+                // Perbarui atribut lain di 'CheckOut' jika diperlukan
+                checkout.address = "Alamat Anda" // Atur alamat sesuai kebutuhan
+                checkout.shippingPrice = 10 // Atur biaya pengiriman sesuai kebutuhan
+                checkout.status = "Pending" // Atur status sesuai kebutuhan
+                checkout.totalPrice += product.price
+            } else {
+                // Buat entity 'CheckOut' baru jika tidak ada
+                let checkoutEntity = NSEntityDescription.entity(forEntityName: "CheckOut", in: managedContext)!
+                let checkout = CheckOut(entity: checkoutEntity, insertInto: managedContext)
+
+                // Atur atribut untuk entity 'CheckOut'
+                checkout.address = "Alamat Anda" // Atur alamat sesuai kebutuhan
+                checkout.shippingPrice = 10 // Atur biaya pengiriman sesuai kebutuhan
+                checkout.status = "Pending" // Atur status sesuai kebutuhan
+                checkout.totalPrice = product.price
+            }
+
+            // Simpan perubahan ke Core Data
+            try managedContext.save()
+            let actionYes: [String: () -> Void] = ["View My Cart": { [weak self] in
+                let cartViewController = CartViewController()
+                self?.navigationController?.pushViewController(cartViewController, animated: true)
+            }]
+            let actionNo: [String: () -> Void] = ["X": { print("tapped NO") }]
+            
+            let arrayActions = [actionYes, actionNo]
+            
+            showCustomAlertWith(
+                title: "Hurray :)",
+                message: "Item added successfully",
+                image: #imageLiteral(resourceName: "ic_success"),
+                actions: arrayActions
+            )
+        } catch {
+            print("Error saving to Core Data: \(error)")
+        }
     }
+
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout

@@ -16,11 +16,12 @@ protocol SetupHomeCellDelegate: AnyObject {
 class SetupHomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var homeCollectionView: UICollectionView!
-
+    
+    var userList: [User] = []
     var categoryList: [CategoryModel] = []
-       var selectedCategoryIndex: Int? = nil
-       var hasAutoSelectedCategory: Bool = false
-       var categoriesFetched: Bool = false
+    var selectedCategoryIndex: Int? = nil
+    var hasAutoSelectedCategory: Bool = false
+    var categoriesFetched: Bool = false
 
     var homeSetupTable: HomeSetupTable = .header {
         didSet {
@@ -40,8 +41,9 @@ class SetupHomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupCollectionView()
         if !categoriesFetched {
-                    fetchCategories()
-                }
+            fetchCategories()
+        }
+        fetchUsers()
     }
 
     private func setupCollectionView() {
@@ -58,29 +60,44 @@ class SetupHomeTableViewCell: UITableViewCell {
         homeCollectionView.reloadData()
     }
     
-    func fetchCategories() {
-            showAnimatedGradientSkeleton()
-            CategoryService.shared.getCategories { [weak self] result in
+    func fetchUsers() {
+            // Assuming UserService.shared.getUsers(completion:) fetches user data
+            UserService.shared.getUsers { [weak self] result in
                 guard let self = self else { return }
-
+                
                 switch result {
-                case .success(let categories):
-                    self.categoryList = categories
-                    DispatchQueue.main.async {
-                        if !self.hasAutoSelectedCategory, let index = self.categoryList.firstIndex(where: { $0.id == 6 }) {
-                            self.selectedCategoryIndex = self.categoryList[index].id
-                            self.delegate?.didSelectCategory(self.categoryList[index])
-                            self.hasAutoSelectedCategory = true
-                        }
-                        self.hideSkeleton()
-                        self.categoriesFetched = true // Set categoriesFetched menjadi true setelah data diambil
-                    }
+                case .success(let users):
+                    self.userList = users
                 case .failure(let error):
-                    print("Error fetching categories: \(error.localizedDescription)")
-                    self.hideSkeleton()
+                    print("Error fetching user data: \(error.localizedDescription)")
                 }
             }
         }
+
+
+    func fetchCategories() {
+        showAnimatedGradientSkeleton()
+        CategoryService.shared.getCategories { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let categories):
+                self.categoryList = categories
+                DispatchQueue.main.async {
+                    if !self.hasAutoSelectedCategory, let index = self.categoryList.firstIndex(where: { $0.id == 6 }) {
+                        self.selectedCategoryIndex = self.categoryList[index].id
+                        self.delegate?.didSelectCategory(self.categoryList[index])
+                        self.hasAutoSelectedCategory = true
+                    }
+                    self.hideSkeleton()
+                    self.categoriesFetched = true
+                }
+            case .failure(let error):
+                print("Error fetching categories: \(error.localizedDescription)")
+                self.hideSkeleton()
+            }
+        }
+    }
 
     private func autoSelectCategory() {
         if let index = categoryList.firstIndex(where: { $0.id == 6 }) {
@@ -106,9 +123,7 @@ class SetupHomeTableViewCell: UITableViewCell {
             cell.categoryTitle.font = UIFont.systemFont(ofSize: cell.categoryTitle.font.pointSize, weight: .regular)
         }
     }
-
 }
-
 
 extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -116,6 +131,8 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
         switch homeSetupTable {
         case .categoryList:
             return categoryList.count
+        case .header:
+            return userList.count
         default:
             return 1
         }
@@ -124,7 +141,10 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch homeSetupTable {
         case .header:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "headerCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "headerCell", for: indexPath) as! HeaderCollectionViewCell
+            let user = userList[indexPath.item]
+            cell.configure(name: user.name, username: user.username , imageURLString: user.profilePhotoURL)
+            return cell
         case .categoryList:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryListCell", for: indexPath) as! CategoryListCollectionViewCell
             configureCategoryListCell(cell, at: indexPath)
@@ -153,7 +173,7 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
 
         selectedCategoryIndex = categoryList[indexPath.item].id
         collectionView.reloadData()
-        
+
         delegate?.didSelectCategory(categoryList[indexPath.item])
     }
 
@@ -165,7 +185,7 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
             return UIEdgeInsets.zero
         }
     }
-    
+
     func showAnimatedGradientSkeleton() {
         homeCollectionView.showAnimatedGradientSkeleton()
     }
@@ -174,4 +194,3 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
         homeCollectionView.hideSkeleton()
     }
 }
-

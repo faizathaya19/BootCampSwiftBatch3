@@ -32,6 +32,13 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    func showCustomPIN() {
+        let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
+    
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .overCurrentContext
+        present(alertVC, animated: true, completion: nil)
+    }
     
 }
 

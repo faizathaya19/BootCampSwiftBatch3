@@ -76,6 +76,8 @@
             <size key="customSize" width="288" height="92"/>
             <connections>
                 <outlet property="nameTopHeader" destination="HWP-DQ-6W3" id="PAA-YT-Vtv"/>
+                <outlet property="pictureProfile" destination="54d-qz-1If" id="GvJ-tV-Eb1"/>
+                <outlet property="usernameLabel" destination="fju-yf-MBm" id="9NG-ZC-7Jj"/>
             </connections>
             <point key="canvasLocation" x="45.038167938931295" y="27.464788732394368"/>
         </collectionViewCell>

@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
             case .success(let responseLogout):
                 print("Logout success: \(responseLogout)")
                 
-                TokenService.shared.removeToken()
+                TokenService.shared.deleteToken()
                 self.popUpLoading.dismissImmediately()
                 
                 let loginViewController = LoginViewController()
@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
                 UIApplication.shared.keyWindow?.rootViewController = navigationController
                 
             case .failure(let error):
+                self.popUpLoading.dismissImmediately()
                 self.showCustomAlertWith(
                     detailResponseOkAction: nil,
                     title: "Error",

@@ -83,6 +83,19 @@
 		36A33E272AFE040B00A951E7 /* CategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33E252AFE040B00A951E7 /* CategoryListCollectionViewCell.xib */; };
 		36A33E332B01ACCC00A951E7 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E322B01ACCC00A951E7 /* UIViewControllerExt.swift */; };
 		36A33E372B01CDF600A951E7 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E362B01CDF600A951E7 /* TokenService.swift */; };
+		36BD8FB02B14301000101014 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FAF2B14301000101014 /* UserService.swift */; };
+		36BD8FB22B144CCA00101014 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FB12B144CCA00101014 /* CoreDataStack.swift */; };
+		36BD8FB42B14533000101014 /* CheckOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FB32B14533000101014 /* CheckOutModel.swift */; };
+		36BD8FB62B14539E00101014 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FB52B14539E00101014 /* ItemModel.swift */; };
+		36BD8FBF2B149F9600101014 /* ListitemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FBD2B149F9600101014 /* ListitemsTableViewCell.swift */; };
+		36BD8FC02B149F9600101014 /* ListitemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FBE2B149F9600101014 /* ListitemsTableViewCell.xib */; };
+		36BD8FC42B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FC22B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.swift */; };
+		36BD8FC52B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FC32B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.xib */; };
+		36BD8FD02B1584CB00101014 /* CheckOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FCE2B1584CB00101014 /* CheckOutViewController.swift */; };
+		36BD8FD12B1584CB00101014 /* CheckOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FCF2B1584CB00101014 /* CheckOutViewController.xib */; };
+		36BD8FDA2B15D33100101014 /* CustomPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FD82B15D33100101014 /* CustomPINViewController.swift */; };
+		36BD8FDB2B15D33100101014 /* CustomPINViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FD92B15D33100101014 /* CustomPINViewController.xib */; };
+		36BD8FDD2B15E78B00101014 /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FDC2B15E78B00101014 /* FaceID.swift */; };
 		36FBF6172B045B7A0070A476 /* PopularProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF6152B045B7A0070A476 /* PopularProductTableViewCell.swift */; };
 		36FBF6182B045B7A0070A476 /* PopularProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF6162B045B7A0070A476 /* PopularProductTableViewCell.xib */; };
 		36FBF61C2B045C550070A476 /* NewArrivalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF61A2B045C550070A476 /* NewArrivalTableViewCell.swift */; };
@@ -181,6 +194,19 @@
 		36A33E252AFE040B00A951E7 /* CategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
 		36A33E322B01ACCC00A951E7 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		36A33E362B01CDF600A951E7 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		36BD8FAF2B14301000101014 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		36BD8FB12B144CCA00101014 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		36BD8FB32B14533000101014 /* CheckOutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutModel.swift; sourceTree = "<group>"; };
+		36BD8FB52B14539E00101014 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		36BD8FBD2B149F9600101014 /* ListitemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListitemsTableViewCell.swift; sourceTree = "<group>"; };
+		36BD8FBE2B149F9600101014 /* ListitemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListitemsTableViewCell.xib; sourceTree = "<group>"; };
+		36BD8FC22B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherItemCheckOutDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		36BD8FC32B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherItemCheckOutDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		36BD8FCE2B1584CB00101014 /* CheckOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutViewController.swift; sourceTree = "<group>"; };
+		36BD8FCF2B1584CB00101014 /* CheckOutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckOutViewController.xib; sourceTree = "<group>"; };
+		36BD8FD82B15D33100101014 /* CustomPINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPINViewController.swift; sourceTree = "<group>"; };
+		36BD8FD92B15D33100101014 /* CustomPINViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPINViewController.xib; sourceTree = "<group>"; };
+		36BD8FDC2B15E78B00101014 /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
 		36FBF6152B045B7A0070A476 /* PopularProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularProductTableViewCell.swift; sourceTree = "<group>"; };
 		36FBF6162B045B7A0070A476 /* PopularProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularProductTableViewCell.xib; sourceTree = "<group>"; };
 		36FBF61A2B045C550070A476 /* NewArrivalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,7 +305,9 @@
 				364E40FE2B0720C6001EB357 /* UserModel.swift */,
 				364E41062B07225A001EB357 /* CategoryModel.swift */,
 				365380BD2B0789A300D5C39D /* ProductModel.swift */,
+				36BD8FB52B14539E00101014 /* ItemModel.swift */,
 				365380BF2B078C8600D5C39D /* GalleryModel.swift */,
+				36BD8FB32B14533000101014 /* CheckOutModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +346,7 @@
 		36510FFF2AFB7AA800A5D6F4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				36BD8FD72B15D30700101014 /* PIN */,
 				363357602B107F7B00A952E3 /* CustomSlideMessage */,
 				365380C72B0C7FE200D5C39D /* CustomViewPopUp */,
 				365110362AFC64A900A5D6F4 /* CustomMainTabBar */,
@@ -325,6 +354,7 @@
 				365110142AFB7BAD00A5D6F4 /* CutomTextField */,
 				36FBF63D2B05BAF40070A476 /* CustomPageControl.swift */,
 				365381112B0EDA4300D5C39D /* PopUpLoading.swift */,
+				36BD8FDC2B15E78B00101014 /* FaceID.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -336,7 +366,9 @@
 				36A33E362B01CDF600A951E7 /* TokenService.swift */,
 				364E41082B07393F001EB357 /* EndPoint.swift */,
 				365380B92B0763CD00D5C39D /* CategoryService.swift */,
+				36BD8FAF2B14301000101014 /* UserService.swift */,
 				365380C32B0B069000D5C39D /* ProductsService.swift */,
+				36BD8FB12B144CCA00101014 /* CoreDataStack.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -503,6 +535,7 @@
 		3651103E2AFC9A0400A5D6F4 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				36BD8FB72B149E3600101014 /* CheckOutDetails */,
 				363357702B10A50500A952E3 /* CartCell */,
 				365381032B0DA4B200D5C39D /* CartViewController.swift */,
 				365381042B0DA4B200D5C39D /* CartViewController.xib */,
@@ -576,6 +609,44 @@
 				36A33E252AFE040B00A951E7 /* CategoryListCollectionViewCell.xib */,
 			);
 			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		36BD8FB72B149E3600101014 /* CheckOutDetails */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FC12B149F9E00101014 /* OtherItemCheckOutDetails */,
+				36BD8FBC2B149F1900101014 /* ListItems */,
+				36BD8FCE2B1584CB00101014 /* CheckOutViewController.swift */,
+				36BD8FCF2B1584CB00101014 /* CheckOutViewController.xib */,
+			);
+			path = CheckOutDetails;
+			sourceTree = "<group>";
+		};
+		36BD8FBC2B149F1900101014 /* ListItems */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FBD2B149F9600101014 /* ListitemsTableViewCell.swift */,
+				36BD8FBE2B149F9600101014 /* ListitemsTableViewCell.xib */,
+			);
+			path = ListItems;
+			sourceTree = "<group>";
+		};
+		36BD8FC12B149F9E00101014 /* OtherItemCheckOutDetails */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FC22B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.swift */,
+				36BD8FC32B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.xib */,
+			);
+			path = OtherItemCheckOutDetails;
+			sourceTree = "<group>";
+		};
+		36BD8FD72B15D30700101014 /* PIN */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FD82B15D33100101014 /* CustomPINViewController.swift */,
+				36BD8FD92B15D33100101014 /* CustomPINViewController.xib */,
+			);
+			path = PIN;
 			sourceTree = "<group>";
 		};
 		36FBF6102B0457ED0070A476 /* PopularProduct */ = {
@@ -727,7 +798,9 @@
 				36A33E272AFE040B00A951E7 /* CategoryListCollectionViewCell.xib in Resources */,
 				365110352AFBA3EE00A5D6F4 /* HomeViewController.xib in Resources */,
 				365110262AFB801100A5D6F4 /* Poppins-Light.ttf in Resources */,
+				36BD8FC52B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.xib in Resources */,
 				365110272AFB801100A5D6F4 /* Poppins-Bold.ttf in Resources */,
+				36BD8FC02B149F9600101014 /* ListitemsTableViewCell.xib in Resources */,
 				365110292AFB801100A5D6F4 /* Poppins-Thin.ttf in Resources */,
 				36A33DDB2AFCBC0300A951E7 /* EditProfileViewController.xib in Resources */,
 				3651101F2AFB7F9D00A5D6F4 /* LoginViewController.xib in Resources */,
@@ -736,9 +809,11 @@
 				36510FF82AFB7AA000A5D6F4 /* LaunchScreen.storyboard in Resources */,
 				36FBF6332B04D48B0070A476 /* DetailProductViewController.xib in Resources */,
 				3651104B2AFC9BA900A5D6F4 /* ProfileViewController.xib in Resources */,
+				36BD8FDB2B15D33100101014 /* CustomPINViewController.xib in Resources */,
 				3653810C2B0E003500D5C39D /* EmptyTableViewCell.xib in Resources */,
 				36A33E0D2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib in Resources */,
 				3651102B2AFB801100A5D6F4 /* Poppins-ExtraBold.ttf in Resources */,
+				36BD8FD12B1584CB00101014 /* CheckOutViewController.xib in Resources */,
 				3633576A2B10843D00A952E3 /* TestViewController.xib in Resources */,
 				36510FF52AFB7AA000A5D6F4 /* Assets.xcassets in Resources */,
 				36FBF63A2B04D8200070A476 /* DetailProductCollectionViewCell.xib in Resources */,
@@ -799,6 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36BD8FB62B14539E00101014 /* ItemModel.swift in Sources */,
 				36A33E262AFE040B00A951E7 /* CategoryListCollectionViewCell.swift in Sources */,
 				363357692B10843D00A952E3 /* TestViewController.swift in Sources */,
 				364E40F52B071AA5001EB357 /* RegisterParam.swift in Sources */,
@@ -811,6 +887,7 @@
 				36A33E332B01ACCC00A951E7 /* UIViewControllerExt.swift in Sources */,
 				365380FB2B0D8C6200D5C39D /* LoginViewModel.swift in Sources */,
 				3651101E2AFB7F9D00A5D6F4 /* LoginViewController.swift in Sources */,
+				36BD8FDA2B15D33100101014 /* CustomPINViewController.swift in Sources */,
 				36498CD82B0752C100A1A5DA /* LogoutResponse.swift in Sources */,
 				364E40FB2B071EF3001EB357 /* UserResponse.swift in Sources */,
 				36510FED2AFB7A9E00A5D6F4 /* ViewController.swift in Sources */,
@@ -824,20 +901,26 @@
 				3651102F2AFB9E4D00A5D6F4 /* SignUpViewController.swift in Sources */,
 				36510FF32AFB7A9E00A5D6F4 /* Shoee.xcdatamodeld in Sources */,
 				365110342AFBA3EE00A5D6F4 /* HomeViewController.swift in Sources */,
+				36BD8FB22B144CCA00101014 /* CoreDataStack.swift in Sources */,
 				364E40F72B071C84001EB357 /* LoginResponse.swift in Sources */,
 				36FBF6322B04D48B0070A476 /* DetailProductViewController.swift in Sources */,
 				3653810B2B0E003500D5C39D /* EmptyTableViewCell.swift in Sources */,
 				36A33DDA2AFCBC0300A951E7 /* EditProfileViewController.swift in Sources */,
 				36FBF61C2B045C550070A476 /* NewArrivalTableViewCell.swift in Sources */,
+				36BD8FB42B14533000101014 /* CheckOutModel.swift in Sources */,
 				364E41012B072146001EB357 /* DataClassModel.swift in Sources */,
 				363357732B10A55200A952E3 /* CartTableViewCell.swift in Sources */,
 				364E41092B07393F001EB357 /* EndPoint.swift in Sources */,
 				365380FD2B0D8FB100D5C39D /* LoginViewExtention.swift in Sources */,
 				36510FEB2AFB7A9E00A5D6F4 /* SceneDelegate.swift in Sources */,
+				36BD8FB02B14301000101014 /* UserService.swift in Sources */,
 				365380BA2B0763CD00D5C39D /* CategoryService.swift in Sources */,
 				365380BE2B0789A300D5C39D /* ProductModel.swift in Sources */,
+				36BD8FD02B1584CB00101014 /* CheckOutViewController.swift in Sources */,
 				364E41072B07225A001EB357 /* CategoryModel.swift in Sources */,
+				36BD8FDD2B15E78B00101014 /* FaceID.swift in Sources */,
 				3651101A2AFB7F1500A5D6F4 /* ViewExt.swift in Sources */,
+				36BD8FC42B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.swift in Sources */,
 				365110162AFB7BD200A5D6F4 /* CustomTextField.swift in Sources */,
 				3651104A2AFC9BA900A5D6F4 /* ProfileViewController.swift in Sources */,
 				364E40F32B071723001EB357 /* LoginParam.swift in Sources */,
@@ -850,6 +933,7 @@
 				365110462AFC9B8300A5D6F4 /* FavoriteViewController.swift in Sources */,
 				36A33E1D2AFDD1DB00A951E7 /* ChatViewController.swift in Sources */,
 				3651103A2AFC64EF00A5D6F4 /* CustomMainTabBar.swift in Sources */,
+				36BD8FBF2B149F9600101014 /* ListitemsTableViewCell.swift in Sources */,
 				365381142B0EDAFE00D5C39D /* Common.swift in Sources */,
 				3653810F2B0E047F00D5C39D /* FavoriteTableViewCell.swift in Sources */,
 				364E41032B0721CB001EB357 /* RegisterResponse.swift in Sources */,
