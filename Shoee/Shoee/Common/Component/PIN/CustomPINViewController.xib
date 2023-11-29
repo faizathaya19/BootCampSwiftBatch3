@@ -22,6 +22,7 @@
                 <outlet property="alertLabel" destination="Zot-Bi-4Jj" id="QOt-0t-wAR"/>
                 <outlet property="deleteButton" destination="xWj-ct-hPD" id="OBr-F8-hNX"/>
                 <outlet property="faceIDButton" destination="ZJ3-gi-bDU" id="Kci-07-V1G"/>
+                <outlet property="forAnimationSuccess" destination="Fx2-RE-xYa" id="U2d-IS-o3S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="numberButtons" destination="CDC-HS-sEc" collectionClass="NSMutableArray" id="dtc-z9-1Ts"/>
                 <outletCollection property="numberButtons" destination="cTd-aB-fZZ" collectionClass="NSMutableArray" id="ALh-Rk-VH3"/>
@@ -223,26 +224,42 @@
                     <color key="textColor" name="BG1"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" fixedFrame="YES" text="Masukan PIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zot-Bi-4Jj">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Masukan PIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zot-Bi-4Jj">
                     <rect key="frame" x="41" y="240" width="309" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="66" id="Alf-7P-DMk"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                     <color key="textColor" name="BG1"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fx2-RE-xYa">
+                    <rect key="frame" x="0.0" y="139" width="393" height="154"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="154" id="uMC-v8-TSi"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="0.95136589403973515" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="BG4"/>
             <constraints>
                 <constraint firstItem="Dxf-tL-Ava" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="51" id="2G8-N4-Ro8"/>
+                <constraint firstItem="pbO-jz-HwT" firstAttribute="top" secondItem="Zot-Bi-4Jj" secondAttribute="bottom" constant="17" id="8EE-Ey-mXB"/>
+                <constraint firstItem="Fx2-RE-xYa" firstAttribute="top" secondItem="Dxf-tL-Ava" secondAttribute="bottom" constant="5" id="8JJ-XH-LGR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Dxf-tL-Ava" secondAttribute="trailing" constant="123" id="Aug-Dx-FSZ"/>
+                <constraint firstItem="pbO-jz-HwT" firstAttribute="top" secondItem="Fx2-RE-xYa" secondAttribute="bottom" constant="30" id="BRB-nd-p6W"/>
                 <constraint firstItem="ZQg-3F-eih" firstAttribute="top" secondItem="Dxf-tL-Ava" secondAttribute="bottom" constant="73" id="GKg-AY-dt6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZQg-3F-eih" secondAttribute="trailing" constant="85" id="P0d-Mp-Y9A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pbO-jz-HwT" secondAttribute="bottom" constant="62" id="aIj-PE-aU6"/>
                 <constraint firstItem="ZQg-3F-eih" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="85" id="bqf-B2-zpA"/>
+                <constraint firstItem="Fx2-RE-xYa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dGj-6o-xWA"/>
                 <constraint firstItem="pbO-jz-HwT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="ilF-h0-k5f"/>
                 <constraint firstItem="Dxf-tL-Ava" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="123" id="mJF-U3-znJ"/>
                 <constraint firstItem="pbO-jz-HwT" firstAttribute="top" secondItem="ZQg-3F-eih" secondAttribute="bottom" constant="91" id="nKK-kM-dAq"/>
+                <constraint firstItem="Zot-Bi-4Jj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="rc0-Wj-d5n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zot-Bi-4Jj" secondAttribute="trailing" constant="43" id="rdJ-Rp-3Ha"/>
+                <constraint firstItem="Fx2-RE-xYa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xVn-YG-DQc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pbO-jz-HwT" secondAttribute="trailing" constant="35" id="z0L-h9-b2B"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -257,6 +274,9 @@
         </namedColor>
         <namedColor name="BG2">
             <color red="0.16862745098039217" green="0.16078431372549021" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG4">
+            <color red="0.92549019607843142" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.42352941176470588" green="0.36862745098039218" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -96,6 +96,26 @@
 		36BD8FDA2B15D33100101014 /* CustomPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FD82B15D33100101014 /* CustomPINViewController.swift */; };
 		36BD8FDB2B15D33100101014 /* CustomPINViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FD92B15D33100101014 /* CustomPINViewController.xib */; };
 		36BD8FDD2B15E78B00101014 /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FDC2B15E78B00101014 /* FaceID.swift */; };
+		36BD8FE12B16E33900101014 /* YourOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FDF2B16E33900101014 /* YourOrdersViewController.swift */; };
+		36BD8FE22B16E33900101014 /* YourOrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FE02B16E33900101014 /* YourOrdersViewController.xib */; };
+		36BD8FE82B16E39C00101014 /* YourOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FE62B16E39C00101014 /* YourOrdersTableViewCell.swift */; };
+		36BD8FE92B16E39C00101014 /* YourOrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FE72B16E39C00101014 /* YourOrdersTableViewCell.xib */; };
+		36BD8FED2B16EC2E00101014 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FEB2B16EC2E00101014 /* OrderDetailsViewController.swift */; };
+		36BD8FEE2B16EC2E00101014 /* OrderDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FEC2B16EC2E00101014 /* OrderDetailsViewController.xib */; };
+		36BD8FF22B16EDB500101014 /* OrderDetailScreenOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FF02B16EDB500101014 /* OrderDetailScreenOneTableViewCell.swift */; };
+		36BD8FF32B16EDB500101014 /* OrderDetailScreenOneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FF12B16EDB500101014 /* OrderDetailScreenOneTableViewCell.xib */; };
+		36BD8FF92B16F15600101014 /* ListOrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FF72B16F15600101014 /* ListOrderDetailTableViewCell.swift */; };
+		36BD8FFA2B16F15600101014 /* ListOrderDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FF82B16F15600101014 /* ListOrderDetailTableViewCell.xib */; };
+		36BD8FFE2B16F2E000101014 /* OtherOrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD8FFC2B16F2E000101014 /* OtherOrderDetailTableViewCell.swift */; };
+		36BD8FFF2B16F2E000101014 /* OtherOrderDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD8FFD2B16F2E000101014 /* OtherOrderDetailTableViewCell.xib */; };
+		36BD90032B16F37700101014 /* StatusOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD90012B16F37700101014 /* StatusOrderTableViewCell.swift */; };
+		36BD90042B16F37700101014 /* StatusOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD90022B16F37700101014 /* StatusOrderTableViewCell.xib */; };
+		36BD900D2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD900B2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.swift */; };
+		36BD900E2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD900C2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.xib */; };
+		36BD90112B17272300101014 /* PaymentProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD900F2B17272300101014 /* PaymentProcessViewController.swift */; };
+		36BD90122B17272300101014 /* PaymentProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD90102B17272300101014 /* PaymentProcessViewController.xib */; };
+		36BD90162B172F1700101014 /* AccoountVATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD90142B172F1700101014 /* AccoountVATableViewCell.swift */; };
+		36BD90172B172F1700101014 /* AccoountVATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36BD90152B172F1700101014 /* AccoountVATableViewCell.xib */; };
 		36FBF6172B045B7A0070A476 /* PopularProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF6152B045B7A0070A476 /* PopularProductTableViewCell.swift */; };
 		36FBF6182B045B7A0070A476 /* PopularProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF6162B045B7A0070A476 /* PopularProductTableViewCell.xib */; };
 		36FBF61C2B045C550070A476 /* NewArrivalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF61A2B045C550070A476 /* NewArrivalTableViewCell.swift */; };
@@ -207,6 +227,26 @@
 		36BD8FD82B15D33100101014 /* CustomPINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPINViewController.swift; sourceTree = "<group>"; };
 		36BD8FD92B15D33100101014 /* CustomPINViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPINViewController.xib; sourceTree = "<group>"; };
 		36BD8FDC2B15E78B00101014 /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
+		36BD8FDF2B16E33900101014 /* YourOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrdersViewController.swift; sourceTree = "<group>"; };
+		36BD8FE02B16E33900101014 /* YourOrdersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourOrdersViewController.xib; sourceTree = "<group>"; };
+		36BD8FE62B16E39C00101014 /* YourOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrdersTableViewCell.swift; sourceTree = "<group>"; };
+		36BD8FE72B16E39C00101014 /* YourOrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourOrdersTableViewCell.xib; sourceTree = "<group>"; };
+		36BD8FEB2B16EC2E00101014 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		36BD8FEC2B16EC2E00101014 /* OrderDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsViewController.xib; sourceTree = "<group>"; };
+		36BD8FF02B16EDB500101014 /* OrderDetailScreenOneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailScreenOneTableViewCell.swift; sourceTree = "<group>"; };
+		36BD8FF12B16EDB500101014 /* OrderDetailScreenOneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailScreenOneTableViewCell.xib; sourceTree = "<group>"; };
+		36BD8FF72B16F15600101014 /* ListOrderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		36BD8FF82B16F15600101014 /* ListOrderDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListOrderDetailTableViewCell.xib; sourceTree = "<group>"; };
+		36BD8FFC2B16F2E000101014 /* OtherOrderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherOrderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		36BD8FFD2B16F2E000101014 /* OtherOrderDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherOrderDetailTableViewCell.xib; sourceTree = "<group>"; };
+		36BD90012B16F37700101014 /* StatusOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusOrderTableViewCell.swift; sourceTree = "<group>"; };
+		36BD90022B16F37700101014 /* StatusOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusOrderTableViewCell.xib; sourceTree = "<group>"; };
+		36BD900B2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredTimerPaymentTableViewCell.swift; sourceTree = "<group>"; };
+		36BD900C2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpiredTimerPaymentTableViewCell.xib; sourceTree = "<group>"; };
+		36BD900F2B17272300101014 /* PaymentProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessViewController.swift; sourceTree = "<group>"; };
+		36BD90102B17272300101014 /* PaymentProcessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentProcessViewController.xib; sourceTree = "<group>"; };
+		36BD90142B172F1700101014 /* AccoountVATableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccoountVATableViewCell.swift; sourceTree = "<group>"; };
+		36BD90152B172F1700101014 /* AccoountVATableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccoountVATableViewCell.xib; sourceTree = "<group>"; };
 		36FBF6152B045B7A0070A476 /* PopularProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularProductTableViewCell.swift; sourceTree = "<group>"; };
 		36FBF6162B045B7A0070A476 /* PopularProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularProductTableViewCell.xib; sourceTree = "<group>"; };
 		36FBF61A2B045C550070A476 /* NewArrivalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalTableViewCell.swift; sourceTree = "<group>"; };
@@ -396,6 +436,10 @@
 		365110032AFB7AB400A5D6F4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36BD90052B1722C100101014 /* PaymentProcess */,
+				36BD8FEA2B16EC0300101014 /* OrderDetails */,
+				36BD8FB72B149E3600101014 /* CheckOutDetails */,
+				36BD8FDE2B16E30200101014 /* YourOrders */,
 				3633576B2B10844F00A952E3 /* Test */,
 				36FBF62F2B04D4620070A476 /* DetailProduct */,
 				3651103E2AFC9A0400A5D6F4 /* Cart */,
@@ -535,7 +579,6 @@
 		3651103E2AFC9A0400A5D6F4 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				36BD8FB72B149E3600101014 /* CheckOutDetails */,
 				363357702B10A50500A952E3 /* CartCell */,
 				365381032B0DA4B200D5C39D /* CartViewController.swift */,
 				365381042B0DA4B200D5C39D /* CartViewController.xib */,
@@ -647,6 +690,103 @@
 				36BD8FD92B15D33100101014 /* CustomPINViewController.xib */,
 			);
 			path = PIN;
+			sourceTree = "<group>";
+		};
+		36BD8FDE2B16E30200101014 /* YourOrders */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FE32B16E35A00101014 /* YourOrdersCell */,
+				36BD8FDF2B16E33900101014 /* YourOrdersViewController.swift */,
+				36BD8FE02B16E33900101014 /* YourOrdersViewController.xib */,
+			);
+			path = YourOrders;
+			sourceTree = "<group>";
+		};
+		36BD8FE32B16E35A00101014 /* YourOrdersCell */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FE62B16E39C00101014 /* YourOrdersTableViewCell.swift */,
+				36BD8FE72B16E39C00101014 /* YourOrdersTableViewCell.xib */,
+			);
+			path = YourOrdersCell;
+			sourceTree = "<group>";
+		};
+		36BD8FEA2B16EC0300101014 /* OrderDetails */ = {
+			isa = PBXGroup;
+			children = (
+				36BD90002B16F2E800101014 /* StaturOrder */,
+				36BD8FFB2B16F2C100101014 /* OtherOrderDetail */,
+				36BD8FF42B16F0E400101014 /* ListOrderDetailCell */,
+				36BD8FEF2B16ED8700101014 /* OrderDetailScreenOne */,
+				36BD8FEB2B16EC2E00101014 /* OrderDetailsViewController.swift */,
+				36BD8FEC2B16EC2E00101014 /* OrderDetailsViewController.xib */,
+			);
+			path = OrderDetails;
+			sourceTree = "<group>";
+		};
+		36BD8FEF2B16ED8700101014 /* OrderDetailScreenOne */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FF02B16EDB500101014 /* OrderDetailScreenOneTableViewCell.swift */,
+				36BD8FF12B16EDB500101014 /* OrderDetailScreenOneTableViewCell.xib */,
+			);
+			path = OrderDetailScreenOne;
+			sourceTree = "<group>";
+		};
+		36BD8FF42B16F0E400101014 /* ListOrderDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FF72B16F15600101014 /* ListOrderDetailTableViewCell.swift */,
+				36BD8FF82B16F15600101014 /* ListOrderDetailTableViewCell.xib */,
+			);
+			path = ListOrderDetailCell;
+			sourceTree = "<group>";
+		};
+		36BD8FFB2B16F2C100101014 /* OtherOrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				36BD8FFC2B16F2E000101014 /* OtherOrderDetailTableViewCell.swift */,
+				36BD8FFD2B16F2E000101014 /* OtherOrderDetailTableViewCell.xib */,
+			);
+			path = OtherOrderDetail;
+			sourceTree = "<group>";
+		};
+		36BD90002B16F2E800101014 /* StaturOrder */ = {
+			isa = PBXGroup;
+			children = (
+				36BD90012B16F37700101014 /* StatusOrderTableViewCell.swift */,
+				36BD90022B16F37700101014 /* StatusOrderTableViewCell.xib */,
+			);
+			path = StaturOrder;
+			sourceTree = "<group>";
+		};
+		36BD90052B1722C100101014 /* PaymentProcess */ = {
+			isa = PBXGroup;
+			children = (
+				36BD90132B172EF000101014 /* AccountVA */,
+				36BD900A2B17234E00101014 /* PaymentProcess */,
+				36BD900F2B17272300101014 /* PaymentProcessViewController.swift */,
+				36BD90102B17272300101014 /* PaymentProcessViewController.xib */,
+			);
+			path = PaymentProcess;
+			sourceTree = "<group>";
+		};
+		36BD900A2B17234E00101014 /* PaymentProcess */ = {
+			isa = PBXGroup;
+			children = (
+				36BD900B2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.swift */,
+				36BD900C2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.xib */,
+			);
+			path = PaymentProcess;
+			sourceTree = "<group>";
+		};
+		36BD90132B172EF000101014 /* AccountVA */ = {
+			isa = PBXGroup;
+			children = (
+				36BD90142B172F1700101014 /* AccoountVATableViewCell.swift */,
+				36BD90152B172F1700101014 /* AccoountVATableViewCell.xib */,
+			);
+			path = AccountVA;
 			sourceTree = "<group>";
 		};
 		36FBF6102B0457ED0070A476 /* PopularProduct */ = {
@@ -784,17 +924,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36BD8FEE2B16EC2E00101014 /* OrderDetailsViewController.xib in Resources */,
 				36FBF6182B045B7A0070A476 /* PopularProductTableViewCell.xib in Resources */,
+				36BD90172B172F1700101014 /* AccoountVATableViewCell.xib in Resources */,
 				36FBF6402B05CD7E0070A476 /* Poppins-SemiBold.ttf in Resources */,
 				3651102A2AFB801100A5D6F4 /* Poppins-ExtraLight.ttf in Resources */,
 				3633576F2B108DEC00A952E3 /* CustomSlideMessageViewController.xib in Resources */,
 				365110182AFB7BEB00A5D6F4 /* CustomTextField.xib in Resources */,
 				36FBF6272B0469B50070A476 /* PopularProductCollectionViewCell.xib in Resources */,
 				36FBF61D2B045C550070A476 /* NewArrivalTableViewCell.xib in Resources */,
+				36BD900E2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.xib in Resources */,
 				363357742B10A55200A952E3 /* CartTableViewCell.xib in Resources */,
 				36A33E1E2AFDD1DB00A951E7 /* ChatViewController.xib in Resources */,
 				365381062B0DA4B200D5C39D /* CartViewController.xib in Resources */,
+				36BD8FE22B16E33900101014 /* YourOrdersViewController.xib in Resources */,
 				36FBF6222B045D2C0070A476 /* ForYouProductTableViewCell.xib in Resources */,
+				36BD90122B17272300101014 /* PaymentProcessViewController.xib in Resources */,
 				36A33E272AFE040B00A951E7 /* CategoryListCollectionViewCell.xib in Resources */,
 				365110352AFBA3EE00A5D6F4 /* HomeViewController.xib in Resources */,
 				365110262AFB801100A5D6F4 /* Poppins-Light.ttf in Resources */,
@@ -804,9 +949,11 @@
 				365110292AFB801100A5D6F4 /* Poppins-Thin.ttf in Resources */,
 				36A33DDB2AFCBC0300A951E7 /* EditProfileViewController.xib in Resources */,
 				3651101F2AFB7F9D00A5D6F4 /* LoginViewController.xib in Resources */,
+				36BD8FE92B16E39C00101014 /* YourOrdersTableViewCell.xib in Resources */,
 				365110472AFC9B8300A5D6F4 /* FavoriteViewController.xib in Resources */,
 				36A33E222AFDE79900A951E7 /* HeaderCollectionViewCell.xib in Resources */,
 				36510FF82AFB7AA000A5D6F4 /* LaunchScreen.storyboard in Resources */,
+				36BD8FFA2B16F15600101014 /* ListOrderDetailTableViewCell.xib in Resources */,
 				36FBF6332B04D48B0070A476 /* DetailProductViewController.xib in Resources */,
 				3651104B2AFC9BA900A5D6F4 /* ProfileViewController.xib in Resources */,
 				36BD8FDB2B15D33100101014 /* CustomPINViewController.xib in Resources */,
@@ -814,9 +961,12 @@
 				36A33E0D2AFCEBBE00A951E7 /* SetupHomeTableViewCell.xib in Resources */,
 				3651102B2AFB801100A5D6F4 /* Poppins-ExtraBold.ttf in Resources */,
 				36BD8FD12B1584CB00101014 /* CheckOutViewController.xib in Resources */,
+				36BD90042B16F37700101014 /* StatusOrderTableViewCell.xib in Resources */,
 				3633576A2B10843D00A952E3 /* TestViewController.xib in Resources */,
 				36510FF52AFB7AA000A5D6F4 /* Assets.xcassets in Resources */,
 				36FBF63A2B04D8200070A476 /* DetailProductCollectionViewCell.xib in Resources */,
+				36BD8FF32B16EDB500101014 /* OrderDetailScreenOneTableViewCell.xib in Resources */,
+				36BD8FFF2B16F2E000101014 /* OtherOrderDetailTableViewCell.xib in Resources */,
 				365380CB2B0C801300D5C39D /* CustomViewPopUp.xib in Resources */,
 				365381102B0E047F00D5C39D /* FavoriteTableViewCell.xib in Resources */,
 				365110282AFB801100A5D6F4 /* Poppins-Regular.ttf in Resources */,
@@ -885,17 +1035,21 @@
 				36FBF6212B045D2C0070A476 /* ForYouProductTableViewCell.swift in Sources */,
 				36FBF6172B045B7A0070A476 /* PopularProductTableViewCell.swift in Sources */,
 				36A33E332B01ACCC00A951E7 /* UIViewControllerExt.swift in Sources */,
+				36BD8FE82B16E39C00101014 /* YourOrdersTableViewCell.swift in Sources */,
 				365380FB2B0D8C6200D5C39D /* LoginViewModel.swift in Sources */,
 				3651101E2AFB7F9D00A5D6F4 /* LoginViewController.swift in Sources */,
 				36BD8FDA2B15D33100101014 /* CustomPINViewController.swift in Sources */,
 				36498CD82B0752C100A1A5DA /* LogoutResponse.swift in Sources */,
+				36BD90162B172F1700101014 /* AccoountVATableViewCell.swift in Sources */,
 				364E40FB2B071EF3001EB357 /* UserResponse.swift in Sources */,
 				36510FED2AFB7A9E00A5D6F4 /* ViewController.swift in Sources */,
+				36BD8FED2B16EC2E00101014 /* OrderDetailsViewController.swift in Sources */,
 				365381052B0DA4B200D5C39D /* CartViewController.swift in Sources */,
 				364E40F92B071D81001EB357 /* MetaModel.swift in Sources */,
 				365380FF2B0D913600D5C39D /* SignUpViewModel.swift in Sources */,
 				36A33E0C2AFCEBBE00A951E7 /* SetupHomeTableViewCell.swift in Sources */,
 				36FBF6262B0469B50070A476 /* PopularProductCollectionViewCell.swift in Sources */,
+				36BD8FFE2B16F2E000101014 /* OtherOrderDetailTableViewCell.swift in Sources */,
 				36A33E082AFCDA2300A951E7 /* APIManager.swift in Sources */,
 				36510FE92AFB7A9E00A5D6F4 /* AppDelegate.swift in Sources */,
 				3651102F2AFB9E4D00A5D6F4 /* SignUpViewController.swift in Sources */,
@@ -910,7 +1064,9 @@
 				36BD8FB42B14533000101014 /* CheckOutModel.swift in Sources */,
 				364E41012B072146001EB357 /* DataClassModel.swift in Sources */,
 				363357732B10A55200A952E3 /* CartTableViewCell.swift in Sources */,
+				36BD900D2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.swift in Sources */,
 				364E41092B07393F001EB357 /* EndPoint.swift in Sources */,
+				36BD8FF92B16F15600101014 /* ListOrderDetailTableViewCell.swift in Sources */,
 				365380FD2B0D8FB100D5C39D /* LoginViewExtention.swift in Sources */,
 				36510FEB2AFB7A9E00A5D6F4 /* SceneDelegate.swift in Sources */,
 				36BD8FB02B14301000101014 /* UserService.swift in Sources */,
@@ -930,10 +1086,14 @@
 				364E40FF2B0720C6001EB357 /* UserModel.swift in Sources */,
 				36FBF6392B04D8200070A476 /* DetailProductCollectionViewCell.swift in Sources */,
 				36FBF6442B05D8360070A476 /* FimiliarShoesCollectionViewCell.swift in Sources */,
+				36BD90032B16F37700101014 /* StatusOrderTableViewCell.swift in Sources */,
 				365110462AFC9B8300A5D6F4 /* FavoriteViewController.swift in Sources */,
 				36A33E1D2AFDD1DB00A951E7 /* ChatViewController.swift in Sources */,
+				36BD8FE12B16E33900101014 /* YourOrdersViewController.swift in Sources */,
+				36BD90112B17272300101014 /* PaymentProcessViewController.swift in Sources */,
 				3651103A2AFC64EF00A5D6F4 /* CustomMainTabBar.swift in Sources */,
 				36BD8FBF2B149F9600101014 /* ListitemsTableViewCell.swift in Sources */,
+				36BD8FF22B16EDB500101014 /* OrderDetailScreenOneTableViewCell.swift in Sources */,
 				365381142B0EDAFE00D5C39D /* Common.swift in Sources */,
 				3653810F2B0E047F00D5C39D /* FavoriteTableViewCell.swift in Sources */,
 				364E41032B0721CB001EB357 /* RegisterResponse.swift in Sources */,

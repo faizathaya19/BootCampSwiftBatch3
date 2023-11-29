@@ -124,6 +124,10 @@ class CheckOutViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func checkOutButtonTapped(inCell cell: OtherItemCheckOutDetailsTableViewCell) {
-        showCustomPIN()
-       }
+            
+                showCustomPIN()
+        
+        }
+
+     
 }

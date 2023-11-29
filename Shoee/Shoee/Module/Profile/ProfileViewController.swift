@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func yourorders(_ sender: Any) {
-        let vc = TestViewController()
+        let vc = PaymentProcessViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
