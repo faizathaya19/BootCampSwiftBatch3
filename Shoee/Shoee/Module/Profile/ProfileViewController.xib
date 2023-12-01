@@ -135,6 +135,9 @@
                             <buttonConfiguration key="configuration" style="plain" title="Help" titleAlignment="trailing">
                                 <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="help:" destination="-1" eventType="touchUpInside" id="CCC-8e-oN5"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

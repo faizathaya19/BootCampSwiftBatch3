@@ -40,6 +40,9 @@ class CustomPINViewController: UIViewController {
         }
     }
     
+    var itemList: [Items] = []
+    var dataOther: [CheckOut] = []
+    
     private var attempts = 0
     private var isLockedOut = false
     private var countdownTimer: Timer?
@@ -104,6 +107,12 @@ class CustomPINViewController: UIViewController {
         animationView.play()
         self.forAnimationSuccess.isHidden = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            var co: CheckOutViewController!
+            co = CheckOutViewController()
+            co.itemList = self?.itemList ?? []
+            co.dataOther = self?.dataOther ?? []
+            co.bcaCheckout()
+
             self?.dismiss(animated: true, completion: nil)
             self?.forAnimationSuccess.isHidden = true
             self?.onCorrectPINEntered?()

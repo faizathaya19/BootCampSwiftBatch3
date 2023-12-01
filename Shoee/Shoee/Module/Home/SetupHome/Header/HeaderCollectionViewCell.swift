@@ -53,14 +53,7 @@ class HeaderCollectionViewCell: UICollectionViewCell {
     func configure(name: String, username: String, imageURLString: String) {
         nameTopHeader.text = name
         usernameLabel.text = username
-
-        // Assuming user.profilePhotoURL contains the user's name
-        let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        
-        // Construct the avatar URL based on the provided structure
-        let avatarURLString = "https://ui-avatars.com/api/?name=\(encodedName)&color=7F9CF5&background=EBF4FF"
-
-        if let imageURL = URL(string: avatarURLString) {
+        if let imageURL = URL(string: imageURLString) {
             self.imageURL = imageURL
         }
     }

@@ -1,11 +1,9 @@
-//
-//  AccoountVATableViewCell.swift
-//  Shoee
-//
-//  Created by Phincon on 29/11/23.
-//
-
 import UIKit
+
+protocol AccoountVACellDelegate: AnyObject {
+    func goToOrderDetails(inCell cell: AccoountVATableViewCell)
+    func goToHome(inCell cell: AccoountVATableViewCell)
+}
 
 class AccoountVATableViewCell: BaseTableCell {
 
@@ -14,29 +12,19 @@ class AccoountVATableViewCell: BaseTableCell {
     @IBOutlet weak var containerButton: UIView!
     
     @IBOutlet weak var containerImage: UIView!
+    
+    weak var delegate: AccoountVACellDelegate?
+    
     let cornerRadius: CGFloat = 15.0
     
   
     @IBAction func goToOrderDetails(_ sender: Any) {
-        let CustomMainTabBar = CustomMainTabBar()
-        let navigationController = UINavigationController(rootViewController: CustomMainTabBar)
-
-        // Access the windowScene from the current scene delegate
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-            // Set the root view controller to the navigation controller
-            sceneDelegate.window?.rootViewController = navigationController
-        }
+        delegate?.goToOrderDetails(inCell: self)
     }
     @IBAction func goToHome(_ sender: Any) {
-        let customMainTabBar = CustomMainTabBar()
-        let navigationController = UINavigationController(rootViewController: customMainTabBar)
-
-        // Access the windowScene from the current scene delegate
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-            // Set the root view controller to the navigation controller
-            sceneDelegate.window?.rootViewController = navigationController
-        }
+        delegate?.goToHome(inCell: self)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         containerVABottom.layer.cornerRadius = cornerRadius

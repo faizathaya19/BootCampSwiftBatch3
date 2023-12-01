@@ -1,5 +1,4 @@
 import UIKit
-import SkeletonView
 
 enum HomeSetupTable: Int, CaseIterable {
 	case header
@@ -15,13 +14,13 @@ class HomeViewController: UIViewController {
 
 	var newArrivalData: [ProductModel] = [] {
 		didSet {
-			reloadAndHideSkeleton()
+			homeSetupLayout.reloadData()
 		}
 	}
 
 	var forYouData: [ProductModel] = [] {
 		didSet {
-			reloadAndHideSkeleton()
+			homeSetupLayout.reloadData()
 		}
 	}
 
@@ -33,7 +32,7 @@ class HomeViewController: UIViewController {
 		super.viewDidLoad()
 		setupTableView()
 		fetchProducts(for: .newArrival)
-
+		print(BCAResponse.VANumber.self)
 		if let defaultCategory = getCategoryById(6) {
 			selectedCategory = defaultCategory
 			setupHomeTableViewCell?.selectedCategoryIndex = selectedCategory?.id
@@ -41,25 +40,20 @@ class HomeViewController: UIViewController {
 			fetchProducts(for: .forYouProduct)
 		}
 	}
-	
+
 	private func refreshData() {
-			// Implement data refresh logic here
-			// You may want to call your fetch methods or perform the necessary actions
-			// to refresh the data displayed on the screen
-			// ...
+		// Implement data refresh logic here
+		// You may want to call your fetch methods or perform the necessary actions
+		// to refresh the data displayed on the screen
+		// ...
 
-			// Example: Fetch new arrival products
-			fetchProducts(for: .newArrival)
+		// Example: Fetch new arrival products
+		fetchProducts(for: .newArrival)
 
-			// Example: Fetch for-you products
-			fetchProducts(for: .forYouProduct)
-		}
-
-	private func reloadAndHideSkeleton() {
-		homeSetupLayout.reloadData()
-		homeSetupLayout.hideSkeleton()
+		// Example: Fetch for-you products
+		fetchProducts(for: .forYouProduct)
 	}
-
+	
 	private func fetchProducts(for section: HomeSetupTable) {
 		homeSetupLayout.showAnimatedGradientSkeleton()
 
@@ -72,7 +66,7 @@ class HomeViewController: UIViewController {
 			break
 		}
 	}
-	
+
 	private func setRefreshPopupTimer() {
 		refreshPopupTimer = DispatchSource.makeTimerSource()
 		refreshPopupTimer?.schedule(deadline: .now() + 30.0, repeating: .never)
@@ -84,44 +78,40 @@ class HomeViewController: UIViewController {
 		refreshPopupTimer?.resume()
 	}
 
+	private func cancelRefreshPopupTimer() {
+		refreshPopupTimer?.cancel()
+		refreshPopupTimer = nil
+	}
 
-		private func cancelRefreshPopupTimer() {
-			refreshPopupTimer?.cancel()
-			refreshPopupTimer = nil
-		}
-	
 	private func showRefreshPopup() {
-			let alertController = UIAlertController(
-				title: "Refresh Required",
-				message: "Data fetching is taking longer than expected. Do you want to refresh?",
-				preferredStyle: .alert
-			)
+		let alertController = UIAlertController(
+			title: "Refresh Required",
+			message: "Data fetching is taking longer than expected. Do you want to refresh?",
+			preferredStyle: .alert
+		)
 
-			alertController.addAction(UIAlertAction(title: "Refresh", style: .default) { [weak self] _ in
-				self?.refreshData()
-			})
+		alertController.addAction(UIAlertAction(title: "Refresh", style: .default) { [weak self] _ in
+			self?.refreshData()
+		})
 
-			alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
-			present(alertController, animated: true)
-		}
-	
+		present(alertController, animated: true)
+	}
+
 	private func showRefreshErrorPopup() {
-			let alertController = UIAlertController(
-				title: "Error",
-				message: "Failed to refresh data. Please try again.",
-				preferredStyle: .alert
-			)
+		let alertController = UIAlertController(
+			title: "Error",
+			message: "Failed to refresh data. Please try again.",
+			preferredStyle: .alert
+		)
 
-			alertController.addAction(UIAlertAction(title: "OK", style: .default))
+		alertController.addAction(UIAlertAction(title: "OK", style: .default))
 
-			present(alertController, animated: true)
-		}
+		present(alertController, animated: true)
+	}
 
 	private func fetchNewArrivalProducts() {
-		// Show loading indicator immediately
-		homeSetupLayout.showAnimatedGradientSkeleton()
-
 		// Set a timer for 30 seconds to show the refresh popup
 		setRefreshPopupTimer()
 
@@ -140,15 +130,10 @@ class HomeViewController: UIViewController {
 				// Handle error and show an appropriate message to the user
 				self.showRefreshErrorPopup()
 			}
-
-			self.reloadAndHideSkeleton()
 		}
 	}
 
 	private func fetchProductsForSelectedCategory() {
-		// Show loading indicator immediately
-		homeSetupLayout.showAnimatedGradientSkeleton()
-
 		// Set a timer for 30 seconds to show the refresh popup
 		setRefreshPopupTimer()
 
@@ -168,8 +153,6 @@ class HomeViewController: UIViewController {
 				// Handle error and show an appropriate message to the user
 				self.showRefreshErrorPopup()
 			}
-
-			self.reloadAndHideSkeleton()
 		}
 	}
 
@@ -179,8 +162,7 @@ class HomeViewController: UIViewController {
 		homeSetupLayout.isUserInteractionEnabled = true
 		homeSetupLayout.register(UINib(nibName: "SetupHomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homesetupcellidentifier")
 		homeSetupLayout.register(UINib(nibName: "PopularProductTableViewCell", bundle: nil), forCellReuseIdentifier: "popularProductCellIdentifier")
-		homeSetupLayout.register(UINib(nibName: "NewArrivalTableViewCell", bundle: nil), forCellReuseIdentifier: "newArrivalCellIdentifier")
-		homeSetupLayout.register(UINib(nibName: "ForYouProductTableViewCell", bundle: nil), forCellReuseIdentifier: "forYouProductCellIdentifier")
+		homeSetupLayout.register(UINib(nibName: "ProductSoTableViewCell", bundle: nil), forCellReuseIdentifier: "productSoTableViewCell")
 
 		if let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "homesetupcellidentifier") as? SetupHomeTableViewCell {
 			cell.delegate = self
@@ -283,7 +265,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	private func newArrivalCell(for indexPath: IndexPath) -> UITableViewCell {
-		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "newArrivalCellIdentifier", for: indexPath) as! NewArrivalTableViewCell
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "productSoTableViewCell", for: indexPath) as! ProductSoTableViewCell
 		let product = newArrivalData[indexPath.row]
 
 		if let thirdGallery = product.galleries?.dropFirst(3).first {
@@ -297,7 +279,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	private func forYouProductCell(for indexPath: IndexPath) -> UITableViewCell {
-		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "forYouProductCellIdentifier", for: indexPath) as! ForYouProductTableViewCell
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "productSoTableViewCell", for: indexPath) as! ProductSoTableViewCell
 		let product = forYouData[indexPath.row]
 
 		if let thirdGallery = product.galleries?.dropFirst(3).first {

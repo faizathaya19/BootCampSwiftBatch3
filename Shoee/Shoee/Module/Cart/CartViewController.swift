@@ -85,7 +85,19 @@ class CartViewController: UIViewController {
     }
 }
 
-extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate {
+extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate, EmptyCellDelegate {
+    
+    func btnAction(inCell cell: EmptyTableViewCell) {
+        if let navigationController = self.navigationController {
+            // Pop satu tingkat mundur
+            navigationController.popViewController(animated: true)
+
+            // Kemudian, pop ke tampilan root
+            navigationController.popToRootViewController(animated: true)
+        }
+
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartItems.isEmpty ? 1 : cartItems.count
     }
@@ -94,9 +106,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
         if cartItems.isEmpty {
             let cell = tableView.dequeueReusableCell(withIdentifier: "emptyTableViewCell", for: indexPath) as! EmptyTableViewCell
             cell.configure(withImageNamed: "ic_cart_nil", message: "Let's find your favorite shoes", title: "Opss! Your Cart is Empty")
+            cell.delegate = self
             tableView.isScrollEnabled = false
             tableView.frame.size.height = 729.0
-            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cartTableViewCell", for: indexPath) as! CartTableViewCell

@@ -32,16 +32,16 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    func showCustomPIN() {
+    func showCustomPIN(with itemList: [Items], dataOther: [CheckOut]) {
         let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
+        let vc = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
 
         alertVC.modalTransitionStyle = .crossDissolve
         alertVC.modalPresentationStyle = .overCurrentContext
-
-        // Set a completion block for when the PIN is successfully entered
+        alertVC.itemList = itemList
+        alertVC.dataOther = dataOther
         alertVC.onCorrectPINEntered = { [weak self] in
-            // Navigate to homeViewController by pushing it onto the navigation stack
-            let vC = PaymentProcessViewController() // Replace with your actual home view controller class
+            let vC = PaymentProcessViewController()
             self?.navigationController?.pushViewController(vC, animated: true)
         }
 

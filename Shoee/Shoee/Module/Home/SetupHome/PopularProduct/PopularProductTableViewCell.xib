@@ -34,7 +34,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="298" id="BsX-Lp-6ck"/>
                         </constraints>
-                        <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="scrollIndicatorInsets" minX="200" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="30" minimumInteritemSpacing="0.0" id="2Qb-lo-TVK">
                             <size key="itemSize" width="215" height="275"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>

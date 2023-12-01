@@ -15,6 +15,11 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func help(_ sender: Any) {
+        let vc = HomeSoViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func btnLogout(_ sender: Any) {
         
         popUpLoading.showInFull()

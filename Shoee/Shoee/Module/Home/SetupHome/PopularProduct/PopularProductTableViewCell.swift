@@ -31,6 +31,7 @@ class PopularProductTableViewCell: BaseTableCell {
         popularProductCollectionView.delegate = self
         popularProductCollectionView.dataSource = self
         popularProductCollectionView.register(UINib(nibName: "PopularProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "popularProductCollectionViewCell")
+        
     }
 
     private func fetchPopularProducts() {

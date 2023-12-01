@@ -79,7 +79,7 @@
                 <outlet property="pictureProfile" destination="54d-qz-1If" id="GvJ-tV-Eb1"/>
                 <outlet property="usernameLabel" destination="fju-yf-MBm" id="9NG-ZC-7Jj"/>
             </connections>
-            <point key="canvasLocation" x="45.038167938931295" y="27.464788732394368"/>
+            <point key="canvasLocation" x="118" y="25"/>
         </collectionViewCell>
     </objects>
     <resources>

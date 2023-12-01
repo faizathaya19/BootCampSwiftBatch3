@@ -7,8 +7,6 @@ class CategoryService {
     
     var categoryList: [CategoryModel] = []
 
-    private init() {}
-
     func getCategories(completion: @escaping (Result<[CategoryModel], Error>) -> Void) {
         APIManager.shared.makeAPICall(endpoint: .categories) { (result: Result<ResponseCategoryModel, Error>) in
             switch result {

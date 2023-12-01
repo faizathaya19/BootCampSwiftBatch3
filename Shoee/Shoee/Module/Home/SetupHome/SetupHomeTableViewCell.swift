@@ -1,13 +1,4 @@
 import UIKit
-import Kingfisher
-import SkeletonView
-
-class BaseTableCell: UITableViewCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        selectionStyle = .none
-    }
-}
 
 protocol SetupHomeCellDelegate: AnyObject {
     func didSelectCategory(_ category: CategoryModel)
@@ -143,7 +134,7 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
         case .header:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "headerCell", for: indexPath) as! HeaderCollectionViewCell
             let user = userList[indexPath.item]
-            cell.configure(name: user.name, username: user.username , imageURLString: user.profilePhotoURL)
+            cell.configure(name: String(user.name.prefix(4)), username: "@\(user.username)" , imageURLString: user.profilePhotoURL)
             return cell
         case .categoryList:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryListCell", for: indexPath) as! CategoryListCollectionViewCell
@@ -186,11 +177,4 @@ extension SetupHomeTableViewCell: UICollectionViewDelegate, UICollectionViewData
         }
     }
 
-    func showAnimatedGradientSkeleton() {
-        homeCollectionView.showAnimatedGradientSkeleton()
-    }
-
-    func hideSkeleton() {
-        homeCollectionView.hideSkeleton()
-    }
 }
