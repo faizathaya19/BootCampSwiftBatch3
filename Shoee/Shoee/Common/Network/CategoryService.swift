@@ -11,7 +11,7 @@ class CategoryService {
         APIManager.shared.makeAPICall(endpoint: .categories) { (result: Result<ResponseCategoryModel, Error>) in
             switch result {
             case .success(let response):
-                completion(.success(response.data.data.reversed()))
+                completion(.success(response.data.data))
             case .failure(let error):
                 completion(.failure(error))
             }

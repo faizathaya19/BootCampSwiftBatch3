@@ -206,9 +206,9 @@ class DetailProductViewController: UIViewController {
             let checkouts = try managedContext.fetch(checkoutFetchRequest)
             if let checkout = checkouts.first {
                 // Perbarui atribut lain di 'CheckOut' jika diperlukan
-                checkout.address = "Alamat Anda" // Atur alamat sesuai kebutuhan
-                checkout.shippingPrice = 10 // Atur biaya pengiriman sesuai kebutuhan
-                checkout.status = "Pending" // Atur status sesuai kebutuhan
+                checkout.address = "Alamat Anda" 
+                checkout.shippingPrice = 10
+                checkout.status = "Pending"
                 checkout.totalPrice += product.price
             } else {
                 // Buat entity 'CheckOut' baru jika tidak ada

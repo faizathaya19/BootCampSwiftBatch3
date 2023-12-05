@@ -1,13 +1,13 @@
 //
-//  PopularSoCollectionViewCell.swift
+//  NewArivallCollectionViewCell.swift
 //  Shoee
 //
-//  Created by Phincon on 01/12/23.
+//  Created by Phincon on 05/12/23.
 //
 
 import UIKit
 
-class PopularSoCollectionViewCell: UICollectionViewCell {
+class NewArivallCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

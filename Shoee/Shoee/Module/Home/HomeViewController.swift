@@ -42,15 +42,8 @@ class HomeViewController: UIViewController {
 	}
 
 	private func refreshData() {
-		// Implement data refresh logic here
-		// You may want to call your fetch methods or perform the necessary actions
-		// to refresh the data displayed on the screen
-		// ...
-
-		// Example: Fetch new arrival products
 		fetchProducts(for: .newArrival)
 
-		// Example: Fetch for-you products
 		fetchProducts(for: .forYouProduct)
 	}
 	
@@ -161,7 +154,7 @@ class HomeViewController: UIViewController {
 		homeSetupLayout.dataSource = self
 		homeSetupLayout.isUserInteractionEnabled = true
 		homeSetupLayout.register(UINib(nibName: "SetupHomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homesetupcellidentifier")
-		homeSetupLayout.register(UINib(nibName: "PopularProductTableViewCell", bundle: nil), forCellReuseIdentifier: "popularProductCellIdentifier")
+		homeSetupLayout.register(UINib(nibName: "PopularProductTableViewCell", bundle: nil), forCellReuseIdentifier: "PopularProductTableViewCell")
 		homeSetupLayout.register(UINib(nibName: "ProductSoTableViewCell", bundle: nil), forCellReuseIdentifier: "productSoTableViewCell")
 
 		if let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "homesetupcellidentifier") as? SetupHomeTableViewCell {
@@ -258,7 +251,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	private func popularProductCell(for indexPath: IndexPath) -> UITableViewCell {
-		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "popularProductCellIdentifier", for: indexPath) as! PopularProductTableViewCell
+		let cell = homeSetupLayout.dequeueReusableCell(withIdentifier: "PopularProductTableViewCell", for: indexPath) as! PopularProductTableViewCell
 		cell.configure(withTitle: "Popular Products", title2: "New Arrivals")
 		cell.navigationController = self.navigationController
 		return cell

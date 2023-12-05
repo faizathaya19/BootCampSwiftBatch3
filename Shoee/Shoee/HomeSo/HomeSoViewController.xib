@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="homeXIB" customModule="ProdukAwal" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeSoViewController" customModule="Shoee" customModuleProvider="target">
             <connections>
-                <outlet property="tableviewuser" destination="z3L-SK-PmP" id="b6v-7o-Fcb"/>
+                <outlet property="homeSoTableView" destination="D80-Kg-L1u" id="0Zw-5c-CaU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,20 +19,22 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z3L-SK-PmP">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D80-Kg-L1u">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="z3L-SK-PmP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dwO-g1-RnY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z3L-SK-PmP" secondAttribute="bottom" id="hCS-O1-wGC"/>
-                <constraint firstItem="z3L-SK-PmP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="m8g-oi-xZS"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z3L-SK-PmP" secondAttribute="trailing" id="roa-b2-SKM"/>
+                <constraint firstAttribute="bottom" secondItem="D80-Kg-L1u" secondAttribute="bottom" id="2Pg-a2-zuj"/>
+                <constraint firstItem="D80-Kg-L1u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5Rf-ys-9b5"/>
+                <constraint firstItem="D80-Kg-L1u" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Muu-3X-NsU"/>
+                <constraint firstItem="D80-Kg-L1u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tXW-H5-qsq"/>
             </constraints>
-            <point key="canvasLocation" x="36" y="20"/>
+            <point key="canvasLocation" x="20.610687022900763" y="-48.591549295774648"/>
         </view>
     </objects>
     <resources>

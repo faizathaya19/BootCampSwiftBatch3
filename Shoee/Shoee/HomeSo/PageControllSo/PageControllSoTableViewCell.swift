@@ -1,21 +1,17 @@
 //
-//  TableViewCell.swift
-//  ProdukAwal
+//  PageControllSoTableViewCell.swift
+//  Shoee
 //
-//  Created by Phincon on 26/10/23.
+//  Created by Phincon on 05/12/23.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-    
-    @IBOutlet var titleLabel: UILabel!
+class PageControllSoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var subtitleLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

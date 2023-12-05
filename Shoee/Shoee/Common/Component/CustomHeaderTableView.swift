@@ -1,32 +1,34 @@
-// CustomHeaderView.swift
 import UIKit
 
 class CustomHeaderView: UIView {
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        // Use the name of your font file (without the extension)
-        
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUI()
+        commonInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupUI()
+        commonInit()
     }
 
-    private func setupUI() {
-        addSubview(titleLabel)
+    private func commonInit() {
+        backgroundColor = UIColor.blue
 
+        // Add titleLabel to self and set constraints
+        addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-        ])
+        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+    }
+
+    func setTitle(_ title: String) {
+        titleLabel.text = title
     }
 }

@@ -1,10 +1,3 @@
-//
-//  PageControl.swift
-//  PageControl
-//
-//  Created by Nour Sandid on 18/09/2022.
-//
-
 import UIKit
 
 public class CustomPageControl: UIPageControl {
