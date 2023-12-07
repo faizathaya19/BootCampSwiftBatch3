@@ -43,7 +43,7 @@ class CustomMainTabBar : UITabBarController {
     }
     
     func addSomeTabItems() {
-        let vc1 = UINavigationController(rootViewController: HomeViewController())
+        let vc1 = UINavigationController(rootViewController: HomeSoViewController())
         let vc2 = UINavigationController(rootViewController: ChatViewController())
         let vc3 = UINavigationController()
         let vc4 = UINavigationController(rootViewController: FavoriteViewController())

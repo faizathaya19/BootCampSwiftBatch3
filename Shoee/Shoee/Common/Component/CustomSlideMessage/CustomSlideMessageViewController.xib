@@ -15,16 +15,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSlideMessageViewController" customModule="Shoee" customModuleProvider="target">
             <connections>
                 <outlet property="messageText" destination="VTz-tV-XHV" id="Ipr-74-cCF"/>
+                <outlet property="parentView" destination="i5M-Pr-FkT" id="7UX-Ng-lAY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewContainer" destination="raS-ng-n1M" id="MzJ-fb-XwT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="top" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="top" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="139"/>
-            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="raS-ng-n1M">
+                <view contentMode="scaleToFill" id="raS-ng-n1M">
                     <rect key="frame" x="29" y="80" width="335" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>

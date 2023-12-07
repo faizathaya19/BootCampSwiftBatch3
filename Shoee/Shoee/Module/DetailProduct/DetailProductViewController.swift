@@ -53,6 +53,7 @@ class DetailProductViewController: UIViewController {
         startTimer()
         fetchProductDetails()
         updateFavoriteButtonUI()
+        pagerViewImage.numberOfPages = imageDetailPro.count
     }
     
     // MARK: - UI Configuration
@@ -89,7 +90,6 @@ class DetailProductViewController: UIViewController {
     
     @objc private func timerAction() {
         let desiredScrollPosition = (currentIndex < imageDetailPro.count - 1) ? currentIndex + 1 : 0
-        print(desiredScrollPosition)
         detailImageCollectionView.scrollToItem(at: IndexPath(item: desiredScrollPosition, section: 0), at: .centeredHorizontally, animated: true)
     }
     
@@ -121,18 +121,23 @@ class DetailProductViewController: UIViewController {
     private func fetchFamiliarProducts() {
         guard let categoryId = product?.categoriesId else { return }
         
-        ProductsService.shared.getProducts(categories: categoryId) { [weak self] result in
-            switch result {
-            case .success(let products):
-                self?.imageFamiliar = products
-                self?.familiarShoesCollectionView.reloadData()
-            case .failure(let error):
-                print("Error fetching familiar shoes: \(error)")
-            }
-            
-            // Move the updateFavoriteButtonUI() call here, after the fetch operation completes
-            self?.updateFavoriteButtonUI()
+        ProductsService.shared.performProduct(with: ProductParam(categories: categoryId)) { [weak self] newData in
+            self?.imageFamiliar.append(contentsOf: newData)
+            self?.familiarShoesCollectionView.reloadData()
         }
+//
+//        ProductsService.shared.getProducts(categories: categoryId) { [weak self] result in
+//            switch result {
+//            case .success(let products):
+//                self?.imageFamiliar = products
+//                self?.familiarShoesCollectionView.reloadData()
+//            case .failure(let error):
+//                print("Error fetching familiar shoes: \(error)")
+//            }
+//
+//            // Move the updateFavoriteButtonUI() call here, after the fetch operation completes
+//            self?.updateFavoriteButtonUI()
+//        }
     }
     
     
@@ -172,6 +177,7 @@ class DetailProductViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
+        
         let managedContext = appDelegate.persistentContainer.viewContext
         
         // Buat entity 'Items' baru atau perbarui jika sudah ada
@@ -224,6 +230,7 @@ class DetailProductViewController: UIViewController {
 
             // Simpan perubahan ke Core Data
             try managedContext.save()
+            
             let actionYes: [String: () -> Void] = ["View My Cart": { [weak self] in
                 let cartViewController = CartViewController()
                 self?.navigationController?.pushViewController(cartViewController, animated: true)
@@ -277,7 +284,6 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     private func configureDetailImageCell(_ cell: DetailProductCollectionViewCell, at indexPath: IndexPath) {
-        pagerViewImage.numberOfPages = imageDetailPro.count
         print("Image URL:", imageDetailPro[indexPath.item])
         cell.imageURL = imageDetailPro[indexPath.item]
     }

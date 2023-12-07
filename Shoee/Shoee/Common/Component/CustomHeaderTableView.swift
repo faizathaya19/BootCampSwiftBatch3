@@ -1,34 +1,36 @@
 import UIKit
 
-class CustomHeaderView: UIView {
+class CustomTableHeaderView: UIView {
+
+    // MARK: - Properties
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.white
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont(name: "Poppins-SemiBold", size: 16)
+        label.textColor = UIColor(named: "Secondary") // Assuming "SecondaryColor" is defined in your assets
         return label
     }()
 
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        setupSubviews()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+        setupSubviews()
     }
 
-    private func commonInit() {
-        backgroundColor = UIColor.blue
-
-        // Add titleLabel to self and set constraints
-        addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-    }
-
-    func setTitle(_ title: String) {
+    // MARK: - Public Method
+    func configure(withTitle title: String) {
         titleLabel.text = title
+    }
+
+    // MARK: - Private Method
+    private func setupSubviews() {
+        backgroundColor = UIColor.clear
+
+        titleLabel.frame = CGRect(x: 15, y: 5, width: bounds.width - 30, height: 30)
+        addSubview(titleLabel)
     }
 }

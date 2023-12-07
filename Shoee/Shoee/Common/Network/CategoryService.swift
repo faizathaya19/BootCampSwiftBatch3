@@ -5,7 +5,6 @@ class CategoryService {
 
     static let shared = CategoryService()
     
-    var categoryList: [CategoryModel] = []
 
     func getCategories(completion: @escaping (Result<[CategoryModel], Error>) -> Void) {
         APIManager.shared.makeAPICall(endpoint: .categories) { (result: Result<ResponseCategoryModel, Error>) in

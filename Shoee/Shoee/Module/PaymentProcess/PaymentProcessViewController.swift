@@ -69,7 +69,7 @@ extension PaymentProcessViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let createdOnString = "29 Nov 2023, 14:30"
+            let createdOnString = "6 Dec 2023, 14:30"
             let cell = tableView.dequeueReusableCell(withIdentifier: "expiredTimerPaymentTableViewCell", for: indexPath) as! ExpiredTimerPaymentTableViewCell
             cell.configureCell(createdOnString: createdOnString, expirytime: createdOnString)
             tableView.contentInset.top = 100

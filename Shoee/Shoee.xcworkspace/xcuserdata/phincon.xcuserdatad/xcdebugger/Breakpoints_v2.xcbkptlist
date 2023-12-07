@@ -3,4 +3,69 @@
    uuid = "9D928626-1181-4BB7-B860-F8C7242A4679"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12986F06-30B0-4E70-84EC-83FE0AE55FB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shoee/Common/Component/CustomSlideMessage/CustomSlideMessageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "12986F06-30B0-4E70-84EC-83FE0AE55FB3 - 9272f741fd1ba006"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #3 (Swift.Bool) -&gt; () in Shoee.CustomSlideMessageViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Shoee"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Documents/BootCampSwiftBatch3/Shoee/Shoee/Common/Component/CustomSlideMessage/CustomSlideMessageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "12986F06-30B0-4E70-84EC-83FE0AE55FB3 - 835e34da9e4d7c92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #3 (Swift.Bool) -&gt; () in Shoee.CustomSlideMessageViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Shoee"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Documents/BootCampSwiftBatch3/Shoee/Shoee/Common/Component/CustomSlideMessage/CustomSlideMessageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "644">
+               </Location>
+               <Location
+                  uuid = "12986F06-30B0-4E70-84EC-83FE0AE55FB3 - ccb871b838443be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Bool) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #3 (Swift.Bool) -&gt; () in Shoee.CustomSlideMessageViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Shoee"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Documents/BootCampSwiftBatch3/Shoee/Shoee/Common/Component/CustomSlideMessage/CustomSlideMessageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

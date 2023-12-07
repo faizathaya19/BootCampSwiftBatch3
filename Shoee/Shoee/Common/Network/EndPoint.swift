@@ -6,7 +6,7 @@ enum EndPoint {
     case login(LoginParam)
     case logout(vc: UIViewController)
     case categories
-    case products(id: Int?, limit: Int?, name: String?, description: String?, priceFrom: Int?, priceTo: Int?, tags: String?, categories: Int?)
+    case products(ProductParam)
     case user
     
     func path() -> String {
@@ -42,19 +42,8 @@ enum EndPoint {
             return try? params.asDictionary()
         case .login(let params):
             return try? params.asDictionary()
-        case .products(let id, let limit, let name, let description, let priceFrom, let priceTo, let tags, let categories):
-            var params: [String: Any] = [:]
-            
-            if let id = id { params["id"] = id }
-            if let limit = limit { params["limit"] = limit }
-            if let name = name { params["name"] = name }
-            if let description = description { params["description"] = description }
-            if let priceFrom = priceFrom { params["price_from"] = priceFrom }
-            if let priceTo = priceTo { params["price_to"] = priceTo }
-            if let tags = tags { params["tags"] = tags }
-            if let categories = categories { params["categories"] = categories }
-            
-            return params
+        case .products(let params):
+            return try? params.asDictionary()
         default:
             return nil
         }
@@ -85,7 +74,7 @@ enum EndPoint {
     }
     
     struct BaseConstant {
-        static let baseUrl = "https://shoesez.000webhostapp.com/api"
+        static let baseUrl = "https://apishoess.000webhostapp.com/api"
     }
     
     
