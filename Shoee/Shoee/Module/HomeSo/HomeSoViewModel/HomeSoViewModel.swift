@@ -22,7 +22,7 @@ enum HomeSo: Int, CaseIterable {
         case .popularSo:
             return PopularSoTableViewCell.self
         case .newArrivalSo, .forYouSo:
-            return ProductSoTableViewCell.self            
+            return ProductSoTableViewCell.self
         }
     }
 }
@@ -40,6 +40,7 @@ class HomeSoViewModel {
     var categoryData: [CategoryModel] = []
     var productData: [ProductModel] = []
     var popularData: [ProductModel] = []
+    var userData: [UserModel] = []
     var productCategorySelectedData: [ProductModel] = []
     
     var isLoading: Bool = false
@@ -47,14 +48,15 @@ class HomeSoViewModel {
     
     var updateHandler: (() -> Void)?
     
-    func fetchData() {
+    func fetchFirst() {
+        fetchUsers()
         fetchCategory()
-        
-        if selectedCategoryId == Constants.defaultCategoryId {
-            fetchAllProducts()
-        } else {
-            fetchProductWithCategory()
-        }
+        fetchData()
+        fetchAllProducts()
+    }
+    
+    func fetchData(){
+        fetchProductWithCategory()
     }
     
     func loadMoreData() {
@@ -94,6 +96,22 @@ class HomeSoViewModel {
             self.productData.append(contentsOf: newData)
             self.updateHandler?()
             completion()
+        }
+    }
+    
+    private func fetchUsers() {
+        APIManager.shared.makeAPICall(endpoint: .user) { [weak self] (result: Result<ResponseUserModel, Error>) in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    self.userData = [response.data]
+                    self.updateHandler?()
+                case .failure(let error):
+                    self.showFetchError(error)
+                }
+            }
         }
     }
     

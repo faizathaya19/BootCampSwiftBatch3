@@ -1,6 +1,8 @@
 import UIKit
 import CoreData
 
+
+
 class CheckOutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , OtherItemCheckOutDetailsCellDelegate{
     
     @IBOutlet weak var checkOutDetailsTableView: UITableView!
@@ -16,7 +18,7 @@ class CheckOutViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
- 
+        
     }
     
     override func viewDidLoad() {
@@ -33,6 +35,10 @@ class CheckOutViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    func reloadData () {
+        checkOutDetailsTableView.reloadData()
+    }
+    
     private func fetchListitemsFromCoreData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -46,10 +52,6 @@ class CheckOutViewController: UIViewController, UITableViewDelegate, UITableView
             
             totalPrice = Int16(itemList.reduce(0) { $0 + Double($1.price) * Double($1.quantity) })
             totalQuantity = itemList.reduce(0) { $0 + $1.quantity }
-            
-            // Print or use total price and quantity as needed
-            print("Total Price: \(totalPrice)")
-            print("Total Quantity: \(totalQuantity)")
             
             checkOutDetailsTableView.reloadData()
         } catch {
@@ -75,9 +77,7 @@ class CheckOutViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 2
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,5 +148,21 @@ class CheckOutViewController: UIViewController, UITableViewDelegate, UITableView
         
         checkOutViewModel.performBCACheckout(with: BCAParam(transactionDetails: transaction, bankTransfer: bank, customerDetails: customer, itemDetails: itemDetailsArray))
     }
-
+    
+    func postCheckOut(with checkOutParam: CheckOutParam, completion: @escaping ([CheckOutModel]) -> Void) {
+        APIManager.shared.makeAPICall(endpoint: .checkout(checkOutParam)) { (result: Result<ResponseCheckOut, Error>) in
+            switch result {
+            case .success(let responseCheckOut):
+                // Update the product data
+                
+                self.checkOutData = responseCheckOut.data
+                // Invoke the closure with the updated data
+                completion(responseCheckOut)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
 }

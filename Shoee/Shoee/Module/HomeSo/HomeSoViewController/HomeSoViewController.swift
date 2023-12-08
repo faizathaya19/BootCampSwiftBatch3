@@ -14,7 +14,7 @@ class HomeSoViewController: UIViewController {
         viewModel.updateHandler = { [weak self] in
             self?.reloadData()
         }
-        viewModel.fetchData()
+        viewModel.fetchFirst()
     }
     
     private func setupTableView() {
@@ -74,7 +74,9 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         }
         
         switch homeSoSection {
-        case .headerSo, .categorySo:
+        case .headerSo:
+            return viewModel.userData.count
+        case .categorySo:
             return 1
         case .headerPopularSo, .popularSo, .headerNewArrivalSo:
             return (viewModel.selectedCategoryId == Constants.defaultCategoryId) ? 1 : 0
@@ -94,7 +96,10 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         
         switch homeSoSection {
         case .headerSo:
-            return tableView.dequeueReusableCell(forIndexPath: indexPath) as HeaderSoTableViewCell
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HeaderSoTableViewCell
+            let user = viewModel.userData[indexPath.item]
+            cell.configureHeader(name: user.name, username: user.username, imageURLString: user.profilePhotoURL)
+            return cell
         case .categorySo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CategorySoTableViewCell
             cell.hideSkeleton()

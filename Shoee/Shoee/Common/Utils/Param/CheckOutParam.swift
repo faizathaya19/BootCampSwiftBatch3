@@ -1,8 +1,9 @@
+
 import Foundation
 
-struct CheckOutModel: Codable {
+struct CheckOutParam: Encodable {
     let address: String
-    let items: [ItemModel]
+    let items: [itemParam]
     let status: String
     let totalPrice: Int
     let shippingPrice: Int
@@ -16,3 +17,11 @@ struct CheckOutModel: Codable {
         case paymentId = "payment_id"
     }
 }
+
+struct itemParam: Encodable {
+    let id : String
+    let quantity : Int
+}
+
+
+

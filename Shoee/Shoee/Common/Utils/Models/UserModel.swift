@@ -1,6 +1,6 @@
 import Foundation
 
-struct User: Codable {
+struct UserModel: Codable {
     let id: Int
     let name, email, username: String
     let profilePhotoURL: String

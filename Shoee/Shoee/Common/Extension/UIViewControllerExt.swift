@@ -27,13 +27,10 @@ extension UIViewController {
         let alertVC = CustomSlideMessageViewController.init(nibName: "CustomSlideMessageViewController", bundle: nil)
         alertVC.message = message
         alertVC.color = color
-
-        alertVC.modalPresentationStyle = .custom
-        alertVC.transitioningDelegate = alertVC
-
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .overCurrentContext
         present(alertVC, animated: true, completion: nil)
     }
-
     
     func showCustomPIN(with itemList: [Items], dataOther: [CheckOut]) {
         let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
@@ -56,8 +53,3 @@ extension UIViewController {
     
 }
 
-class CustomSlideMessagePresentationController: UIPresentationController {
-    override var frameOfPresentedViewInContainerView: CGRect {
-        return CGRect(x: 0, y: containerView!.bounds.height - 200, width: containerView!.bounds.width, height: 200)
-    }
-}

@@ -16,8 +16,12 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func help(_ sender: Any) {
-        let vc = HomeSoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        // Membuat instance dari CustomToast
+        let customToast = CustomToast(frame: CGRect(x: 0, y: 0, width: 200, height: 100), message: "Hello, this is a custom toast!")
+
+        // Menampilkan toast dalam view controller saat ini dengan durasi tampilan 3 detik
+        customToast.showInView(view: self.view, duration: 3.0)
+
     }
     
     @IBAction func btnLogout(_ sender: Any) {

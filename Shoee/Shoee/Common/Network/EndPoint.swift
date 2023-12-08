@@ -8,6 +8,7 @@ enum EndPoint {
     case categories
     case products(ProductParam)
     case user
+    case checkout(CheckOutParam)
     
     func path() -> String {
         switch self {
@@ -23,13 +24,15 @@ enum EndPoint {
             return "/products"
         case .user:
             return "/user"
+        case .checkout:
+            return "/checkout"
             
         }
     }
     
     func method() -> HTTPMethod {
         switch self {
-        case .register, .login, .logout:
+        case .register, .login, .logout, .checkout:
             return .post
         case .categories, .products, .user:
             return .get
@@ -44,6 +47,8 @@ enum EndPoint {
             return try? params.asDictionary()
         case .products(let params):
             return try? params.asDictionary()
+        case .checkout(let params):
+            return try? params.asDictionary()
         default:
             return nil
         }
@@ -53,7 +58,7 @@ enum EndPoint {
         switch self {
         case .register:
             return ["Accept": "application/json"]
-        case .logout, .user:
+        case .logout, .user, .checkout:
             return ["Accept": "application/json", "Authorization": "Bearer \(TokenService.shared.retrieveToken())"]
         default:
             return nil
@@ -63,7 +68,7 @@ enum EndPoint {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .register, .login, .categories, .products, .user:
+        case .register, .login, .categories, .products, .user, .checkout:
             return URLEncoding.queryString
         default: return JSONEncoding.default
         }
