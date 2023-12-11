@@ -29,7 +29,10 @@ class SignUpViewModel {
                 }
 
                 let accessToken = responseRegister.data.accessToken
+                let userID = responseRegister.data.user.id
+                
                 TokenService.shared.storeToken(with: accessToken)
+                UserDefaultManager.saveUserID(userID)
 
                 self.delegate?.didRegisterSuccessfully()
 

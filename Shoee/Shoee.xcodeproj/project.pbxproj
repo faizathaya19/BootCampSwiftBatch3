@@ -87,9 +87,17 @@
 		36627D402B2195CC00C29388 /* HomeSoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D3F2B2195CC00C29388 /* HomeSoViewModel.swift */; };
 		36627D422B21BEAF00C29388 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D412B21BEAF00C29388 /* Constants.swift */; };
 		36627D452B21C4C100C29388 /* HomeSoExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D442B21C4C100C29388 /* HomeSoExtention.swift */; };
-		36627D492B21E53300C29388 /* customtoast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D482B21E53300C29388 /* customtoast.swift */; };
+		36627D492B21E53300C29388 /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D482B21E53300C29388 /* CustomToast.swift */; };
 		36627D4B2B22C74400C29388 /* CheckOutParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D4A2B22C74400C29388 /* CheckOutParam.swift */; };
 		36627D4D2B231E1C00C29388 /* CheckOutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D4C2B231E1C00C29388 /* CheckOutResponse.swift */; };
+		36627D512B2697E800C29388 /* PaymentSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D4F2B2697E800C29388 /* PaymentSelectTableViewCell.swift */; };
+		36627D522B2697E800C29388 /* PaymentSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36627D502B2697E800C29388 /* PaymentSelectTableViewCell.xib */; };
+		36627D5E2B26AB7F00C29388 /* SelectItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D5C2B26AB7F00C29388 /* SelectItemViewController.swift */; };
+		36627D5F2B26AB7F00C29388 /* SelectItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36627D5D2B26AB7F00C29388 /* SelectItemViewController.xib */; };
+		36627D632B26AC3800C29388 /* PaymentSelectItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D612B26AC3800C29388 /* PaymentSelectItemTableViewCell.swift */; };
+		36627D642B26AC3800C29388 /* PaymentSelectItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36627D622B26AC3800C29388 /* PaymentSelectItemTableViewCell.xib */; };
+		36627D662B26AD9E00C29388 /* PaymentSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D652B26AD9E00C29388 /* PaymentSelectModel.swift */; };
+		36627D6D2B270E0300C29388 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D6C2B270E0300C29388 /* UserDefault.swift */; };
 		36A33DDA2AFCBC0300A951E7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33DD82AFCBC0300A951E7 /* EditProfileViewController.swift */; };
 		36A33DDB2AFCBC0300A951E7 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33DD92AFCBC0300A951E7 /* EditProfileViewController.xib */; };
 		36A33E082AFCDA2300A951E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E072AFCDA2300A951E7 /* APIManager.swift */; };
@@ -231,9 +239,17 @@
 		36627D3F2B2195CC00C29388 /* HomeSoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSoViewModel.swift; sourceTree = "<group>"; };
 		36627D412B21BEAF00C29388 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36627D442B21C4C100C29388 /* HomeSoExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSoExtention.swift; sourceTree = "<group>"; };
-		36627D482B21E53300C29388 /* customtoast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customtoast.swift; sourceTree = "<group>"; };
+		36627D482B21E53300C29388 /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
 		36627D4A2B22C74400C29388 /* CheckOutParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutParam.swift; sourceTree = "<group>"; };
 		36627D4C2B231E1C00C29388 /* CheckOutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutResponse.swift; sourceTree = "<group>"; };
+		36627D4F2B2697E800C29388 /* PaymentSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSelectTableViewCell.swift; sourceTree = "<group>"; };
+		36627D502B2697E800C29388 /* PaymentSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentSelectTableViewCell.xib; sourceTree = "<group>"; };
+		36627D5C2B26AB7F00C29388 /* SelectItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemViewController.swift; sourceTree = "<group>"; };
+		36627D5D2B26AB7F00C29388 /* SelectItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectItemViewController.xib; sourceTree = "<group>"; };
+		36627D612B26AC3800C29388 /* PaymentSelectItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSelectItemTableViewCell.swift; sourceTree = "<group>"; };
+		36627D622B26AC3800C29388 /* PaymentSelectItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentSelectItemTableViewCell.xib; sourceTree = "<group>"; };
+		36627D652B26AD9E00C29388 /* PaymentSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSelectModel.swift; sourceTree = "<group>"; };
+		36627D6C2B270E0300C29388 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		36A33DD82AFCBC0300A951E7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		36A33DD92AFCBC0300A951E7 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		36A33E072AFCDA2300A951E7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -368,6 +384,7 @@
 				36BD8FB52B14539E00101014 /* ItemModel.swift */,
 				365380BF2B078C8600D5C39D /* GalleryModel.swift */,
 				36BD8FB32B14533000101014 /* CheckOutModel.swift */,
+				36627D652B26AD9E00C29388 /* PaymentSelectModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -414,6 +431,7 @@
 				365381082B0DFDA400D5C39D /* EmptyCell */,
 				365110142AFB7BAD00A5D6F4 /* CutomTextField */,
 				36FBF63D2B05BAF40070A476 /* CustomPageControl.swift */,
+				36627D482B21E53300C29388 /* CustomToast.swift */,
 				36BD905F2B197D1600101014 /* CustomHeaderTableView.swift */,
 				365381112B0EDA4300D5C39D /* PopUpLoading.swift */,
 				36BD8FDC2B15E78B00101014 /* FaceID.swift */,
@@ -430,6 +448,7 @@
 				364E41082B07393F001EB357 /* EndPoint.swift */,
 				365380B92B0763CD00D5C39D /* CategoryService.swift */,
 				365380C32B0B069000D5C39D /* ProductsService.swift */,
+				36627D6C2B270E0300C29388 /* UserDefault.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -441,7 +460,6 @@
 				36A33E322B01ACCC00A951E7 /* UIViewControllerExt.swift */,
 				365381132B0EDAFE00D5C39D /* Common.swift */,
 				36627D3B2B21956E00C29388 /* ExtTableView.swift */,
-				36627D482B21E53300C29388 /* customtoast.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -738,6 +756,35 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		36627D4E2B2697C000C29388 /* PaymentSelect */ = {
+			isa = PBXGroup;
+			children = (
+				36627D562B26A12A00C29388 /* PaymentSelectItem */,
+				36627D4F2B2697E800C29388 /* PaymentSelectTableViewCell.swift */,
+				36627D502B2697E800C29388 /* PaymentSelectTableViewCell.xib */,
+			);
+			path = PaymentSelect;
+			sourceTree = "<group>";
+		};
+		36627D562B26A12A00C29388 /* PaymentSelectItem */ = {
+			isa = PBXGroup;
+			children = (
+				36627D602B26AC1200C29388 /* PaymentSelectItemCell */,
+				36627D5C2B26AB7F00C29388 /* SelectItemViewController.swift */,
+				36627D5D2B26AB7F00C29388 /* SelectItemViewController.xib */,
+			);
+			path = PaymentSelectItem;
+			sourceTree = "<group>";
+		};
+		36627D602B26AC1200C29388 /* PaymentSelectItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				36627D612B26AC3800C29388 /* PaymentSelectItemTableViewCell.swift */,
+				36627D622B26AC3800C29388 /* PaymentSelectItemTableViewCell.xib */,
+			);
+			path = PaymentSelectItemCell;
+			sourceTree = "<group>";
+		};
 		36A33DD72AFCBBE900A951E7 /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +797,7 @@
 		36BD8FB72B149E3600101014 /* CheckOutDetails */ = {
 			isa = PBXGroup;
 			children = (
+				36627D4E2B2697C000C29388 /* PaymentSelect */,
 				36BD8FC12B149F9E00101014 /* OtherItemCheckOutDetails */,
 				36BD8FBC2B149F1900101014 /* ListItems */,
 				36BD8FCE2B1584CB00101014 /* CheckOutViewController.swift */,
@@ -1030,10 +1078,12 @@
 				36BD90122B17272300101014 /* PaymentProcessViewController.xib in Resources */,
 				365110262AFB801100A5D6F4 /* Poppins-Light.ttf in Resources */,
 				36BD8FC52B149FC100101014 /* OtherItemCheckOutDetailsTableViewCell.xib in Resources */,
+				36627D642B26AC3800C29388 /* PaymentSelectItemTableViewCell.xib in Resources */,
 				365110272AFB801100A5D6F4 /* Poppins-Bold.ttf in Resources */,
 				36BD8FC02B149F9600101014 /* ListitemsTableViewCell.xib in Resources */,
 				365110292AFB801100A5D6F4 /* Poppins-Thin.ttf in Resources */,
 				36627D372B20136700C29388 /* HeaderForTableViewCell.xib in Resources */,
+				36627D5F2B26AB7F00C29388 /* SelectItemViewController.xib in Resources */,
 				36A33DDB2AFCBC0300A951E7 /* EditProfileViewController.xib in Resources */,
 				3651101F2AFB7F9D00A5D6F4 /* LoginViewController.xib in Resources */,
 				36BD8FE92B16E39C00101014 /* YourOrdersTableViewCell.xib in Resources */,
@@ -1041,6 +1091,7 @@
 				365110472AFC9B8300A5D6F4 /* FavoriteViewController.xib in Resources */,
 				36510FF82AFB7AA000A5D6F4 /* LaunchScreen.storyboard in Resources */,
 				36BD8FFA2B16F15600101014 /* ListOrderDetailTableViewCell.xib in Resources */,
+				36627D522B2697E800C29388 /* PaymentSelectTableViewCell.xib in Resources */,
 				36FBF6332B04D48B0070A476 /* DetailProductViewController.xib in Resources */,
 				3651104B2AFC9BA900A5D6F4 /* ProfileViewController.xib in Resources */,
 				36BD8FDB2B15D33100101014 /* CustomPINViewController.xib in Resources */,
@@ -1126,6 +1177,8 @@
 				3651101E2AFB7F9D00A5D6F4 /* LoginViewController.swift in Sources */,
 				36BD8FDA2B15D33100101014 /* CustomPINViewController.swift in Sources */,
 				36498CD82B0752C100A1A5DA /* LogoutResponse.swift in Sources */,
+				36627D5E2B26AB7F00C29388 /* SelectItemViewController.swift in Sources */,
+				36627D662B26AD9E00C29388 /* PaymentSelectModel.swift in Sources */,
 				36BD90162B172F1700101014 /* AccoountVATableViewCell.swift in Sources */,
 				364E40FB2B071EF3001EB357 /* UserResponse.swift in Sources */,
 				36510FED2AFB7A9E00A5D6F4 /* ViewController.swift in Sources */,
@@ -1141,11 +1194,13 @@
 				36510FE92AFB7A9E00A5D6F4 /* AppDelegate.swift in Sources */,
 				3651102F2AFB9E4D00A5D6F4 /* SignUpViewController.swift in Sources */,
 				36510FF32AFB7A9E00A5D6F4 /* Shoee.xcdatamodeld in Sources */,
+				36627D512B2697E800C29388 /* PaymentSelectTableViewCell.swift in Sources */,
 				364E40F72B071C84001EB357 /* LoginResponse.swift in Sources */,
 				36FBF6322B04D48B0070A476 /* DetailProductViewController.swift in Sources */,
 				3653810B2B0E003500D5C39D /* EmptyTableViewCell.swift in Sources */,
 				36627D452B21C4C100C29388 /* HomeSoExtention.swift in Sources */,
 				36A33DDA2AFCBC0300A951E7 /* EditProfileViewController.swift in Sources */,
+				36627D632B26AC3800C29388 /* PaymentSelectItemTableViewCell.swift in Sources */,
 				36BD901C2B181B8B00101014 /* CencelPaymentTableViewCell.swift in Sources */,
 				36BD8FB42B14533000101014 /* CheckOutModel.swift in Sources */,
 				36627D4D2B231E1C00C29388 /* CheckOutResponse.swift in Sources */,
@@ -1195,10 +1250,11 @@
 				36BD903B2B1873F400101014 /* BCAParam.swift in Sources */,
 				3653810F2B0E047F00D5C39D /* FavoriteTableViewCell.swift in Sources */,
 				364E41032B0721CB001EB357 /* RegisterResponse.swift in Sources */,
-				36627D492B21E53300C29388 /* customtoast.swift in Sources */,
+				36627D492B21E53300C29388 /* CustomToast.swift in Sources */,
 				36FBF63E2B05BAF40070A476 /* CustomPageControl.swift in Sources */,
 				365380C92B0C7FF300D5C39D /* CustomViewPopUp.swift in Sources */,
 				36BD90232B18311600101014 /* BCAResponse.swift in Sources */,
+				36627D6D2B270E0300C29388 /* UserDefault.swift in Sources */,
 				36A33E372B01CDF600A951E7 /* TokenService.swift in Sources */,
 				365380C42B0B069000D5C39D /* ProductsService.swift in Sources */,
 			);

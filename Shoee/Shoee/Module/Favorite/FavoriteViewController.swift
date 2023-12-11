@@ -125,7 +125,8 @@ extension FavoriteViewController: FavoriteTableViewCellDelegate {
             try managedContext.save()
             fetchData()
             favoriteTableview.reloadData()
-            showCustomSlideMess(message: "Has been removed from the Whitelist", color: UIColor(named: "Alert")!)
+            let customToast = CustomToast(message: "Has been removed from the Whitelist", backgroundColor: UIColor(named: "Alert")!)
+            customToast.showToast(duration: 0.5)
             
         } catch {
             print("Error deleting data from CoreData: \(error.localizedDescription)")

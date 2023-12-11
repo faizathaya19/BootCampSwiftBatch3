@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension UIViewController {
       
@@ -32,7 +33,7 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
-    func showCustomPIN(with itemList: [Items], dataOther: [CheckOut]) {
+    func showCustomPIN(with itemList: [Items], dataOther: CheckOut, paymentSelectionData: PaymentSelectModel) {
         let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
         let vc = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
 
@@ -40,6 +41,7 @@ extension UIViewController {
         alertVC.modalPresentationStyle = .overCurrentContext
         alertVC.itemList = itemList
         alertVC.dataOther = dataOther
+        alertVC.paymentSelectionData = paymentSelectionData
         alertVC.onCorrectPINEntered = { [weak self] in
             let vC = PaymentProcessViewController()
             self?.navigationController?.pushViewController(vC, animated: true)

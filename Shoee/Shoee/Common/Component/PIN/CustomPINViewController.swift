@@ -41,7 +41,8 @@ class CustomPINViewController: UIViewController {
     }
     
     var itemList: [Items] = []
-    var dataOther: [CheckOut] = []
+    var dataOther: CheckOut?
+    var paymentSelectionData: PaymentSelectModel?
     
     private var attempts = 0
     private var isLockedOut = false
@@ -107,11 +108,13 @@ class CustomPINViewController: UIViewController {
         animationView.play()
         self.forAnimationSuccess.isHidden = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            var co: CheckOutViewController!
-            co = CheckOutViewController()
+            var co: CheckOutViewModel!
+            co = CheckOutViewModel()
             co.itemList = self?.itemList ?? []
-            co.dataOther = self?.dataOther ?? []
+            co.dataOther = self?.dataOther
+            co.paymentSelectionData = self?.paymentSelectionData
             co.bcaCheckout()
+            co.checkOutData()
 
             self?.dismiss(animated: true, completion: nil)
             self?.forAnimationSuccess.isHidden = true

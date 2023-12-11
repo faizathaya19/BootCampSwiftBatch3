@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.8.1)
+  - FloatingPanel (2.8.1)
   - Kingfisher (7.10.0)
   - lottie-ios (4.3.3)
   - netfox (1.21.0)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - FloatingPanel
   - Kingfisher
   - lottie-ios
   - netfox
@@ -15,6 +17,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FloatingPanel
     - Kingfisher
     - lottie-ios
     - netfox
@@ -22,11 +25,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  FloatingPanel: 0c32d8c97e52cf6913833af573506f5d86451465
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
   lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: 3dc4d513d48d43d2406f19d14b9c2ff8265c6ab9
+PODFILE CHECKSUM: f281ab6f5649f0f35f356b7820502b037ecd9e52
 
 COCOAPODS: 1.14.2

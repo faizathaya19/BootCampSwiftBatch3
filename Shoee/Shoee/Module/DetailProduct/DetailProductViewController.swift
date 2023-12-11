@@ -32,6 +32,7 @@ class DetailProductViewController: UIViewController {
     
     var productID: Int = 0
     var product: ProductModel?
+    let UserID = UserDefaultManager.getUserID()
     
     // MARK: - Initialization
     
@@ -147,40 +148,39 @@ class DetailProductViewController: UIViewController {
         navigationController?.popViewController(animated: false)
     }
     
-    @IBAction private func favoriteButton(_ sender: Any) {
-        guard let favoriteButton = sender as? UIButton else { return }
-        
-        guard let productID = product?.id else {
-            // Handle the case where product is nil or doesn't have a valid ID
-            return
-        }
-        
-        if isProductIDInCoreData(productID: productID) {
-            // ProductID exists in CoreData, delete it
-            deleteProductIDFromCoreData(productID: productID)
-        } else {
-            // ProductID doesn't exist in CoreData, save it
-            saveProductIDToCoreData(product: product!)
-        }
-        
-        // Pemanggilan updateFavoriteButtonUI() ditempatkan di sini
-        updateFavoriteButtonUI()
-    }
+    @IBAction private func favoriteButtonTapped(_ sender: UIButton) {
+           guard let product = self.product,
+                 let userID = UserDefaultManager.getUserID() else {
+               // Handle the case where product or userID is nil
+               return
+           }
+           
+           if isProductIDInCoreData(productID: product.id, userID: userID) {
+               // Product already in favorites, remove it
+               deleteProductIDFromCoreData(productID: product.id, userID: userID)
+           } else {
+               // Product not in favorites, add it
+               saveProductIDToCoreData(product: product, userID: userID)
+           }
+           
+           // Update UI based on the changes
+           updateFavoriteButtonUI()
+       }
     
     @IBAction private func btnAddToCart(_ sender: Any) {
         guard let product = self.product else {
-            // Pastikan ada produk untuk ditambahkan ke keranjang
+            // Ensure there is a product to add to the cart
             return
         }
 
-        // Akses managedObjectContext Core Data
+        // Access managedObjectContext Core Data
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
+
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // Buat entity 'Items' baru atau perbarui jika sudah ada
+
+        // Create a new entity 'Items' or update if it already exists
         let fetchRequest = NSFetchRequest<Items>(entityName: "Items")
         fetchRequest.predicate = NSPredicate(format: "productID == %ld", product.id)
         fetchRequest.fetchLimit = 1
@@ -188,57 +188,64 @@ class DetailProductViewController: UIViewController {
         do {
             let itemsArray = try managedContext.fetch(fetchRequest)
             if let existingItem = itemsArray.first {
-                // Produk sudah ada, tingkatkan quantity
+                // Product already exists, increase quantity
                 existingItem.quantity += 1
             } else {
-                // Produk belum ada, buat entity 'Items' baru
+                // Product does not exist, create a new 'Items' entity
                 let itemsEntity = NSEntityDescription.entity(forEntityName: "Items", in: managedContext)!
                 let items = Items(entity: itemsEntity, insertInto: managedContext)
 
                 items.productID = Int16(product.id)
-                items.quantity = 1 // Default quantity is 1
+                items.quantity = 1
                 items.name = product.name
                 items.price = product.price
+                items.userID = Int64(UserID!)  // Set the userID appropriately
+                // ... (set other attributes)
+
                 if let galleryModel = product.galleries?.dropFirst(3).first {
                     let imageLink = galleryModel.url
                     items.setValue(imageLink, forKeyPath: "image")
                 }
             }
 
-            // Ambil atau buat entity 'CheckOut' (jika diperlukan)
+            // Retrieve or create 'CheckOut' entity (if needed)
             let checkoutFetchRequest = NSFetchRequest<CheckOut>(entityName: "CheckOut")
             checkoutFetchRequest.fetchLimit = 1
 
             let checkouts = try managedContext.fetch(checkoutFetchRequest)
             if let checkout = checkouts.first {
-                // Perbarui atribut lain di 'CheckOut' jika diperlukan
-                checkout.address = "Alamat Anda" 
+                // Update other attributes in 'CheckOut' if necessary
+                checkout.address = "Your Address"
                 checkout.shippingPrice = 10
                 checkout.status = "Pending"
                 checkout.totalPrice += product.price
+                checkout.userID = Int64(UserID!)  // Set the userID appropriately
+                // ... (set other attributes)
             } else {
-                // Buat entity 'CheckOut' baru jika tidak ada
+                // Create a new 'CheckOut' entity if none exists
                 let checkoutEntity = NSEntityDescription.entity(forEntityName: "CheckOut", in: managedContext)!
                 let checkout = CheckOut(entity: checkoutEntity, insertInto: managedContext)
 
-                // Atur atribut untuk entity 'CheckOut'
-                checkout.address = "Alamat Anda" // Atur alamat sesuai kebutuhan
-                checkout.shippingPrice = 10 // Atur biaya pengiriman sesuai kebutuhan
-                checkout.status = "Pending" // Atur status sesuai kebutuhan
+                // Set attributes for the 'CheckOut' entity
+                checkout.address = "Your Address"
+                checkout.shippingPrice = 10
+                checkout.status = "Pending"
                 checkout.totalPrice = product.price
+                checkout.userID = Int64(UserID!)  // Set the userID appropriately
+                // ... (set other attributes)
             }
 
-            // Simpan perubahan ke Core Data
+            // Save changes to Core Data
             try managedContext.save()
-            
+
             let actionYes: [String: () -> Void] = ["View My Cart": { [weak self] in
                 let cartViewController = CartViewController()
                 self?.navigationController?.pushViewController(cartViewController, animated: true)
             }]
             let actionNo: [String: () -> Void] = ["X": { print("tapped NO") }]
-            
+
             let arrayActions = [actionYes, actionNo]
-            
+
             showCustomAlertWith(
                 title: "Hurray :)",
                 message: "Item added successfully",
@@ -249,8 +256,6 @@ class DetailProductViewController: UIViewController {
             print("Error saving to Core Data: \(error)")
         }
     }
-
-    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -355,104 +360,107 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
 
 extension DetailProductViewController {
     
-    private func isProductIDInCoreData(productID: Int) -> Bool {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return false
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
-        fetchRequest.predicate = NSPredicate(format: "productID == %ld", productID)
-        
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            return !result.isEmpty
-        } catch {
-            print("Error checking if productID exists in CoreData: \(error)")
-            return false
-        }
-    }
-    
-    private func saveProductIDToCoreData(product: ProductModel) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "FavoriteProduct", in: managedContext)!
-        
-        let favoriteProduct = NSManagedObject(entity: entity, insertInto: managedContext)
-        favoriteProduct.setValue(product.id, forKeyPath: "productID")
-        favoriteProduct.setValue(product.name, forKeyPath: "name")
-        favoriteProduct.setValue(product.price, forKeyPath: "price")
-        
-        if let galleryModel = product.galleries?.dropFirst(3).first {
-            let imageLink = galleryModel.url
-            favoriteProduct.setValue(imageLink, forKeyPath: "imageLink")
-            
-        }
-        
-        
-        do {
-            try managedContext.save()
-            showCustomSlideMess(message: "Has been added to the Whitelist", color: UIColor(named: "Secondary")!)
-        } catch {
-            print("Error saving product to CoreData: \(error)")
-        }
-    }
-    
-    
-    private func deleteProductIDFromCoreData(productID: Int) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
-        fetchRequest.predicate = NSPredicate(format: "productID == %ld", productID)
-        
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            for object in result {
-                managedContext.delete(object as! NSManagedObject)
-            }
-            try managedContext.save()
-            showCustomSlideMess(message: "Has been removed from the Whitelist", color: UIColor(named: "Alert")!)
-        } catch {
-            print("Error deleting productID from CoreData: \(error)")
-        }
-    }
-    
-    private func updateFavoriteButtonUI() {
-        guard let productID = product?.id else {
-            // Handle the case where product is nil or doesn't have a valid ID
-            return
-        }
-        
-        if isProductIDInCoreData(productID: productID) {
-            // ProductID exists in CoreData, set button to active state
-            animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemPink)
-            animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 2.0)
-            isFavorite = true
-        } else {
-            // ProductID doesn't exist in CoreData, set button to inactive state
-            animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemGray2)
-            animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 10.0)
-            isFavorite = false
-        }
-    }
-    
-    
-    private func animateBackgroundColorChange(for view: UIView, to color: UIColor) {
-        UIView.animate(withDuration: 0.3) {
-            view.backgroundColor = color
-        }
-    }
-    
-    private func animateCornerRadiusChange(for view: UIView, to radius: CGFloat) {
-        UIView.animate(withDuration: 0.3) {
-            view.layer.cornerRadius = radius
-            view.layer.masksToBounds = true
-        }
-    }
+    private func isProductIDInCoreData(productID: Int, userID: Int) -> Bool {
+           guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+               return false
+           }
+           
+           let managedContext = appDelegate.persistentContainer.viewContext
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
+        print("productID: \(productID), userID: \(userID)")
+        fetchRequest.predicate = NSPredicate(format: "productID == %@ AND userID == %@", NSNumber(value: productID), userID)
+
+           
+           do {
+               let result = try managedContext.fetch(fetchRequest)
+               return !result.isEmpty
+           } catch {
+               print("Error checking if productID exists in CoreData: \(error)")
+               return false
+           }
+       }
+       
+       private func saveProductIDToCoreData(product: ProductModel, userID: Int) {
+           guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+               return
+           }
+           
+           let managedContext = appDelegate.persistentContainer.viewContext
+           let entity = NSEntityDescription.entity(forEntityName: "FavoriteProduct", in: managedContext)!
+           
+           let favoriteProduct = NSManagedObject(entity: entity, insertInto: managedContext)
+           favoriteProduct.setValue(product.id, forKeyPath: "productID")
+           favoriteProduct.setValue(product.name, forKeyPath: "name")
+           favoriteProduct.setValue(product.price, forKeyPath: "price")
+           favoriteProduct.setValue(userID, forKeyPath: "userID")
+           
+           if let galleryModel = product.galleries?.dropFirst(3).first {
+               let imageLink = galleryModel.url
+               favoriteProduct.setValue(imageLink, forKeyPath: "imageLink")
+           }
+           
+           do {
+               try managedContext.save()
+           
+               let customToast = CustomToast(message: "Has been added to the Whitelist", backgroundColor: UIColor(named: "Secondary")!)
+               customToast.showToast(duration: 0.5)
+           } catch {
+               print("Error saving product to CoreData: \(error)")
+           }
+       }
+
+       private func deleteProductIDFromCoreData(productID: Int, userID: Int) {
+           guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+               return
+           }
+           
+           let managedContext = appDelegate.persistentContainer.viewContext
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
+           fetchRequest.predicate = NSPredicate(format: "productID == %ld AND userID == %@", productID, userID)
+           
+           do {
+               let result = try managedContext.fetch(fetchRequest)
+               for object in result {
+                   managedContext.delete(object as! NSManagedObject)
+               }
+               try managedContext.save()
+               let customToast = CustomToast(message: "Has been removed from the Whitelist", backgroundColor: UIColor(named: "Alert")!)
+               customToast.showToast(duration: 0.5)
+           } catch {
+               print("Error deleting productID from CoreData: \(error)")
+           }
+       }
+
+       private func updateFavoriteButtonUI() {
+           guard let productID = product?.id,
+                 let userID = UserDefaultManager.getUserID() else {
+               // Handle the case where product or userID is nil
+               return
+           }
+           
+           if isProductIDInCoreData(productID: productID, userID: userID) {
+               // ProductID exists in CoreData for the current user, set button to active state
+               animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemPink)
+               animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 2.0)
+               isFavorite = true
+           } else {
+               // ProductID doesn't exist in CoreData for the current user, set button to inactive state
+               animateBackgroundColorChange(for: favoriteButtonOutlet, to: UIColor.systemGray2)
+               animateCornerRadiusChange(for: favoriteButtonOutlet, to: favoriteButtonOutlet.frame.height / 10.0)
+               isFavorite = false
+           }
+       }
+
+       private func animateBackgroundColorChange(for view: UIView, to color: UIColor) {
+           UIView.animate(withDuration: 0.3) {
+               view.backgroundColor = color
+           }
+       }
+
+       private func animateCornerRadiusChange(for view: UIView, to radius: CGFloat) {
+           UIView.animate(withDuration: 0.3) {
+               view.layer.cornerRadius = radius
+               view.layer.masksToBounds = true
+           }
+       }
 }

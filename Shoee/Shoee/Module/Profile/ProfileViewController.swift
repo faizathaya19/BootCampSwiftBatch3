@@ -16,13 +16,10 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func help(_ sender: Any) {
-        // Membuat instance dari CustomToast
-        let customToast = CustomToast(frame: CGRect(x: 0, y: 0, width: 200, height: 100), message: "Hello, this is a custom toast!")
-
-        // Menampilkan toast dalam view controller saat ini dengan durasi tampilan 3 detik
-        customToast.showInView(view: self.view, duration: 3.0)
-
+        let vc = CheckOutViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
+
     
     @IBAction func btnLogout(_ sender: Any) {
         
@@ -35,6 +32,8 @@ class ProfileViewController: UIViewController {
                 print("Logout success: \(responseLogout)")
                 
                 TokenService.shared.deleteToken()
+                UserDefaultManager.deleteUserID()
+                
                 self.popUpLoading.dismissImmediately()
                 
                 let loginViewController = LoginViewController()

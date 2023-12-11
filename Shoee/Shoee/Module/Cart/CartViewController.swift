@@ -47,7 +47,10 @@ class CartViewController: UIViewController {
             }
 
             try managedContext.save()
-            showCustomSlideMess(message: "Product removed from the Cart", color: UIColor(named: "Alert")!)
+        
+            let customToast = CustomToast(message: "Product removed from the Cart", backgroundColor: UIColor(named: "Alert")!)
+            customToast.showToast(duration: 0.5)
+            
             fetchDataFromCoreData()
             updateSubTotal()
         } catch {
@@ -74,13 +77,10 @@ class CartViewController: UIViewController {
     private func updateSubTotal() {
         var subtotal: Double = 0.0
 
-        // Loop melalui setiap item di keranjang
         for item in cartItems {
-            // Hitung subtotal untuk setiap item (quantity * price)
             subtotal += Double(item.quantity) * item.price
         }
 
-        // Update nilai label subTotal
         subTotal.text = String(format: "$%.2f", subtotal)
     }
 }

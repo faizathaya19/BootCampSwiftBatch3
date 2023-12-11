@@ -30,7 +30,10 @@ class LoginViewModel {
                 }
                 
                 let accessToken = responseLoginModel.data.accessToken
+                let userID = responseLoginModel.data.user.id
+                
                 TokenService.shared.storeToken(with: accessToken)
+                UserDefaultManager.saveUserID(userID)
                 
                 self?.delegate?.didLoginSuccessfully()
                 

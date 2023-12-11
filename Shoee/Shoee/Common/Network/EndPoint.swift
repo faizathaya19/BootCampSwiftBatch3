@@ -68,7 +68,7 @@ enum EndPoint {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .register, .login, .categories, .products, .user, .checkout:
+        case .register, .login, .categories, .products, .user:
             return URLEncoding.queryString
         default: return JSONEncoding.default
         }

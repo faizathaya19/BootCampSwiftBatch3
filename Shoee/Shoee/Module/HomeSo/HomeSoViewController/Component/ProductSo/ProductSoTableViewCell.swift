@@ -1,6 +1,4 @@
 import UIKit
-import Kingfisher
-import SkeletonView
 
 class ProductSoTableViewCell: BaseTableCell {
     

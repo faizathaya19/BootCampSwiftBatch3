@@ -68,6 +68,7 @@ class HomeSoViewModel {
         fetchProducts(page: page) { [weak self] in
             self?.isLoading = false
         }
+        self.isLoading = false
     }
     
     private func fetchAllProducts() {
