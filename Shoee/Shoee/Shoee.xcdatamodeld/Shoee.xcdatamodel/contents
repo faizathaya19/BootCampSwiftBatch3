@@ -5,7 +5,6 @@
         <attribute name="shippingPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="totalPrice" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Items"/>
     </entity>
     <entity name="FavoriteProduct" representedClassName="FavoriteProduct" isAbstract="YES" syncable="YES" codeGenerationType="class">
@@ -13,7 +12,6 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="productID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Items" representedClassName="Items" syncable="YES" codeGenerationType="class">
         <attribute name="image" optional="YES" attributeType="String"/>
@@ -21,7 +19,6 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="productID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="userID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="checkout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CheckOut"/>
     </entity>
 </model>

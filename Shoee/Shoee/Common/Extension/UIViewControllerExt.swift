@@ -24,33 +24,21 @@ extension UIViewController {
         self.present(alertVC, animated: true, completion: nil)
     }
     
-    func showCustomSlideMess(message: String, color: UIColor) {
-        let alertVC = CustomSlideMessageViewController.init(nibName: "CustomSlideMessageViewController", bundle: nil)
-        alertVC.message = message
-        alertVC.color = color
-        alertVC.modalTransitionStyle = .crossDissolve
-        alertVC.modalPresentationStyle = .overCurrentContext
-        present(alertVC, animated: true, completion: nil)
-    }
-    
     func showCustomPIN(with itemList: [Items], dataOther: CheckOut, paymentSelectionData: PaymentSelectModel) {
         let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
-        let vc = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
-
         alertVC.modalTransitionStyle = .crossDissolve
         alertVC.modalPresentationStyle = .overCurrentContext
         alertVC.itemList = itemList
         alertVC.dataOther = dataOther
         alertVC.paymentSelectionData = paymentSelectionData
         alertVC.onCorrectPINEntered = { [weak self] in
-            let vC = PaymentProcessViewController()
+            let vC = PaymentProcessViewController(paymentID: alertVC.orderId!)
+            vC.paymentBCA = alertVC.paymentBCA
             self?.navigationController?.pushViewController(vC, animated: true)
-        }
-
+          }
+        alertVC.generateOrderID()
         present(alertVC, animated: true, completion: nil)
     }
-
-
 
     
 }

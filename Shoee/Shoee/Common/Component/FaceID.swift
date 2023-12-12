@@ -1,33 +1,59 @@
-import Foundation
-import LocalAuthentication
+import UIKit
+import CoreData
 
-class FaceID {
-    
-    let context = LAContext()
-    
-    func authenticateUser(completion: @escaping (Bool) -> Void) {
+class CoreDataCleanup {
+
+    static func deleteAllData() {
+        deleteAllItems()
+        deleteAllCheckOuts()
+        deleteAllFavoriteProducts()
+    }
+
+    private static func deleteAllItems() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
         
-        var error: NSError?
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Items")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Authentication required to access your data"
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
-                if success {
-                    print("FaceID authentication successful")
-                    completion(true)
-                } else {
-                    if let error = evaluateError {
-                        print("FaceID authentication error: \(error.localizedDescription)")
-                        completion(false)
-                    } else {
-                        completion(false)
-                    }
-                }
-            }
-        } else {
-            print("FaceID authentication not available")
-            completion(false)
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+            print("All items deleted from Core Data.")
+        } catch {
+            print("Error deleting items from Core Data: \(error)")
         }
     }
-    
+
+    private static func deleteAllCheckOuts() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CheckOut")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+            print("All checkouts deleted from Core Data.")
+        } catch {
+            print("Error deleting checkouts from Core Data: \(error)")
+        }
+    }
+
+    private static func deleteAllFavoriteProducts() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+            print("All favorite products deleted from Core Data.")
+        } catch {
+            print("Error deleting favorite products from Core Data: \(error)")
+        }
+    }
 }

@@ -25,8 +25,8 @@
                 <outlet property="containerDetail" destination="RHh-Lr-bfi" id="sON-87-TBd"/>
                 <outlet property="containerViewPrice" destination="crp-OS-7rV" id="rIv-Nh-V3h"/>
                 <outlet property="descriptionLabel" destination="aiJ-pD-Lh7" id="VGD-oM-JJ7"/>
-                <outlet property="detailImageCollectionView" destination="FyH-G6-EM8" id="SJL-0o-0Jo"/>
-                <outlet property="familiarShoesCollectionView" destination="l0m-5u-IKz" id="bUp-wi-EFQ"/>
+                <outlet property="detailImageCollectionView" destination="FyH-G6-EM8" id="asd-QG-ulq"/>
+                <outlet property="familiarShoesCollectionView" destination="l0m-5u-IKz" id="HK4-eb-fqe"/>
                 <outlet property="favoriteButtonOutlet" destination="zTd-ld-18c" id="UYL-Kj-5Gt"/>
                 <outlet property="pagerViewImage" destination="CjG-1p-Gn8" id="MwR-H2-cnZ"/>
                 <outlet property="priceLabel" destination="vDN-Cx-1h3" id="k7I-7t-IGh"/>
@@ -96,7 +96,7 @@
                             </constraints>
                         </stackView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-5u-IKz">
-                            <rect key="frame" x="0.0" y="273" width="393" height="82"/>
+                            <rect key="frame" x="0.0" y="272.66666666666663" width="393" height="82"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="82" id="m9O-6B-Txp"/>

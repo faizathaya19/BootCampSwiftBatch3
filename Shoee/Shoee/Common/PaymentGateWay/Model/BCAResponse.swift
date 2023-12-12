@@ -11,7 +11,7 @@ struct BCAResponse: Codable {
     let transactionId: String?
     let transactionStatus: String?
     let transactionTime: String?
-    let vaNumbers: [VANumber]?
+    let vaNumbers: [VANumber]
 
     struct VANumber: Codable {
         let bank: String?

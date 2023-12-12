@@ -150,3 +150,4 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource, Ot
         floatingPanelController?.removePanelFromParent(animated: true)
     }
 }
+

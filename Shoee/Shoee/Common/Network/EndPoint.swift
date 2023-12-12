@@ -79,7 +79,7 @@ enum EndPoint {
     }
     
     struct BaseConstant {
-        static let baseUrl = "https://apishoess.000webhostapp.com/api"
+        static let baseUrl = "https://shoee12231.000webhostapp.com/api"
     }
     
     

@@ -1,5 +1,6 @@
 import UIKit
 import SkeletonView
+import CoreData
 
 class HomeSoViewController: UIViewController {
     @IBOutlet private weak var homeSoTableView: UITableView!
@@ -98,7 +99,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         case .headerSo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HeaderSoTableViewCell
             let user = viewModel.userData[indexPath.item]
-            cell.configureHeader(name: user.name, username: user.username, imageURLString: user.profilePhotoURL)
+            cell.configureHeader(name: user.name.components(separatedBy: " ").first, username: user.username, imageURLString: user.profilePhotoURL)
             return cell
         case .categorySo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CategorySoTableViewCell

@@ -20,18 +20,25 @@ class ExpiredTimerPaymentTableViewCell: BaseTableCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(createdOnString: String , expirytime:String) {
-        expiryTime.text = expirytime
+    func configureCell(transactionTime: String, expiryTimeValue: String) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy, HH:mm"
-        let createdOnDate = dateFormatter.date(from: createdOnString)!
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-        expiryDate = calculateExpiryDate(createdOnDate: createdOnDate)
+        guard let transactionDate = dateFormatter.date(from: transactionTime),
+              let expiryDateValue = dateFormatter.date(from: expiryTimeValue) else {
+            // Handle date parsing error
+            return
+        }
+
+        // Display the original expiry time
+        expiryTime.text = expiryTimeValue
+
+        expiryDate = calculateExpiryDate(createdOnDate: transactionDate, expiryDateValue: expiryDateValue)
         updateTimerLabel()
         startTimer()
     }
-    
-    func calculateExpiryDate(createdOnDate: Date) -> Date {
+
+    func calculateExpiryDate(createdOnDate: Date, expiryDateValue: Date) -> Date {
         return Calendar.current.date(byAdding: .hour, value: 24, to: createdOnDate)!
     }
 
@@ -46,22 +53,25 @@ class ExpiredTimerPaymentTableViewCell: BaseTableCell {
 
         let currentDate = Date()
         let timeDifference = expiryDate.timeIntervalSince(currentDate)
-        
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
         if timeDifference <= 0 {
             // Timer expired
             timerLabel.text = "Expired"
+            expiryTime.text = "Expired"
             timer?.invalidate()
         } else {
             let hours = Int(timeDifference) / 3600
             let minutes = Int(timeDifference) / 60 % 60
             let seconds = Int(timeDifference) % 60
-            
-            // Format the time components as "jam : menit : detik"
+
+            // Format the time components as "hh : mm : ss"
             timerLabel.text = String(format: "%02d : %02d : %02d", hours, minutes, seconds)
         }
     }
 
-    
     deinit {
         timer?.invalidate()
     }

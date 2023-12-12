@@ -36,13 +36,17 @@ class CustomPINViewController: UIViewController {
     private var enteredDigits: [Int] = [] {
         didSet {
             updateContainerColors()
-            print(enteredDigits)
         }
     }
     
     var itemList: [Items] = []
+    var paymentBCA: BCAResponse?
     var dataOther: CheckOut?
     var paymentSelectionData: PaymentSelectModel?
+    var totalPrice: Int16 = 0
+    var totalQuantity: Int16 = 0
+    
+    var orderId: String?
     
     private var attempts = 0
     private var isLockedOut = false
@@ -107,18 +111,18 @@ class CustomPINViewController: UIViewController {
         alertLabel.isHidden = true
         animationView.play()
         self.forAnimationSuccess.isHidden = false
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             var co: CheckOutViewModel!
             co = CheckOutViewModel()
             co.itemList = self?.itemList ?? []
             co.dataOther = self?.dataOther
             co.paymentSelectionData = self?.paymentSelectionData
-            co.bcaCheckout()
-            co.checkOutData()
-
-            self?.dismiss(animated: true, completion: nil)
+            self?.bcaCheckout()
+            self?.checkOutData()
+  
             self?.forAnimationSuccess.isHidden = true
-            self?.onCorrectPINEntered?()
+       
         }
     }
     
@@ -225,4 +229,81 @@ class CustomPINViewController: UIViewController {
         }
         deleteButton.isEnabled = areButtonsEnabled && !enteredDigits.isEmpty
     }
+    
+    func performBCACheckout(with bcaParam: BCAParam, completion: @escaping (Result<BCAResponse, Error>) -> Void) {
+            APIManagerPaymentGateWay.shared.makeAPICall(endpoint: .vaBCA(bcaParam)) { (result: Result<BCAResponse, Error>) in
+                switch result {
+                case .success(let response):
+                    self.paymentBCA = response
+                
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+
+
+    func performCheckOut(with checkOut: CheckOutParam, completion: @escaping (Result<ResponseCheckOut, Error>) -> Void) {
+        APIManager.shared.makeAPICall(endpoint: .checkout(checkOut), completion: completion)
+    }
+    
+    func generateOrderID() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        let currentDateTime = Date()
+        orderId = "order-\(dateFormatter.string(from: currentDateTime))"
+    }
+
+    
+    func checkOutData() {
+        guard let address = dataOther?.address else {
+            return
+        }
+        
+        totalPrice = Int16(itemList.reduce(0) { $0 + Double($1.price) * Double($1.quantity) })
+        
+        let item = itemList.map { item in
+            return itemParam(id: "\(item.productID)", quantity: Int(item.quantity))
+        }
+                
+        performCheckOut(
+            with: CheckOutParam(
+                address: address,
+                items: item,
+                status: "PENDING",
+                totalPrice: Int(totalPrice),
+                shippingPrice: 13000,
+                payment: paymentSelectionData?.name ?? "",
+                paymentId: orderId!
+            )
+        ) { result in
+           
+        }
+    }
+    
+    func bcaCheckout() {
+        totalPrice = Int16(itemList.reduce(0) { $0 + Double($1.price) * Double($1.quantity) })
+
+        let transaction = transactionDetails(orderId: orderId!, grossAmount: Int(totalPrice))
+        let bank = bankTransfer(bank: paymentSelectionData?.title ?? "")
+        let itemDetailsArray = itemList.map { item in
+            return itemDetails(id: "\(item.productID)", price: Int(item.price), quantity: Int(item.quantity), name: item.name ?? "")
+        }
+
+        let customer = customerDetails(email: "test", firstName: "faiz", lastName: "ramadhan", phone: "0822")
+
+        performBCACheckout(
+            with: BCAParam(
+                transactionDetails: transaction,
+                bankTransfer: bank,
+                customerDetails: customer,
+                itemDetails: itemDetailsArray
+            )
+        ){ result in
+            self.dismiss(animated: true, completion: nil)
+            self.onCorrectPINEntered?()
+        }
+    }
+
 }
+

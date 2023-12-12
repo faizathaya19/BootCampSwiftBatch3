@@ -1,7 +1,7 @@
 import UIKit
 
 class CustomToast: UIView {
-    static let topMargin: CGFloat = 60.0
+    static let topMargin: CGFloat = 70.0
     static let animationDuration: TimeInterval = 0.4
     static let toastHeight: CGFloat = 40.0
     static let fontName = "Poppins-SemiBold"
@@ -10,7 +10,7 @@ class CustomToast: UIView {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont(name: CustomToast.fontName, size: 16)
+        label.font = UIFont(name: CustomToast.fontName, size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -47,8 +47,8 @@ class CustomToast: UIView {
         window.addSubview(self)
 
         NSLayoutConstraint.activate([
-            self.leadingAnchor.constraint(equalTo: window.leadingAnchor, constant: 16),
-            self.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: -16),
+            self.leadingAnchor.constraint(equalTo: window.leadingAnchor, constant: 30),
+            self.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: -30),
             self.heightAnchor.constraint(equalToConstant: CustomToast.toastHeight),
             self.topAnchor.constraint(equalTo: window.safeAreaLayoutGuide.topAnchor, constant: -CustomToast.toastHeight)
         ])
