@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatSenderTableViewCell" rowHeight="140" id="KGk-i7-Jjw" customClass="ChatSenderTableViewCell" customModule="Shoee" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="4iX-o1-7K5">
+                        <rect key="frame" x="0.0" y="10" width="323" height="100"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="TlN-fD-1yK">
+                                <rect key="frame" x="40" y="0.0" width="283" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3G-l8-ao7">
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mxo-PY-Abi">
+                                                <rect key="frame" x="10" y="10" width="263" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhy-CN-iOH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="263" height="80"/>
+                                                        <string key="text">That's because stackview tries to compress content as much as possible. When you initally add a tableview, I'm assumstackview. So it winds up being something like</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Mxo-PY-Abi" secondAttribute="bottom" constant="10" id="AO1-Ti-tId"/>
+                                            <constraint firstItem="Mxo-PY-Abi" firstAttribute="top" secondItem="g3G-l8-ao7" secondAttribute="top" constant="10" id="ZyT-q0-f47"/>
+                                            <constraint firstItem="Mxo-PY-Abi" firstAttribute="leading" secondItem="g3G-l8-ao7" secondAttribute="leading" constant="10" id="gpg-eq-P14"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mxo-PY-Abi" secondAttribute="trailing" constant="10" id="tsw-11-Njh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="TlN-fD-1yK" secondAttribute="bottom" id="2BU-48-epk"/>
+                            <constraint firstItem="TlN-fD-1yK" firstAttribute="leading" secondItem="4iX-o1-7K5" secondAttribute="leading" constant="40" id="eYw-cF-ceL"/>
+                            <constraint firstItem="TlN-fD-1yK" firstAttribute="top" secondItem="4iX-o1-7K5" secondAttribute="top" id="oUn-lW-Loj"/>
+                        </constraints>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile_default" translatesAutoresizingMaskIntoConstraints="NO" id="aTm-D7-zJN">
+                        <rect key="frame" x="333" y="80" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="KNb-Aj-hb0"/>
+                            <constraint firstAttribute="width" constant="50" id="buu-rd-yve"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="aTm-D7-zJN" secondAttribute="bottom" constant="10" id="EI1-wD-tzS"/>
+                    <constraint firstAttribute="bottom" secondItem="4iX-o1-7K5" secondAttribute="bottom" constant="30" id="Loi-yn-UtU"/>
+                    <constraint firstItem="4iX-o1-7K5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UYz-l5-lTy"/>
+                    <constraint firstItem="4iX-o1-7K5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WS4-2F-2kG"/>
+                    <constraint firstAttribute="trailing" secondItem="aTm-D7-zJN" secondAttribute="trailing" constant="10" id="esH-Jf-95v"/>
+                    <constraint firstAttribute="trailing" secondItem="4iX-o1-7K5" secondAttribute="trailing" constant="70" id="p3j-iQ-VKx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="chatMessage" destination="uhy-CN-iOH" id="MhH-NZ-5xP"/>
+                <outlet property="containerView" destination="g3G-l8-ao7" id="Xea-2S-yp9"/>
+            </connections>
+            <point key="canvasLocation" x="24" y="127"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_profile_default" width="54" height="54"/>
+        <namedColor name="Primary">
+            <color red="0.42352941176470588" green="0.36862745098039218" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

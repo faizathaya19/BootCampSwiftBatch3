@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Light.ttf">
+            <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatScreenViewController" customModule="Shoee" customModuleProvider="target">
+            <connections>
+                <outlet property="chatScreenTableView" destination="fzU-dD-sPy" id="H1G-gp-Lmb"/>
+                <outlet property="heightMessageTextView" destination="occ-yF-K1l" id="XcF-U0-zFR"/>
+                <outlet property="massageViewContainer" destination="i8k-vM-eLR" id="8g7-BE-3W5"/>
+                <outlet property="messageTextView" destination="Prv-Ml-sbA" id="p8i-as-vpp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGx-1Q-rgg">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="157"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixx-pB-LiK">
+                            <rect key="frame" x="8" y="90" width="46" height="43"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="ic_back_btn_white" title=""/>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_chat_profile" translatesAutoresizingMaskIntoConstraints="NO" id="uza-WB-Wpq">
+                            <rect key="frame" x="55" y="81" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shoe Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ0-l7-XKY">
+                            <rect key="frame" x="123" y="85" width="196" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                            <color key="textColor" name="PrimaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgJ-Iq-zCk">
+                            <rect key="frame" x="123" y="109" width="196" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="15"/>
+                            <color key="textColor" name="SecondaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="BG1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="157" id="HFY-Ry-lCz"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fzU-dD-sPy">
+                    <rect key="frame" x="0.0" y="157" width="393" height="600"/>
+                    <color key="backgroundColor" name="BG3"/>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-aA-EY6">
+                    <rect key="frame" x="15" y="758" width="308" height="74"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8k-vM-eLR">
+                            <rect key="frame" x="0.0" y="0.0" width="308" height="74"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Eg-jmG">
+                                    <rect key="frame" x="6" y="12" width="296" height="50"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Prv-Ml-sbA">
+                                            <rect key="frame" x="0.0" y="0.0" width="296" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="occ-yF-K1l"/>
+                                            </constraints>
+                                            <color key="textColor" name="PrimaryText"/>
+                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" name="BG2"/>
+                            <constraints>
+                                <constraint firstItem="asA-Eg-jmG" firstAttribute="leading" secondItem="i8k-vM-eLR" secondAttribute="leading" constant="6" id="DVh-hI-zW3"/>
+                                <constraint firstAttribute="trailing" secondItem="asA-Eg-jmG" secondAttribute="trailing" constant="6" id="HVa-GI-qw0"/>
+                                <constraint firstItem="asA-Eg-jmG" firstAttribute="top" secondItem="i8k-vM-eLR" secondAttribute="top" constant="12" id="rSD-ap-3j9"/>
+                                <constraint firstAttribute="bottom" secondItem="asA-Eg-jmG" secondAttribute="bottom" constant="12" id="yUL-6d-tgr"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1l2-12-lRv">
+                    <rect key="frame" x="332" y="782" width="45" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" name="BG2"/>
+                    <color key="tintColor" name="Primary"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="ic_send" title="">
+                        <color key="baseForegroundColor" name="Primary"/>
+                        <color key="baseBackgroundColor" name="Primary"/>
+                    </buttonConfiguration>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="BG3"/>
+            <constraints>
+                <constraint firstItem="H4E-aA-EY6" firstAttribute="top" secondItem="fzU-dD-sPy" secondAttribute="bottom" constant="1" id="1Pr-X4-AhL"/>
+                <constraint firstAttribute="trailing" secondItem="fzU-dD-sPy" secondAttribute="trailing" id="9rL-lI-xLF"/>
+                <constraint firstAttribute="trailing" secondItem="iGx-1Q-rgg" secondAttribute="trailing" id="Dry-ZC-USk"/>
+                <constraint firstAttribute="trailing" secondItem="H4E-aA-EY6" secondAttribute="trailing" constant="70" id="E1A-rE-P0q"/>
+                <constraint firstItem="fzU-dD-sPy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FT8-tJ-ORY"/>
+                <constraint firstItem="iGx-1Q-rgg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pu7-lB-AgM"/>
+                <constraint firstItem="H4E-aA-EY6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="cOo-QO-86L"/>
+                <constraint firstItem="iGx-1Q-rgg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lKP-H3-yTB"/>
+                <constraint firstItem="fzU-dD-sPy" firstAttribute="top" secondItem="iGx-1Q-rgg" secondAttribute="bottom" id="lYc-rY-EXp"/>
+                <constraint firstAttribute="bottom" secondItem="H4E-aA-EY6" secondAttribute="bottom" constant="20" id="o5q-j3-MJp"/>
+            </constraints>
+            <point key="canvasLocation" x="64.885496183206101" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_back_btn_white" width="8" height="14"/>
+        <image name="ic_chat_profile" width="216" height="216"/>
+        <image name="ic_send" width="16" height="19"/>
+        <namedColor name="BG1">
+            <color red="0.12156862745098039" green="0.11372549019607843" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG2">
+            <color red="0.16862745098039217" green="0.16078431372549021" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG3">
+            <color red="0.14117647058823529" green="0.13333333333333333" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.42352941176470588" green="0.36862745098039218" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryText">
+            <color red="0.94509803921568625" green="0.94117647058823528" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

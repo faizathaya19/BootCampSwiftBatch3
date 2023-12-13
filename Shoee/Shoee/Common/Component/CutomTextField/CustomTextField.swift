@@ -1,24 +1,20 @@
 import UIKit
 
-// Define a delegate protocol for CustomTextField
 protocol CustomTextFieldDelegate: AnyObject {
     func customTextFieldDidEndEditing(_ textField: CustomTextField)
 }
 
 class CustomTextField: UIView, UITextFieldDelegate {
 
-    // MARK: - Outlets
     @IBOutlet weak var containerTextField: UIView!
     @IBOutlet weak var titleTextField: UILabel!
     @IBOutlet weak var imageTextField: UIImageView!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var passwordImageButton: UIImageView!
 
-    // MARK: - Properties
     weak var delegate: CustomTextFieldDelegate?
     var isPasswordField: Bool = false
 
-    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
