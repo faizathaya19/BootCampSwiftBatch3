@@ -20,7 +20,6 @@ class FimiliarShoesCollectionViewCell: UICollectionViewCell {
     
     private func loadImage() {
         guard let imageURL = imageURL else {
-            // Handle the case where imageURL is nil
             imageView.hideSkeleton()
             imageView.image = nil
             return

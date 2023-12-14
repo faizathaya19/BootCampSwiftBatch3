@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 struct MessageModel {
     let id: String
@@ -10,6 +11,7 @@ struct MessageModel {
         let message: String
         let userId: Int
         let username: String
+        let imageProfile: String
         let product: MessageProduct?
         
         struct MessageProduct {
@@ -26,14 +28,15 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
     
     private var messageData: [MessageModel] = []
-    private let userId = 13
+    private let userId = UserDefaultManager.getUserID()
     private var refreshTimer: Timer?
+    
+    let messageRef = Database.database().reference().child("messages")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupRefreshTimer()
-        fetchMessage()
     }
     
     deinit {
@@ -54,116 +57,62 @@ class ChatViewController: UIViewController {
     }
     
     @objc private func updateChat() {
-        fetchMessage()
+        observeMessages()
+//        fetchMessage()
         chatTableView.reloadData()
     }
     
-    func fetchMessage() {
-        let allMessages = [
-            MessageModel(id: "test123",
-                         data: MessageModel.MessageData(
-                            createdAt: "2023-12-13 15:30:00.987876",
-                            isFromUser: true,
-                            message: "ngomong apaan si anjg kontollllllllllllllll",
-                            userId: 13,
-                            username: "faiz Athaya Ramadhan",
-                            product: MessageModel.MessageData.MessageProduct(
-                                productId: 1,
-                                productName: "futsal",
-                                price: 399,
-                                image: ""
-                            )
-                         )
-                        ),
-            MessageModel(id: "test456",
-                         data: MessageModel.MessageData(
-                            createdAt: "2023-12-13 08:04:16.987876",
-                            isFromUser: true,
-                            message: "testing",
-                            userId: 14,
-                            username: "faiz Athaya Ramadhan",
-                            product: nil
-                         )
-                        ),
-            MessageModel(id: "test7891",
-                         data: MessageModel.MessageData(
-                            createdAt: "2023-12-13 07:04:16.987876",
-                            isFromUser: false,
-                            message: "testing",
-                            userId: 13,
-                            username: "faiz Athaya Ramadhan",
-                            product: MessageModel.MessageData.MessageProduct(
-                                productId: 1,
-                                productName: "futsal",
-                                price: 399,
-                                image: ""
-                            )
-                         )
-                        ),
-            MessageModel(id: "test78912",
-                         data: MessageModel.MessageData(
-                            createdAt: "2023-12-13 07:04:16.987876",
-                            isFromUser: true,
-                            message: "testing",
-                            userId: 13,
-                            username: "faiz Athaya Ramadhan",
-                            product: MessageModel.MessageData.MessageProduct(
-                                productId: 1,
-                                productName: "futsal",
-                                price: 399,
-                                image: ""
-                            )
-                         )
-                        ),
-            MessageModel(id: "test789",
-                         data: MessageModel.MessageData(
-                            createdAt: "2023-12-13 07:04:16.987876",
-                            isFromUser: true,
-                            message: "testing",
-                            userId: 13,
-                            username: "faiz Athaya Ramadhan",
-                            product: MessageModel.MessageData.MessageProduct(
-                                productId: 1,
-                                productName: "futsal",
-                                price: 399,
-                                image: ""
-                            )
-                         )
-                        ),
-            MessageModel(id: "test789asd",
-                         data: MessageModel.MessageData(
-                            createdAt: "2023-12-13 07:04:16.987876",
-                            isFromUser: true,
-                            message: "testing",
-                            userId: 13,
-                            username: "faiz Athaya Ramadhan",
-                            product: MessageModel.MessageData.MessageProduct(
-                                productId: 1,
-                                productName: "futsal",
-                                price: 399,
-                                image: ""
-                            )
-                         )
-                        ),
-            MessageModel(id: "test789qw",
-                                        data: MessageModel.MessageData(
-                                           createdAt: "2023-12-13 07:04:16.987876",
-                                           isFromUser: false,
-                                           message: "testing",
-                                           userId: 13,
-                                           username: "faiz Athaya Ramadhan",
-                                           product: MessageModel.MessageData.MessageProduct(
-                                               productId: 1,
-                                               productName: "futsal",
-                                               price: 399,
-                                               image: ""
-                                           )
-                                        )
-                                       )
-        ]
-        
-        messageData = allMessages.filter { $0.data.userId == userId }
+//    func fetchMessage() {
+//        let allMessages = [MessageModel]
+//
+//        messageData = allMessages.filter { $0.data.userId == userId } .reversed()
+//    }
+    
+    func observeMessages() {
+        messageRef.observe(.childAdded, with: { [weak self] snapshot in
+            guard let strongSelf = self,
+                  let messageData = snapshot.value as? [String: Any],
+                  let data = messageData["data"] as? [String: Any],
+                  let userIdFromSnapshot = data["userId"] as? Int,
+                  userIdFromSnapshot == strongSelf.userId else {
+                // Skip messages not belonging to the current user
+                return
+            }
+
+            let id = snapshot.key
+
+            let productData = data["product"] as? [String: Any]
+            let product = MessageModel.MessageData.MessageProduct(
+                productId: productData?["productId"] as? Int,
+                productName: productData?["productName"] as? String,
+                price: productData?["price"] as? Int,
+                image: productData?["image"] as? String
+            )
+
+            let message = MessageModel(
+                id: id,
+                data: MessageModel.MessageData(
+                    createdAt: data["createdAt"] as? String ?? "",
+                    isFromUser: data["isFromUser"] as? Bool ?? false,
+                    message: data["message"] as? String ?? "",
+                    userId: userIdFromSnapshot,
+                    username: data["username"] as? String ?? "",
+                    imageProfile: data["imageProfile"] as? String ?? "",
+                    product: product
+                )
+            )
+
+            // Check if the message is newer than existing messages
+            if let existingMessage = strongSelf.messageData.first, message.data.createdAt > existingMessage.data.createdAt {
+                strongSelf.messageData.insert(message, at: 0)
+            } else {
+                strongSelf.messageData.append(message)
+            }
+
+            strongSelf.chatTableView.reloadData()
+        })
     }
+
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource, EmptyCellDelegate {
@@ -207,7 +156,6 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, EmptyC
         
         if let navigationController = self.navigationController {
             let ChatScreenViewController = ChatScreenViewController()
-            ChatScreenViewController.messageData = messageData
             ChatScreenViewController.hidesBottomBarWhenPushed = true
             navigationController.pushViewController(ChatScreenViewController, animated: true)
         }

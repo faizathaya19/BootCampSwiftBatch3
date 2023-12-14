@@ -108,6 +108,7 @@
 		36627D922B29A55500C29388 /* ChatSenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36627D902B29A55500C29388 /* ChatSenderTableViewCell.xib */; };
 		36627D952B29A56400C29388 /* ChatReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36627D932B29A56400C29388 /* ChatReceiverTableViewCell.swift */; };
 		36627D962B29A56400C29388 /* ChatReceiverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36627D942B29A56400C29388 /* ChatReceiverTableViewCell.xib */; };
+		368C5B542B2AF55A0021B76C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 368C5B532B2AF55A0021B76C /* GoogleService-Info.plist */; };
 		36A33DDA2AFCBC0300A951E7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33DD82AFCBC0300A951E7 /* EditProfileViewController.swift */; };
 		36A33DDB2AFCBC0300A951E7 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A33DD92AFCBC0300A951E7 /* EditProfileViewController.xib */; };
 		36A33E082AFCDA2300A951E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A33E072AFCDA2300A951E7 /* APIManager.swift */; };
@@ -267,6 +268,7 @@
 		36627D902B29A55500C29388 /* ChatSenderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatSenderTableViewCell.xib; sourceTree = "<group>"; };
 		36627D932B29A56400C29388 /* ChatReceiverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceiverTableViewCell.swift; sourceTree = "<group>"; };
 		36627D942B29A56400C29388 /* ChatReceiverTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatReceiverTableViewCell.xib; sourceTree = "<group>"; };
+		368C5B532B2AF55A0021B76C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36A33DD82AFCBC0300A951E7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		36A33DD92AFCBC0300A951E7 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		36A33E072AFCDA2300A951E7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				365110042AFB7AB600A5D6F4 /* Common */,
 				365110032AFB7AB400A5D6F4 /* Module */,
 				36510FF92AFB7AA000A5D6F4 /* Info.plist */,
+				368C5B532B2AF55A0021B76C /* GoogleService-Info.plist */,
 				36510FF12AFB7A9E00A5D6F4 /* Shoee.xcdatamodeld */,
 			);
 			path = Shoee;
@@ -1154,6 +1157,7 @@
 				365380CB2B0C801300D5C39D /* CustomViewPopUp.xib in Resources */,
 				36627D282B20006500C29388 /* PopularSoCollectionViewCell.xib in Resources */,
 				36627D7B2B293EAA00C29388 /* ChatTableViewCell.xib in Resources */,
+				368C5B542B2AF55A0021B76C /* GoogleService-Info.plist in Resources */,
 				365381102B0E047F00D5C39D /* FavoriteTableViewCell.xib in Resources */,
 				365110282AFB801100A5D6F4 /* Poppins-Regular.ttf in Resources */,
 				365110302AFB9E4D00A5D6F4 /* SignUpViewController.xib in Resources */,

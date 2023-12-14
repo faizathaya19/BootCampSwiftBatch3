@@ -11,6 +11,8 @@ pod 'netfox'
 pod 'Kingfisher'
 pod 'lottie-ios'
 pod 'FloatingPanel'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
 
   # Pods for Shoee
 

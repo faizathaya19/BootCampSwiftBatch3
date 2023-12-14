@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatTableViewCell: UITableViewCell {
+class ChatTableViewCell: BaseTableCell {
 
     @IBOutlet weak var messageText: UILabel!
     @IBOutlet weak var textForActive: UILabel!
@@ -16,7 +16,7 @@ class ChatTableViewCell: UITableViewCell {
 
     private func elapsedTimeString(from createdAt: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSSS"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
 
         if let createdDate = dateFormatter.date(from: createdAt) {

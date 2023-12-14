@@ -172,6 +172,9 @@
                                     <color key="strokeColor" name="SecondaryText"/>
                                 </backgroundConfiguration>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="btnAskProduct:" destination="-1" eventType="touchUpInside" id="SBj-pe-NtJ"/>
+                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XFy-N2-i6B">
                             <rect key="frame" x="24" y="167" width="345" height="56.666666666666657"/>

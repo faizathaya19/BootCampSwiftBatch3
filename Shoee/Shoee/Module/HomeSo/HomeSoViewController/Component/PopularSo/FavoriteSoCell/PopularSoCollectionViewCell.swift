@@ -1,11 +1,5 @@
-//
-//  FavoriteSoCollectionViewCell.swift
-//  Shoee
-//
-//  Created by Phincon on 05/12/23.
-//
-
 import UIKit
+import Kingfisher
 
 class PopularSoCollectionViewCell: UICollectionViewCell {
 
@@ -26,7 +20,19 @@ class PopularSoCollectionViewCell: UICollectionViewCell {
         titleCategoryProduct.text = category
 
         if let url = URL(string: imageURL ?? "") {
-            popularImage.kf.setImage(with: url)
+            let processor = DownsamplingImageProcessor(size: popularImage.bounds.size)
+            popularImage.kf.indicatorType = .activity
+            popularImage.kf.setImage(
+                with: url,
+                placeholder: nil,
+                options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+                ]) { _ in
+                    // Handle completion if needed
+                }
         } else {
             // Handle the case where imageURL is not a valid URL
             popularImage.image = nil

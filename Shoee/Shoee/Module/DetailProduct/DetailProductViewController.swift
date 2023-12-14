@@ -111,7 +111,7 @@ class DetailProductViewController: UIViewController {
         if let galleries = product.galleries, galleries.count >= 6 {
             imageDetailPro = Array(galleries[3...5].compactMap { URL(string: $0.url) })
         } else {
-            let defaultImageURL = URL(string: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg")!
+            let defaultImageURL = URL(string: Constants.defaultImageURL)!
             imageDetailPro = [defaultImageURL]
         }
     }
@@ -123,9 +123,10 @@ class DetailProductViewController: UIViewController {
         guard let categoryId = product?.categoriesId else { return }
         
         ProductsService.shared.performProduct(with: ProductParam(categories: categoryId)) { [weak self] newData in
-            self?.imageFamiliar.append(contentsOf: newData)
+            self?.imageFamiliar = newData
             self?.familiarShoesCollectionView.reloadData()
         }
+
     }
     
     
@@ -135,26 +136,31 @@ class DetailProductViewController: UIViewController {
         navigationController?.popViewController(animated: false)
     }
     
+    @IBAction func btnAskProduct(_ sender: Any) {
+        let ChatScreenViewController = ChatScreenViewController()
+        ChatScreenViewController.productAskIsHidden = false
+        ChatScreenViewController.productAsk = product
+        ChatScreenViewController.messageText = "Apakah Barang Ini Ready?"
+        ChatScreenViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(ChatScreenViewController, animated: true)
+    }
+    
     @IBAction private func favoriteButton(_ sender: UIButton) {
            guard let product = self.product else {
                return
            }
            
            if isProductIDInCoreData(productID: product.id) {
-               // Product already in favorites, remove it
                deleteProductIDFromCoreData(productID: product.id)
            } else {
-               // Product not in favorites, add it
                saveProductIDToCoreData(product: product)
            }
-           
-           // Update UI based on the changes
+
            updateFavoriteButtonUI()
        }
     
     @IBAction private func btnAddToCart(_ sender: Any) {
         guard let product = self.product else {
-            // Ensure there is a product to add to the cart
             return
         }
 
@@ -266,7 +272,6 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     private func configureDetailImageCell(_ cell: DetailProductCollectionViewCell, at indexPath: IndexPath) {
-        print("Image URL:", imageDetailPro[indexPath.item])
         cell.imageURL = imageDetailPro[indexPath.item]
     }
     
@@ -275,7 +280,7 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         if let gallery = imageFamiliar[indexPath.item].galleries, gallery.count > 2 {
             cell.imageURL = URL(string: gallery[2].url)
         } else {
-            let defaultImageURL = URL(string: "https://static.vecteezy.com/system/resources/thumbnails/007/872/974/small/file-not-found-illustration-with-confused-people-holding-big-magnifier-search-no-result-data-not-found-concept-can-be-used-for-website-landing-page-animation-etc-vector.jpg")!
+            let defaultImageURL = URL(string: Constants.defaultImageURL)!
             cell.imageURL = defaultImageURL
         }
     }
@@ -293,20 +298,16 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         switch collectionView {
         case familiarShoesCollectionView:
             let selectedProduct = imageFamiliar[indexPath.item]
-            
-            // Check if the detailViewController is already in the navigation stack
+        
             if let detailViewController = navigationController?.viewControllers.first(where: { $0 is DetailProductViewController }) as? DetailProductViewController {
-                // Update the existing instance with the new product
                 detailViewController.product = selectedProduct
-                detailViewController.fetchProductDetails() // Refresh the data
+                detailViewController.fetchProductDetails()
                 detailViewController.hidesBottomBarWhenPushed = true
                 navigationController?.popToViewController(detailViewController, animated: false)
             } else {
-                // If not in the stack, create a new instance and push it
                 let detailViewController = DetailProductViewController(productID: selectedProduct.id)
                 detailViewController.product = selectedProduct
                 detailViewController.hidesBottomBarWhenPushed = true
@@ -315,11 +316,8 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         default:
             break
         }
-        
-        
-        
+      
         detailImageCollectionView.reloadData()
-        // Pemanggilan updateFavoriteButtonUI() ditempatkan di sini
         updateFavoriteButtonUI()
     }
     
@@ -332,8 +330,6 @@ extension DetailProductViewController: UICollectionViewDelegate, UICollectionVie
         }
     }
 }
-
-// MARK: - Core Data Operations
 
 extension DetailProductViewController {
     
