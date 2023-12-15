@@ -13,6 +13,7 @@ pod 'lottie-ios'
 pod 'FloatingPanel'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'IQKeyboardManagerSwift'
 
   # Pods for Shoee
 

@@ -277,7 +277,8 @@ class CustomPINViewController: UIViewController {
                 paymentId: orderId!
             )
         ) { result in
-           
+            self.dismiss(animated: true, completion: nil)
+            self.onCorrectPINEntered?()
         }
     }
     
@@ -300,8 +301,7 @@ class CustomPINViewController: UIViewController {
                 itemDetails: itemDetailsArray
             )
         ){ result in
-            self.dismiss(animated: true, completion: nil)
-            self.onCorrectPINEntered?()
+           
         }
     }
 

@@ -29,35 +29,53 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zga-QT-qAm" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="285" width="393" height="94"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zga-QT-qAm" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="307" width="393" height="94"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="cSg-Mn-453"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwy-1i-fUM" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="387" width="393" height="94"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwy-1i-fUM" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="409" width="393" height="94"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="cEA-bm-UXd"/>
+                    </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-qs-jpb">
-                    <rect key="frame" x="40" y="92" width="87" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="31"/>
-                    <color key="textColor" name="PrimaryText"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign In to Countinue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EET-EE-apG">
-                    <rect key="frame" x="40" y="137" width="235" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                    <color key="textColor" name="SecondaryText"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwZ-h7-21q">
-                    <rect key="frame" x="35" y="522" width="323" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kPN-w7-ad9">
+                    <rect key="frame" x="40" y="150" width="313" height="77"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BW-qs-jpb">
+                            <rect key="frame" x="0.0" y="0.0" width="87" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="19y-LN-vaS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="31"/>
+                            <color key="textColor" name="PrimaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In to Countinue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EET-EE-apG">
+                            <rect key="frame" x="0.0" y="53" width="171" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="YHL-5h-bZR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                            <color key="textColor" name="SecondaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="EET-EE-apG" firstAttribute="top" secondItem="5BW-qs-jpb" secondAttribute="bottom" constant="10" id="8N0-3q-CPa"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwZ-h7-21q">
+                    <rect key="frame" x="35" y="544" width="323" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="q0Q-sD-3OF"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Sign In">
                         <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -67,16 +85,20 @@
                         <action selector="btnSignIn:" destination="-1" eventType="touchUpInside" id="fA4-fW-2l3"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpM-va-M9j">
-                    <rect key="frame" x="81" y="799" width="156" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpM-va-M9j">
+                    <rect key="frame" x="70.000000000000014" y="764" width="155.33333333333337" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="4KD-JO-vKp"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" name="SecondaryText"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thi-IG-lf1">
-                    <rect key="frame" x="218" y="797" width="94" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thi-IG-lf1">
+                    <rect key="frame" x="225.33333333333334" y="764" width="97.666666666666657" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="aKh-7x-nk5"/>
+                    </constraints>
                     <color key="tintColor" name="Primary"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Sign up">
@@ -87,8 +109,27 @@
                     </connections>
                 </button>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <viewLayoutGuide key="safeArea" id="xYB-j0-hro"/>
             <color key="backgroundColor" name="BG1"/>
+            <constraints>
+                <constraint firstItem="Zga-QT-qAm" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="17G-I7-zEH"/>
+                <constraint firstAttribute="bottom" secondItem="dpM-va-M9j" secondAttribute="bottom" constant="56" id="2WW-J6-LNQ"/>
+                <constraint firstAttribute="trailing" secondItem="JwZ-h7-21q" secondAttribute="trailing" constant="35" id="4rl-1M-0GN"/>
+                <constraint firstItem="Zga-QT-qAm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5YO-e5-T1T"/>
+                <constraint firstItem="dwy-1i-fUM" firstAttribute="top" secondItem="Zga-QT-qAm" secondAttribute="bottom" constant="8" id="H77-RN-CKP"/>
+                <constraint firstItem="dwy-1i-fUM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hb6-zw-LBQ"/>
+                <constraint firstItem="JwZ-h7-21q" firstAttribute="top" secondItem="dwy-1i-fUM" secondAttribute="bottom" constant="41" id="KsT-vP-RwM"/>
+                <constraint firstItem="dwy-1i-fUM" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Sh3-iq-VfG"/>
+                <constraint firstItem="dpM-va-M9j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="dcE-b1-Yd7"/>
+                <constraint firstItem="Zga-QT-qAm" firstAttribute="top" secondItem="kPN-w7-ad9" secondAttribute="bottom" constant="80" id="hEf-np-shK"/>
+                <constraint firstAttribute="bottom" secondItem="Thi-IG-lf1" secondAttribute="bottom" constant="56" id="keq-Ao-NYt"/>
+                <constraint firstItem="JwZ-h7-21q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="lE9-WN-Tuw"/>
+                <constraint firstItem="Thi-IG-lf1" firstAttribute="leading" secondItem="dpM-va-M9j" secondAttribute="trailing" id="mkP-uH-xae"/>
+                <constraint firstItem="kPN-w7-ad9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="qP5-Sn-CU1"/>
+                <constraint firstAttribute="trailing" secondItem="Thi-IG-lf1" secondAttribute="trailing" constant="70" id="t6x-Za-JGt"/>
+                <constraint firstAttribute="trailing" secondItem="kPN-w7-ad9" secondAttribute="trailing" constant="40" id="xcq-R2-oP5"/>
+                <constraint firstItem="kPN-w7-ad9" firstAttribute="top" secondItem="xYB-j0-hro" secondAttribute="top" constant="91" id="yTR-SX-Np9"/>
+            </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
             </userDefinedRuntimeAttributes>

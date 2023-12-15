@@ -16,10 +16,12 @@ class CustomMainTabBar : UITabBarController {
         
         return btn
     }()
-    
+
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         hidesBottomBarWhenPushed = false
         navigationController?.isNavigationBarHidden = true
+        
     }
     
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class CustomMainTabBar : UITabBarController {
         btnMiddle.frame = CGRect(x: Int(self.tabBar.bounds.width)/2 - 30, y: -20, width: 60, height: 60)
         
         btnMiddle.addTarget(self, action: #selector(btnMiddleTapped), for: .touchUpInside)
+        
+       
     }
     
     override func loadView() {

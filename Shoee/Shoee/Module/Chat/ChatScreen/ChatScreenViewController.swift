@@ -1,23 +1,30 @@
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 class ChatScreenViewController: UIViewController {
+
     @IBOutlet weak var massageViewContainer: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var nameProductAsk: UILabel!
     @IBOutlet weak var priceProductAsk: UILabel!
     @IBOutlet weak var chatScreenTableView: UITableView!
     @IBOutlet weak var heightMessageTextView: NSLayoutConstraint!
+    
     @IBOutlet weak var messageTextView: UITextView! {
         didSet {
-            messageText = messageTextView.text
+            updateMessageText()
         }
     }
-
+    
+    @IBAction func btnBack(_ sender: Any) {
+        navigationController?.popViewController(animated: false)
+    }
     
     @IBOutlet weak var imageAskProduct: UIImageView!
     @IBOutlet weak var btnCancelAskProduct: UIButton!
     @IBOutlet weak var askProductViewContainter: UIView!
-    
+
     let userId = UserDefaultManager.getUserID()
     var messageData: [MessageModel] = []
     var productAsk: ProductModel?
@@ -25,10 +32,7 @@ class ChatScreenViewController: UIViewController {
     let messageRef = Database.database().reference().child("messages")
     var productAskIsHidden: Bool = true
     
-    @IBAction func btnBack(_ sender: Any) {
-        navigationController?.popViewController(animated: false)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -36,8 +40,11 @@ class ChatScreenViewController: UIViewController {
         scrollToBottom()
         configureProductView()
         observeMessages()
+        
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses = [ChatScreenViewController.self]
+
     }
-    
+
     func setupUI() {
         btnCancelAskProduct.layer.cornerRadius = btnCancelAskProduct.frame.height / 2
         btnCancelAskProduct.clipsToBounds = true
@@ -49,15 +56,16 @@ class ChatScreenViewController: UIViewController {
         askProductViewContainter.layer.cornerRadius = 15.0
         imageAskProduct.layer.cornerRadius = 15.0
         askProductViewContainter.isHidden = productAskIsHidden
+        navigationController?.isNavigationBarHidden = true
     }
-    
+
     func configureTableView() {
         chatScreenTableView.delegate = self
         chatScreenTableView.dataSource = self
         chatScreenTableView.register(UINib(nibName: "ChatReceiverTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatReceiverTableViewCell")
         chatScreenTableView.register(UINib(nibName: "ChatSenderTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatSenderTableViewCell")
     }
-    
+
     func scrollToBottom() {
         if messageData.isEmpty {
             return
@@ -66,31 +74,22 @@ class ChatScreenViewController: UIViewController {
         let indexPath = IndexPath(row: messageData.count - 1, section: 0)
         chatScreenTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
     }
-    
+
+    func updateMessageText() {
+        messageText = messageTextView.text
+    }
+
     @IBAction func sendMessageBtn(_ sender: Any) {
         guard let messageText = messageTextView.text, !messageText.isEmpty else {
             return
         }
 
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let createdAt = dateFormatter.string(from: currentDate)
-
-        let product: MessageModel.MessageData.MessageProduct?
-        if let productId = productAsk?.id, productId != 0 {
-            product = MessageModel.MessageData.MessageProduct(
-                productId: productId,
-                productName: productAsk?.name ?? "",
-                price: productAsk.flatMap { Int($0.price) },
-                image: ""
-            )
-        } else {
-            product = nil
-        }
+        let id = generateCustomID()
+        let createdAt = getCurrentDateString()
+        let product = createProductModel()
 
         let newMessage = MessageModel(
-            id: UUID().uuidString,
+            id: id,
             data: MessageModel.MessageData(
                 createdAt: createdAt,
                 isFromUser: true,
@@ -106,7 +105,6 @@ class ChatScreenViewController: UIViewController {
         messageTextView.text = ""
 
         if let product = product {
-            // Product is not nil, execute additional code
             productAskIsHidden = true
             productAsk = nil
             askProductViewContainter.isHidden = true
@@ -115,22 +113,18 @@ class ChatScreenViewController: UIViewController {
         refreshData()
         scrollToBottom()
     }
-
-
     
-    func observeMessages() {
-            messageRef.observe(.childAdded, with: { [weak self] snapshot in
+    func observeNewMessages() {
+            messageRef.observe(.childChanged, with: { [weak self] snapshot in
                 guard let strongSelf = self,
-                      let messageData = snapshot.value as? [String: Any],
-                      let data = messageData["data"] as? [String: Any],
-                      let userIdFromSnapshot = data["userId"] as? Int,
-                      userIdFromSnapshot == strongSelf.userId else {
-                    // Skip messages not belonging to the current user
-                    return
+                    let messageData = snapshot.value as? [String: Any],
+                    let data = messageData["data"] as? [String: Any],
+                    let userIdFromSnapshot = data["userId"] as? Int,
+                    userIdFromSnapshot == strongSelf.userId else {
+                        return
                 }
-                
+
                 let id = snapshot.key
-                
                 let productData = data["product"] as? [String: Any]
                 let product = MessageModel.MessageData.MessageProduct(
                     productId: productData?["productId"] as? Int,
@@ -138,7 +132,7 @@ class ChatScreenViewController: UIViewController {
                     price: productData?["price"] as? Int,
                     image: productData?["image"] as? String
                 )
-                
+
                 let message = MessageModel(
                     id: id,
                     data: MessageModel.MessageData(
@@ -151,14 +145,86 @@ class ChatScreenViewController: UIViewController {
                         product: product
                     )
                 )
-                
-                strongSelf.messageData.append(message)
-                strongSelf.refreshData()
-                strongSelf.scrollToBottom()
+
+               
+                if !strongSelf.messageData.contains(where: { $0.id == id }) {
+                    strongSelf.messageData.append(message)
+                    strongSelf.refreshData()
+                    strongSelf.scrollToBottom()
+                }
             })
         }
-    
-    
+
+    func generateCustomID() -> String {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        return dateFormatter.string(from: currentDate)
+    }
+
+    func getCurrentDateString() -> String {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: currentDate)
+    }
+
+    func clearMessageInput() {
+        messageTextView.text = ""
+    }
+
+    func createProductModel() -> MessageModel.MessageData.MessageProduct? {
+        guard let productId = productAsk?.id, productId != 0 else {
+            return nil
+        }
+
+        return MessageModel.MessageData.MessageProduct(
+            productId: productId,
+            productName: productAsk?.name ?? "",
+            price: productAsk.flatMap { Int($0.price) },
+            image: ""
+        )
+    }
+
+
+    func observeMessages() {
+        messageRef.observe(.childAdded, with: { [weak self] snapshot in
+            guard let strongSelf = self,
+                let messageData = snapshot.value as? [String: Any],
+                let data = messageData["data"] as? [String: Any],
+                let userIdFromSnapshot = data["userId"] as? Int,
+                userIdFromSnapshot == strongSelf.userId else {
+                    return
+            }
+
+            let id = snapshot.key
+            let productData = data["product"] as? [String: Any]
+            let product = MessageModel.MessageData.MessageProduct(
+                productId: productData?["productId"] as? Int,
+                productName: productData?["productName"] as? String,
+                price: productData?["price"] as? Int,
+                image: productData?["image"] as? String
+            )
+
+            let message = MessageModel(
+                id: id,
+                data: MessageModel.MessageData(
+                    createdAt: data["createdAt"] as? String ?? "",
+                    isFromUser: data["isFromUser"] as? Bool ?? false,
+                    message: data["message"] as? String ?? "",
+                    userId: userIdFromSnapshot,
+                    username: data["username"] as? String ?? "",
+                    imageProfile: data["imageProfile"] as? String ?? "",
+                    product: product
+                )
+            )
+
+            strongSelf.messageData.append(message)
+            strongSelf.refreshData()
+            strongSelf.scrollToBottom()
+        })
+    }
+
     func saveMessageToFirebase(message: MessageModel) {
         let messageData: [String: Any] = [
             "id": message.id,
@@ -177,7 +243,7 @@ class ChatScreenViewController: UIViewController {
                 ]
             ]
         ]
-        
+
         messageRef.child(message.id).setValue(messageData) { (error, _) in
             if let error = error {
                 print("Error saving message to Firebase: \(error.localizedDescription)")
@@ -186,13 +252,13 @@ class ChatScreenViewController: UIViewController {
             }
         }
     }
-    
+
     func configureProductView() {
         guard let product = productAsk else { return }
         nameProductAsk.text = product.name
         priceProductAsk.text = "\(product.price)"
         messageTextView.text = messageText
-        
+
         if let imageGalleries = product.galleries, imageGalleries.count > 2 {
             let imageUrl = URL(string: imageGalleries[2].url)
             imageAskProduct.kf.setImage(with: imageUrl)
@@ -200,17 +266,17 @@ class ChatScreenViewController: UIViewController {
             let defaultImageURL = URL(string: Constants.defaultImageURL)
             imageAskProduct.kf.setImage(with: defaultImageURL)
         }
-        
+
         askProductViewContainter.isHidden = productAskIsHidden
     }
-    
+
     @IBAction func btnCancelAskProductAction(_ sender: Any) {
         productAskIsHidden = true
         productAsk = nil
         askProductViewContainter.isHidden = true
         refreshData()
     }
-    
+
     func refreshData() {
         chatScreenTableView.reloadData()
     }
@@ -285,11 +351,5 @@ extension ChatScreenViewController: UITableViewDelegate, UITableViewDataSource, 
 
 
 extension ChatScreenViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        let newSize = textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.greatestFiniteMagnitude))
-        let maxHeight: CGFloat = messageTextView.font!.lineHeight * 4
-        let newHeight = min(newSize.height, maxHeight)
-        heightMessageTextView.constant = newHeight
-        view.layoutIfNeeded()
-    }
+    
 }

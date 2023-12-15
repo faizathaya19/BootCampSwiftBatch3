@@ -23,6 +23,7 @@
                 <outlet property="askProductViewContainter" destination="CXh-Kn-GGW" id="jKJ-f4-4a2"/>
                 <outlet property="btnCancelAskProduct" destination="NiK-gE-QK2" id="Lwy-tX-sC8"/>
                 <outlet property="chatScreenTableView" destination="fzU-dD-sPy" id="H1G-gp-Lmb"/>
+                <outlet property="headerView" destination="iGx-1Q-rgg" id="1ZK-4O-Eoz"/>
                 <outlet property="heightMessageTextView" destination="occ-yF-K1l" id="XcF-U0-zFR"/>
                 <outlet property="imageAskProduct" destination="eUs-TW-9It" id="bdh-i3-t0T"/>
                 <outlet property="massageViewContainer" destination="i8k-vM-eLR" id="8g7-BE-3W5"/>
@@ -37,7 +38,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGx-1Q-rgg">
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGx-1Q-rgg">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixx-pB-LiK">
@@ -76,6 +77,9 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fzU-dD-sPy">
                     <rect key="frame" x="0.0" y="140" width="393" height="595"/>
                     <color key="backgroundColor" name="BG3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="595" id="NVd-lM-FEs"/>
+                    </constraints>
                     <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,7 +111,7 @@
                             <constraints>
                                 <constraint firstItem="asA-Eg-jmG" firstAttribute="leading" secondItem="i8k-vM-eLR" secondAttribute="leading" constant="6" id="DVh-hI-zW3"/>
                                 <constraint firstAttribute="trailing" secondItem="asA-Eg-jmG" secondAttribute="trailing" constant="6" id="HVa-GI-qw0"/>
-                                <constraint firstItem="asA-Eg-jmG" firstAttribute="top" secondItem="i8k-vM-eLR" secondAttribute="top" constant="12" id="rSD-ap-3j9"/>
+                                <constraint firstAttribute="height" constant="62" id="hYY-u4-cEm"/>
                                 <constraint firstAttribute="bottom" secondItem="asA-Eg-jmG" secondAttribute="bottom" constant="12" id="yUL-6d-tgr"/>
                             </constraints>
                         </view>
@@ -174,18 +178,17 @@
             </subviews>
             <color key="backgroundColor" name="BG3"/>
             <constraints>
-                <constraint firstItem="H4E-aA-EY6" firstAttribute="top" secondItem="fzU-dD-sPy" secondAttribute="bottom" constant="15" id="1Pr-X4-AhL"/>
                 <constraint firstAttribute="trailing" secondItem="fzU-dD-sPy" secondAttribute="trailing" id="9rL-lI-xLF"/>
                 <constraint firstAttribute="trailing" secondItem="iGx-1Q-rgg" secondAttribute="trailing" id="Dry-ZC-USk"/>
                 <constraint firstAttribute="trailing" secondItem="H4E-aA-EY6" secondAttribute="trailing" constant="70" id="E1A-rE-P0q"/>
                 <constraint firstItem="fzU-dD-sPy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FT8-tJ-ORY"/>
-                <constraint firstItem="iGx-1Q-rgg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pu7-lB-AgM"/>
                 <constraint firstItem="CXh-Kn-GGW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="YUe-1I-nxf"/>
                 <constraint firstItem="H4E-aA-EY6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="cOo-QO-86L"/>
+                <constraint firstItem="iGx-1Q-rgg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dRl-gl-iHQ"/>
+                <constraint firstItem="H4E-aA-EY6" firstAttribute="top" secondItem="CXh-Kn-GGW" secondAttribute="bottom" constant="15" id="dcP-sW-COx"/>
+                <constraint firstItem="fzU-dD-sPy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="eGo-PI-i5Q"/>
                 <constraint firstItem="iGx-1Q-rgg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lKP-H3-yTB"/>
-                <constraint firstItem="fzU-dD-sPy" firstAttribute="top" secondItem="iGx-1Q-rgg" secondAttribute="bottom" id="lYc-rY-EXp"/>
                 <constraint firstAttribute="bottom" secondItem="H4E-aA-EY6" secondAttribute="bottom" constant="40" id="o5q-j3-MJp"/>
-                <constraint firstItem="H4E-aA-EY6" firstAttribute="top" secondItem="CXh-Kn-GGW" secondAttribute="bottom" constant="15" id="uYq-Bo-9J8"/>
             </constraints>
             <point key="canvasLocation" x="64.885496183206101" y="19.718309859154932"/>
         </view>

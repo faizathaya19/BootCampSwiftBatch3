@@ -5,7 +5,7 @@ import CoreData
 class HomeSoViewController: UIViewController {
     @IBOutlet private weak var homeSoTableView: UITableView!
     
-    private var viewModel = HomeSoViewModel()
+    var viewModel = HomeSoViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,10 @@ class HomeSoViewController: UIViewController {
             self?.reloadData()
         }
         viewModel.fetchFirst()
+        
+        viewModel.errorHandler = { [weak self] error in
+            self?.didFailFetch(with: error)
+        }
     }
     
     private func setupTableView() {
@@ -24,6 +28,7 @@ class HomeSoViewController: UIViewController {
         registerCells()
         homeSoTableView.rowHeight = UITableView.automaticDimension
         homeSoTableView.contentInset.bottom = 130
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func registerCells() {
@@ -58,8 +63,8 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
             
             let activityIndicatorView = UIActivityIndicatorView(style: .medium)
             
-              activityIndicatorView.startAnimating()
-              homeSoTableView.tableFooterView = activityIndicatorView
+            activityIndicatorView.startAnimating()
+            homeSoTableView.tableFooterView = activityIndicatorView
             
             viewModel.loadMoreData()
         }

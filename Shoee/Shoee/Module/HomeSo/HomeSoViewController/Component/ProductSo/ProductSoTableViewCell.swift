@@ -1,5 +1,4 @@
 import UIKit
-import Kingfisher
 
 class ProductSoTableViewCell: BaseTableCell {
     
@@ -7,7 +6,6 @@ class ProductSoTableViewCell: BaseTableCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var nameProduct: UILabel!
     @IBOutlet weak var priceProduct: UILabel!
-
     override func awakeFromNib() {
         super.awakeFromNib()
         imageData.layer.cornerRadius = 20
@@ -19,20 +17,13 @@ class ProductSoTableViewCell: BaseTableCell {
         categoryLabel.text = category
         
         if let url = URL(string: imageURL) {
-            let processor = DownsamplingImageProcessor(size: imageData.bounds.size)
-            imageData.kf.indicatorType = .activity
-            imageData.kf.setImage(
-                with: url,
-                placeholder: nil,
-                options: [
-                    .processor(processor),
-                    .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
-                    .cacheOriginalImage
-                ]) { _ in
-                }
+            // Load image using Kingfisher
+            imageData.kf.setImage(with: url)
         } else {
+            // Handle the case where imageURL is not a valid URL
             imageData.image = nil
         }
     }
 }
+
+

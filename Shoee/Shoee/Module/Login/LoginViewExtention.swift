@@ -5,6 +5,7 @@ extension LoginViewController: LoginViewModelDelegate {
         DispatchQueue.main.async {
             self.signInButton.hideSkeleton()
             let vc = CustomMainTabBar()
+    
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

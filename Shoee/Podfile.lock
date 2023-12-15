@@ -84,6 +84,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.12.0):
     - GoogleUtilities/Logger
+  - IQKeyboardManagerSwift (6.5.16)
   - Kingfisher (7.10.0)
   - leveldb-library (1.22.2)
   - lottie-ios (4.3.3)
@@ -101,6 +102,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - FloatingPanel
+  - IQKeyboardManagerSwift
   - Kingfisher
   - lottie-ios
   - netfox
@@ -120,6 +122,7 @@ SPEC REPOS:
     - FloatingPanel
     - GoogleAppMeasurement
     - GoogleUtilities
+    - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
     - lottie-ios
@@ -141,6 +144,7 @@ SPEC CHECKSUMS:
   FloatingPanel: 0c32d8c97e52cf6913833af573506f5d86451465
   GoogleAppMeasurement: 68afe759316673c6554dac35a0c7ae8f5d6cb4ed
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
@@ -149,6 +153,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: a083a80833c4f5bed8e6c2477609e02c4f7179a8
+PODFILE CHECKSUM: a6535c764a4b01b452abb12cc4cbb0e65f7f9812
 
 COCOAPODS: 1.14.2

@@ -12,6 +12,7 @@
 		363357732B10A55200A952E3 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363357712B10A55200A952E3 /* CartTableViewCell.swift */; };
 		363357742B10A55200A952E3 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363357722B10A55200A952E3 /* CartTableViewCell.xib */; };
 		36498CD82B0752C100A1A5DA /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36498CD72B0752C100A1A5DA /* LogoutResponse.swift */; };
+		364AB43C2B2C56E500C22952 /* UINavigationBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364AB43B2B2C56E500C22952 /* UINavigationBarExt.swift */; };
 		364E40F32B071723001EB357 /* LoginParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E40F22B071723001EB357 /* LoginParam.swift */; };
 		364E40F52B071AA5001EB357 /* RegisterParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E40F42B071AA5001EB357 /* RegisterParam.swift */; };
 		364E40F72B071C84001EB357 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E40F62B071C84001EB357 /* LoginResponse.swift */; };
@@ -170,6 +171,7 @@
 		363357712B10A55200A952E3 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		363357722B10A55200A952E3 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		36498CD72B0752C100A1A5DA /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		364AB43B2B2C56E500C22952 /* UINavigationBarExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExt.swift; sourceTree = "<group>"; };
 		364E40F22B071723001EB357 /* LoginParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginParam.swift; sourceTree = "<group>"; };
 		364E40F42B071AA5001EB357 /* RegisterParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParam.swift; sourceTree = "<group>"; };
 		364E40F62B071C84001EB357 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -432,7 +434,6 @@
 			isa = PBXGroup;
 			children = (
 				36627D382B20142300C29388 /* HeaderTable */,
-				36BD8FD72B15D30700101014 /* PIN */,
 				365380C72B0C7FE200D5C39D /* CustomViewPopUp */,
 				365110362AFC64A900A5D6F4 /* CustomMainTabBar */,
 				365381082B0DFDA400D5C39D /* EmptyCell */,
@@ -468,6 +469,7 @@
 				365381132B0EDAFE00D5C39D /* Common.swift */,
 				36627D3B2B21956E00C29388 /* ExtTableView.swift */,
 				36627D712B27EC7A00C29388 /* ExtCollectionView.swift */,
+				364AB43B2B2C56E500C22952 /* UINavigationBarExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -954,6 +956,7 @@
 		36BD90052B1722C100101014 /* PaymentProcess */ = {
 			isa = PBXGroup;
 			children = (
+				36BD8FD72B15D30700101014 /* PIN */,
 				36BD90192B181B1C00101014 /* CencelPayment */,
 				36BD90132B172EF000101014 /* AccountVA */,
 				36BD900A2B17234E00101014 /* PaymentProcess */,
@@ -1239,6 +1242,7 @@
 				36627D7A2B293EAA00C29388 /* ChatTableViewCell.swift in Sources */,
 				365381052B0DA4B200D5C39D /* CartViewController.swift in Sources */,
 				364E40F92B071D81001EB357 /* MetaModel.swift in Sources */,
+				364AB43C2B2C56E500C22952 /* UINavigationBarExt.swift in Sources */,
 				365380FF2B0D913600D5C39D /* SignUpViewModel.swift in Sources */,
 				36627D2E2B20006500C29388 /* CategorySoTableViewCell.swift in Sources */,
 				362C1F5C2B1EC6F6004C49B6 /* ProductSoTableViewCell.swift in Sources */,
@@ -1452,11 +1456,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q32A6U4W6Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoee/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1478,11 +1484,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q32A6U4W6Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shoee/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

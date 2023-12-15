@@ -2,13 +2,19 @@ import UIKit
 import CoreData
 import netfox
 import Firebase
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        NFX.sharedInstance().start()
-        FirebaseApp.configure()
+        
+        NFX.sharedInstance().start() //netfox
+        FirebaseApp.configure() //firebase
+        
+        IQKeyboardManager.shared.enable = true // enable property enables/disables IQKeyboardManager.
+
+
         return true
     }
     

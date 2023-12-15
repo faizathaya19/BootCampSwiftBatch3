@@ -36,11 +36,6 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupRefreshTimer()
-    }
-    
-    deinit {
-        refreshTimer?.invalidate()
     }
     
     private func setupTableView() {
@@ -49,33 +44,16 @@ class ChatViewController: UIViewController {
         chatTableView.register(UINib(nibName: "EmptyTableViewCell", bundle: nil), forCellReuseIdentifier: "emptyTableViewCell")
         chatTableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTableViewCell")
         chatTableView.rowHeight = UITableView.automaticDimension
+        fetchMessage()
     }
     
-    private func setupRefreshTimer() {
-        refreshTimer = Timer.scheduledTimer(timeInterval: 00.1, target: self, selector: #selector(updateChat), userInfo: nil, repeats: true)
-        refreshTimer?.tolerance = 0.1
-    }
-    
-    @objc private func updateChat() {
-        observeMessages()
-//        fetchMessage()
-        chatTableView.reloadData()
-    }
-    
-//    func fetchMessage() {
-//        let allMessages = [MessageModel]
-//
-//        messageData = allMessages.filter { $0.data.userId == userId } .reversed()
-//    }
-    
-    func observeMessages() {
+    func fetchMessage() {
         messageRef.observe(.childAdded, with: { [weak self] snapshot in
             guard let strongSelf = self,
                   let messageData = snapshot.value as? [String: Any],
                   let data = messageData["data"] as? [String: Any],
                   let userIdFromSnapshot = data["userId"] as? Int,
                   userIdFromSnapshot == strongSelf.userId else {
-                // Skip messages not belonging to the current user
                 return
             }
 
@@ -102,15 +80,17 @@ class ChatViewController: UIViewController {
                 )
             )
 
-            // Check if the message is newer than existing messages
             if let existingMessage = strongSelf.messageData.first, message.data.createdAt > existingMessage.data.createdAt {
                 strongSelf.messageData.insert(message, at: 0)
             } else {
                 strongSelf.messageData.append(message)
             }
 
-            strongSelf.chatTableView.reloadData()
+            DispatchQueue.main.async {
+                strongSelf.chatTableView.reloadData()
+            }
         })
+
     }
 
 }
@@ -157,6 +137,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource, EmptyC
         if let navigationController = self.navigationController {
             let ChatScreenViewController = ChatScreenViewController()
             ChatScreenViewController.hidesBottomBarWhenPushed = true
+            ChatScreenViewController.navigationController?.isNavigationBarHidden = true 
             navigationController.pushViewController(ChatScreenViewController, animated: true)
         }
     }

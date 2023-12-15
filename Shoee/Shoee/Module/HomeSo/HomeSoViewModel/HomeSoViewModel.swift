@@ -27,12 +27,15 @@ enum HomeSo: Int, CaseIterable {
     }
 }
 
+protocol HomeSoViewModelDelegate: AnyObject {
+    func didFailFetch(with error: Error)
+}
+
 class HomeSoViewModel {
     var navigationController: UINavigationController?
     
-    func setNavigationController(_ navigationController: UINavigationController?) {
-        self.navigationController = navigationController
-    }
+    weak var delegate: HomeSoViewModelDelegate?
+    
     var selectedCategoryId: Int? = Constants.defaultCategoryId
     var page = 1
     
@@ -47,15 +50,30 @@ class HomeSoViewModel {
     var hasMoreData: Bool = true
     
     var updateHandler: (() -> Void)?
+    var errorHandler: ((Error) -> Void)?
     
-    func fetchFirst() {
-        fetchUsers()
-        fetchCategory()
-        fetchData()
-        fetchAllProducts()
+    private let dataFetchGroup = DispatchGroup()
+    
+    func setNavigationController(_ navigationController: UINavigationController?) {
+        self.navigationController = navigationController
     }
     
-    func fetchData(){
+    func fetchFirst() {
+        dataFetchGroup.enter()
+        fetchUsers()
+        
+        dataFetchGroup.enter()
+        fetchCategory()
+        
+        dataFetchGroup.enter()
+        fetchAllProducts()
+        
+        dataFetchGroup.notify(queue: .main) { [weak self] in
+            self?.updateHandler?()
+        }
+    }
+    
+    func fetchData() {
         fetchProductWithCategory()
     }
     
@@ -74,17 +92,21 @@ class HomeSoViewModel {
     private func fetchAllProducts() {
         fetchProducts(page: page) { [weak self] in
             self?.isLoading = false
+            self?.dataFetchGroup.leave()
         }
         fetchPopular()
     }
     
     private func fetchCategory() {
         CategoryService.shared.getCategories { [weak self] result in
+            defer {
+                self?.dataFetchGroup.leave()
+            }
+            
             guard let self = self else { return }
             switch result {
             case .success(let categories):
                 self.categoryData = categories.reversed()
-                self.updateHandler?()
             case .failure(let error):
                 self.showFetchError(error)
             }
@@ -101,14 +123,18 @@ class HomeSoViewModel {
     }
     
     private func fetchUsers() {
+        dataFetchGroup.enter()
         APIManager.shared.makeAPICall(endpoint: .user) { [weak self] (result: Result<ResponseUserModel, Error>) in
+            defer {
+                self?.dataFetchGroup.leave()
+            }
+            
             guard let self = self else { return }
             
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
                     self.userData = [response.data]
-                    self.updateHandler?()
                 case .failure(let error):
                     self.showFetchError(error)
                 }
@@ -142,7 +168,7 @@ class HomeSoViewModel {
     }
     
     private func showFetchError(_ error: Error) {
-        print("Failed to fetch data: \(error.localizedDescription)")
+        errorHandler?(error)
     }
     
     internal func handleProductSelection(_ product: ProductModel) {

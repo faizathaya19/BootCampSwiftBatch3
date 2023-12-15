@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 extension UIViewController {
-      
+    
     func showCustomAlertWith(detailResponseOkAction: (() ->())? = {}, title: String, message: String, image: UIImage?, actions: [[String: () -> Void]]?) {
         let alertVC = CustomViewPopUp.init(nibName: "CustomViewPopUp", bundle: nil)
         alertVC.titleM = title
@@ -35,11 +35,10 @@ extension UIViewController {
             let vC = PaymentProcessViewController(paymentID: alertVC.orderId!)
             vC.paymentBCA = alertVC.paymentBCA
             self?.navigationController?.pushViewController(vC, animated: true)
-          }
+        }
         alertVC.generateOrderID()
         present(alertVC, animated: true, completion: nil)
     }
-
     
 }
 
