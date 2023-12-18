@@ -24,19 +24,14 @@ extension UIViewController {
         self.present(alertVC, animated: true, completion: nil)
     }
     
-    func showCustomPIN(with itemList: [Items], dataOther: CheckOut, paymentSelectionData: PaymentSelectModel) {
+    func showCustomPIN() {
         let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
         alertVC.modalTransitionStyle = .crossDissolve
         alertVC.modalPresentationStyle = .overCurrentContext
-        alertVC.itemList = itemList
-        alertVC.dataOther = dataOther
-        alertVC.paymentSelectionData = paymentSelectionData
         alertVC.onCorrectPINEntered = { [weak self] in
-            let vC = PaymentProcessViewController(paymentID: alertVC.orderId!)
-            vC.paymentBCA = alertVC.paymentBCA
-            self?.navigationController?.pushViewController(vC, animated: true)
-        }
-        alertVC.generateOrderID()
+            print("onCorrectPINEntered closure invoked")
+               self?.dismiss(animated: true, completion: nil)
+           }
         present(alertVC, animated: true, completion: nil)
     }
     

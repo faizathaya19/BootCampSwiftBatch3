@@ -29,7 +29,6 @@
 		36510FED2AFB7A9E00A5D6F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36510FEC2AFB7A9E00A5D6F4 /* ViewController.swift */; };
 		36510FF32AFB7A9E00A5D6F4 /* Shoee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36510FF12AFB7A9E00A5D6F4 /* Shoee.xcdatamodeld */; };
 		36510FF52AFB7AA000A5D6F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36510FF42AFB7AA000A5D6F4 /* Assets.xcassets */; };
-		36510FF82AFB7AA000A5D6F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36510FF62AFB7AA000A5D6F4 /* LaunchScreen.storyboard */; };
 		365110162AFB7BD200A5D6F4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365110152AFB7BD200A5D6F4 /* CustomTextField.swift */; };
 		365110182AFB7BEB00A5D6F4 /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365110172AFB7BEB00A5D6F4 /* CustomTextField.xib */; };
 		3651101A2AFB7F1500A5D6F4 /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365110192AFB7F1500A5D6F4 /* ViewExt.swift */; };
@@ -157,6 +156,7 @@
 		36BD90372B1845C900101014 /* APIManagerPaymentGateWay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD90362B1845C900101014 /* APIManagerPaymentGateWay.swift */; };
 		36BD903B2B1873F400101014 /* BCAParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD903A2B1873F400101014 /* BCAParam.swift */; };
 		36BD90602B197D1600101014 /* CustomHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD905F2B197D1600101014 /* CustomHeaderTableView.swift */; };
+		36D9A7C62B300E7D00ABA5DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D9A7C52B300E7D00ABA5DD /* Launch Screen.storyboard */; };
 		36FBF6332B04D48B0070A476 /* DetailProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF6312B04D48B0070A476 /* DetailProductViewController.xib */; };
 		36FBF63E2B05BAF40070A476 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF63D2B05BAF40070A476 /* CustomPageControl.swift */; };
 		36FBF6402B05CD7E0070A476 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF63F2B05CD7E0070A476 /* Poppins-SemiBold.ttf */; };
@@ -189,7 +189,6 @@
 		36510FEC2AFB7A9E00A5D6F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36510FF22AFB7A9E00A5D6F4 /* Shoee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shoee.xcdatamodel; sourceTree = "<group>"; };
 		36510FF42AFB7AA000A5D6F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		36510FF72AFB7AA000A5D6F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36510FF92AFB7AA000A5D6F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		365110152AFB7BD200A5D6F4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		365110172AFB7BEB00A5D6F4 /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
@@ -318,6 +317,7 @@
 		36BD90362B1845C900101014 /* APIManagerPaymentGateWay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerPaymentGateWay.swift; sourceTree = "<group>"; };
 		36BD903A2B1873F400101014 /* BCAParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCAParam.swift; sourceTree = "<group>"; };
 		36BD905F2B197D1600101014 /* CustomHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderTableView.swift; sourceTree = "<group>"; };
+		36D9A7C52B300E7D00ABA5DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		36FBF6312B04D48B0070A476 /* DetailProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailProductViewController.xib; sourceTree = "<group>"; };
 		36FBF63D2B05BAF40070A476 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		36FBF63F2B05CD7E0070A476 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -519,7 +519,7 @@
 		365110052AFB7ABA00A5D6F4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				36510FF62AFB7AA000A5D6F4 /* LaunchScreen.storyboard */,
+				36D9A7C52B300E7D00ABA5DD /* Launch Screen.storyboard */,
 				36510FF42AFB7AA000A5D6F4 /* Assets.xcassets */,
 				365110072AFB7AF000A5D6F4 /* Fonts */,
 			);
@@ -1141,9 +1141,9 @@
 				36BD901D2B181B8B00101014 /* CencelPaymentTableViewCell.xib in Resources */,
 				365110472AFC9B8300A5D6F4 /* FavoriteViewController.xib in Resources */,
 				36627D762B28092A00C29388 /* DetailProductCollectionViewCell.xib in Resources */,
-				36510FF82AFB7AA000A5D6F4 /* LaunchScreen.storyboard in Resources */,
 				36BD8FFA2B16F15600101014 /* ListOrderDetailTableViewCell.xib in Resources */,
 				36627D522B2697E800C29388 /* PaymentSelectTableViewCell.xib in Resources */,
+				36D9A7C62B300E7D00ABA5DD /* Launch Screen.storyboard in Resources */,
 				36FBF6332B04D48B0070A476 /* DetailProductViewController.xib in Resources */,
 				3651104B2AFC9BA900A5D6F4 /* ProfileViewController.xib in Resources */,
 				36BD8FDB2B15D33100101014 /* CustomPINViewController.xib in Resources */,
@@ -1321,17 +1321,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		36510FF62AFB7AA000A5D6F4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36510FF72AFB7AA000A5D6F4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		36510FFA2AFB7AA000A5D6F4 /* Debug */ = {

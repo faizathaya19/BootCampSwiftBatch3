@@ -137,13 +137,14 @@ class DetailProductViewController: UIViewController {
     }
     
     @IBAction func btnAskProduct(_ sender: Any) {
-        let ChatScreenViewController = ChatScreenViewController()
-        ChatScreenViewController.productAskIsHidden = false
-        ChatScreenViewController.productAsk = product
-        ChatScreenViewController.messageText = "Apakah Barang Ini Ready?"
-        ChatScreenViewController.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(ChatScreenViewController, animated: true)
+        let chatScreenViewController = ChatScreenViewController()
+        chatScreenViewController.productAskIsHidden = false
+        chatScreenViewController.productAsk = product
+        chatScreenViewController.hidesBottomBarWhenPushed = true
+        chatScreenViewController.setInitialMessage("Apakah Barang Ini Ready?")
+        navigationController?.pushViewController(chatScreenViewController, animated: true)
     }
+
     
     @IBAction private func favoriteButton(_ sender: UIButton) {
            guard let product = self.product else {
