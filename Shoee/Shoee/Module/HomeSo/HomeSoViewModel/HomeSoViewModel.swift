@@ -82,6 +82,7 @@ class HomeSoViewModel {
         
         isLoading = true
         page += 1
+        self.isLoading = false
         
         fetchProducts(page: page) { [weak self] in
             self?.isLoading = false
@@ -107,9 +108,11 @@ class HomeSoViewModel {
             switch result {
             case .success(let categories):
                 self.categoryData = categories.reversed()
+                self.updateHandler?()
             case .failure(let error):
                 self.showFetchError(error)
             }
+           
         }
     }
     
@@ -135,6 +138,7 @@ class HomeSoViewModel {
                 switch result {
                 case .success(let response):
                     self.userData = [response.data]
+                    self.updateHandler?()
                 case .failure(let error):
                     self.showFetchError(error)
                 }

@@ -24,16 +24,19 @@ extension UIViewController {
         self.present(alertVC, animated: true, completion: nil)
     }
     
-    func showCustomPIN() {
-        let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
-        alertVC.modalTransitionStyle = .crossDissolve
-        alertVC.modalPresentationStyle = .overCurrentContext
-        alertVC.onCorrectPINEntered = { [weak self] in
-            print("onCorrectPINEntered closure invoked")
-               self?.dismiss(animated: true, completion: nil)
-           }
-        present(alertVC, animated: true, completion: nil)
-    }
+    func showCustomPIN(completion: @escaping () -> Void) {
+            let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
+            alertVC.modalTransitionStyle = .crossDissolve
+            alertVC.modalPresentationStyle = .overCurrentContext
+            alertVC.onCorrectPINEntered = {
+                print("onCorrectPINEntered closure invoked")
+                self.dismiss(animated: true) {
+                    // Execute completion after CustomPINViewController is dismissed
+                    completion()
+                }
+            }
+            present(alertVC, animated: true, completion: nil)
+        }
     
 }
 

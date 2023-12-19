@@ -11,7 +11,8 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func yourorders(_ sender: Any) {
-       
+        let vc = YourOrdersViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func help(_ sender: Any) {

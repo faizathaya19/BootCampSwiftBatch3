@@ -21,7 +21,6 @@ class HeaderSoTableViewCell: BaseTableCell {
         let avatarURLString = "https://ui-avatars.com/api/?name=\(encodedName)&color=7F9CF5&background=EBF4FF"
 
         if let imageURL = URL(string: avatarURLString) {
-            // Use Kingfisher to load the image asynchronously
             profileImage.kf.setImage(with: imageURL)
         }
     }

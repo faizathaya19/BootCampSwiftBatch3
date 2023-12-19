@@ -157,6 +157,10 @@
 		36BD903B2B1873F400101014 /* BCAParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD903A2B1873F400101014 /* BCAParam.swift */; };
 		36BD90602B197D1600101014 /* CustomHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD905F2B197D1600101014 /* CustomHeaderTableView.swift */; };
 		36D9A7C62B300E7D00ABA5DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D9A7C52B300E7D00ABA5DD /* Launch Screen.storyboard */; };
+		36D9A7C82B31461B00ABA5DD /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9A7C72B31461B00ABA5DD /* CoreData.swift */; };
+		36D9A7CA2B31758E00ABA5DD /* DeleteCheckOutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9A7C92B31758E00ABA5DD /* DeleteCheckOutResponse.swift */; };
+		36D9A7CC2B31932000ABA5DD /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9A7CB2B31932000ABA5DD /* TransactionResponse.swift */; };
+		36D9A7CE2B3193C400ABA5DD /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9A7CD2B3193C400ABA5DD /* TransactionModel.swift */; };
 		36FBF6332B04D48B0070A476 /* DetailProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF6312B04D48B0070A476 /* DetailProductViewController.xib */; };
 		36FBF63E2B05BAF40070A476 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF63D2B05BAF40070A476 /* CustomPageControl.swift */; };
 		36FBF6402B05CD7E0070A476 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF63F2B05CD7E0070A476 /* Poppins-SemiBold.ttf */; };
@@ -318,6 +322,10 @@
 		36BD903A2B1873F400101014 /* BCAParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCAParam.swift; sourceTree = "<group>"; };
 		36BD905F2B197D1600101014 /* CustomHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderTableView.swift; sourceTree = "<group>"; };
 		36D9A7C52B300E7D00ABA5DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		36D9A7C72B31461B00ABA5DD /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		36D9A7C92B31758E00ABA5DD /* DeleteCheckOutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCheckOutResponse.swift; sourceTree = "<group>"; };
+		36D9A7CB2B31932000ABA5DD /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
+		36D9A7CD2B3193C400ABA5DD /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		36FBF6312B04D48B0070A476 /* DetailProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailProductViewController.xib; sourceTree = "<group>"; };
 		36FBF63D2B05BAF40070A476 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		36FBF63F2B05CD7E0070A476 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -367,6 +375,8 @@
 				36498CD72B0752C100A1A5DA /* LogoutResponse.swift */,
 				365380BB2B07896700D5C39D /* ProductResponse.swift */,
 				36627D4C2B231E1C00C29388 /* CheckOutResponse.swift */,
+				36D9A7C92B31758E00ABA5DD /* DeleteCheckOutResponse.swift */,
+				36D9A7CB2B31932000ABA5DD /* TransactionResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -394,6 +404,7 @@
 				365380BF2B078C8600D5C39D /* GalleryModel.swift */,
 				36BD8FB32B14533000101014 /* CheckOutModel.swift */,
 				36627D652B26AD9E00C29388 /* PaymentSelectModel.swift */,
+				36D9A7CD2B3193C400ABA5DD /* TransactionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,6 +468,7 @@
 				365380B92B0763CD00D5C39D /* CategoryService.swift */,
 				365380C32B0B069000D5C39D /* ProductsService.swift */,
 				36627D6C2B270E0300C29388 /* UserDefault.swift */,
+				36D9A7C72B31461B00ABA5DD /* CoreData.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -847,6 +859,7 @@
 		36BD8FB72B149E3600101014 /* CheckOutDetails */ = {
 			isa = PBXGroup;
 			children = (
+				36BD8FD72B15D30700101014 /* PIN */,
 				36627D4E2B2697C000C29388 /* PaymentSelect */,
 				36BD8FC12B149F9E00101014 /* OtherItemCheckOutDetails */,
 				36BD8FBC2B149F1900101014 /* ListItems */,
@@ -956,7 +969,6 @@
 		36BD90052B1722C100101014 /* PaymentProcess */ = {
 			isa = PBXGroup;
 			children = (
-				36BD8FD72B15D30700101014 /* PIN */,
 				36BD90192B181B1C00101014 /* CencelPayment */,
 				36BD90132B172EF000101014 /* AccountVA */,
 				36BD900A2B17234E00101014 /* PaymentProcess */,
@@ -1225,6 +1237,7 @@
 				365381022B0D919500D5C39D /* SignUpViewExtention.swift in Sources */,
 				36627D3C2B21956E00C29388 /* ExtTableView.swift in Sources */,
 				36627D952B29A56400C29388 /* ChatReceiverTableViewCell.swift in Sources */,
+				36D9A7CE2B3193C400ABA5DD /* TransactionModel.swift in Sources */,
 				36A33E332B01ACCC00A951E7 /* UIViewControllerExt.swift in Sources */,
 				36BD8FE82B16E39C00101014 /* YourOrdersTableViewCell.swift in Sources */,
 				365380FB2B0D8C6200D5C39D /* LoginViewModel.swift in Sources */,
@@ -1261,11 +1274,14 @@
 				36627D632B26AC3800C29388 /* PaymentSelectItemTableViewCell.swift in Sources */,
 				36BD901C2B181B8B00101014 /* CencelPaymentTableViewCell.swift in Sources */,
 				36BD8FB42B14533000101014 /* CheckOutModel.swift in Sources */,
+				36D9A7CC2B31932000ABA5DD /* TransactionResponse.swift in Sources */,
 				36627D4D2B231E1C00C29388 /* CheckOutResponse.swift in Sources */,
 				36627D362B20136700C29388 /* HeaderForTableViewCell.swift in Sources */,
 				36627D4B2B22C74400C29388 /* CheckOutParam.swift in Sources */,
 				364E41012B072146001EB357 /* DataClassModel.swift in Sources */,
 				36627D422B21BEAF00C29388 /* Constants.swift in Sources */,
+				36D9A7CA2B31758E00ABA5DD /* DeleteCheckOutResponse.swift in Sources */,
+				36D9A7C82B31461B00ABA5DD /* CoreData.swift in Sources */,
 				363357732B10A55200A952E3 /* CartTableViewCell.swift in Sources */,
 				36BD90352B18456F00101014 /* CheckOutViewModel.swift in Sources */,
 				36BD900D2B1724AC00101014 /* ExpiredTimerPaymentTableViewCell.swift in Sources */,

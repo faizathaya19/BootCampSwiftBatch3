@@ -12,11 +12,10 @@ class HomeSoViewController: UIViewController {
         setupTableView()
         homeSoTableView.showAnimatedGradientSkeleton()
         viewModel.setNavigationController(self.navigationController)
+        viewModel.fetchFirst()
         viewModel.updateHandler = { [weak self] in
             self?.reloadData()
         }
-        viewModel.fetchFirst()
-        
         viewModel.errorHandler = { [weak self] error in
             self?.didFailFetch(with: error)
         }

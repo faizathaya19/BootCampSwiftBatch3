@@ -4,9 +4,15 @@ extension LoginViewController: LoginViewModelDelegate {
     func didLoginSuccessfully() {
         DispatchQueue.main.async {
             self.signInButton.hideSkeleton()
+
+            // Create the new view controller
             let vc = CustomMainTabBar()
-    
-            self.navigationController?.pushViewController(vc, animated: true)
+
+            // Set the new view controller as the only item in the navigation stack
+            if let navigationController = self.navigationController {
+                navigationController.setViewControllers([vc], animated: true)
+            }
+
         }
     }
     
@@ -16,7 +22,7 @@ extension LoginViewController: LoginViewModelDelegate {
             self.showCustomAlertWith(
                 detailResponseOkAction: nil,
                 title: "Error",
-                message: "Email atau Password salah",
+                message: "\(error)",
                 image: #imageLiteral(resourceName: "ic_error"),
                 actions: nil
             )

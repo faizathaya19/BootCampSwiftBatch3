@@ -9,6 +9,9 @@ import UIKit
 
 class YourOrdersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imagePayment: UIImageView!
+    @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +22,17 @@ class YourOrdersTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(total: String, status: String, image: String) {
+        if status.lowercased() == "settlement" {
+            statusLabel.text = "Success"
+        } else {
+            statusLabel.text = status
+        }
+
+        totalPrice.text = total
+        imagePayment.image = UIImage(named: image)
+    }
+
     
 }
