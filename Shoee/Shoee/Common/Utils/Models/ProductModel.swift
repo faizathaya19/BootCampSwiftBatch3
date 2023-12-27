@@ -7,7 +7,7 @@ struct ProductModel: Codable {
     let description: String
     let tags: String?
     let categoriesId: Int
-    let category: CategoryModel
+    let category: CategoryModel?
     let galleries: [GalleryModel]?
     
     enum CodingKeys: String, CodingKey {

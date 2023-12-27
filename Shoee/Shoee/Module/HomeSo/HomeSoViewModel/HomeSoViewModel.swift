@@ -28,7 +28,9 @@ enum HomeSo: Int, CaseIterable {
 }
 
 protocol HomeSoViewModelDelegate: AnyObject {
-    func didFailFetch(with error: Error)
+    func didFailFetch()
+    func ifNewUser()
+    func reloadData()
 }
 
 class HomeSoViewModel {
@@ -42,15 +44,14 @@ class HomeSoViewModel {
     var cachedProductData: [Int: [ProductModel]] = [:]
     var categoryData: [CategoryModel] = []
     var productData: [ProductModel] = []
+    var responseProduct: [ResponseProductModel] = []
     var popularData: [ProductModel] = []
     var userData: [UserModel] = []
     var productCategorySelectedData: [ProductModel] = []
+    let userId = UserDefaultManager.getUserID()
     
     var isLoading: Bool = false
     var hasMoreData: Bool = true
-    
-    var updateHandler: (() -> Void)?
-    var errorHandler: ((Error) -> Void)?
     
     private let dataFetchGroup = DispatchGroup()
     
@@ -68,8 +69,9 @@ class HomeSoViewModel {
         dataFetchGroup.enter()
         fetchAllProducts()
         
+        
         dataFetchGroup.notify(queue: .main) { [weak self] in
-            self?.updateHandler?()
+            self?.updateHandler()
         }
     }
     
@@ -99,59 +101,77 @@ class HomeSoViewModel {
     }
     
     private func fetchCategory() {
-        CategoryService.shared.getCategories { [weak self] result in
-            defer {
-                self?.dataFetchGroup.leave()
-            }
+        APIManager.shared.makeAPICall(endpoint: .categories) { (result: Result<ResponseCategoryModel, Error>) in
             
-            guard let self = self else { return }
+            self.dataFetchGroup.leave()
+            
             switch result {
             case .success(let categories):
-                self.categoryData = categories.reversed()
-                self.updateHandler?()
-            case .failure(let error):
-                self.showFetchError(error)
+                self.categoryData = categories.data.data.reversed()
+                self.updateHandler()
+            case .failure(_):
+                self.showFetchError()
             }
-           
         }
     }
     
+    
+    private func performProduct(with productParam: ProductParam, completion: @escaping ([ProductModel]) -> Void) {
+        APIManager.shared.makeAPICall(endpoint: .products(productParam)) { (result: Result<ResponseProductModel, Error>) in
+            switch result {
+            case .success(let responseProduct):
+                let newData = responseProduct.data.data
+                self.responseProduct = [responseProduct]
+                
+                completion(newData)
+            case .failure(_):
+                self.showFetchError()
+            }
+        }
+    }
+    
+    func checkNewUser() {
+        let predicate = NSPredicate(format: "userId == %ld", userId!)
+        
+        let isDataExists = CoreDataHelper.shared.isDataExistsInCoreData(forEntity: "User", withPredicate: predicate)
+        
+        if !isDataExists {
+            self.delegate?.ifNewUser()
+        }
+    }
+    
+    
     private func fetchProducts(page: Int, completion: @escaping () -> Void) {
-        ProductsService.shared.performProduct(with: ProductParam(limit: 4, page: page)) { [weak self] newData in
+        performProduct(with: ProductParam(limit: 4, page: page)) { [weak self] newData in
             guard let self = self else { return }
             self.productData.append(contentsOf: newData)
-            self.updateHandler?()
+            self.updateHandler()
             completion()
         }
     }
     
     private func fetchUsers() {
-        dataFetchGroup.enter()
         APIManager.shared.makeAPICall(endpoint: .user) { [weak self] (result: Result<ResponseUserModel, Error>) in
-            defer {
-                self?.dataFetchGroup.leave()
+            
+            self?.dataFetchGroup.leave()
+            
+            switch result {
+            case .success(let response):
+                self?.userData = [response.data]
+                self?.updateHandler()
+            case .failure(_):
+                self?.showFetchError()
             }
             
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    self.userData = [response.data]
-                    self.updateHandler?()
-                case .failure(let error):
-                    self.showFetchError(error)
-                }
-            }
         }
     }
     
     private func fetchPopular() {
         guard popularData.isEmpty else { return }
         
-        ProductsService.shared.performProduct(with: ProductParam(tags: "popular")) { [weak self] newData in
+        performProduct(with: ProductParam(tags: "popular")) { [weak self] newData in
             self?.popularData.append(contentsOf: newData)
-            self?.updateHandler?()
+            self?.updateHandler()
         }
     }
     
@@ -160,19 +180,23 @@ class HomeSoViewModel {
         
         if let cachedData = cachedProductData[categoryId] {
             self.productCategorySelectedData = cachedData
-            updateHandler?()
+            updateHandler()
         } else {
-            ProductsService.shared.performProduct(with: ProductParam(categories: categoryId)) { [weak self] newData in
+            performProduct(with: ProductParam(categories: categoryId)) { [weak self] newData in
                 self?.cachedProductData[categoryId] = newData
                 self?.productCategorySelectedData.removeAll()
                 self?.productCategorySelectedData.append(contentsOf: newData)
-                self?.updateHandler?()
+                self?.updateHandler()
             }
         }
     }
     
-    private func showFetchError(_ error: Error) {
-        errorHandler?(error)
+    private func updateHandler() {
+        self.delegate?.reloadData()
+    }
+    
+    private func showFetchError() {
+        self.delegate?.didFailFetch()
     }
     
     internal func handleProductSelection(_ product: ProductModel) {

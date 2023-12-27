@@ -1,10 +1,3 @@
-//
-//  UIViewControllerExt.swift
-//  Shoee
-//
-//  Created by Phincon on 13/11/23.
-//
-
 import Foundation
 import UIKit
 import CoreData
@@ -18,25 +11,23 @@ extension UIViewController {
         alertVC.imageItem = image
         alertVC.arrayAction = actions
         alertVC.okButtonAct = detailResponseOkAction
-        //Present
         alertVC.modalTransitionStyle = .crossDissolve
         alertVC.modalPresentationStyle = .overCurrentContext
         self.present(alertVC, animated: true, completion: nil)
     }
     
-    func showCustomPIN(completion: @escaping () -> Void) {
-            let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
-            alertVC.modalTransitionStyle = .crossDissolve
-            alertVC.modalPresentationStyle = .overCurrentContext
-            alertVC.onCorrectPINEntered = {
-                print("onCorrectPINEntered closure invoked")
-                self.dismiss(animated: true) {
-                    // Execute completion after CustomPINViewController is dismissed
-                    completion()
-                }
-            }
-            present(alertVC, animated: true, completion: nil)
-        }
+    func showCustomPIN(completion: (() -> Void)? = nil) {
+        let alertVC = CustomPINViewController.init(nibName: "CustomPINViewController", bundle: nil)
     
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .fullScreen
+        alertVC.onCorrectPINEntered = {
+            self.dismiss(animated: true) {
+                completion?()
+            }
+        }
+        present(alertVC, animated: true, completion: nil)
+    }
+
 }
 

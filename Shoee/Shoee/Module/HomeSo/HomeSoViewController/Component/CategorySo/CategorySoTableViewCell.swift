@@ -10,6 +10,8 @@ class CategorySoTableViewCell: BaseTableCell {
     @IBOutlet private weak var categorySoCollectionView: UICollectionView!
     weak var delegate: CategorySoDelegate?
     
+    var skeletonVieww: Bool = true
+    
     var CategoryData: [CategoryModel] = [] {
         didSet {
             categorySoCollectionView.reloadData()
@@ -30,31 +32,32 @@ class CategorySoTableViewCell: BaseTableCell {
     private func setupCollectionView() {
         categorySoCollectionView.delegate = self
         categorySoCollectionView.dataSource = self
-        categorySoCollectionView.register(UINib(nibName: "CategorySoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "categorySoCollectionViewCell")
+        categorySoCollectionView.registerCellWithNib(CategorySoCollectionViewCell.self)
+    }
+    
+    func configure(skeletonView: Bool){
+        isSkeletonable = skeletonView
+        skeletonVieww = skeletonView
     }
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension CategorySoTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CategoryData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categorySoCollectionViewCell", for: indexPath) as? CategorySoCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as CategorySoCollectionViewCell
         
         let category = CategoryData[indexPath.item]
         
         cell.categoryTitle.text = category.name
-        cell.configureAppearance(selected: category.id == selectedCategoryId)
+        cell.configureAppearance(selected: category.id == selectedCategoryId, skeletonView: skeletonVieww)
         
         return cell
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = CategoryData[indexPath.item]
@@ -68,8 +71,6 @@ extension CategorySoTableViewCell: SkeletonCollectionViewDataSource {
         return 6
     }
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
-        return "categorySoCollectionViewCell"
-    }
-    
-    
+        return "CategorySoCollectionViewCell"
+    }    
 }

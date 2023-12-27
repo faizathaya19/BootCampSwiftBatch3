@@ -6,20 +6,33 @@ class ProfileViewController: UIViewController {
     
     @IBAction func btnEditProfile(_ sender: Any) {
         let vc = EditProfileViewController()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func privacyAndPolicyBtn(_ sender: Any) {
+        let vc = PrivacyAndPolicyViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func yourorders(_ sender: Any) {
         let vc = YourOrdersViewController()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func help(_ sender: Any) {
         let vc = CheckOutViewController()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    @IBAction func termAndServiceBtn(_ sender: Any) {
+        let vc = TermsAndServiceViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func btnLogout(_ sender: Any) {
         
@@ -55,6 +68,5 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         popUpLoading.dismissImmediately()
-        // Additional setup if needed
     }
 }

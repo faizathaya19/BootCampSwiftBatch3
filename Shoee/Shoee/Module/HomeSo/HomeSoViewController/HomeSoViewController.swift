@@ -3,22 +3,20 @@ import SkeletonView
 import CoreData
 
 class HomeSoViewController: UIViewController {
-    @IBOutlet private weak var homeSoTableView: UITableView!
+    @IBOutlet weak var homeSoTableView: UITableView!
     
     var viewModel = HomeSoViewModel()
+    var skeletonView = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        homeSoTableView.showAnimatedGradientSkeleton()
-        viewModel.setNavigationController(self.navigationController)
+        viewModel.delegate = self
         viewModel.fetchFirst()
-        viewModel.updateHandler = { [weak self] in
-            self?.reloadData()
-        }
-        viewModel.errorHandler = { [weak self] error in
-            self?.didFailFetch(with: error)
-        }
+        viewModel.checkNewUser()
+        setupTableView()
+        homeSoTableView.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
+        viewModel.setNavigationController(self.navigationController)
+        skeletonView = false
     }
     
     private func setupTableView() {
@@ -35,11 +33,6 @@ class HomeSoViewController: UIViewController {
             homeSoTableView.registerCellWithNib(cell.cellTypes)
         }
     }
-    
-    private func reloadData() {
-        homeSoTableView.reloadData()
-        homeSoTableView.hideSkeleton()
-    }
 }
 
 extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, CategorySoDelegate, ProductSelectionDelegate {
@@ -50,6 +43,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
     
     func categorySelected(withId categoryId: Int) {
         viewModel.selectedCategoryId = categoryId
+        homeSoTableView.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
         viewModel.fetchData()
     }
     
@@ -103,7 +97,8 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         case .headerSo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HeaderSoTableViewCell
             let user = viewModel.userData[indexPath.item]
-            cell.configureHeader(name: user.name.components(separatedBy: " ").first, username: user.username, imageURLString: user.profilePhotoURL)
+            cell.hideSkeleton()
+            cell.configureHeader(name: user.name.components(separatedBy: " ").first, username: user.username, imageURLString: user.profilePhotoURL, skeletonView: skeletonView)
             return cell
         case .categorySo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CategorySoTableViewCell
@@ -111,6 +106,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
             cell.CategoryData = viewModel.categoryData
             cell.selectedCategoryId = viewModel.selectedCategoryId
             cell.delegate = self
+            cell.configure(skeletonView: skeletonView)
             return cell
         case .headerPopularSo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HeaderForTableViewCell
@@ -119,6 +115,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         case .popularSo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as PopularSoTableViewCell
             cell.popularData = viewModel.popularData
+            cell.hideSkeleton()
             cell.productSelectionDelegate = self
             return cell
         case .headerNewArrivalSo:
@@ -128,6 +125,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         case .newArrivalSo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ProductSoTableViewCell
             let product = viewModel.productData[indexPath.row]
+            cell.hideSkeleton()
             configureProductCell(cell, for: product)
             return cell
         case .headerForYouSo:
@@ -137,6 +135,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
         case .forYouSo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ProductSoTableViewCell
             let product = viewModel.productCategorySelectedData[indexPath.row]
+            cell.hideSkeleton()
             configureProductCell(cell, for: product)
             return cell
         }
@@ -169,10 +168,10 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
     
     internal func configureProductCell(_ cell: ProductSoTableViewCell, for product: ProductModel) {
         if let thirdGalleryURL = product.galleries?.dropFirst(3).first?.url {
-            cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category.name)
+            cell.configure(name: product.name, price: "$\(product.price)", imageURL: thirdGalleryURL, category: product.category?.name ?? "")
         } else {
             let defaultImageURL = Constants.defaultImageURL
-            cell.configure(name: product.name, price: "$\(product.price)", imageURL: defaultImageURL, category: product.category.name)
+            cell.configure(name: product.name, price: "$\(product.price)", imageURL: defaultImageURL, category: product.category?.name ?? "")
         }
     }
 }

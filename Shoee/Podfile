@@ -14,7 +14,8 @@ pod 'FloatingPanel'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'IQKeyboardManagerSwift'
+pod 'RxSwift'
+pod 'RxCocoa'
 
   # Pods for Shoee
-
 end

@@ -9,12 +9,13 @@ class HeaderSoTableViewCell: BaseTableCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImage.layer.cornerRadius =  profileImage.frame.height / 2
+        profileImage.applyCircularRadius()
     }
 
-    func configureHeader(name: String?, username: String?, imageURLString: String?) {
+    func configureHeader(name: String?, username: String?, imageURLString: String?, skeletonView: Bool) {
         nameLabel.text = name
         usernameLabel.text = username
+        isSkeletonable = skeletonView
 
         let encodedName = name?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
 

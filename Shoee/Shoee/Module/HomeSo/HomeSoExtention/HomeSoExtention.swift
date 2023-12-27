@@ -1,7 +1,14 @@
 import SkeletonView
 
-extension HomeSoViewController: HomeSoViewModelDelegate {
-    func didFailFetch(with error: Error) {
+extension HomeSoViewController : HomeSoViewModelDelegate{
+    func reloadData() {
+        homeSoTableView.reloadData()
+        homeSoTableView.hideSkeleton()
+    }
+    
+    func didFailFetch() {
+        homeSoTableView.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
+        
         let actionYes: [String: () -> Void] = ["Refresh": { [weak self] in
             self?.viewModel.fetchFirst()
         }]
@@ -19,6 +26,10 @@ extension HomeSoViewController: HomeSoViewModelDelegate {
             image: #imageLiteral(resourceName: "ic_error"),
             actions: arrayActions
         )
+    }
+    
+    func ifNewUser(){
+        showCustomPIN()
     }
 }
 
@@ -52,10 +63,14 @@ extension HomeSoViewController: SkeletonTableViewDataSource {
         }
         
         switch homeSoSection {
-        case .headerSo, .categorySo, .headerPopularSo, .popularSo, .headerNewArrivalSo, .headerForYouSo:
+        case .headerSo, .categorySo:
             return 1
+        case .popularSo:
+            return (viewModel.selectedCategoryId == Constants.defaultCategoryId) ? 1 : 0
         case .newArrivalSo, .forYouSo:
             return 6
+        case .headerPopularSo, .headerNewArrivalSo, .headerForYouSo:
+            return 0
         }
     }
 }

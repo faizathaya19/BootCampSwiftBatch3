@@ -163,6 +163,9 @@
                             <buttonConfiguration key="configuration" style="plain" title="Privacy &amp; Policy" titleAlignment="trailing">
                                 <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="privacyAndPolicyBtn:" destination="-1" eventType="touchUpInside" id="ZqN-fs-3gA"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,6 +184,9 @@
                             <buttonConfiguration key="configuration" style="plain" title="Term of Service" titleAlignment="trailing">
                                 <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="termAndServiceBtn:" destination="-1" eventType="touchUpInside" id="vNw-7n-75i"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

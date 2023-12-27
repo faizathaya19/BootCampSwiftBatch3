@@ -5,7 +5,12 @@ struct ResponseProductModel: Codable {
     let data: DataProductClass
 }
 
-// MARK: - DataClass
 struct DataProductClass: Codable {
     let data: [ProductModel]
+    let lastPage: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+        case lastPage = "last_page"
+    }
 }
