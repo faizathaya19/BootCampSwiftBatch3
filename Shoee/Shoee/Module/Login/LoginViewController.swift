@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnSignIn(_ sender: Any) {
-        signInButton.showAnimatedGradientSkeleton()
+        signInButton.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
         
         guard let email = emailTextFieldCustom.inputTextField.text, !email.isEmpty else {
             handleError(message: "Please enter your email address")

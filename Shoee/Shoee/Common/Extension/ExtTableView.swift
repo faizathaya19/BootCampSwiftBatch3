@@ -1,6 +1,13 @@
 import Foundation
 import UIKit
 
+class BaseTableCell: UITableViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
+}
+
 extension UITableView {
 
     func registerCell<Cell: UITableViewCell>(_ cellClass: Cell.Type) {

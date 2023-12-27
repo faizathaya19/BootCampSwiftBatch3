@@ -4,9 +4,7 @@ import UIKit
 class Common {
     
     static let shared = Common()
-    
-    /// Add subview to super window
-    /// - Parameter window: a call back if super window is not nil
+
     func addViewToWindow(window: (UIWindow) -> Void) {
         let currentWindow = UIApplication
             .shared

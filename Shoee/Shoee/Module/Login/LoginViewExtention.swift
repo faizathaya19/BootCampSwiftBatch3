@@ -5,10 +5,8 @@ extension LoginViewController: LoginViewModelDelegate {
         DispatchQueue.main.async {
             self.signInButton.hideSkeleton()
 
-            // Create the new view controller
             let vc = CustomMainTabBar()
 
-            // Set the new view controller as the only item in the navigation stack
             if let navigationController = self.navigationController {
                 navigationController.setViewControllers([vc], animated: true)
             }

@@ -29,7 +29,6 @@ class CustomTextField: UIView, UITextFieldDelegate {
         inputTextField.delegate = self
     }
 
-    // MARK: - Private Functions
     private func setupView() {
         let view = loadNib()
         view.frame = bounds

@@ -95,6 +95,12 @@ PODS:
   - nanopb/encode (2.30909.1)
   - netfox (1.21.0)
   - PromisesObjC (2.3.1)
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
+  - RxSwift (6.6.0)
   - SkeletonView (1.30.4)
 
 DEPENDENCIES:
@@ -106,6 +112,8 @@ DEPENDENCIES:
   - Kingfisher
   - lottie-ios
   - netfox
+  - RxCocoa
+  - RxSwift
   - SkeletonView
 
 SPEC REPOS:
@@ -129,6 +137,9 @@ SPEC REPOS:
     - nanopb
     - netfox
     - PromisesObjC
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SkeletonView
 
 SPEC CHECKSUMS:
@@ -151,8 +162,11 @@ SPEC CHECKSUMS:
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: a6535c764a4b01b452abb12cc4cbb0e65f7f9812
+PODFILE CHECKSUM: 7b94e20e28116267fecc63eae16afd32ff1ef291
 
 COCOAPODS: 1.14.2
