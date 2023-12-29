@@ -21,7 +21,6 @@
             <connections>
                 <outlet property="alertLabel" destination="Zot-Bi-4Jj" id="QOt-0t-wAR"/>
                 <outlet property="deleteButton" destination="xWj-ct-hPD" id="OBr-F8-hNX"/>
-                <outlet property="faceIDButton" destination="ZJ3-gi-bDU" id="Kci-07-V1G"/>
                 <outlet property="forAnimationSuccess" destination="Fx2-RE-xYa" id="U2d-IS-o3S"/>
                 <outlet property="newUser" destination="Dxf-tL-Ava" id="H6W-PK-9aT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -169,16 +168,6 @@
                                 <color key="baseForegroundColor" name="Primary"/>
                             </buttonConfiguration>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-gi-bDU">
-                            <rect key="frame" x="7" y="327" width="90" height="90"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" name="BG2"/>
-                            <color key="tintColor" systemColor="systemGray2Color"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="faceid" catalog="system" title="">
-                                <color key="baseForegroundColor" name="Primary"/>
-                            </buttonConfiguration>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
@@ -267,7 +256,6 @@
     </objects>
     <resources>
         <image name="delete.backward.fill" catalog="system" width="128" height="102"/>
-        <image name="faceid" catalog="system" width="128" height="115"/>
         <namedColor name="BG1">
             <color red="0.12156862745098039" green="0.11372549019607843" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

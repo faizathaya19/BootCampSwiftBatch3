@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddNewAddressTableViewCell" rowHeight="170" id="KGk-i7-Jjw" customClass="AddNewAddressTableViewCell" customModule="Shoee" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="170"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5W-GT-mUI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="170"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDG-7U-qP0">
+                                <rect key="frame" x="10" y="0.0" width="136" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cpn-hQ-bum">
+                                <rect key="frame" x="0.0" y="28.333333333333336" width="393" height="89.666666666666657"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JWP-SX-epo">
+                                        <rect key="frame" x="10" y="10.000000000000007" width="373" height="69.666666666666686"/>
+                                        <color key="backgroundColor" name="BG2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="69.670000000000002" id="n6o-TI-MT1"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" name="BG3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JWP-SX-epo" secondAttribute="trailing" constant="10" id="55x-3P-jsg"/>
+                                    <constraint firstAttribute="bottom" secondItem="JWP-SX-epo" secondAttribute="bottom" constant="10" id="KDH-6M-qcb"/>
+                                    <constraint firstItem="JWP-SX-epo" firstAttribute="top" secondItem="Cpn-hQ-bum" secondAttribute="top" constant="10" id="M5u-lG-nEX"/>
+                                    <constraint firstItem="JWP-SX-epo" firstAttribute="leading" secondItem="Cpn-hQ-bum" secondAttribute="leading" constant="10" id="pZG-Wq-pkA"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpT-1n-84a">
+                                <rect key="frame" x="319" y="126" width="55" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="Qnk-gh-2fC"/>
+                                    <constraint firstAttribute="height" constant="35" id="RSc-7U-oh8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Add"/>
+                                <connections>
+                                    <action selector="addNewAddress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GGo-5h-BSH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="xpT-1n-84a" secondAttribute="trailing" constant="11" id="0uV-To-3Y4"/>
+                            <constraint firstItem="xpT-1n-84a" firstAttribute="top" secondItem="Cpn-hQ-bum" secondAttribute="bottom" constant="8" id="Foi-EZ-EVG"/>
+                            <constraint firstItem="GDG-7U-qP0" firstAttribute="top" secondItem="w5W-GT-mUI" secondAttribute="top" id="IZG-hw-CpU"/>
+                            <constraint firstItem="Cpn-hQ-bum" firstAttribute="top" secondItem="GDG-7U-qP0" secondAttribute="bottom" constant="8" symbolic="YES" id="av4-Be-cfV"/>
+                            <constraint firstItem="GDG-7U-qP0" firstAttribute="leading" secondItem="w5W-GT-mUI" secondAttribute="leading" constant="10" id="iq0-jY-Hyr"/>
+                            <constraint firstItem="xpT-1n-84a" firstAttribute="bottom" secondItem="w5W-GT-mUI" secondAttribute="bottomMargin" constant="-1" id="jqK-Wt-KtX"/>
+                            <constraint firstAttribute="trailing" secondItem="Cpn-hQ-bum" secondAttribute="trailing" id="kHB-2D-9CH"/>
+                            <constraint firstItem="Cpn-hQ-bum" firstAttribute="leading" secondItem="w5W-GT-mUI" secondAttribute="leading" id="rag-M2-xTC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="w5W-GT-mUI" secondAttribute="bottom" id="1q4-4O-MTC"/>
+                    <constraint firstItem="w5W-GT-mUI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6yH-cJ-0Mw"/>
+                    <constraint firstAttribute="trailing" secondItem="w5W-GT-mUI" secondAttribute="trailing" id="Lf9-Ks-8nX"/>
+                    <constraint firstItem="w5W-GT-mUI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tGZ-kS-SG3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="messageTextView" destination="JWP-SX-epo" id="g21-YL-mTx"/>
+            </connections>
+            <point key="canvasLocation" x="-25.190839694656489" y="37.323943661971832"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BG2">
+            <color red="0.16862745098039217" green="0.16078431372549021" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG3">
+            <color red="0.14117647058823529" green="0.13333333333333333" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

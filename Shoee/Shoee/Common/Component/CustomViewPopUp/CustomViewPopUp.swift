@@ -44,16 +44,12 @@ class CustomViewPopUp: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewContainer.layer.cornerRadius = 20.0
-        viewContainer.layer.masksToBounds = true
-    
+        viewContainer.makeCornerRadius(20)
         
         self.titleResponse.text = titleM
         self.detailResponse.text = message

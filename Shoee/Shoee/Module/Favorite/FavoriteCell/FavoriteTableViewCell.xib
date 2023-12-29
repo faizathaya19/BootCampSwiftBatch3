@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Light.ttf">
+            <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteTableViewCell" rowHeight="130" id="KGk-i7-Jjw" customClass="FavoriteTableViewCell" customModule="Shoee" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLe-Bp-YSH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7s-uL-IXe">
+                                <rect key="frame" x="26" y="10" width="341" height="110"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ex_shoes" translatesAutoresizingMaskIntoConstraints="NO" id="nrM-UK-CaQ">
+                                        <rect key="frame" x="12" y="16" width="80" height="80"/>
+                                        <color key="backgroundColor" name="BG4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="C39-xG-ppg"/>
+                                            <constraint firstAttribute="width" constant="80" id="Y09-lb-In8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6yx-pE-zby">
+                                        <rect key="frame" x="104" y="25.000000000000004" width="156" height="45.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terrex Urban Low" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1H-7Y-A92">
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="22.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
+                                                <color key="textColor" name="PrimaryText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$68,47" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykw-ky-kf9">
+                                                <rect key="frame" x="0.0" y="25.666666666666664" width="156" height="19.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="14"/>
+                                                <color key="textColor" name="Price"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m1-u2-Y0F">
+                                        <rect key="frame" x="272" y="31" width="49" height="49"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="GIj-9A-IOV"/>
+                                            <constraint firstAttribute="height" constant="49" id="GlC-72-wgz"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" image="ic_love" title="">
+                                            <backgroundConfiguration key="background" cornerRadius="502">
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                            </backgroundConfiguration>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="BG2"/>
+                                <constraints>
+                                    <constraint firstItem="6yx-pE-zby" firstAttribute="top" secondItem="J7s-uL-IXe" secondAttribute="top" constant="25" id="BlM-Sh-OEC"/>
+                                    <constraint firstItem="nrM-UK-CaQ" firstAttribute="leading" secondItem="J7s-uL-IXe" secondAttribute="leading" constant="12" id="CcQ-XP-mnk"/>
+                                    <constraint firstAttribute="trailing" secondItem="9m1-u2-Y0F" secondAttribute="trailing" constant="20" id="api-Qd-pRo"/>
+                                    <constraint firstItem="6yx-pE-zby" firstAttribute="leading" secondItem="nrM-UK-CaQ" secondAttribute="trailing" constant="12" id="bDS-Ya-vQH"/>
+                                    <constraint firstItem="nrM-UK-CaQ" firstAttribute="top" secondItem="J7s-uL-IXe" secondAttribute="top" constant="16" id="bzJ-Bf-4qX"/>
+                                    <constraint firstItem="9m1-u2-Y0F" firstAttribute="top" secondItem="J7s-uL-IXe" secondAttribute="top" constant="31" id="eMd-au-Dan"/>
+                                    <constraint firstItem="9m1-u2-Y0F" firstAttribute="leading" secondItem="6yx-pE-zby" secondAttribute="trailing" constant="12" id="hI4-a9-iOx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="J7s-uL-IXe" firstAttribute="leading" secondItem="VLe-Bp-YSH" secondAttribute="leading" constant="26" id="FMI-f4-myM"/>
+                            <constraint firstAttribute="height" constant="130" id="IWY-sA-KNr"/>
+                            <constraint firstItem="J7s-uL-IXe" firstAttribute="top" secondItem="VLe-Bp-YSH" secondAttribute="top" constant="10" id="L23-r9-Gbw"/>
+                            <constraint firstAttribute="bottom" secondItem="J7s-uL-IXe" secondAttribute="bottom" constant="10" id="OvQ-iV-edx"/>
+                            <constraint firstAttribute="trailing" secondItem="J7s-uL-IXe" secondAttribute="trailing" constant="26" id="aiG-x3-QHW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="VLe-Bp-YSH" secondAttribute="bottom" id="4Hr-qs-46X"/>
+                    <constraint firstItem="VLe-Bp-YSH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f2H-yR-PHM"/>
+                    <constraint firstItem="VLe-Bp-YSH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="j9V-lQ-6De"/>
+                    <constraint firstAttribute="trailing" secondItem="VLe-Bp-YSH" secondAttribute="trailing" id="lZ3-Gz-WdA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="deleteButton" destination="9m1-u2-Y0F" id="9Tu-Tq-11q"/>
+                <outlet property="imageProduct" destination="nrM-UK-CaQ" id="Oqd-ow-Ch7"/>
+                <outlet property="nameProduct" destination="y1H-7Y-A92" id="xlK-vQ-bbC"/>
+                <outlet property="priceProduct" destination="Ykw-ky-kf9" id="bPI-n9-4Qf"/>
+                <outlet property="viewContainer" destination="J7s-uL-IXe" id="xTX-Js-v1W"/>
+            </connections>
+            <point key="canvasLocation" x="84.732824427480907" y="50"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ex_shoes" width="1500" height="1400"/>
+        <image name="ic_love" width="20" height="18"/>
+        <namedColor name="BG2">
+            <color red="0.16862745098039217" green="0.16078431372549021" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG4">
+            <color red="0.92549019607843142" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Price">
+            <color red="0.17254901960784313" green="0.58823529411764708" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryText">
+            <color red="0.94509803921568625" green="0.94117647058823528" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

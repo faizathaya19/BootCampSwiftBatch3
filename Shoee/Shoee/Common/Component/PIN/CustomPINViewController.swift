@@ -21,7 +21,6 @@ class CustomPINViewController: UIViewController {
     @IBOutlet private var digitContainers: [UIView]!
     @IBOutlet private var numberButtons: [UIButton]!
     @IBOutlet private weak var deleteButton: UIButton!
-    @IBOutlet private weak var faceIDButton: UIButton!
     @IBOutlet private weak var alertLabel: UILabel!
     @IBOutlet private weak var newUser: UILabel!
     
@@ -208,11 +207,11 @@ class CustomPINViewController: UIViewController {
     }
     
     @objc private func buttonTouchDown(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(named: "secondary")
+        sender.backgroundColor = Constants.secondary
     }
     
     @objc private func buttonTouchUp(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(named: "BG2")
+        sender.backgroundColor = Constants.bG2
     }
     
     @objc private func buttonTapped(_ sender: UIButton) {
@@ -240,7 +239,7 @@ class CustomPINViewController: UIViewController {
     }
     
     private func makeButtonsCircular() {
-        let buttons: [UIButton] = [deleteButton, faceIDButton] + numberButtons
+        let buttons: [UIButton] = [deleteButton] + numberButtons
         
         for button in buttons {
             button.layer.cornerRadius = button.frame.size.width / 2.0

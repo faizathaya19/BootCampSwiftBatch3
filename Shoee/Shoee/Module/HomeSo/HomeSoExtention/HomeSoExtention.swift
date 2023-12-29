@@ -1,4 +1,31 @@
 import SkeletonView
+import UIKit
+
+enum HomeSo: Int, CaseIterable {
+    case headerSo
+    case categorySo
+    case headerPopularSo
+    case popularSo
+    case headerNewArrivalSo
+    case newArrivalSo
+    case headerForYouSo
+    case forYouSo
+    
+    var cellTypes: UITableViewCell.Type {
+        switch self {
+        case .headerSo:
+            return HeaderSoTableViewCell.self
+        case .categorySo:
+            return CategorySoTableViewCell.self
+        case .headerPopularSo, .headerNewArrivalSo, .headerForYouSo:
+            return HeaderForTableViewCell.self
+        case .popularSo:
+            return PopularSoTableViewCell.self
+        case .newArrivalSo, .forYouSo:
+            return ProductSoTableViewCell.self
+        }
+    }
+}
 
 extension HomeSoViewController : HomeSoViewModelDelegate{
     func reloadData() {

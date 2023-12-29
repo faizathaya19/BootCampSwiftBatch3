@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Light.ttf">
+            <string>Poppins-Light</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatScreenViewController" customModule="Shoee" customModuleProvider="target">
+            <connections>
+                <outlet property="askProductViewContainter" destination="CXh-Kn-GGW" id="jKJ-f4-4a2"/>
+                <outlet property="bottomConstraint" destination="mho-8E-c3q" id="TMu-MN-j9G"/>
+                <outlet property="btnCancelAskProduct" destination="NiK-gE-QK2" id="Lwy-tX-sC8"/>
+                <outlet property="chatScreenTableView" destination="fzU-dD-sPy" id="H1G-gp-Lmb"/>
+                <outlet property="containerMessage" destination="aRX-HC-JfN" id="aqb-1d-dmr"/>
+                <outlet property="headerView" destination="iGx-1Q-rgg" id="1ZK-4O-Eoz"/>
+                <outlet property="heightMessageTextView" destination="occ-yF-K1l" id="XcF-U0-zFR"/>
+                <outlet property="imageAskProduct" destination="eUs-TW-9It" id="bdh-i3-t0T"/>
+                <outlet property="massageViewContainer" destination="i8k-vM-eLR" id="8g7-BE-3W5"/>
+                <outlet property="messageTextView" destination="Prv-Ml-sbA" id="p8i-as-vpp"/>
+                <outlet property="nameProductAsk" destination="QPU-nU-MP0" id="LCS-yh-SFW"/>
+                <outlet property="priceProductAsk" destination="5JE-hd-0ug" id="zy8-Sq-TUk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fzU-dD-sPy">
+                    <rect key="frame" x="0.0" y="140" width="393" height="600"/>
+                    <color key="backgroundColor" name="BG3"/>
+                    <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGx-1Q-rgg">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixx-pB-LiK">
+                            <rect key="frame" x="8" y="80" width="46" height="43"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="ic_back_btn_white" title=""/>
+                            <connections>
+                                <action selector="btnBack:" destination="-1" eventType="touchUpInside" id="TLR-15-sZE"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_chat_profile" translatesAutoresizingMaskIntoConstraints="NO" id="uza-WB-Wpq">
+                            <rect key="frame" x="55" y="71" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shoe Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ0-l7-XKY">
+                            <rect key="frame" x="123" y="75" width="196" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="17"/>
+                            <color key="textColor" name="PrimaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgJ-Iq-zCk">
+                            <rect key="frame" x="123" y="99" width="196" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="15"/>
+                            <color key="textColor" name="SecondaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="BG1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="HFY-Ry-lCz"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRX-HC-JfN">
+                    <rect key="frame" x="0.0" y="740" width="393" height="78"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-aA-EY6">
+                            <rect key="frame" x="10" y="8" width="330" height="62"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8k-vM-eLR">
+                                    <rect key="frame" x="0.0" y="0.0" width="330" height="62"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="asA-Eg-jmG">
+                                            <rect key="frame" x="6" y="12" width="318" height="38"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" minimumZoomScale="0.0" maximumZoomScale="0.0" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Prv-Ml-sbA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="38"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="38" id="occ-yF-K1l"/>
+                                                    </constraints>
+                                                    <color key="textColor" name="PrimaryText"/>
+                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="BG2"/>
+                                    <constraints>
+                                        <constraint firstItem="asA-Eg-jmG" firstAttribute="leading" secondItem="i8k-vM-eLR" secondAttribute="leading" constant="6" id="DVh-hI-zW3"/>
+                                        <constraint firstAttribute="trailing" secondItem="asA-Eg-jmG" secondAttribute="trailing" constant="6" id="HVa-GI-qw0"/>
+                                        <constraint firstItem="asA-Eg-jmG" firstAttribute="top" secondItem="i8k-vM-eLR" secondAttribute="top" constant="12" id="aDU-hQ-YSZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="asA-Eg-jmG" secondAttribute="bottom" constant="12" id="yUL-6d-tgr"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1l2-12-lRv">
+                            <rect key="frame" x="348" y="16" width="40" height="45"/>
+                            <color key="backgroundColor" name="BG2"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="cKa-cA-MgF"/>
+                            </constraints>
+                            <color key="tintColor" name="Primary"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" image="ic_send" title="">
+                                <color key="baseForegroundColor" name="Primary"/>
+                                <color key="baseBackgroundColor" name="Primary"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="sendMessageBtn:" destination="-1" eventType="touchUpInside" id="nfU-gW-bTh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="H4E-aA-EY6" firstAttribute="top" secondItem="aRX-HC-JfN" secondAttribute="top" constant="8" id="JV9-vg-lm1"/>
+                        <constraint firstAttribute="bottom" secondItem="H4E-aA-EY6" secondAttribute="bottom" constant="8" id="aPc-q5-b8g"/>
+                        <constraint firstAttribute="trailing" secondItem="1l2-12-lRv" secondAttribute="trailing" constant="5" id="d1O-Qp-Dnh"/>
+                        <constraint firstAttribute="bottom" secondItem="1l2-12-lRv" secondAttribute="bottom" constant="17" id="fEf-KL-Gha"/>
+                        <constraint firstItem="H4E-aA-EY6" firstAttribute="leading" secondItem="aRX-HC-JfN" secondAttribute="leading" constant="10" id="ltC-xu-euR"/>
+                        <constraint firstAttribute="trailing" secondItem="H4E-aA-EY6" secondAttribute="trailing" constant="53" id="pEp-bB-EDk"/>
+                        <constraint firstItem="1l2-12-lRv" firstAttribute="leading" secondItem="H4E-aA-EY6" secondAttribute="trailing" constant="8" symbolic="YES" id="zbn-gM-1q8"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXh-Kn-GGW">
+                    <rect key="frame" x="15" y="638" width="260" height="94"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ex_shoes" translatesAutoresizingMaskIntoConstraints="NO" id="eUs-TW-9It">
+                            <rect key="frame" x="11" y="10" width="75" height="75"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" name="BG4"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COURT VISIO..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPU-nU-MP0">
+                            <rect key="frame" x="91" y="17" width="116" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                            <color key="textColor" name="PrimaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$239,23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-hd-0ug">
+                            <rect key="frame" x="91" y="49" width="104" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                            <color key="textColor" name="Price"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiK-gE-QK2">
+                            <rect key="frame" x="217" y="6" width="33" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" name="Primary"/>
+                            <color key="tintColor" name="Primary"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="x">
+                                <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                                <color key="baseForegroundColor" name="BG1"/>
+                                <color key="baseBackgroundColor" name="Primary"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="btnCancelAskProductAction:" destination="-1" eventType="touchUpInside" id="LCN-Ie-pO2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.14117647058823529" green="0.13333333333333333" blue="0.19215686274509805" alpha="0.78800186258278149" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="Wyn-kb-IrE"/>
+                        <constraint firstAttribute="height" constant="94" id="x8C-1A-jZ8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="BG3"/>
+            <constraints>
+                <constraint firstItem="aRX-HC-JfN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3eD-5C-DKg"/>
+                <constraint firstAttribute="trailing" secondItem="aRX-HC-JfN" secondAttribute="trailing" id="8Lg-yU-sLA"/>
+                <constraint firstAttribute="trailing" secondItem="fzU-dD-sPy" secondAttribute="trailing" id="9rL-lI-xLF"/>
+                <constraint firstAttribute="trailing" secondItem="iGx-1Q-rgg" secondAttribute="trailing" id="Dry-ZC-USk"/>
+                <constraint firstItem="fzU-dD-sPy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FT8-tJ-ORY"/>
+                <constraint firstItem="aRX-HC-JfN" firstAttribute="top" secondItem="CXh-Kn-GGW" secondAttribute="bottom" constant="8" symbolic="YES" id="JlL-eI-7rk"/>
+                <constraint firstItem="CXh-Kn-GGW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="YUe-1I-nxf"/>
+                <constraint firstItem="iGx-1Q-rgg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dRl-gl-iHQ"/>
+                <constraint firstItem="iGx-1Q-rgg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lKP-H3-yTB"/>
+                <constraint firstAttribute="bottom" secondItem="aRX-HC-JfN" secondAttribute="bottom" constant="34" id="mho-8E-c3q"/>
+                <constraint firstItem="fzU-dD-sPy" firstAttribute="top" secondItem="iGx-1Q-rgg" secondAttribute="bottom" id="qyg-P7-jgG"/>
+                <constraint firstItem="aRX-HC-JfN" firstAttribute="top" secondItem="fzU-dD-sPy" secondAttribute="bottom" id="zew-g3-p4n"/>
+            </constraints>
+            <point key="canvasLocation" x="64.885496183206101" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ex_shoes" width="1500" height="1400"/>
+        <image name="ic_back_btn_white" width="8" height="14"/>
+        <image name="ic_chat_profile" width="216" height="216"/>
+        <image name="ic_send" width="16" height="19"/>
+        <namedColor name="BG1">
+            <color red="0.12156862745098039" green="0.11372549019607843" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG2">
+            <color red="0.16862745098039217" green="0.16078431372549021" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG3">
+            <color red="0.14117647058823529" green="0.13333333333333333" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BG4">
+            <color red="0.92549019607843142" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Price">
+            <color red="0.17254901960784313" green="0.58823529411764708" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.42352941176470588" green="0.36862745098039218" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryText">
+            <color red="0.94509803921568625" green="0.94117647058823528" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

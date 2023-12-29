@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatReceiverTableViewCell" rowHeight="135" id="KGk-i7-Jjw" customClass="ChatReceiverTableViewCell" customModule="Shoee" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="135"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vS6-da-6B0">
+                        <rect key="frame" x="42" y="15" width="351" height="90"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JcD-6n-JmR">
+                                <rect key="frame" x="0.0" y="0.0" width="281" height="90"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8p-4t-cJv">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="90"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nD4-s3-lEs">
+                                                <rect key="frame" x="10" y="10" width="261" height="70"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkM-Ih-ocY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="261" height="70"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="nD4-s3-lEs" secondAttribute="bottom" constant="10" id="CwI-Ip-pIE"/>
+                                            <constraint firstAttribute="trailing" secondItem="nD4-s3-lEs" secondAttribute="trailing" constant="10" id="GeL-xH-u4K"/>
+                                            <constraint firstItem="nD4-s3-lEs" firstAttribute="leading" secondItem="O8p-4t-cJv" secondAttribute="leading" constant="10" id="RPv-3V-e2P"/>
+                                            <constraint firstItem="nD4-s3-lEs" firstAttribute="top" secondItem="O8p-4t-cJv" secondAttribute="top" constant="10" id="nIl-tV-3X3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JcD-6n-JmR" secondAttribute="trailing" constant="70" id="5da-If-nzd"/>
+                            <constraint firstItem="JcD-6n-JmR" firstAttribute="top" secondItem="vS6-da-6B0" secondAttribute="top" id="DX2-W4-rT4"/>
+                        </constraints>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kV3-cb-x9M">
+                        <rect key="frame" x="0.0" y="105" width="393" height="30"/>
+                        <subviews>
+                            <view contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="Dkj-Na-ZEM">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_chat_profile" translatesAutoresizingMaskIntoConstraints="NO" id="bQ1-eI-oHs">
+                                        <rect key="frame" x="10" y="-10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7Tk-1y-Uwa"/>
+                                            <constraint firstAttribute="width" constant="30" id="GGn-qZ-Vo1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="l9Q-CA-bOS"/>
+                                    <constraint firstAttribute="bottom" secondItem="bQ1-eI-oHs" secondAttribute="bottom" constant="10" id="vg7-kn-dr0"/>
+                                    <constraint firstItem="bQ1-eI-oHs" firstAttribute="leading" secondItem="Dkj-Na-ZEM" secondAttribute="leading" constant="10" id="zod-9y-O66"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Dkj-Na-ZEM" firstAttribute="leading" secondItem="kV3-cb-x9M" secondAttribute="leading" id="4pR-fW-nlW"/>
+                            <constraint firstAttribute="trailing" secondItem="Dkj-Na-ZEM" secondAttribute="trailing" id="gmx-H6-Wwo"/>
+                            <constraint firstAttribute="bottom" secondItem="Dkj-Na-ZEM" secondAttribute="bottom" id="uWv-w5-VBp"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vS6-da-6B0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="42" id="7pM-d9-0Js"/>
+                    <constraint firstAttribute="bottom" secondItem="kV3-cb-x9M" secondAttribute="bottom" id="A8a-Hj-Qaa"/>
+                    <constraint firstItem="kV3-cb-x9M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="D7J-TU-WPx"/>
+                    <constraint firstAttribute="trailing" secondItem="kV3-cb-x9M" secondAttribute="trailing" id="PPs-xt-0tH"/>
+                    <constraint firstItem="vS6-da-6B0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hRp-Dn-Hbd"/>
+                    <constraint firstItem="kV3-cb-x9M" firstAttribute="top" secondItem="vS6-da-6B0" secondAttribute="bottom" id="n0w-xs-AgY"/>
+                    <constraint firstAttribute="trailing" secondItem="vS6-da-6B0" secondAttribute="trailing" id="sQd-ec-B4v"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="chatMessage" destination="mkM-Ih-ocY" id="dcL-d9-2vq"/>
+                <outlet property="containerView" destination="O8p-4t-cJv" id="w7z-Xo-vWD"/>
+                <outlet property="conteinerProfileReceiver" destination="Dkj-Na-ZEM" id="ArM-r5-aRb"/>
+                <outlet property="imageProfileReceiver" destination="bQ1-eI-oHs" id="u9t-Hd-skJ"/>
+            </connections>
+            <point key="canvasLocation" x="-48.091603053435115" y="-20.070422535211268"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_chat_profile" width="216" height="216"/>
+        <namedColor name="Primary">
+            <color red="0.42352941176470588" green="0.36862745098039218" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

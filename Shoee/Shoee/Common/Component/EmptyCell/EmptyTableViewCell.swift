@@ -6,9 +6,16 @@ protocol EmptyCellDelegate: AnyObject {
 
 class EmptyTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var btnText: UIButton!
     @IBOutlet weak var imageEmpty: UIImageView!
     @IBOutlet weak var messageEmpty: UILabel!
     @IBOutlet weak var titleEmpty: UILabel!
+    
+    var btnTextValue: String? {
+            didSet {
+                btnText.setTitle(btnTextValue, for: .normal)
+            }
+        }
     
     weak var delegate: EmptyCellDelegate?
     
@@ -24,12 +31,7 @@ class EmptyTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }

@@ -69,7 +69,7 @@ class CartViewController: UIViewController {
             fetchDataFromCoreData()
             updateSubTotal()
         } catch {
-            print("Error deleting Items from CoreData: \(error)")
+            fatalError()
         }
     }
     
@@ -85,7 +85,7 @@ class CartViewController: UIViewController {
             cartItems = try managedContext.fetch(fetchRequest)
             cartTableView.reloadData()
         } catch {
-            print("Error fetching data from Core Data: \(error)")
+           fatalError()
         }
     }
     
@@ -103,11 +103,8 @@ class CartViewController: UIViewController {
 extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate, EmptyCellDelegate {
     
     func btnAction(inCell cell: EmptyTableViewCell) {
-        if let navigationController = self.navigationController {
-            
-            navigationController.popToRootViewController(animated: true)
-        }
-        
+        let navigationController = UINavigationController(rootViewController: CustomMainTabBar())
+        UIApplication.shared.keyWindow?.rootViewController = navigationController
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,7 +123,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CartTableViewCell
            
             let item = cartItems[indexPath.row]
-            let imageURL = URL(string: item.image ?? "") ?? URL(string: "defaultImageURL")!
+            let imageURL = URL(string: item.image ?? "") ?? URL(string: Constants.defaultImageURL)!
             cell.configure(withQuantity: Int(item.quantity), price: item.price, productName: item.name ?? "", imageURL: imageURL)
             cell.productID = Int(item.productID)
             cell.delegate = self
@@ -156,7 +153,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource, CartTa
         do {
             try managedContext.save()
         } catch {
-            print("Error saving to Core Data: \(error)")
+           fatalError()
         }
     }
 

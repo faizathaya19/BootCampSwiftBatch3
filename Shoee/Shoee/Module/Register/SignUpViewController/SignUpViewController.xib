@@ -20,6 +20,7 @@
                 <outlet property="emailTextFieldCustom" destination="bi4-I6-2G1" id="5rt-r1-caW"/>
                 <outlet property="fullnameTextFieldCustom" destination="Nw5-lk-znt" id="EuT-tw-A0e"/>
                 <outlet property="passwordTextFieldCustom" destination="hRc-xe-64H" id="yrv-RF-nb4"/>
+                <outlet property="phoneNumber" destination="rxs-Sb-LJJ" id="xQm-Hb-2Hg"/>
                 <outlet property="usernameTextFieldCustom" destination="7rs-IE-P80" id="ngr-zp-6FH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rs-IE-P80" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="361" width="393" height="94"/>
+                    <rect key="frame" x="0.0" y="289" width="393" height="94"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -38,45 +39,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-lk-znt" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="259" width="393" height="94"/>
+                    <rect key="frame" x="0.0" y="187" width="393" height="94"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="94" id="jTY-gY-JYq"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRc-xe-64H" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="565" width="393" height="94"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="94" id="ldi-XN-e8S"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi4-I6-2G1" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="463" width="393" height="94"/>
+                    <rect key="frame" x="0.0" y="391" width="393" height="94"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="94" id="UDv-3M-1EU"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZc-MA-Yer">
-                    <rect key="frame" x="35" y="689" width="323" height="36.666666666666629"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36.670000000000002" id="Pby-ZE-JIf"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Sign Up">
-                        <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                        <color key="baseBackgroundColor" name="Primary"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="btnSignUp:" destination="-1" eventType="touchUpInside" id="jWm-Rk-812"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iZE-D8-qun">
-                    <rect key="frame" x="40" y="150" width="313" height="77"/>
+                    <rect key="frame" x="40" y="80" width="313" height="77"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAr-7D-PmK">
                             <rect key="frame" x="0.0" y="0.0" width="134" height="43"/>
@@ -121,6 +100,36 @@
                     <color key="textColor" name="SecondaryText"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZc-MA-Yer">
+                    <rect key="frame" x="35" y="707" width="323" height="36.666666666666629"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36.670000000000002" id="Pby-ZE-JIf"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Sign Up">
+                        <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                        <color key="baseBackgroundColor" name="Primary"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="btnSignUp:" destination="-1" eventType="touchUpInside" id="jWm-Rk-812"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxs-Sb-LJJ" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="493" width="393" height="94"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="Gqh-Ff-hxc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRc-xe-64H" customClass="CustomTextField" customModule="Shoee" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="595" width="393" height="94"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="94" id="ldi-XN-e8S"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" name="BG1"/>
             <constraints>
@@ -129,22 +138,25 @@
                 <constraint firstItem="X4Y-xV-1jN" firstAttribute="leading" secondItem="38J-dL-9TK" secondAttribute="trailing" id="Eis-NG-ygs"/>
                 <constraint firstItem="7rs-IE-P80" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="F5w-V7-MsD"/>
                 <constraint firstAttribute="trailing" secondItem="bZc-MA-Yer" secondAttribute="trailing" constant="35" id="H5J-1z-ZZ8"/>
+                <constraint firstItem="Nw5-lk-znt" firstAttribute="top" secondItem="iZE-D8-qun" secondAttribute="bottom" constant="30" id="HKM-S9-aaX"/>
+                <constraint firstAttribute="trailing" secondItem="rxs-Sb-LJJ" secondAttribute="trailing" id="LLH-a8-BIH"/>
                 <constraint firstAttribute="trailing" secondItem="iZE-D8-qun" secondAttribute="trailing" constant="40" id="Lfv-uo-978"/>
-                <constraint firstItem="Nw5-lk-znt" firstAttribute="top" secondItem="iZE-D8-qun" secondAttribute="bottom" constant="32" id="O2Y-Pu-6Gz"/>
+                <constraint firstItem="hRc-xe-64H" firstAttribute="top" secondItem="rxs-Sb-LJJ" secondAttribute="bottom" constant="8" id="LwX-yn-b6V"/>
                 <constraint firstItem="Nw5-lk-znt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="O8P-be-OyL"/>
-                <constraint firstItem="iZE-D8-qun" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="OZb-DH-cGP"/>
                 <constraint firstItem="iZE-D8-qun" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="PIz-aW-zzX"/>
                 <constraint firstAttribute="bottom" secondItem="38J-dL-9TK" secondAttribute="bottom" constant="56" id="PZ2-ku-742"/>
+                <constraint firstItem="bZc-MA-Yer" firstAttribute="top" secondItem="hRc-xe-64H" secondAttribute="bottom" constant="18" id="Rvh-Qe-C2S"/>
                 <constraint firstItem="7rs-IE-P80" firstAttribute="top" secondItem="Nw5-lk-znt" secondAttribute="bottom" constant="8" id="XQ9-Kx-AXX"/>
+                <constraint firstItem="rxs-Sb-LJJ" firstAttribute="top" secondItem="bi4-I6-2G1" secondAttribute="bottom" constant="8" id="b3e-JW-Y79"/>
                 <constraint firstItem="bZc-MA-Yer" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="bWg-FJ-yUR"/>
                 <constraint firstAttribute="trailing" secondItem="X4Y-xV-1jN" secondAttribute="trailing" constant="55" id="iLa-Xv-9Sz"/>
                 <constraint firstItem="bi4-I6-2G1" firstAttribute="top" secondItem="7rs-IE-P80" secondAttribute="bottom" constant="8" id="ksW-ZI-ltW"/>
+                <constraint firstItem="iZE-D8-qun" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="n4c-Dh-X4c"/>
                 <constraint firstItem="bi4-I6-2G1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pKM-vh-k7F"/>
                 <constraint firstItem="Nw5-lk-znt" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="r8T-qY-TbD"/>
                 <constraint firstAttribute="bottom" secondItem="X4Y-xV-1jN" secondAttribute="bottom" constant="56" id="sJY-8F-suy"/>
-                <constraint firstItem="bZc-MA-Yer" firstAttribute="top" secondItem="hRc-xe-64H" secondAttribute="bottom" constant="30" id="shP-JA-yDs"/>
                 <constraint firstItem="7rs-IE-P80" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="ubg-kq-Uzb"/>
-                <constraint firstItem="hRc-xe-64H" firstAttribute="top" secondItem="bi4-I6-2G1" secondAttribute="bottom" constant="8" id="vXI-pX-KHH"/>
+                <constraint firstItem="rxs-Sb-LJJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v7B-PU-Ko2"/>
                 <constraint firstItem="bi4-I6-2G1" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="xR4-5t-C8E"/>
                 <constraint firstItem="hRc-xe-64H" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="z52-Ud-Yy3"/>
             </constraints>

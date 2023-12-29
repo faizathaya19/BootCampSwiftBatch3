@@ -1,31 +1,4 @@
 import Foundation
-import UIKit
-
-enum HomeSo: Int, CaseIterable {
-    case headerSo
-    case categorySo
-    case headerPopularSo
-    case popularSo
-    case headerNewArrivalSo
-    case newArrivalSo
-    case headerForYouSo
-    case forYouSo
-    
-    var cellTypes: UITableViewCell.Type {
-        switch self {
-        case .headerSo:
-            return HeaderSoTableViewCell.self
-        case .categorySo:
-            return CategorySoTableViewCell.self
-        case .headerPopularSo, .headerNewArrivalSo, .headerForYouSo:
-            return HeaderForTableViewCell.self
-        case .popularSo:
-            return PopularSoTableViewCell.self
-        case .newArrivalSo, .forYouSo:
-            return ProductSoTableViewCell.self
-        }
-    }
-}
 
 protocol HomeSoViewModelDelegate: AnyObject {
     func didFailFetch()
@@ -34,8 +7,6 @@ protocol HomeSoViewModelDelegate: AnyObject {
 }
 
 class HomeSoViewModel {
-    var navigationController: UINavigationController?
-    
     weak var delegate: HomeSoViewModelDelegate?
     
     var selectedCategoryId: Int? = Constants.defaultCategoryId
@@ -54,10 +25,6 @@ class HomeSoViewModel {
     var hasMoreData: Bool = true
     
     private let dataFetchGroup = DispatchGroup()
-    
-    func setNavigationController(_ navigationController: UINavigationController?) {
-        self.navigationController = navigationController
-    }
     
     func fetchFirst() {
         dataFetchGroup.enter()
@@ -197,12 +164,5 @@ class HomeSoViewModel {
     
     private func showFetchError() {
         self.delegate?.didFailFetch()
-    }
-    
-    internal func handleProductSelection(_ product: ProductModel) {
-        let detailViewController = DetailProductViewController(productID: product.id)
-        detailViewController.product = product
-        detailViewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(detailViewController, animated: false)
     }
 }

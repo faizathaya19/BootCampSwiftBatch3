@@ -10,25 +10,28 @@ class HomeSoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupFirst()
+    }
+    
+    private func setupFirst() {
         viewModel.delegate = self
         viewModel.fetchFirst()
         viewModel.checkNewUser()
         setupTableView()
         homeSoTableView.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
-        viewModel.setNavigationController(self.navigationController)
         skeletonView = false
     }
     
     private func setupTableView() {
-        homeSoTableView.delegate = self
-        homeSoTableView.dataSource = self
         registerCells()
-        homeSoTableView.rowHeight = UITableView.automaticDimension
         homeSoTableView.contentInset.bottom = 130
         navigationController?.isNavigationBarHidden = true
     }
     
     private func registerCells() {
+        homeSoTableView.delegate = self
+        homeSoTableView.dataSource = self
+        
         HomeSo.allCases.forEach { cell in
             homeSoTableView.registerCellWithNib(cell.cellTypes)
         }
@@ -38,7 +41,10 @@ class HomeSoViewController: UIViewController {
 extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, CategorySoDelegate, ProductSelectionDelegate {
     
     func handleProductSelection(_ product: ProductModel) {
-        viewModel.handleProductSelection(product)
+        let detailViewController = DetailProductViewController(productID: product.id)
+        detailViewController.product = product
+        detailViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(detailViewController, animated: false)
     }
     
     func categorySelected(withId categoryId: Int) {
@@ -98,7 +104,7 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HeaderSoTableViewCell
             let user = viewModel.userData[indexPath.item]
             cell.hideSkeleton()
-            cell.configureHeader(name: user.name.components(separatedBy: " ").first, username: user.username, imageURLString: user.profilePhotoURL, skeletonView: skeletonView)
+            cell.configureHeader(nameim: user.name ,name: user.name.components(separatedBy: " ").first, username: user.username, imageURLString: user.profilePhotoURL, skeletonView: skeletonView)
             return cell
         case .categorySo:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CategorySoTableViewCell
@@ -152,14 +158,14 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
                 return
             }
             let selectedProduct = viewModel.productData[indexPath.row]
-            viewModel.handleProductSelection(selectedProduct)
+            handleProductSelection(selectedProduct)
             
         case .forYouSo:
             guard indexPath.row < viewModel.productCategorySelectedData.count else {
                 return
             }
             let selectedProduct = viewModel.productCategorySelectedData[indexPath.row]
-            viewModel.handleProductSelection(selectedProduct)
+            handleProductSelection(selectedProduct)
             
         default:
             break
@@ -173,5 +179,9 @@ extension HomeSoViewController: UITableViewDelegate, UITableViewDataSource, Cate
             let defaultImageURL = Constants.defaultImageURL
             cell.configure(name: product.name, price: "$\(product.price)", imageURL: defaultImageURL, category: product.category?.name ?? "")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

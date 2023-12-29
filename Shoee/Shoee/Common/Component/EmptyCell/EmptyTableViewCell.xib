@@ -73,6 +73,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnText" destination="c5v-AK-ZKQ" id="87o-Ya-D6c"/>
                 <outlet property="imageEmpty" destination="j71-ux-9L1" id="Hpa-e9-XTo"/>
                 <outlet property="messageEmpty" destination="5Vc-pW-ZcU" id="k7j-HB-RKq"/>
                 <outlet property="titleEmpty" destination="Dq8-bF-qsY" id="5QN-ZE-266"/>

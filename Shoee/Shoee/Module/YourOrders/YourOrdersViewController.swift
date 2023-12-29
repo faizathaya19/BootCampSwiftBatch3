@@ -20,37 +20,46 @@ enum YourOrder: Int, CaseIterable {
 
 class YourOrdersViewController: UIViewController {
     
-    @IBOutlet weak var yourOrdersTableView: UITableView!
+    @IBOutlet private weak var yourOrdersTableView: UITableView!
     
-    var transactionData: [TransactionModel] = []
-    var paymentGateData: [BCAResponse] = []
-    lazy var popUpLoading = PopUpLoading(on: view)
+    private var transactionData: [TransactionModel] = []
+    private var paymentGateData: [BCAResponse] = []
+    private lazy var popUpLoading = PopUpLoading(on: view)
     
-    var filterOnOff: Bool = false
-    var selectedFilter: String?
+    private var filterOnOff: Bool = false
+    private var selectedFilter: String?
     
     private let refreshControl = UIRefreshControl()
     
     @IBAction func backBtn(_ sender: Any) {
-        self.popUpLoading.dismissAfter1()
-        navigationController?.popViewController(animated: true)
-        
-    }
+           self.popUpLoading.dismissAfter1()
+        if let tabBarController = self.tabBarController {
+            tabBarController.selectedIndex = 0
+            
+            if let navigationController = tabBarController.selectedViewController as? UINavigationController {
+                navigationController.popToRootViewController(animated: true)
+            }
+        }
+       }
     
     @IBAction func filterOnOff(_ sender: Any) {
-        filterOnOff.toggle()
-        yourOrdersTableView.reloadData()
-    }
+          filterOnOff.toggle()
+          yourOrdersTableView.reloadData()
+      }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
+        setupUI()
         registerCells()
-        yourOrdersTableView.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
+        setupSkeletonView()
+        popUpLoading.showInFull()
+        fetchData()
+    }
+
+    private func setupUI() {
+        navigationController?.isNavigationBarHidden = true
         yourOrdersTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        popUpLoading.showInFull()
-        transactionOnMyApiStatus()
     }
     
     private func registerCells() {
@@ -62,11 +71,19 @@ class YourOrdersViewController: UIViewController {
         }
     }
     
+    private func setupSkeletonView() {
+        yourOrdersTableView.showAnimatedGradientSkeleton(usingGradient: Constants.skeletonColor)
+    }
+    
+    private func fetchData() {
+        transactionOnMyApiStatus()
+    }
+    
     @objc private func refreshData() {
         transactionOnMyApiStatus()
     }
     
-    func transactionOnMyApiStatus() {
+    private func transactionOnMyApiStatus() {
         APIManager.shared.makeAPICall(endpoint: .transactions) { [weak self] (result: Result<TransactionResponse, Error>) in
             switch result {
             case .success(let result):
@@ -80,34 +97,43 @@ class YourOrdersViewController: UIViewController {
                     self?.fetchPaymentGateData()
                 }
                 
-            case .failure(let error):
-                print("API Error: \(error)")
-                
+            case .failure(_):
+             break
             }
         }
     }
     
-    func fetchPaymentGateData() {
+    private func fetchPaymentGateData() {
+        let sortedTransactionData = transactionData.sorted { $0.paymentId > $1.paymentId }
         paymentGateData.removeAll()
-        
-        fetchTransactionStatus(forIndex: 0)
+        fetchTransactionStatus(forSortedData: sortedTransactionData, index: 0)
     }
-    
-    func fetchTransactionStatus(forIndex index: Int) {
-        guard index < transactionData.count else {
+
+    private func fetchTransactionStatus(forSortedData sortedData: [TransactionModel], index: Int) {
+        guard index < sortedData.count else {
             yourOrdersTableView.reloadData()
             refreshControl.endRefreshing()
             return
         }
         
-        let transaction = transactionData[index]
+        let transaction = sortedData[index]
         
-        transactionStatus(with: transaction.paymentId) { [weak self] in
-            self?.fetchTransactionStatus(forIndex: index + 1)
+        if paymentGateData.indices.contains(index), paymentGateData[index] == nil {
+            transactionStatus(with: transaction.paymentId) { [weak self] in
+                self?.fetchTransactionStatus(forSortedData: sortedData, index: index)
+            }
+        } else {
+            if transaction.paymentId != nil {
+                transactionStatus(with: transaction.paymentId) { [weak self] in
+                    self?.fetchTransactionStatus(forSortedData: sortedData, index: index + 1)
+                }
+            } else {
+                fetchTransactionStatus(forSortedData: sortedData, index: index + 1)
+            }
         }
     }
-    
-    func transactionStatus(with paymentID: String, completion: @escaping () -> Void) {
+
+    private func transactionStatus(with paymentID: String, completion: @escaping () -> Void) {
         APIManagerPaymentGateWay.shared.makeAPICall(endpoint: .transactionStatus(paymentID: paymentID)) { [weak self] (result: Result<BCAResponse, Error>) in
             switch result {
             case .success(let bcaResponse):
@@ -120,8 +146,8 @@ class YourOrdersViewController: UIViewController {
                     self?.yourOrdersTableView.hideSkeleton()
                 }
                 
-            case .failure(let error):
-                print("API Error: \(error)")
+            case .failure(_):
+                break
             }
             
             completion()
@@ -129,14 +155,12 @@ class YourOrdersViewController: UIViewController {
     }
 }
 
-extension YourOrdersViewController: UITableViewDelegate, UITableViewDataSource , EmptyCellDelegate{
+extension YourOrdersViewController: UITableViewDelegate, UITableViewDataSource, EmptyCellDelegate {
     func btnAction(inCell cell: EmptyTableViewCell) {
         if let navigationController = self.navigationController {
-            
             navigationController.popToRootViewController(animated: true)
         }
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return YourOrder.allCases.count
@@ -171,7 +195,6 @@ extension YourOrdersViewController: UITableViewDelegate, UITableViewDataSource ,
         }
     }
 
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let yourOrderSection = YourOrder(rawValue: indexPath.section) else {
             return UITableViewCell()
@@ -181,7 +204,6 @@ extension YourOrdersViewController: UITableViewDelegate, UITableViewDataSource ,
         case .empty:
             if transactionData.isEmpty {
                 let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as EmptyTableViewCell
-                
                 cell.configure(withImageNamed: "ic_cart_nil", message: "You have never done a transaction", title: "Opss! Your Order is Empty")
                 cell.delegate = self
                 tableView.isScrollEnabled = false
@@ -193,44 +215,42 @@ extension YourOrdersViewController: UITableViewDelegate, UITableViewDataSource ,
 
         case .filter:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as FilterTableViewCell
-            
             cell.delegate = self
             return cell
 
         case .yourOrder:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as YourOrdersTableViewCell
-
             let filteredData: [BCAResponse]
+            
             if let selectedFilter = selectedFilter, !selectedFilter.isEmpty {
                 filteredData = paymentGateData.filter { $0.transactionStatus == selectedFilter }
             } else {
                 filteredData = paymentGateData
             }
-
+            
             guard indexPath.row < filteredData.count && indexPath.row < transactionData.count else {
                 return cell
             }
-
+            
             let paymentGate = filteredData[indexPath.row]
             let transaction = transactionData[indexPath.row]
-            var bankImageName: String
-
-            if let bank = paymentGate.vaNumbers?.first?.bank {
-                bankImageName = "ic_\(bank)"
-            } else {
-                bankImageName = "ic_\(paymentGate.paymentType ?? "")"
+    
+            guard
+                let bankImageName = paymentGate.vaNumbers?.first?.bank ?? paymentGate.paymentType,
+                let statusTransaction = paymentGate.transactionStatus,
+                let grossAmount = paymentGate.grossAmount,
+                let transactionTime = paymentGate.transactionTime
+            else {
+                return UITableViewCell()
             }
 
-            let bank = paymentGate.vaNumbers?.first?.bank
-
-            cell.configure(total: "$\(paymentGate.grossAmount ?? "")", status: paymentGate.transactionStatus ?? "", name: transaction.payment, image: bankImageName, date: paymentGate.transactionTime ?? "")
+            cell.configure(total: "$\(grossAmount)", status: statusTransaction, name: transaction.payment, image: "ic_\(bankImageName)", date: transactionTime)
 
             return cell
         }
         
-        return UITableViewCell() 
+        return UITableViewCell()
     }
-
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let yourOrderSection = YourOrder(rawValue: indexPath.section) else {
@@ -254,20 +274,33 @@ extension YourOrdersViewController: UITableViewDelegate, UITableViewDataSource ,
             
             let paymentGateFiltered = filteredDataPaymentGate[indexPath.row]
             
-            if paymentGateFiltered.transactionStatus == "pending" {
-                let vC = PaymentProcessViewController(paymentID: paymentGateFiltered.orderId ?? "")
-                vC.paymentBCA = paymentGateFiltered
-                self.navigationController?.pushViewController(vC, animated: true)
+            guard let transactionStatus = paymentGateFiltered.transactionStatus else {
+                break
+            }
+            
+            if transactionStatus == "pending" {
+                navigateToPaymentProcess(paymentGateFiltered: paymentGateFiltered)
             } else {
-                let vC = OrderDetailsViewController(paymentID:  paymentGateFiltered.orderId ?? "")
-                vC.transactionData = transactionData
-                vC.paymentGateData = paymentGateFiltered
-                self.navigationController?.pushViewController(vC, animated: true)
+                navigateToOrderDetails(paymentGateFiltered: paymentGateFiltered)
             }
         default:
                break
         }
     }
+    
+    private func navigateToPaymentProcess(paymentGateFiltered: BCAResponse) {
+        let vC = PaymentProcessViewController(paymentID: paymentGateFiltered.orderId ?? "")
+        vC.paymentBCA = paymentGateFiltered
+        self.navigationController?.pushViewController(vC, animated: true)
+    }
+
+    private func navigateToOrderDetails(paymentGateFiltered: BCAResponse) {
+        let vC = OrderDetailsViewController(paymentID: paymentGateFiltered.orderId ?? "")
+        vC.transactionData = transactionData
+        vC.paymentGateData = paymentGateFiltered
+        self.navigationController?.pushViewController(vC, animated: true)
+    }
+
 }
 
 extension YourOrdersViewController: FillterCollectionViewCellDelegate {
@@ -276,8 +309,6 @@ extension YourOrdersViewController: FillterCollectionViewCellDelegate {
         yourOrdersTableView.reloadData()
     }
 }
-
-
 
 extension YourOrdersViewController: SkeletonTableViewDataSource {
     func numSections(in collectionSkeletonView: UITableView) -> Int {
@@ -311,5 +342,4 @@ extension YourOrdersViewController: SkeletonTableViewDataSource {
             return 0
         }
     }
-    
 }

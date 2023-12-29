@@ -7,7 +7,7 @@ class CustomMainTabBar : UITabBarController {
     let btnMiddle : UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         btn.setTitle("", for: .normal)
-        btn.backgroundColor = UIColor(named: "Secondary")
+        btn.backgroundColor = Constants.secondary
         btn.layer.cornerRadius = 30
         btn.layer.shadowColor = UIColor.black.cgColor
         btn.layer.shadowOpacity = 0.2
@@ -53,7 +53,7 @@ class CustomMainTabBar : UITabBarController {
         let vc4 = UINavigationController(rootViewController: FavoriteViewController())
         let vc5 = UINavigationController(rootViewController: ProfileViewController())
         vc1.title = "Home"
-        vc2.title = "chat"
+        vc2.title = "Chat"
         vc3.title = ""
         vc4.title = "Favorite"
         vc5.title = "Profile"
@@ -71,13 +71,13 @@ class CustomMainTabBar : UITabBarController {
         let shape = CAShapeLayer()
         shape.path = path.cgPath
         shape.lineWidth = 3
-        shape.strokeColor = UIColor(named: "BG2")?.cgColor
-        shape.fillColor = UIColor(named: "BG2")?.cgColor
+        shape.strokeColor = Constants.bG2?.cgColor
+        shape.fillColor = Constants.bG2?.cgColor
         self.tabBar.layer.insertSublayer(shape, at: 0)
         self.tabBar.itemWidth = 40
         self.tabBar.itemPositioning = .centered
         self.tabBar.itemSpacing = 70
-        self.tabBar.tintColor = UIColor(named: "Primary")
+        self.tabBar.tintColor = Constants.primary
         self.tabBar.unselectedItemTintColor = UIColor.white
         self.tabBar.barTintColor = UIColor.clear
         self.tabBar.backgroundColor = UIColor.clear

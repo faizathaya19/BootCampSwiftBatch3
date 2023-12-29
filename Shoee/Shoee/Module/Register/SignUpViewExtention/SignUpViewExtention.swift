@@ -13,7 +13,7 @@ extension SignUpViewController: SignUpViewModelDelegate {
             self.showCustomAlertWith(
                 detailResponseOkAction: nil,
                 title: "Error",
-                message: error.localizedDescription,
+                message: "Error Server",
                 image: #imageLiteral(resourceName: "ic_error"),
                 actions: nil
             )

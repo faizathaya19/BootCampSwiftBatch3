@@ -10,7 +10,6 @@ extension LoginViewController: LoginViewModelDelegate {
             if let navigationController = self.navigationController {
                 navigationController.setViewControllers([vc], animated: true)
             }
-
         }
     }
     
@@ -20,7 +19,7 @@ extension LoginViewController: LoginViewModelDelegate {
             self.showCustomAlertWith(
                 detailResponseOkAction: nil,
                 title: "Error",
-                message: "\(error)",
+                message: "Error Server",
                 image: #imageLiteral(resourceName: "ic_error"),
                 actions: nil
             )

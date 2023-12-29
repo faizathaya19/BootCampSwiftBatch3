@@ -5,4 +5,5 @@ struct RegisterParam: Encodable {
     let username: String
     let email: String
     let password: String
+    let phone: String
 }
